@@ -1,0 +1,462 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="Portfolio of Jawad Ahmad, a frontend web developer skilled in HTML, CSS, JavaScript, and Tailwind CSS." />
+    <meta name="keywords" content="frontend developer, web developer, portfolio, Jawad Ahmad, HTML, CSS, JavaScript" />
+    <meta name="google-site-verification" content="qKESQtyOFuGC6aDczLrSDiSVjJYUPIn3g_5YadxPHjQ" />
+    <link rel="stylesheet" href="./style.css" />
+    <link rel="shortcut icon" href="/img/jawad2-removebg-preview3.png" type="image/x-icon" />
+    <title>Jawad Ahmad Portfolio</title>
+    <style>
+      html {
+        scroll-behavior: smooth;
+      }
+    </style>
+  </head>
+  <body>
+    <nav class="navbar">
+      <img class="logo" src="/img/jawad2-removebg-preview3.png" alt="Jawad Ahmad Logo" />
+      <div class="mobile-menu-btn">
+        <button id="menu-button" class="menu-toggle">
+          <svg width="24" height="24" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+            <path stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" d="M4 6h16M4 12h16M4 18h16" />
+          </svg>
+        </button>
+      </div>
+      <ul class="nav-menu" id="menu">
+        <li><a href="#Home">Home</a></li>
+        <li><a href="#About">About</a></li>
+        <li><a href="#Projects">Projects</a></li>
+        <li><a href="#Testimonials">Testimonials</a></li>
+        <li><a href="#Skills">Skills</a></li>
+        <li><a href="#Contact">Contact</a></li>
+      </ul>
+      <div class="nav-btn">
+        <button class="cv-button">
+          <a href="Jawad Ahmad CV.pdf" download>Download CV</a>
+        </button>
+      </div>
+      <div class="theme-toggle">
+        <button id="theme-toggle-btn" class="theme-toggle-btn">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M12 16C14.2091 16 16 14.2091 16 12C16 9.79086 14.2091 8 12 8C9.79086 8 8 9.79086 8 12C8 14.2091 9.79086 16 12 16ZM12 2V4M12 20V22M2 12H4M20 12H22M5.64 5.64L7.05 7.05M16.95 16.95L18.36 18.36M5.64 18.36L7.05 16.95M16.95 7.05L18.36 5.64" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+        </button>
+      </div>
+    </nav>
+
+    <!-- Mobile menu -->
+    <ul class="mobile-nav-menu hidden translate-x-full" id="mobile-menu">
+      <li><a href="#Home">Home</a></li>
+      <li><a href="#About">About</a></li>
+      <li><a href="#Projects">Projects</a></li>
+      <li><a href="#Testimonials">Testimonials</a></li>
+      <li><a href="#Skills">Skills</a></li>
+      <li><a href="#Contact">Contact</a></li>
+      <li>
+        <button class="cv-button">
+          <a href="jawadahmad_resume.pdf" download>Download CV</a>
+        </button>
+      </li>
+    </ul>
+
+    <section class="home-section fade-in" id="Home">
+      <div class="left-content">
+        <p class="intro">Hey There 👋 I am</p>
+        <h1 class="name">Jawad Ahmad</h1>
+        <p class="title">Frontend Web Developer</p>
+        <p class="description">
+          Computer Science student with a passion for building user-friendly websites. Experienced in HTML, CSS, JavaScript, and working with international clients.
+        </p>
+        <div class="button-group">
+          <button class="contact-btn">
+            <a href="#Contact">Contact Me</a>
+          </button>
+          <button class="projects-btn">
+            <a href="#Projects">View Projects</a>
+          </button>
+        </div>
+      </div>
+      <div class="right-image">
+        <img src="/img/jawad1-removebg-preview.png" alt="Jawad Ahmad Portrait" />
+      </div>
+    </section>
+
+    <div class="about-section fade-in" id="About">
+      <div class="about-left">
+        <p class="about-title">ABOUT ME</p>
+        <div class="about-text">
+          <h1>Creating User-Friendly</h1>
+          <h1>Web Experiences</h1>
+          <p class="about-description">
+            I'm a Computer Science student at MNS University of Agriculture Multan, passionate about building responsive and intuitive websites. With experience in HTML, CSS, JavaScript, and Tailwind CSS, I've worked on projects like e-commerce platforms and API integrations, including for international clients in the UAE.
+          </p>
+        </div>
+      </div>
+      <div class="about-right">
+        <h2>Connect With Me</h2>
+        <p class="connect-description">
+          Feel free to reach out via email or connect with me on social media for collaborations or opportunities!
+        </p>
+        <div class="social-buttons">
+          <a href="https://facebook.com/yourprofile" target="_blank">
+            <img src="/img/facebook-logo-1-2.png" alt="Facebook" />
+          </a>
+          <a href="https://x.com/yourprofile" target="_blank">
+            <img src="/img/free-twitter-logo-icon-2429-thumb.png" alt="X" />
+          </a>
+          <a href="https://linkedin.com/in/yourprofile" target="_blank">
+            <img src="/img/linkedin-icon-logo-png-transparent.png" alt="LinkedIn" />
+          </a>
+        </div>
+      </div>
+    </div>
+
+    <div class="services-section fade-in">
+      <p class="services-title">What I Offer</p>
+      <h1 class="services-heading" id="Services">My Services</h1>
+      <p class="services-description">
+        I specialize in creating responsive and user-friendly websites with modern technologies.
+      </p>
+      <div class="services-container">
+        <div class="service-card">
+          <img src="/img/html gify.gif" alt="HTML Icon" />
+          <h1 class="service-title">HTML Expert</h1>
+          <p class="service-description">
+            Crafting semantic and accessible HTML structures for web applications.
+          </p>
+        </div>
+        <div class="service-card">
+          <img src="/img/designer.webp" alt="Web Design Icon" />
+          <h1 class="service-title">Web Design</h1>
+          <p class="service-description">
+            Designing visually appealing and responsive layouts for all devices.
+          </p>
+        </div>
+        <div class="service-card">
+          <img src="/img/cssss.webp" alt="Tailwind CSS Icon" />
+          <h1 class="service-title">Tailwind CSS</h1>
+          <p class="service-description">
+            Using Tailwind CSS for rapid and consistent styling.
+          </p>
+        </div>
+        <div class="service-card">
+          <img src="/img/js.webp" alt="JavaScript Icon" />
+          <h1 class="service-title">Interactive JS</h1>
+          <p class="service-description">
+            Adding interactivity and dynamic features with JavaScript.
+          </p>
+        </div>
+      </div>
+    </div>
+
+    <div class="projects-section fade-in" id="Projects">
+      <p class="projects-subtitle">My Work</p>
+      <p class="projects-title">Recent Projects</p>
+      <p class="projects-description">
+        Explore some of my recent web development projects, showcasing my skills in frontend design, API integrations, and full-stack development.
+      </p>
+      <div class="projects-container">
+        <div class="project-card">
+          <img src="/img/shopstock.JPG" alt="Shopstockk E-commerce" />
+          <p class="project-name">Shopstockk - E-commerce Platform</p>
+          <p class="project-details">
+            A full-stack MERN e-commerce site with user authentication and product management. Hosted on Netlify.
+          </p>
+          <a href="https://shopstockk.netlify.app" target="_blank" class="project-link">Live Demo</a> |
+          <a href="https://github.com/Jawadahmad9938/ecommerce-mern-stack-semester-project" target="_blank" class="project-link">GitHub</a>
+        </div>
+        <div class="project-card">
+          <img src="/img/800batteries.JPG" alt="800batterie Client Project" />
+          <p class="project-name">800batterie - Client Project</p>
+          <p class="project-details">
+            A professional website built for a UAE-based client, focusing on responsive design and user experience.
+          </p>
+          <a href="https://800batterie.com" target="_blank" class="project-link">Live Demo</a> |
+          <a href="https://github.com/Jawadahmad9938/automobile-site-for-client" target="_blank" class="project-link">GitHub</a>
+        </div>
+        <div class="project-card">
+          <img src="/img/movies.JPG" alt="Movieefliixx API Project" />
+          <p class="project-name">Movieefliixx - Movie Search</p>
+          <p class="project-details">
+            A JavaScript-based app using a movie API for search and auto-suggest features. Hosted on Netlify.
+          </p>
+          <a href="https://movieefliixx.netlify.app" target="_blank" class="project-link">Live Demo</a> |
+          <a href="https://github.com/Jawadahmad9938/MoviesApi" target="_blank" class="project-link">GitHub</a>
+        </div>
+        <div class="project-card">
+          <img src="/img/Capture.JPG" alt="HSKhaan Portfolio" />
+          <p class="project-name">HSKhaan - Portfolio Website</p>
+          <p class="project-details">
+            A modern portfolio website showcasing responsive design, animations, and clean UI/UX with HTML, CSS, and JavaScript.
+          </p>
+          <a href="https://hskhaan.netlify.app/" target="_blank" class="project-link">Live Demo</a> |
+          <a href="https://github.com/Jawadahmad9938/educationWebsite" target="_blank" class="project-link">GitHub</a>
+        </div>
+        <div class="project-card">
+          <img src="/img/blogggg.JPG" alt="Personal Blog" />
+          <p class="project-name">My Personal Blog</p>
+          <p class="project-details">
+            A responsive blog built with React and Tailwind CSS, featuring dynamic routing and a CMS for posts.
+          </p>
+          <a href="https://mypersonalblogg.netlify.app/" target="_blank" class="project-link">Live Demo</a> |
+          <a href="https://github.com/Jawadahmad9938/modernblogsite" target="_blank" class="project-link">GitHub</a>
+        </div>
+        <div class="project-card">
+          <img src="/img/weather.JPG" alt="Weather App" />
+          <p class="project-name">WeatherNow</p>
+          <p class="project-details">
+            A JavaScript-based weather app using OpenWeather API to fetch real-time weather data for any city.
+          </p>
+          <a href="https://myyweatherr.netlify.app/" target="_blank" class="project-link">Live Demo</a> |
+          <a href="https://github.com/Jawadahmad9938/weatherapi" target="_blank" class="project-link">GitHub</a>
+        </div>
+        <div class="project-card">
+          <img src="/img/pass.JPG" alt="MyPassGeneratorr" />
+          <p class="project-name">MyPassGeneratorr</p>
+          <p class="project-details">
+            A JavaScript-based random password generator with options for numbers, special characters, and length customization.
+          </p>
+          <a href="https://mypassgeneratorr.netlify.app/" target="_blank" class="project-link">Live Demo</a> |
+          <a href="https://github.com/Jawadahmad9938/Password-Generator-in-jS" target="_blank" class="project-link">GitHub</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="clients-section fade-in">
+      <h1 class="clients-title">Some of My Happy Clients</h1>
+      <p class="clients-description">
+        I've had the privilege of working with amazing clients and companies.
+      </p>
+      <div class="clients-logos">
+        <div class="client-logo"><a href="https://uideck.com/"><img src="/img/uideck.svg" alt="UIDeck" /></a></div>
+        <div class="client-logo"><a href="https://tailgrids.com/"><img src="/img/tailgrids.svg" alt="TailGrids" /></a></div>
+        <div class="client-logo"><a href="https://lineicons.com/"><img src="/img/lineicons.svg" alt="LineIcons" /></a></div>
+        <div class="client-logo"><a href="https://ayroui.com/"><img src="/img/ayroui.svg" alt="AyroUI" /></a></div>
+        <div class="client-logo"><a href="https://plainadmin.com/"><img src="/img/plainadmin.svg" alt="PlainAdmin" /></a></div>
+      </div>
+      <div class="cta-section">
+        <p class="cta-text">
+          Want to work together and create <br />amazing products with me?
+        </p>
+        <div class="cta-input-group">
+          <input type="text" placeholder="Enter Your Email" class="email-input" />
+          <button class="quote-btn">Get a Quote</button>
+        </div>
+      </div>
+    </div>
+
+    <div class="skills-section fade-in" id="Skills">
+      <p class="skills-subtitle">Education & Skills</p>
+      <h1 class="skills-title">My Resume</h1>
+      <p class="skills-description">
+        A summary of my education, experience, and technical skills as a frontend web developer.
+      </p>
+      <div class="resume-content">
+        <div class="resume-flex">
+          <div class="resume-box">
+            <h1 class="resume-subheading">Education</h1>
+            <div class="resume-details">
+              <h2 class="resume-degree">BS Computer Science</h2>
+              <p class="resume-institution">MNS University of Agriculture, Multan</p>
+              <p class="resume-duration">2022 – 2026</p>
+              <p class="resume-cgpa">CGPA: 3.64/4.0</p>
+              <p class="resume-info">
+                Currently pursuing a Bachelor's degree in Computer Science, focusing on software development, web technologies, and problem-solving skills. Actively involved in projects that enhance my practical knowledge.
+              </p>
+            </div>
+          </div>
+          <div class="resume-box">
+            <h1 class="resume-subheading">Experience</h1>
+            <div class="resume-details">
+              <h2 class="resume-degree">Frontend Developer (Freelance)</h2>
+              <p class="resume-institution">Self-Employed, Remote</p>
+              <p class="resume-duration">2023 – 2024</p>
+              <p class="resume-cgpa">Clients: UAE-based (800batterie.com), Personal Projects</p>
+              <p class="resume-info">
+                Developed responsive websites using HTML, CSS, JavaScript, and Tailwind CSS. Worked on a professional client project (800batterie.com) and multiple personal projects, including an e-commerce platform and a movie search app.
+              </p>
+            </div>
+          </div>
+        </div>
+        <h1 class="resume-subheading skills-heading">Technical Skills</h1>
+        <div class="skills-grid">
+          <div class="skill-box">
+            <img src="/img/html.svg" alt="HTML Logo" class="skill-logo" />
+            <p class="skill-name">HTML</p>
+            <div class="progress-bar">
+              <div class="progress" style="width: 90%;"></div>
+            </div>
+            <p class="skill-percentage">90%</p>
+          </div>
+          <div class="skill-box">
+            <img src="/img/css-3.svg" alt="CSS Logo" class="skill-logo" />
+            <p class="skill-name">CSS</p>
+            <div class="progress-bar">
+              <div class="progress" style="width: 85%;"></div>
+            </div>
+            <p class="skill-percentage">85%</p>
+          </div>
+          <div class="skill-box">
+            <img src="/img/tailwind.svg" alt="Tailwind CSS Logo" class="skill-logo" />
+            <p class="skill-name">Tailwind CSS</p>
+            <div class="progress-bar">
+              <div class="progress" style="width: 80%;"></div>
+            </div>
+            <p class="skill-percentage">80%</p>
+          </div>
+          <div class="skill-box">
+            <img src="/img/javascript.svg" alt="JavaScript Logo" class="skill-logo" />
+            <p class="skill-name">JavaScript</p>
+            <div class="progress-bar">
+              <div class="progress" style="width: 75%;"></div>
+            </div>
+            <p class="skill-percentage">75%</p>
+          </div>
+          <div class="skill-box">
+            <img src="/img/node-js (1).svg" alt="Node.js Logo" class="skill-logo" />
+            <p class="skill-name">Node.js</p>
+            <div class="progress-bar">
+              <div class="progress" style="width: 65%;"></div>
+            </div>
+            <p class="skill-percentage">65%</p>
+          </div>
+          <div class="skill-box">
+            <img src="/img/express.svg" alt="Express.js Logo" class="skill-logo" />
+            <p class="skill-name">Express.js</p>
+            <div class="progress-bar">
+              <div class="progress" style="width: 60%;"></div>
+            </div>
+            <p class="skill-percentage">60%</p>
+          </div>
+          <div class="skill-box">
+            <img src="/img/mongodb.svg" alt="MongoDB Logo" class="skill-logo" />
+            <p class="skill-name">MongoDB</p>
+            <div class="progress-bar">
+              <div class="progress" style="width: 55%;"></div>
+            </div>
+            <p class="skill-percentage">55%</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="testimonials-section fade-in" id="Testimonials">
+      <p class="testimonials-subtitle">What People Say</p>
+      <h1 class="testimonials-title">Testimonials</h1>
+      <div class="testimonials-container">
+        <div class="testimonial-card">
+          <p class="testimonial-text">"Jawad delivered an amazing website for my business in the UAE. His attention to detail and responsiveness were top-notch!"</p>
+          <p class="testimonial-author">— Client, 800batterie.com</p>
+        </div>
+        <div class="testimonial-card">
+          <p class="testimonial-text">"Working with Jawad on our e-commerce project was a great experience. He’s skilled and professional."</p>
+          <p class="testimonial-author">— Peer, MNS University</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="quick-contact-icons">
+      <a href="tel:+923011414134" class="quick-contact-icon">
+        <img src="img/mobileicon.png" alt="Call Me">
+      </a>
+      <a href="https://wa.me/923011414134" target="_blank" class="quick-contact-icon">
+        <img src="img/icons8-whatsapp.gif" alt="WhatsApp">
+      </a>
+    </div>
+
+    <div class="contact-section fade-in" id="Contact">
+      <h1 class="contact-title">Get in Touch</h1>
+      <p class="contact-description">
+        I'm excited to collaborate on new projects or discuss opportunities. Reach out via email or the form below!
+      </p>
+      <div class="contact-content">
+        <div class="contact-info">
+          <h2 class="info-title">Contact Info</h2>
+          <p class="info-detail">jawadahmad9938@gmail.com</p>
+          <p class="info-detail">Multan, South Punjab, Pakistan</p>
+          <p class="info-detail">+92 301 1414134</p>
+        </div>
+        <div class="contact-form">
+          <form>
+            <input type="text" placeholder="Your Name" required />
+            <input type="email" placeholder="Your Email" required />
+            <textarea placeholder="Your Message" required></textarea>
+            <button type="submit" class="submit-btn">Send Message</button>
+          </form>
+        </div>
+      </div>
+      <div class="social-links">
+        <a href="https://facebook.com/yourprofile" target="_blank">
+          <img src="/img/facebook-logo-1-2.png" alt="Facebook" class="footer-icon" />
+        </a>
+        <a href="https://x.com/yourprofile" target="_blank">
+          <img src="/img/free-twitter-logo-icon-2429-thumb.png" alt="X" class="footer-icon" />
+        </a>
+        <a href="https://linkedin.com/in/yourprofile" target="_blank">
+          <img src="/img/linkedin-icon-logo-png-transparent.png" alt="LinkedIn" class="footer-icon" />
+        </a>
+      </div>
+      <p class="footer-text">All rights reserved by © Jawad Ahmad Creation.</p>
+    </div>
+
+    <button id="back-to-top" class="back-to-top-btn">
+      <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <path d="M12 4L12 20M12 4L6 10M12 4L18 10" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+      </svg>
+    </button>
+
+    <script>
+      // Mobile menu toggle
+      const menuButton = document.getElementById('menu-button');
+      const mobileMenu = document.getElementById('mobile-menu');
+      menuButton.addEventListener('click', () => {
+        mobileMenu.classList.toggle('hidden');
+        mobileMenu.classList.toggle('translate-x-full');
+        mobileMenu.classList.toggle('translate-x-0');
+      });
+
+      // Fade-in on scroll
+      const sections = document.querySelectorAll('.home-section, .about-section, .services-section, .projects-section, .clients-section, .skills-section, .testimonials-section, .contact-section');
+      const observer = new IntersectionObserver((entries, observer) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('fade-in', 'visible');
+            observer.unobserve(entry.target);
+          }
+        });
+      }, { threshold: 0.1 });
+
+      sections.forEach(section => {
+        observer.observe(section);
+      });
+
+      // Back to top button
+      const backToTopBtn = document.getElementById('back-to-top');
+      window.addEventListener('scroll', () => {
+        if (window.scrollY > 300) {
+          backToTopBtn.classList.add('show');
+        } else {
+          backToTopBtn.classList.remove('show');
+        }
+      });
+
+      backToTopBtn.addEventListener('click', () => {
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+      });
+
+      // Dark/Light mode toggle
+      const themeToggleBtn = document.getElementById('theme-toggle-btn');
+      themeToggleBtn.addEventListener('click', () => {
+        document.body.classList.toggle('light-mode');
+        localStorage.setItem('theme', document.body.classList.contains('light-mode') ? 'light' : 'dark');
+      });
+
+      if (localStorage.getItem('theme') === 'light') {
+        document.body.classList.add('light-mode');
+      }
+    </script>
+  </body>
+</html>
