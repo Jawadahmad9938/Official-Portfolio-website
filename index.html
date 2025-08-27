@@ -137,6 +137,7 @@
         height: 50px;
         width: auto;
         transition: transform 0.5s ease-in-out;
+        border-radius: 25px;
       }
       
       .logo:hover {
@@ -253,154 +254,177 @@
         transform: translateX(0);
       }
       
-      /* Hero Section */
-      .home-section {
-        min-height: 100vh;
-        display: flex;
-        align-items: center;
-        justify-content: space-between;
-        padding: 8rem 5% 4rem;
-        background: linear-gradient(135deg, var(--primary-color) 0%, var(--secondary-color) 50%, #0a0a0a 100%);
-        position: relative;
-        overflow: hidden;
-        animation: gradientShift 10s ease-in-out infinite;
-      }
-      
-      .home-section:hover {
-        transform: scale(1.01);
-      }
-      
-      @keyframes gradientShift {
-        0% { background-position: 0% 50%; }
-        50% { background-position: 100% 50%; }
-        100% { background-position: 0% 50%; }
-      }
-      
-      .left-content {
-        max-width: 600px;
-        position: relative;
-        z-index: 1;
-      }
-      
-      .intro {
-        font-size: 1.2rem;
-        margin-bottom: 1rem;
-        color: rgba(255, 255, 255, 0.9);
-        animation: slideInLeft 1s ease-out;
-      }
-      
-      .name {
-        font-size: 3.5rem;
-        margin-bottom: 0.5rem;
-        color: white;
-        display: inline-block;
-        overflow: hidden;
-        white-space: nowrap;
-        animation: typewriter 3s steps(40, end);
-      }
-      
-      .title {
-        font-size: 1.5rem;
-        margin-bottom: 1.5rem;
-        color: rgba(255, 255, 255, 0.9);
-        animation: fadeInUp 1s ease-out 0.5s;
-        animation-fill-mode: both;
-      }
-      
-      .description {
-        margin-bottom: 2rem;
-        color: rgba(255, 255, 255, 0.9);
-        animation: fadeInUp 1s ease-out 0.7s;
-        animation-fill-mode: both;
-      }
-      
-      .button-group {
-        display: flex;
-        gap: 1rem;
-        animation: fadeInUp 1s ease-out 0.9s;
-        animation-fill-mode: both;
-      }
-      
-      .contact-btn, .projects-btn {
-        padding: 0.75rem 1.5rem;
-        border-radius: 5px;
-        font-weight: 600;
-        cursor: pointer;
-        transition: all 0.3s ease;
-        position: relative;
-        overflow: hidden;
-      }
-      
-      .contact-btn {
-        background-color: white;
-        color: var(--primary-color);
-        border: none;
-      }
-      
-      .projects-btn {
-        background-color: transparent;
-        color: white;
-        border: 2px solid white;
-      }
-      
-      .contact-btn:hover, .projects-btn:hover {
-        transform: translateY(-3px) scale(1.05);
-      }
-      
-      .contact-btn:active, .projects-btn:active {
-        animation: clickPulse 0.3s ease;
-      }
-      
-      .contact-btn::after, .projects-btn::after {
-        content: '';
-        position: absolute;
-        top: 0;
-        left: -100%;
-        width: 100%;
-        height: 100%;
-        background: linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent);
-        transition: all 0.5s ease;
-      }
-      
-      .contact-btn:hover::after, .projects-btn:hover::after {
-        left: 100%;
-      }
-      
-      .right-image {
-        position: relative;
-        z-index: 1;
-      }
-      
-      .right-image img {
-        max-height: 500px;
-        animation: zoomIn 1s ease-out;
-      }
-      
-      @keyframes slideInLeft {
-        from { transform: translateX(-100%); opacity: 0; }
-        to { transform: translateX(0); opacity: 1; }
-      }
-      
-      @keyframes typewriter {
-        from { width: 0; }
-        to { width: 100%; }
-      }
-      
-      @keyframes fadeInUp {
-        from { transform: translateY(20px); opacity: 0; }
-        to { transform: translateY(0); opacity: 1; }
-      }
-      
-      @keyframes zoomIn {
-        from { transform: scale(0.5); opacity: 0; }
-        to { transform: scale(1); opacity: 1; }
-      }
-      
-      @keyframes float {
-        0%, 100% { transform: translateY(0); }
-        50% { transform: translateY(-20px); }
-      }
-      
+/* Hero Section */
+.home-section {
+  min-height: 85vh; /* Reduced height for a sleek look */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 6rem 5%; /* Reduced padding top/bottom */
+  background: linear-gradient(135deg, var(--primary-color) 0%, var(--secondary-color) 50%, #0a0a0a 100%);
+  position: relative;
+  overflow: hidden;
+  animation: gradientShift 12s ease-in-out infinite;
+  transition: transform 0.3s ease;
+  margin-top: 20px;
+}
+
+.home-section:hover {
+  transform: scale(1.01);
+}
+
+.hero-content {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  max-width: 1150px;
+  gap: 4rem; /* Space between text and image */
+}
+
+.left-content {
+  max-width: 600px;
+  position: relative;
+  z-index: 1;
+  padding-right: 1rem;
+}
+
+.intro {
+  font-size: 1.25rem;
+  margin-bottom: 1.2rem;
+  color: rgba(255, 255, 255, 0.95);
+  animation: slideInLeft 1s ease-out;
+}
+
+.name {
+  font-size: 3.5rem;
+  margin-bottom: 0.8rem;
+  color: white;
+  display: inline-block;
+  overflow: hidden;
+  white-space: nowrap;
+  animation: typewriter 3s steps(40, end);
+}
+
+.title {
+  font-size: 1.5rem;
+  margin-bottom: 1.8rem;
+  color: rgba(255, 255, 255, 0.9);
+  animation: fadeInUp 1s ease-out 0.5s;
+  animation-fill-mode: both;
+}
+
+.description {
+  margin-bottom: 2.5rem;
+  color: rgba(255, 255, 255, 0.85);
+  line-height: 1.6;
+  animation: fadeInUp 1s ease-out 0.7s;
+  animation-fill-mode: both;
+}
+
+.button-group {
+  display: flex;
+  gap: 1.5rem;
+  animation: fadeInUp 1s ease-out 0.9s;
+  animation-fill-mode: both;
+}
+
+.contact-btn, .projects-btn {
+  padding: 0.9rem 1.8rem; /* Slightly smaller buttons */
+  border-radius: 8px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  position: relative;
+  overflow: hidden;
+}
+
+.contact-btn {
+  background-color: white;
+  color: var(--primary-color);
+  border: none;
+}
+
+.projects-btn {
+  background-color: transparent;
+  color: white;
+  border: 2px solid white;
+}
+
+.contact-btn:hover, .projects-btn:hover {
+  transform: translateY(-2px) scale(1.04);
+}
+
+.contact-btn:active, .projects-btn:active {
+  animation: clickPulse 0.3s ease;
+}
+
+.contact-btn::after, .projects-btn::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent);
+  transition: all 0.5s ease;
+}
+
+.contact-btn:hover::after, .projects-btn:hover::after {
+  left: 100%;
+}
+
+.right-image {
+  flex-shrink: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 1rem;
+}
+
+.right-image img {
+  width: 220px; /* Slightly smaller image */
+  height: 220px;
+  border-radius: 50%;
+  object-fit: cover;
+  object-position: center top;
+  border: 4px solid rgba(255, 255, 255, 0.2);
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.35);
+  animation: zoomIn 1s ease-out;
+}
+
+/* Animations */
+@keyframes gradientShift {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+@keyframes slideInLeft {
+  from { transform: translateX(-100%); opacity: 0; }
+  to { transform: translateX(0); opacity: 1; }
+}
+
+@keyframes typewriter {
+  from { width: 0; }
+  to { width: 100%; }
+}
+
+@keyframes fadeInUp {
+  from { transform: translateY(20px); opacity: 0; }
+  to { transform: translateY(0); opacity: 1; }
+}
+
+@keyframes zoomIn {
+  from { transform: scale(0.5); opacity: 0; }
+  to { transform: scale(1); opacity: 1; }
+}
+
+@keyframes float {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-20px); }
+}
+
       /* About Section */
       .about-section {
         padding: 5rem 5%;
@@ -1200,7 +1224,7 @@
     <div class="floating-icons" id="floating-icons"></div>
     
     <nav class="navbar">
-      <img class="logo" src="/img/jawad2-removebg-preview3.png" alt="Jawad Ahmad Logo" />
+      <img class="logo" src="/img/jawad sectionlogo.png" alt="Jawad Ahmad Logo" />
       <div class="mobile-menu-btn">
         <button id="menu-button" class="menu-toggle">
           <svg width="24" height="24" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
@@ -1223,11 +1247,25 @@
       </div>
       <div class="theme-toggle">
         <button id="theme-toggle-btn" class="theme-toggle-btn">
-          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-            <path d="M12 4L12 20M12 4L6 10M12 4L18 10" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+          <!-- Sun (Light Mode Icon) -->
+          <svg id="sun-icon" xmlns="http://www.w3.org/2000/svg" 
+               width="24" height="24" viewBox="0 0 24 24" 
+               fill="none" stroke="currentColor" stroke-width="2" 
+               stroke-linecap="round" stroke-linejoin="round"
+               class="icon">
+            <circle cx="12" cy="12" r="5"/>
+            <line x1="12" y1="1" x2="12" y2="3"/>
+            <line x1="12" y1="21" x2="12" y2="23"/>
+            <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/>
+            <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/>
+            <line x1="1" y1="12" x2="3" y2="12"/>
+            <line x1="21" y1="12" x2="23" y2="12"/>
+            <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/>
+            <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/>
           </svg>
         </button>
       </div>
+      
     </nav>
 
     <!-- Mobile menu -->
@@ -1264,7 +1302,7 @@
         </div>
       </div>
       <div class="right-image">
-        <img src="/img/jawad1-removebg-preview.png" alt="Jawad Ahmad Portrait" />
+        <img src="/img/jawad2-removebg-preview3.png" alt="Jawad Ahmad Portrait" />
       </div>
     </section>
 
