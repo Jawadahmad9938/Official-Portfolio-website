@@ -3,12 +3,31 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta name="description" content="Portfolio of Jawad Ahmad, a frontend web developer skilled in HTML, CSS, JavaScript, and Tailwind CSS." />
-    <meta name="keywords" content="frontend developer, web developer, portfolio, Jawad Ahmad, HTML, CSS, JavaScript" />
-    <meta name="google-site-verification" content="qKESQtyOFuGC6aDczLrSDiSVjJYUPIn3g_5YadxPHjQ" />
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" />
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&family=Open+Sans:wght@400;600&display=swap" />
-    <link rel="shortcut icon" href="/img/jawad2-removebg-preview3.png" type="image/x-icon" />
+    <meta
+      name="description"
+      content="Portfolio of Jawad Ahmad, a frontend web developer skilled in HTML, CSS, JavaScript, and Tailwind CSS."
+    />
+    <meta
+      name="keywords"
+      content="frontend developer, web developer, portfolio, Jawad Ahmad, HTML, CSS, JavaScript"
+    />
+    <meta
+      name="google-site-verification"
+      content="qKESQtyOFuGC6aDczLrSDiSVjJYUPIn3g_5YadxPHjQ"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"
+    />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&family=Open+Sans:wght@400;600&display=swap"
+    />
+    <link
+      rel="shortcut icon"
+      href="/img/jawad2-removebg-preview3.png"
+      type="image/x-icon"
+    />
     <title>Jawad Ahmad Portfolio</title>
     <style>
       :root {
@@ -18,10 +37,10 @@
         --secondary-color: #4895ef;
         --accent-color: #f72585;
         --card-bg: #1a1a1a;
-        --nav-bg: rgba(10, 10, 10, 0.9);
+        --nav-bg: rgb(26 60 110);
         --shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
       }
-      
+
       body.light-mode {
         --bg-color: #f8f9fa;
         --text-color: #212529;
@@ -32,41 +51,44 @@
         --nav-bg: rgba(255, 255, 255, 0.9);
         --shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
       }
-      
+
       * {
         margin: 0;
         padding: 0;
         box-sizing: border-box;
       }
-      
+
       html {
         scroll-behavior: smooth;
       }
-      
+
       body {
-        font-family: 'Open Sans', sans-serif;
+        font-family: "Open Sans", sans-serif;
         background-color: var(--bg-color);
         color: var(--text-color);
         transition: all 0.5s ease;
         overflow-x: hidden;
         position: relative;
       }
-      
-      h1, h2, h3, h4 {
-        font-family: 'Poppins', sans-serif;
+
+      h1,
+      h2,
+      h3,
+      h4 {
+        font-family: "Poppins", sans-serif;
         font-weight: 700;
         line-height: 1.2;
       }
-      
+
       p {
         line-height: 1.6;
       }
-      
+
       a {
         text-decoration: none;
         color: inherit;
       }
-      
+
       /* Three.js Container */
       .threejs-container {
         position: fixed;
@@ -115,8 +137,13 @@
       }
 
       @keyframes floatIcon {
-        0%, 100% { transform: translateY(0) rotate(0deg); }
-        50% { transform: translateY(-30px) rotate(180deg); }
+        0%,
+        100% {
+          transform: translateY(0) rotate(0deg);
+        }
+        50% {
+          transform: translateY(-30px) rotate(180deg);
+        }
       }
 
       /* Navigation */
@@ -132,32 +159,32 @@
         z-index: 1000;
         backdrop-filter: blur(10px);
       }
-      
+
       .logo {
         height: 50px;
         width: auto;
         transition: transform 0.5s ease-in-out;
         border-radius: 25px;
       }
-      
+
       .logo:hover {
         transform: scale(1.1) rotate(360deg);
       }
-      
+
       .nav-menu {
         display: flex;
         list-style: none;
         gap: 2rem;
       }
-      
+
       .nav-menu a {
         position: relative;
         font-weight: 500;
         transition: color 0.3s ease;
       }
-      
+
       .nav-menu a::after {
-        content: '';
+        content: "";
         position: absolute;
         bottom: -5px;
         left: 0;
@@ -166,31 +193,32 @@
         background-color: var(--accent-color);
         transition: width 0.3s ease;
       }
-      
+
       .nav-menu a:hover {
         color: var(--primary-color);
       }
-      
+
       .nav-menu a:hover::after {
         width: 100%;
       }
-      
+
       .mobile-menu-btn {
         display: none;
       }
-      
+
       .menu-toggle {
         background: none;
         border: none;
         cursor: pointer;
         transition: transform 0.5s ease-in-out;
       }
-      
+
       .menu-toggle:hover {
         transform: scale(1.1) rotate(360deg);
       }
-      
-      .nav-btn .cv-button, .mobile-nav-menu .cv-button {
+
+      .nav-btn .cv-button,
+      .mobile-nav-menu .cv-button {
         background-color: var(--primary-color);
         color: white;
         border: none;
@@ -202,16 +230,18 @@
         position: relative;
         overflow: hidden;
       }
-      
-      .nav-btn .cv-button:hover, .mobile-nav-menu .cv-button:hover {
+
+      .nav-btn .cv-button:hover,
+      .mobile-nav-menu .cv-button:hover {
         background-color: var(--secondary-color);
         transform: translateY(-2px) scale(1.05);
       }
-      
-      .nav-btn .cv-button:active, .mobile-nav-menu .cv-button:active {
+
+      .nav-btn .cv-button:active,
+      .mobile-nav-menu .cv-button:active {
         animation: clickPulse 0.3s ease;
       }
-      
+
       .theme-toggle-btn {
         background: none;
         border: none;
@@ -219,17 +249,23 @@
         margin-left: 1rem;
         transition: transform 0.5s ease-in-out;
       }
-      
+
       .theme-toggle-btn:hover {
         transform: scale(1.1) rotate(360deg);
       }
-      
+
       @keyframes clickPulse {
-        0% { transform: scale(1); }
-        50% { transform: scale(0.95); }
-        100% { transform: scale(1); }
+        0% {
+          transform: scale(1);
+        }
+        50% {
+          transform: scale(0.95);
+        }
+        100% {
+          transform: scale(1);
+        }
       }
-      
+
       /* Mobile Menu */
       .mobile-nav-menu {
         position: fixed;
@@ -249,19 +285,24 @@
         transition: transform 0.3s ease;
         z-index: 999;
       }
-      
+
       .mobile-nav-menu.active {
         transform: translateX(0);
       }
-      
-/* Hero Section */
+
+      /* === Hero Section (Desktop) === */
 .home-section {
-  min-height: 85vh; /* Reduced height for a sleek look */
+  min-height: 85vh;
   display: flex;
   align-items: center;
   justify-content: center;
-  padding: 6rem 5%; /* Reduced padding top/bottom */
-  background: linear-gradient(135deg, var(--primary-color) 0%, var(--secondary-color) 50%, #0a0a0a 100%);
+  padding: 6rem 5%;
+  background: linear-gradient(
+    135deg,
+    var(--primary-color) 0%,
+    var(--secondary-color) 50%,
+    #0a0a0a 100%
+  );
   position: relative;
   overflow: hidden;
   animation: gradientShift 12s ease-in-out infinite;
@@ -279,7 +320,7 @@
   align-items: center;
   width: 100%;
   max-width: 1150px;
-  gap: 4rem; /* Space between text and image */
+  gap: 4rem;
 }
 
 .left-content {
@@ -329,8 +370,9 @@
   animation-fill-mode: both;
 }
 
-.contact-btn, .projects-btn {
-  padding: 0.9rem 1.8rem; /* Slightly smaller buttons */
+.contact-btn,
+.projects-btn {
+  padding: 0.9rem 1.8rem;
   border-radius: 8px;
   font-weight: 600;
   cursor: pointer;
@@ -351,26 +393,35 @@
   border: 2px solid white;
 }
 
-.contact-btn:hover, .projects-btn:hover {
+.contact-btn:hover,
+.projects-btn:hover {
   transform: translateY(-2px) scale(1.04);
 }
 
-.contact-btn:active, .projects-btn:active {
+.contact-btn:active,
+.projects-btn:active {
   animation: clickPulse 0.3s ease;
 }
 
-.contact-btn::after, .projects-btn::after {
-  content: '';
+.contact-btn::after,
+.projects-btn::after {
+  content: "";
   position: absolute;
   top: 0;
   left: -100%;
   width: 100%;
   height: 100%;
-  background: linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent);
+  background: linear-gradient(
+    90deg,
+    transparent,
+    rgba(255, 255, 255, 0.2),
+    transparent
+  );
   transition: all 0.5s ease;
 }
 
-.contact-btn:hover::after, .projects-btn:hover::after {
+.contact-btn:hover::after,
+.projects-btn:hover::after {
   left: 100%;
 }
 
@@ -383,7 +434,7 @@
 }
 
 .right-image img {
-  width: 220px; /* Slightly smaller image */
+  width: 220px;
   height: 220px;
   border-radius: 50%;
   object-fit: cover;
@@ -393,36 +444,123 @@
   animation: zoomIn 1s ease-out;
 }
 
-/* Animations */
-@keyframes gradientShift {
-  0% { background-position: 0% 50%; }
-  50% { background-position: 100% 50%; }
-  100% { background-position: 0% 50%; }
+/* === Responsive Fixes === */
+@media (max-width: 992px) {
+  .hero-content {
+    flex-direction: column; /* Stack content */
+    text-align: center;
+    gap: 2rem;
+  }
+
+  .left-content {
+    max-width: 100%;
+    padding-right: 0;
+  }
+
+  .name {
+    font-size: 2.5rem; /* Adjust heading size */
+  }
+
+  .title {
+    font-size: 1.3rem;
+  }
+
+  .description {
+    font-size: 1rem;
+  }
+
+  .button-group {
+    justify-content: center; /* Center buttons */
+    flex-wrap: wrap;
+    gap: 1rem;
+  }
+
+  .contact-btn,
+  .projects-btn {
+    width: 100%;
+  }
+
+  .right-image img {
+    width: 180px;
+    height: 180px;
+  }
 }
 
-@keyframes slideInLeft {
-  from { transform: translateX(-100%); opacity: 0; }
-  to { transform: translateX(0); opacity: 1; }
-}
+@media (max-width: 600px) {
+  .home-section {
+    padding: 4rem 1.5rem;
+  }
 
-@keyframes typewriter {
-  from { width: 0; }
-  to { width: 100%; }
-}
+  .name {
+    font-size: 2rem;
+  }
 
-@keyframes fadeInUp {
-  from { transform: translateY(20px); opacity: 0; }
-  to { transform: translateY(0); opacity: 1; }
-}
+  .intro {
+    font-size: 1rem;
+  }
 
-@keyframes zoomIn {
-  from { transform: scale(0.5); opacity: 0; }
-  to { transform: scale(1); opacity: 1; }
-}
+  .title {
+    font-size: 1.1rem;
+  }
 
-@keyframes float {
-  0%, 100% { transform: translateY(0); }
-  50% { transform: translateY(-20px); }
+  .description {
+    font-size: 0.95rem;
+  }
+
+  .right-image img {
+    width: 150px;
+    height: 150px;
+  }
+}
+@media (max-width: 390px) {
+  .home-section {
+    padding: 3rem 1rem; /* tighter padding */
+  }
+
+  .hero-content {
+    gap: 1.2rem; /* reduce gap */
+  }
+
+  .left-content {
+    padding-right: 0;
+    text-align: center;
+  }
+
+  .intro {
+    font-size: 0.9rem;
+  }
+
+  .name {
+    font-size: 1.6rem;
+    white-space: normal; /* ✅ allow wrapping on very small screens */
+    word-break: break-word;
+  }
+
+  .title {
+    font-size: 1rem;
+  }
+
+  .description {
+    font-size: 0.85rem;
+    line-height: 1.4;
+  }
+
+  .button-group {
+    flex-direction: column; /* stack buttons vertically */
+    gap: 0.8rem;
+  }
+
+  .contact-btn,
+  .projects-btn {
+    width: 100%;
+    max-width: 240px; /* keep buttons compact */
+    margin: 0 auto;
+  }
+
+  .right-image img {
+    width: 120px;
+    height: 120px;
+  }
 }
 
       /* About Section */
@@ -431,94 +569,94 @@
         gap: 3rem;
         position: relative;
       }
-      
+
       .about-section:hover {
         transform: scale(1.01);
       }
-      
+
       .about-left {
         flex: 1;
       }
-      
+
       .about-title {
         color: var(--primary-color);
         font-weight: 600;
         margin-bottom: 1rem;
       }
-      
+
       .about-text h1 {
         font-size: 2.5rem;
         margin-bottom: 1.5rem;
       }
-      
+
       .about-description {
         margin-bottom: 2rem;
       }
-      
+
       .about-right {
         flex: 1;
         display: flex;
         flex-direction: column;
         justify-content: center;
       }
-      
+
       .about-right h2 {
         font-size: 1.8rem;
         margin-bottom: 1rem;
       }
-      
+
       .connect-description {
         margin-bottom: 1.5rem;
       }
-      
+
       .social-buttons {
         display: flex;
         gap: 1rem;
       }
-      
+
       .social-buttons img {
         width: 40px;
         height: 40px;
         transition: transform 0.5s ease-in-out;
       }
-      
+
       .social-buttons img:hover {
         transform: scale(1.2) rotate(360deg);
       }
-      
+
       /* Services Section */
       .services-section {
         padding: 5rem 5%;
         text-align: center;
         position: relative;
       }
-      
+
       .services-section:hover {
         transform: scale(1.01);
       }
-      
+
       .services-title {
         color: var(--primary-color);
         font-weight: 600;
         margin-bottom: 0.5rem;
       }
-      
+
       .services-heading {
         font-size: 2.5rem;
         margin-bottom: 1rem;
       }
-      
+
       .services-description {
         max-width: 700px;
         margin: 0 auto 3rem;
       }
-      
+
       .services-container {
         display: grid;
         grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
         gap: 2rem;
       }
-      
+
       .service-card {
         background-color: var(--card-bg);
         border-radius: 10px;
@@ -526,67 +664,67 @@
         box-shadow: var(--shadow);
         transition: all 0.3s ease;
       }
-      
+
       .service-card:hover {
         transform: translateY(-10px) scale(1.05);
         box-shadow: 0 15px 30px rgba(0, 0, 0, 0.2);
       }
-      
+
       .service-card:active {
         animation: clickPulse 0.3s ease;
       }
-      
+
       .service-card img {
         width: 80px;
         height: 80px;
         margin-bottom: 1.5rem;
         transition: transform 0.5s ease-in-out;
       }
-      
+
       .service-card img:hover {
         transform: scale(1.2) rotate(360deg);
       }
-      
+
       .service-title {
         font-size: 1.3rem;
         margin-bottom: 1rem;
       }
-      
+
       /* Projects Section */
       .projects-section {
         padding: 5rem 5%;
         position: relative;
       }
-      
+
       .projects-section:hover {
         transform: scale(1.01);
       }
-      
+
       .projects-subtitle {
         color: var(--primary-color);
         font-weight: 600;
         text-align: center;
         margin-bottom: 0.5rem;
       }
-      
+
       .projects-title {
         font-size: 2.5rem;
         text-align: center;
         margin-bottom: 1rem;
       }
-      
+
       .projects-description {
         max-width: 700px;
         margin: 0 auto 3rem;
         text-align: center;
       }
-      
+
       .projects-container {
         display: grid;
         grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
         gap: 2rem;
       }
-      
+
       .project-card {
         background-color: var(--card-bg);
         border-radius: 10px;
@@ -594,38 +732,38 @@
         box-shadow: var(--shadow);
         transition: all 0.5s ease;
       }
-      
+
       .project-card:hover {
         transform: translateY(-10px) scale(1.05);
         box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
       }
-      
+
       .project-card:active {
         animation: clickPulse 0.3s ease;
       }
-      
+
       .project-card img {
         width: 100%;
         height: 200px;
         object-fit: cover;
         transition: transform 0.5s ease-in-out;
       }
-      
+
       .project-card img:hover {
         transform: scale(1.2);
       }
-      
+
       .project-name {
         font-weight: 600;
         font-size: 1.2rem;
         padding: 1rem 1rem 0;
       }
-      
+
       .project-details {
         padding: 0 1rem 1rem;
         color: rgba(var(--text-color), 0.8);
       }
-      
+
       .project-link {
         display: inline-block;
         padding: 0.5rem 1rem;
@@ -633,33 +771,33 @@
         font-weight: 600;
         transition: color 0.3s ease, transform 0.3s ease;
       }
-      
+
       .project-link:hover {
         color: var(--accent-color);
         transform: scale(1.05);
       }
-      
+
       /* Clients Section */
       .clients-section {
         padding: 5rem 5%;
         text-align: center;
         position: relative;
       }
-      
+
       .clients-section:hover {
         transform: scale(1.01);
       }
-      
+
       .clients-title {
         font-size: 2.5rem;
         margin-bottom: 1rem;
       }
-      
+
       .clients-description {
         max-width: 700px;
         margin: 0 auto 3rem;
       }
-      
+
       .clients-logos {
         display: flex;
         justify-content: center;
@@ -667,45 +805,51 @@
         gap: 3rem;
         margin-bottom: 3rem;
       }
-      
+
       .client-logo img {
         height: 50px;
         filter: grayscale(100%);
         opacity: 0.7;
         transition: all 0.5s ease-in-out;
       }
-      
+
       .client-logo:hover img {
         filter: grayscale(0);
         opacity: 1;
         transform: scale(1.2) rotate(360deg);
       }
-      
+
+      /* === Base CTA Section === */
       .cta-section {
-        background: linear-gradient(135deg, var(--primary-color) 0%, var(--secondary-color) 100%);
+        background: linear-gradient(
+          135deg,
+          var(--primary-color) 0%,
+          var(--secondary-color) 100%
+        );
         padding: 3rem;
         border-radius: 10px;
         max-width: 800px;
         margin: 0 auto;
         transition: transform 0.5s ease;
+        text-align: center; /* ✅ keeps text centered on small screens */
       }
-      
+
       .cta-section:hover {
         transform: scale(1.05);
       }
-      
+
       .cta-text {
         font-size: 1.5rem;
         color: white;
         margin-bottom: 2rem;
       }
-      
+
       .cta-input-group {
         display: flex;
         max-width: 500px;
         margin: 0 auto;
       }
-      
+
       .email-input {
         flex: 1;
         padding: 0.75rem 1rem;
@@ -713,7 +857,7 @@
         border-radius: 5px 0 0 5px;
         font-size: 1rem;
       }
-      
+
       .quote-btn {
         padding: 0 1.5rem;
         background-color: var(--accent-color);
@@ -725,63 +869,97 @@
         transition: all 0.3s ease;
         animation: pulse 2s infinite;
       }
-      
+
       .quote-btn:hover {
         animation: none;
         background-color: #d91a6d;
         transform: scale(1.05);
       }
-      
+
       .quote-btn:active {
         animation: clickPulse 0.3s ease;
       }
-      
+
       @keyframes pulse {
-        0% { transform: scale(1); }
-        50% { transform: scale(1.05); }
-        100% { transform: scale(1); }
+        0% {
+          transform: scale(1);
+        }
+        50% {
+          transform: scale(1.05);
+        }
+        100% {
+          transform: scale(1);
+        }
       }
-      
+
+      /* === Responsive Fix for Mobile === */
+      @media (max-width: 600px) {
+        .cta-section {
+          padding: 2rem 1rem;
+        }
+
+        .cta-text {
+          font-size: 1.2rem;
+        }
+
+        .cta-input-group {
+          flex-direction: column; /* ✅ stack input + button */
+          width: 100%;
+        }
+
+        .email-input {
+          border-radius: 5px; /* reset radius */
+          margin-bottom: 1rem; /* spacing between input and button */
+          width: 100%;
+        }
+
+        .quote-btn {
+          border-radius: 5px;
+          width: 100%; /* button takes full width */
+          padding: 0.75rem;
+        }
+      }
+
       /* Skills Section */
       .skills-section {
         padding: 5rem 5%;
         position: relative;
       }
-      
+
       .skills-section:hover {
         transform: scale(1.01);
       }
-      
+
       .skills-subtitle {
         color: var(--primary-color);
         font-weight: 600;
         text-align: center;
         margin-bottom: 0.5rem;
       }
-      
+
       .skills-title {
         font-size: 2.5rem;
         text-align: center;
         margin-bottom: 1rem;
       }
-      
+
       .skills-description {
         max-width: 700px;
         margin: 0 auto 3rem;
         text-align: center;
       }
-      
+
       .resume-content {
         max-width: 1200px;
         margin: 0 auto;
       }
-      
+
       .resume-flex {
         display: flex;
         gap: 2rem;
         margin-bottom: 3rem;
       }
-      
+
       .resume-box {
         flex: 1;
         background-color: var(--card-bg);
@@ -790,49 +968,51 @@
         box-shadow: var(--shadow);
         transition: all 0.3s ease;
       }
-      
+
       .resume-box:hover {
         transform: scale(1.05);
         box-shadow: 0 15px 30px rgba(0, 0, 0, 0.2);
       }
-      
+
       .resume-box:active {
         animation: clickPulse 0.3s ease;
       }
-      
+
       .resume-subheading {
         font-size: 1.5rem;
         margin-bottom: 1.5rem;
         color: var(--primary-color);
       }
-      
+
       .resume-degree {
         font-size: 1.2rem;
         margin-bottom: 0.5rem;
       }
-      
-      .resume-institution, .resume-duration, .resume-cgpa {
+
+      .resume-institution,
+      .resume-duration,
+      .resume-cgpa {
         color: rgba(var(--text-color), 0.8);
         margin-bottom: 0.5rem;
       }
-      
+
       .resume-info {
         margin-top: 1rem;
       }
-      
+
       .skills-heading {
         font-size: 1.5rem;
         margin-bottom: 2rem;
         text-align: center;
         color: var(--primary-color);
       }
-      
+
       .skills-grid {
         display: grid;
         grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
         gap: 2rem;
       }
-      
+
       .skill-box {
         background-color: var(--card-bg);
         border-radius: 10px;
@@ -841,27 +1021,27 @@
         box-shadow: var(--shadow);
         transition: all 0.3s ease;
       }
-      
+
       .skill-box:hover {
         box-shadow: 0 0 15px var(--primary-color);
         transform: scale(1.05);
       }
-      
+
       .skill-box:active {
         animation: clickPulse 0.3s ease;
       }
-      
+
       .skill-logo {
         width: 50px;
         height: 50px;
         margin-bottom: 1rem;
         transition: transform 0.5s ease-in-out;
       }
-      
+
       .skill-logo:hover {
         transform: scale(1.2) rotate(360deg);
       }
-      
+
       .progress-bar {
         height: 8px;
         background-color: rgba(var(--text-color), 0.1);
@@ -869,42 +1049,46 @@
         margin: 0.5rem 0;
         overflow: hidden;
       }
-      
+
       .progress {
         height: 100%;
-        background: linear-gradient(90deg, var(--primary-color), var(--secondary-color));
+        background: linear-gradient(
+          90deg,
+          var(--primary-color),
+          var(--secondary-color)
+        );
         border-radius: 4px;
       }
-      
+
       /* Testimonials Section */
       .testimonials-section {
         padding: 5rem 5%;
         text-align: center;
         position: relative;
       }
-      
+
       .testimonials-section:hover {
         transform: scale(1.01);
       }
-      
+
       .testimonials-subtitle {
         color: var(--primary-color);
         font-weight: 600;
         margin-bottom: 0.5rem;
       }
-      
+
       .testimonials-title {
         font-size: 2.5rem;
         margin-bottom: 1rem;
       }
-      
+
       .testimonials-container {
         display: flex;
         gap: 2rem;
         max-width: 1200px;
         margin: 3rem auto 0;
       }
-      
+
       .testimonial-card {
         flex: 1;
         background-color: var(--card-bg);
@@ -914,26 +1098,26 @@
         text-align: left;
         transition: all 0.3s ease;
       }
-      
+
       .testimonial-card:hover {
         transform: scale(1.05);
         box-shadow: 0 15px 30px rgba(0, 0, 0, 0.2);
       }
-      
+
       .testimonial-card:active {
         animation: clickPulse 0.3s ease;
       }
-      
+
       .testimonial-text {
         font-style: italic;
         margin-bottom: 1.5rem;
       }
-      
+
       .testimonial-author {
         font-weight: 600;
         color: var(--primary-color);
       }
-      
+
       /* Quick Contact Icons */
       .quick-contact-icons {
         position: fixed;
@@ -944,7 +1128,7 @@
         gap: 1rem;
         z-index: 1000;
       }
-      
+
       .quick-contact-icon {
         width: 50px;
         height: 50px;
@@ -956,84 +1140,85 @@
         box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
         transition: all 0.5s ease-in-out;
       }
-      
+
       .quick-contact-icon:hover {
         transform: scale(1.2) rotate(360deg);
         background-color: var(--accent-color);
       }
-      
+
       .quick-contact-icon img {
         width: 30px;
         height: 30px;
         transition: transform 0.5s ease-in-out;
       }
-      
+
       .quick-contact-icon img:hover {
         transform: scale(1.2) rotate(360deg);
       }
-      
+
       /* Contact Section */
       .contact-section {
         padding: 5rem 5%;
         text-align: center;
         position: relative;
       }
-      
+
       .contact-section:hover {
         transform: scale(1.01);
       }
-      
+
       .contact-title {
         font-size: 2.5rem;
         margin-bottom: 1rem;
       }
-      
+
       .contact-description {
         max-width: 700px;
         margin: 0 auto 3rem;
       }
-      
+
       .contact-content {
         display: flex;
         gap: 3rem;
         max-width: 1200px;
         margin: 0 auto;
       }
-      
+
       .contact-info {
         flex: 1;
         text-align: left;
         transition: transform 0.3s ease;
       }
-      
+
       .contact-info:hover {
         transform: scale(1.05);
       }
-      
+
       .info-title {
         font-size: 1.5rem;
         margin-bottom: 1.5rem;
         color: var(--primary-color);
       }
-      
+
       .info-detail {
         margin-bottom: 1rem;
         display: flex;
         align-items: center;
         gap: 0.5rem;
       }
-      
+
       .contact-form {
         flex: 1;
       }
-      
+
       .contact-form form {
         display: flex;
         flex-direction: column;
         gap: 1rem;
       }
-      
-      .contact-form input, .contact-form textarea {
+
+      .contact-form input,
+      .contact-form textarea {
         padding: 0.75rem 1rem;
         border: 1px solid rgba(var(--text-color), 0.2);
         border-radius: 5px;
@@ -1042,16 +1227,17 @@
         font-size: 1rem;
         transition: transform 0.3s ease;
       }
-      
-      .contact-form input:hover, .contact-form textarea:hover {
+
+      .contact-form input:hover,
+      .contact-form textarea:hover {
         transform: scale(1.02);
       }
-      
+
       .contact-form textarea {
         min-height: 150px;
         resize: vertical;
       }
-      
+
       .submit-btn {
         padding: 0.75rem;
         background-color: var(--primary-color);
@@ -1064,52 +1250,57 @@
         position: relative;
         overflow: hidden;
       }
-      
+
       .submit-btn:hover {
         background-color: var(--secondary-color);
         transform: scale(1.05);
       }
-      
+
       .submit-btn:active {
         animation: clickPulse 0.3s ease;
       }
-      
+
       .submit-btn::after {
-        content: '';
+        content: "";
         position: absolute;
         top: 0;
         left: -100%;
         width: 100%;
         height: 100%;
-        background: linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent);
+        background: linear-gradient(
+          90deg,
+          transparent,
+          rgba(255, 255, 255, 0.2),
+          transparent
+        );
         transition: all 0.5s ease;
       }
-      
+
       .submit-btn:hover::after {
         left: 100%;
       }
-      
+
       .social-links {
         display: flex;
         justify-content: center;
         gap: 1.5rem;
         margin: 3rem 0;
       }
-      
+
       .footer-icon {
         width: 30px;
         height: 30px;
         transition: transform 0.5s ease-in-out;
       }
-      
+
       .footer-icon:hover {
         transform: scale(1.2) rotate(360deg);
       }
-      
+
       .footer-text {
         color: rgba(var(--text-color), 0.7);
       }
-      
+
       /* Back to Top Button */
       .back-to-top-btn {
         position: fixed;
@@ -1131,84 +1322,87 @@
         transition: all 0.5s ease-in-out;
         z-index: 1000;
       }
-      
+
       .back-to-top-btn.show {
         opacity: 1;
         visibility: visible;
       }
-      
+
       .back-to-top-btn:hover {
         background-color: var(--accent-color);
         transform: translateY(-3px) rotate(360deg);
       }
-      
+
       /* Responsive Design */
       @media (max-width: 1024px) {
-        .about-section, .resume-flex, .contact-content {
+        .about-section,
+        .resume-flex,
+        .contact-content {
           flex-direction: column;
         }
-        
+
         .testimonials-container {
           flex-direction: column;
         }
       }
-      
+
       @media (max-width: 768px) {
-        .nav-menu, .nav-btn {
+        .nav-menu,
+        .nav-btn {
           display: none;
         }
-        
+
         .mobile-menu-btn {
           display: block;
         }
-        
+
         .home-section {
           flex-direction: column;
           text-align: center;
           padding-top: 10rem;
         }
-        
+
         .button-group {
           justify-content: center;
         }
-        
+
         .right-image {
           margin-top: 3rem;
         }
-        
+
         .right-image img {
           max-height: 300px;
         }
       }
-      
+
       @media (max-width: 480px) {
         .name {
           font-size: 2.5rem;
         }
-        
+
         .title {
           font-size: 1.2rem;
         }
-        
+
         .button-group {
           flex-direction: column;
         }
-        
+
         .quick-contact-icons {
           bottom: 1rem;
           right: 1rem;
         }
-        
+
         .quick-contact-icon {
           width: 40px;
           height: 40px;
         }
-        
+
         .quick-contact-icon img {
           width: 20px;
           height: 20px;
         }
-        
+
         .floating-icon {
           width: 20px;
           height: 20px;
@@ -1219,16 +1413,31 @@
   <body>
     <!-- Three.js Background Container -->
     <div id="threejs-container" class="threejs-container"></div>
-    
+
     <!-- Floating Icons Container -->
     <div class="floating-icons" id="floating-icons"></div>
-    
+
     <nav class="navbar">
-      <img class="logo" src="/img/jawad sectionlogo.png" alt="Jawad Ahmad Logo" />
+      <img
+        class="logo"
+        src="/img/jawad sectionlogo.png"
+        alt="Jawad Ahmad Logo"
+      />
       <div class="mobile-menu-btn">
         <button id="menu-button" class="menu-toggle">
-          <svg width="24" height="24" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-            <path stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" d="M4 6h16M4 12h16M4 18h16" />
+          <svg
+            width="24"
+            height="24"
+            viewBox="0 0 24 24"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              stroke="currentColor"
+              stroke-width="2"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              d="M4 6h16M4 12h16M4 18h16"
+            />
           </svg>
         </button>
       </div>
@@ -1248,24 +1457,31 @@
       <div class="theme-toggle">
         <button id="theme-toggle-btn" class="theme-toggle-btn">
           <!-- Sun (Light Mode Icon) -->
-          <svg id="sun-icon" xmlns="http://www.w3.org/2000/svg" 
-               width="24" height="24" viewBox="0 0 24 24" 
-               fill="none" stroke="currentColor" stroke-width="2" 
-               stroke-linecap="round" stroke-linejoin="round"
-               class="icon">
-            <circle cx="12" cy="12" r="5"/>
-            <line x1="12" y1="1" x2="12" y2="3"/>
-            <line x1="12" y1="21" x2="12" y2="23"/>
-            <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/>
-            <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/>
-            <line x1="1" y1="12" x2="3" y2="12"/>
-            <line x1="21" y1="12" x2="23" y2="12"/>
-            <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/>
-            <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/>
+          <svg
+            id="sun-icon"
+            xmlns="http://www.w3.org/2000/svg"
+            width="24"
+            height="24"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="2"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            class="icon"
+          >
+            <circle cx="12" cy="12" r="5" />
+            <line x1="12" y1="1" x2="12" y2="3" />
+            <line x1="12" y1="21" x2="12" y2="23" />
+            <line x1="4.22" y1="4.22" x2="5.64" y2="5.64" />
+            <line x1="18.36" y1="18.36" x2="19.78" y2="19.78" />
+            <line x1="1" y1="12" x2="3" y2="12" />
+            <line x1="21" y1="12" x2="23" y2="12" />
+            <line x1="4.22" y1="19.78" x2="5.64" y2="18.36" />
+            <line x1="18.36" y1="5.64" x2="19.78" y2="4.22" />
           </svg>
         </button>
       </div>
-      
     </nav>
 
     <!-- Mobile menu -->
@@ -1290,7 +1506,11 @@
         <h1 class="name">Jawad Ahmad</h1>
         <p class="title">Full-Stack Web Developer</p>
         <p class="description">
-          Full Stack Developer with a passion for building responsive and scalable web applications. Experienced in both frontend and backend technologies including HTML, CSS, JavaScript, Node.js, Express, SQL and MongoDB, with a track record of delivering projects for international clients.
+          Full Stack Developer with a passion for building responsive and
+          scalable web applications. Experienced in both frontend and backend
+          technologies including HTML, CSS, JavaScript, Node.js, Express, SQL
+          and MongoDB, with a track record of delivering projects for
+          international clients.
         </p>
         <div class="button-group">
           <button class="contact-btn">
@@ -1302,7 +1522,10 @@
         </div>
       </div>
       <div class="right-image">
-        <img src="/img/jawad2-removebg-preview3.png" alt="Jawad Ahmad Portrait" />
+        <img
+          src="/img/jawad2-removebg-preview3.png"
+          alt="Jawad Ahmad Portrait"
+        />
       </div>
     </section>
 
@@ -1313,14 +1536,19 @@
           <h1>Creating User-Friendly</h1>
           <h1>Web Experiences</h1>
           <p class="about-description">
-            I'm a Computer Science student at MNS University of Agriculture Multan, passionate about building responsive and intuitive websites. With experience in HTML, CSS, JavaScript, and Tailwind CSS, I've worked on projects like e-commerce platforms and API integrations, including for international clients in the UAE.
+            I'm a Computer Science student at MNS University of Agriculture
+            Multan, passionate about building responsive and intuitive websites.
+            With experience in HTML, CSS, JavaScript, and Tailwind CSS, I've
+            worked on projects like e-commerce platforms and API integrations,
+            including for international clients in the UAE.
           </p>
         </div>
       </div>
       <div class="about-right">
         <h2>Connect With Me</h2>
         <p class="connect-description">
-          Feel free to reach out via email or connect with me on social media for collaborations or opportunities!
+          Feel free to reach out via email or connect with me on social media
+          for collaborations or opportunities!
         </p>
         <div class="social-buttons">
           <a href="https://facebook.com/yourprofile" target="_blank">
@@ -1330,7 +1558,10 @@
             <img src="/img/free-twitter-logo-icon-2429-thumb.png" alt="X" />
           </a>
           <a href="https://linkedin.com/in/yourprofile" target="_blank">
-            <img src="/img/linkedin-icon-logo-png-transparent.png" alt="LinkedIn" />
+            <img
+              src="/img/linkedin-icon-logo-png-transparent.png"
+              alt="LinkedIn"
+            />
           </a>
         </div>
       </div>
@@ -1340,14 +1571,16 @@
       <p class="services-title">What I Offer</p>
       <h1 class="services-heading" id="Services">My Services</h1>
       <p class="services-description">
-        I specialize in creating responsive and user-friendly websites with modern technologies.
+        I specialize in creating responsive and user-friendly websites with
+        modern technologies.
       </p>
       <div class="services-container">
         <div class="service-card">
           <img src="/img/html gify.gif" alt="HTML Icon" />
           <h1 class="service-title">Full-Stack Expert</h1>
           <p class="service-description">
-            Crafting full-stack web solutions to drive business growth through scalable and user-friendly web applications.
+            Crafting full-stack web solutions to drive business growth through
+            scalable and user-friendly web applications.
           </p>
         </div>
         <div class="service-card">
@@ -1378,90 +1611,185 @@
       <p class="projects-subtitle">My Work</p>
       <p class="projects-title">Recent Projects</p>
       <p class="projects-description">
-        Explore some of my recent web development projects, showcasing my skills in frontend design, API integrations, and full-stack development.
+        Explore some of my recent web development projects, showcasing my skills
+        in frontend design, API integrations, and full-stack development.
       </p>
       <div class="projects-container">
         <div class="project-card">
           <img src="/img/lms pic.png" alt="LMS EduTool" />
-          <p class="project-name">LMS EduTool – Interactive Learning Platform</p>
-          <p class="project-details">
-            A SCORM-compliant Learning Management System with teacher & student modules. 
-            Teachers can create quizzes, upload multimedia, and export data, while students engage 
-            with interactive educational games in a responsive, mobile-friendly environment. 
-            Hosted on Netlify.
+          <p class="project-name">
+            LMS EduTool – Interactive Learning Platform
           </p>
-          <a href="https://jawadedugametools.netlify.app/" target="_blank" class="project-link">Live Demo</a> |
-          <a href="https://github.com/Jawadahmad9938/LMS-Project" target="_blank" class="project-link">GitHub</a>
+          <p class="project-details">
+            A SCORM-compliant Learning Management System with teacher & student
+            modules. Teachers can create quizzes, upload multimedia, and export
+            data, while students engage with interactive educational games in a
+            responsive, mobile-friendly environment. Hosted on Netlify.
+          </p>
+          <a
+            href="https://jawadedugametools.netlify.app/"
+            target="_blank"
+            class="project-link"
+            >Live Demo</a
+          >
+          |
+          <a
+            href="https://github.com/Jawadahmad9938/LMS-Project"
+            target="_blank"
+            class="project-link"
+            >GitHub</a
+          >
         </div>
-        
+
         <div class="project-card">
           <img src="/img/shopstock.JPG" alt="Shopstockk E-commerce" />
           <p class="project-name">Shopstockk - E-commerce Platform</p>
           <p class="project-details">
-            A full-stack MERN e-commerce platform featuring user authentication, product catalog, 
-            search functionality, cart management, and secure order processing. Includes an 
-            admin panel for product management, real-time updates, and a fully responsive design 
-            for seamless shopping on desktop and mobile. Hosted on Netlify.
+            A full-stack MERN e-commerce platform featuring user authentication,
+            product catalog, search functionality, cart management, and secure
+            order processing. Includes an admin panel for product management,
+            real-time updates, and a fully responsive design for seamless
+            shopping on desktop and mobile. Hosted on Netlify.
           </p>
-          <a href="https://shopstockk.netlify.app" target="_blank" class="project-link">Live Demo</a> |
-          <a href="https://github.com/Jawadahmad9938/ecommerce-mern-stack-semester-project" target="_blank" class="project-link">GitHub</a>
+          <a
+            href="https://shopstockk.netlify.app"
+            target="_blank"
+            class="project-link"
+            >Live Demo</a
+          >
+          |
+          <a
+            href="https://github.com/Jawadahmad9938/ecommerce-mern-stack-semester-project"
+            target="_blank"
+            class="project-link"
+            >GitHub</a
+          >
         </div>
-        
+
         <div class="project-card">
           <img src="/img/800batteries.JPG" alt="800batterie Client Project" />
           <p class="project-name">800batterie - Client Project</p>
           <p class="project-details">
-            A professional, fully responsive website developed for a UAE-based automobile battery 
-            service provider. Features a modern UI, optimized performance, and a mobile-friendly 
-            design to enhance user experience and accessibility across all devices.
+            A professional, fully responsive website developed for a UAE-based
+            automobile battery service provider. Features a modern UI, optimized
+            performance, and a mobile-friendly design to enhance user experience
+            and accessibility across all devices.
           </p>
-          <a href="https://800batterie.com" target="_blank" class="project-link">Live Demo</a> |
-          <a href="https://github.com/Jawadahmad9938/automobile-site-for-client" target="_blank" class="project-link">GitHub</a>
+          <a href="https://800batterie.com" target="_blank" class="project-link"
+            >Live Demo</a
+          >
+          |
+          <a
+            href="https://github.com/Jawadahmad9938/automobile-site-for-client"
+            target="_blank"
+            class="project-link"
+            >GitHub</a
+          >
         </div>
         <div class="project-card">
           <img src="/img/movies.JPG" alt="Movieefliixx API Project" />
           <p class="project-name">Movieefliixx - Movie Search</p>
           <p class="project-details">
-            A JavaScript-based app using a movie API for search and auto-suggest features. Hosted on Netlify.
+            A JavaScript-based app using a movie API for search and auto-suggest
+            features. Hosted on Netlify.
           </p>
-          <a href="https://movieefliixx.netlify.app" target="_blank" class="project-link">Live Demo</a> |
-          <a href="https://github.com/Jawadahmad9938/MoviesApi" target="_blank" class="project-link">GitHub</a>
+          <a
+            href="https://movieefliixx.netlify.app"
+            target="_blank"
+            class="project-link"
+            >Live Demo</a
+          >
+          |
+          <a
+            href="https://github.com/Jawadahmad9938/MoviesApi"
+            target="_blank"
+            class="project-link"
+            >GitHub</a
+          >
         </div>
         <div class="project-card">
           <img src="/img/Capture.JPG" alt="HSKhaan Portfolio" />
           <p class="project-name">HSKhaan - Portfolio Website</p>
           <p class="project-details">
-            A modern portfolio website showcasing responsive design, animations, and clean UI/UX with HTML, CSS, and JavaScript.
+            A modern portfolio website showcasing responsive design, animations,
+            and clean UI/UX with HTML, CSS, and JavaScript.
           </p>
-          <a href="https://hskhaan.netlify.app/" target="_blank" class="project-link">Live Demo</a> |
-          <a href="https://github.com/Jawadahmad9938/educationWebsite" target="_blank" class="project-link">GitHub</a>
+          <a
+            href="https://hskhaan.netlify.app/"
+            target="_blank"
+            class="project-link"
+            >Live Demo</a
+          >
+          |
+          <a
+            href="https://github.com/Jawadahmad9938/educationWebsite"
+            target="_blank"
+            class="project-link"
+            >GitHub</a
+          >
         </div>
         <div class="project-card">
           <img src="/img/blogggg.JPG" alt="Personal Blog" />
           <p class="project-name">My Personal Blog</p>
           <p class="project-details">
-            A responsive blog built with React and Tailwind CSS, featuring dynamic routing and a CMS for posts.
+            A responsive blog built with React and Tailwind CSS, featuring
+            dynamic routing and a CMS for posts.
           </p>
-          <a href="https://mypersonalblogg.netlify.app/" target="_blank" class="project-link">Live Demo</a> |
-          <a href="https://github.com/Jawadahmad9938/modernblogsite" target="_blank" class="project-link">GitHub</a>
+          <a
+            href="https://mypersonalblogg.netlify.app/"
+            target="_blank"
+            class="project-link"
+            >Live Demo</a
+          >
+          |
+          <a
+            href="https://github.com/Jawadahmad9938/modernblogsite"
+            target="_blank"
+            class="project-link"
+            >GitHub</a
+          >
         </div>
         <div class="project-card">
           <img src="/img/weather.JPG" alt="Weather App" />
           <p class="project-name">WeatherNow</p>
           <p class="project-details">
-            A JavaScript-based weather app using OpenWeather API to fetch real-time weather data for any city.
+            A JavaScript-based weather app using OpenWeather API to fetch
+            real-time weather data for any city.
           </p>
-          <a href="https://myyweatherr.netlify.app/" target="_blank" class="project-link">Live Demo</a> |
-          <a href="https://github.com/Jawadahmad9938/weatherapi" target="_blank" class="project-link">GitHub</a>
+          <a
+            href="https://myyweatherr.netlify.app/"
+            target="_blank"
+            class="project-link"
+            >Live Demo</a
+          >
+          |
+          <a
+            href="https://github.com/Jawadahmad9938/weatherapi"
+            target="_blank"
+            class="project-link"
+            >GitHub</a
+          >
         </div>
         <div class="project-card">
           <img src="/img/pass.JPG" alt="MyPassGeneratorr" />
           <p class="project-name">MyPassGeneratorr</p>
           <p class="project-details">
-            A JavaScript-based random password generator with options for numbers, special characters, and length customization.
+            A JavaScript-based random password generator with options for
+            numbers, special characters, and length customization.
           </p>
-          <a href="https://mypassgeneratorr.netlify.app/" target="_blank" class="project-link">Live Demo</a> |
-          <a href="https://github.com/Jawadahmad9938/Password-Generator-in-jS" target="_blank" class="project-link">GitHub</a>
+          <a
+            href="https://mypassgeneratorr.netlify.app/"
+            target="_blank"
+            class="project-link"
+            >Live Demo</a
+          >
+          |
+          <a
+            href="https://github.com/Jawadahmad9938/Password-Generator-in-jS"
+            target="_blank"
+            class="project-link"
+            >GitHub</a
+          >
         </div>
       </div>
     </div>
@@ -1472,18 +1800,42 @@
         I've had the privilege of working with amazing clients and companies.
       </p>
       <div class="clients-logos">
-        <div class="client-logo"><a href="https://uideck.com/"><img src="/img/uideck.svg" alt="UIDeck" /></a></div>
-        <div class="client-logo"><a href="https://tailgrids.com/"><img src="/img/tailgrids.svg" alt="TailGrids" /></a></div>
-        <div class="client-logo"><a href="https://lineicons.com/"><img src="/img/lineicons.svg" alt="LineIcons" /></a></div>
-        <div class="client-logo"><a href="https://ayroui.com/"><img src="/img/ayroui.svg" alt="AyroUI" /></a></div>
-        <div class="client-logo"><a href="https://plainadmin.com/"><img src="/img/plainadmin.svg" alt="PlainAdmin" /></a></div>
+        <div class="client-logo">
+          <a href="https://uideck.com/"
+            ><img src="/img/uideck.svg" alt="UIDeck"
+          /></a>
+        </div>
+        <div class="client-logo">
+          <a href="https://tailgrids.com/"
+            ><img src="/img/tailgrids.svg" alt="TailGrids"
+          /></a>
+        </div>
+        <div class="client-logo">
+          <a href="https://lineicons.com/"
+            ><img src="/img/lineicons.svg" alt="LineIcons"
+          /></a>
+        </div>
+        <div class="client-logo">
+          <a href="https://ayroui.com/"
+            ><img src="/img/ayroui.svg" alt="AyroUI"
+          /></a>
+        </div>
+        <div class="client-logo">
+          <a href="https://plainadmin.com/"
+            ><img src="/img/plainadmin.svg" alt="PlainAdmin"
+          /></a>
+        </div>
       </div>
       <div class="cta-section">
         <p class="cta-text">
           Want to work together and create <br />amazing products with me?
         </p>
         <div class="cta-input-group">
-          <input type="text" placeholder="Enter Your Email" class="email-input" />
+          <input
+            type="text"
+            placeholder="Enter Your Email"
+            class="email-input"
+          />
           <button class="quote-btn">Get a Quote</button>
         </div>
       </div>
@@ -1493,7 +1845,8 @@
       <p class="skills-subtitle">Education & Skills</p>
       <h1 class="skills-title">My Resume</h1>
       <p class="skills-description">
-        A summary of my education, experience, and technical skills as a frontend web developer.
+        A summary of my education, experience, and technical skills as a
+        frontend web developer.
       </p>
       <div class="resume-content">
         <div class="resume-flex">
@@ -1501,11 +1854,16 @@
             <h1 class="resume-subheading">Education</h1>
             <div class="resume-details">
               <h2 class="resume-degree">BS Computer Science</h2>
-              <p class="resume-institution">MNS University of Agriculture, Multan</p>
+              <p class="resume-institution">
+                MNS University of Agriculture, Multan
+              </p>
               <p class="resume-duration">2022 – 2026</p>
               <p class="resume-cgpa">CGPA: 3.64/4.0</p>
               <p class="resume-info">
-                Currently pursuing a Bachelor's degree in Computer Science, focusing on software development, web technologies, and problem-solving skills. Actively involved in projects that enhance my practical knowledge.
+                Currently pursuing a Bachelor's degree in Computer Science,
+                focusing on software development, web technologies, and
+                problem-solving skills. Actively involved in projects that
+                enhance my practical knowledge.
               </p>
             </div>
           </div>
@@ -1515,9 +1873,14 @@
               <h2 class="resume-degree">Frontend Developer (Freelance)</h2>
               <p class="resume-institution">Self-Employed, Remote</p>
               <p class="resume-duration">2023 – 2024</p>
-              <p class="resume-cgpa">Clients: UAE-based (800batterie.com), Personal Projects</p>
+              <p class="resume-cgpa">
+                Clients: UAE-based (800batterie.com), Personal Projects
+              </p>
               <p class="resume-info">
-                Developed responsive websites using HTML, CSS, JavaScript, and Tailwind CSS. Worked on a professional client project (800batterie.com) and multiple personal projects, including an e-commerce platform and a movie search app.
+                Developed responsive websites using HTML, CSS, JavaScript, and
+                Tailwind CSS. Worked on a professional client project
+                (800batterie.com) and multiple personal projects, including an
+                e-commerce platform and a movie search app.
               </p>
             </div>
           </div>
@@ -1528,7 +1891,7 @@
             <img src="/img/html.svg" alt="HTML Logo" class="skill-logo" />
             <p class="skill-name">HTML</p>
             <div class="progress-bar">
-              <div class="progress" style="width: 90%;"></div>
+              <div class="progress" style="width: 90%"></div>
             </div>
             <p class="skill-percentage">90%</p>
           </div>
@@ -1536,39 +1899,55 @@
             <img src="/img/css-3.svg" alt="CSS Logo" class="skill-logo" />
             <p class="skill-name">CSS</p>
             <div class="progress-bar">
-              <div class="progress" style="width: 85%;"></div>
+              <div class="progress" style="width: 85%"></div>
             </div>
             <p class="skill-percentage">85%</p>
           </div>
           <div class="skill-box">
-            <img src="/img/tailwind.svg" alt="Tailwind CSS Logo" class="skill-logo" />
+            <img
+              src="/img/tailwind.svg"
+              alt="Tailwind CSS Logo"
+              class="skill-logo"
+            />
             <p class="skill-name">Tailwind CSS</p>
             <div class="progress-bar">
-              <div class="progress" style="width: 80%;"></div>
+              <div class="progress" style="width: 80%"></div>
             </div>
             <p class="skill-percentage">80%</p>
           </div>
           <div class="skill-box">
-            <img src="/img/javascript.svg" alt="JavaScript Logo" class="skill-logo" />
+            <img
+              src="/img/javascript.svg"
+              alt="JavaScript Logo"
+              class="skill-logo"
+            />
             <p class="skill-name">JavaScript</p>
             <div class="progress-bar">
-              <div class="progress" style="width: 75%;"></div>
+              <div class="progress" style="width: 75%"></div>
             </div>
             <p class="skill-percentage">75%</p>
           </div>
           <div class="skill-box">
-            <img src="/img/node-js (1).svg" alt="Node.js Logo" class="skill-logo" />
+            <img
+              src="/img/node-js (1).svg"
+              alt="Node.js Logo"
+              class="skill-logo"
+            />
             <p class="skill-name">Node.js</p>
             <div class="progress-bar">
-              <div class="progress" style="width: 65%;"></div>
+              <div class="progress" style="width: 65%"></div>
             </div>
             <p class="skill-percentage">65%</p>
           </div>
           <div class="skill-box">
-            <img src="/img/express.svg" alt="Express.js Logo" class="skill-logo" />
+            <img
+              src="/img/express.svg"
+              alt="Express.js Logo"
+              class="skill-logo"
+            />
             <p class="skill-name">Express.js</p>
             <div class="progress-bar">
-              <div class="progress" style="width: 60%;"></div>
+              <div class="progress" style="width: 60%"></div>
             </div>
             <p class="skill-percentage">60%</p>
           </div>
@@ -1576,7 +1955,7 @@
             <img src="/img/mongodb.svg" alt="MongoDB Logo" class="skill-logo" />
             <p class="skill-name">MongoDB</p>
             <div class="progress-bar">
-              <div class="progress" style="width: 55%;"></div>
+              <div class="progress" style="width: 55%"></div>
             </div>
             <p class="skill-percentage">55%</p>
           </div>
@@ -1589,11 +1968,17 @@
       <h1 class="testimonials-title">Testimonials</h1>
       <div class="testimonials-container">
         <div class="testimonial-card">
-          <p class="testimonial-text">"Jawad delivered an amazing website for my business in the UAE. His attention to detail and responsiveness were top-notch!"</p>
+          <p class="testimonial-text">
+            "Jawad delivered an amazing website for my business in the UAE. His
+            attention to detail and responsiveness were top-notch!"
+          </p>
           <p class="testimonial-author">— Client, 800batterie.com</p>
         </div>
         <div class="testimonial-card">
-          <p class="testimonial-text">"Working with Jawad on our e-commerce project was a great experience. He's skilled and professional."</p>
+          <p class="testimonial-text">
+            "Working with Jawad on our e-commerce project was a great
+            experience. He's skilled and professional."
+          </p>
           <p class="testimonial-author">— Peer, MNS University</p>
         </div>
       </div>
@@ -1601,17 +1986,22 @@
 
     <div class="quick-contact-icons">
       <a href="tel:+923011414134" class="quick-contact-icon">
-        <img src="img/mobileicon.png" alt="Call Me">
+        <img src="img/mobileicon.png" alt="Call Me" />
       </a>
-      <a href="https://wa.me/923011414134" target="_blank" class="quick-contact-icon">
-        <img src="img/icons8-whatsapp.gif" alt="WhatsApp">
+      <a
+        href="https://wa.me/923011414134"
+        target="_blank"
+        class="quick-contact-icon"
+      >
+        <img src="img/icons8-whatsapp.gif" alt="WhatsApp" />
       </a>
     </div>
 
     <div class="contact-section" id="Contact">
       <h1 class="contact-title">Get in Touch</h1>
       <p class="contact-description">
-        I'm excited to collaborate on new projects or discuss opportunities. Reach out via email or the form below!
+        I'm excited to collaborate on new projects or discuss opportunities.
+        Reach out via email or the form below!
       </p>
       <div class="contact-content">
         <div class="contact-info">
@@ -1631,21 +2021,45 @@
       </div>
       <div class="social-links">
         <a href="https://facebook.com/yourprofile" target="_blank">
-          <img src="/img/facebook-logo-1-2.png" alt="Facebook" class="footer-icon" />
+          <img
+            src="/img/facebook-logo-1-2.png"
+            alt="Facebook"
+            class="footer-icon"
+          />
         </a>
         <a href="https://x.com/yourprofile" target="_blank">
-          <img src="/img/free-twitter-logo-icon-2429-thumb.png" alt="X" class="footer-icon" />
+          <img
+            src="/img/free-twitter-logo-icon-2429-thumb.png"
+            alt="X"
+            class="footer-icon"
+          />
         </a>
         <a href="https://linkedin.com/in/yourprofile" target="_blank">
-          <img src="/img/linkedin-icon-logo-png-transparent.png" alt="LinkedIn" class="footer-icon" />
+          <img
+            src="/img/linkedin-icon-logo-png-transparent.png"
+            alt="LinkedIn"
+            class="footer-icon"
+          />
         </a>
       </div>
       <p class="footer-text">All rights reserved by © Jawad Ahmad Creation.</p>
     </div>
 
     <button id="back-to-top" class="back-to-top-btn">
-      <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-        <path d="M12 4L12 20M12 4L6 10M12 4L18 10" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+      <svg
+        width="24"
+        height="24"
+        viewBox="0 0 24 24"
+        fill="none"
+        xmlns="http://www.w3.org/2000/svg"
+      >
+        <path
+          d="M12 4L12 20M12 4L6 10M12 4L18 10"
+          stroke="currentColor"
+          stroke-width="2"
+          stroke-linecap="round"
+          stroke-linejoin="round"
+        />
       </svg>
     </button>
 
@@ -1654,66 +2068,88 @@
     <script>
       // Three.js initialization for main background
       function initThreeJS() {
-        const container = document.getElementById('threejs-container');
+        const container = document.getElementById("threejs-container");
         const scene = new THREE.Scene();
-        const camera = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 0.1, 1000);
-        const renderer = new THREE.WebGLRenderer({ alpha: true, antialias: true });
-        
+        const camera = new THREE.PerspectiveCamera(
+          75,
+          window.innerWidth / window.innerHeight,
+          0.1,
+          1000
+        );
+        const renderer = new THREE.WebGLRenderer({
+          alpha: true,
+          antialias: true,
+        });
+
         renderer.setSize(window.innerWidth, window.innerHeight);
         container.appendChild(renderer.domElement);
-        
+
         // Enhanced Particles
         const particlesGeometry = new THREE.BufferGeometry();
         const particleCount = 2000;
-        
+
         const posArray = new Float32Array(particleCount * 3);
         const colors = new Float32Array(particleCount * 3);
-        
-        for(let i = 0; i < particleCount * 3; i += 3) {
+
+        for (let i = 0; i < particleCount * 3; i += 3) {
           posArray[i] = (Math.random() - 0.5) * 15;
           posArray[i + 1] = (Math.random() - 0.5) * 15;
           posArray[i + 2] = (Math.random() - 0.5) * 15;
-          
-          const color = new THREE.Color(Math.random() * 0.5 + 0.5, Math.random() * 0.5, Math.random() * 0.5);
+
+          const color = new THREE.Color(
+            Math.random() * 0.5 + 0.5,
+            Math.random() * 0.5,
+            Math.random() * 0.5
+          );
           colors[i] = color.r;
           colors[i + 1] = color.g;
           colors[i + 2] = color.b;
         }
-        
-        particlesGeometry.setAttribute('position', new THREE.BufferAttribute(posArray, 3));
-        particlesGeometry.setAttribute('color', new THREE.BufferAttribute(colors, 3));
-        
+
+        particlesGeometry.setAttribute(
+          "position",
+          new THREE.BufferAttribute(posArray, 3)
+        );
+        particlesGeometry.setAttribute(
+          "color",
+          new THREE.BufferAttribute(colors, 3)
+        );
+
         const particlesMaterial = new THREE.PointsMaterial({
           size: 0.03,
           vertexColors: true,
           transparent: true,
           opacity: 0.6,
-          blending: THREE.AdditiveBlending
+          blending: THREE.AdditiveBlending,
         });
-        
-        const particlesMesh = new THREE.Points(particlesGeometry, particlesMaterial);
+
+        const particlesMesh = new THREE.Points(
+          particlesGeometry,
+          particlesMaterial
+        );
         scene.add(particlesMesh);
-        
+
         camera.position.z = 5;
-        
+
         function animate() {
           requestAnimationFrame(animate);
           particlesMesh.rotation.x += 0.0003;
           particlesMesh.rotation.y += 0.0003;
           particlesMesh.rotation.z += 0.0002;
-          
+
           const positions = particlesGeometry.attributes.position.array;
-          for(let i = 0; i < particleCount * 3; i += 3) {
-            positions[i + 1] += Math.sin(Date.now() * 0.001 + positions[i]) * 0.005;
+          for (let i = 0; i < particleCount * 3; i += 3) {
+            positions[i + 1] +=
+              Math.sin(Date.now() * 0.001 + positions[i]) * 0.005;
           }
           particlesGeometry.attributes.position.needsUpdate = true;
-          
+
           renderer.render(scene, camera);
         }
-        
+
         animate();
-        
-        window.addEventListener('resize', () => {
+
+        window.addEventListener("resize", () => {
           camera.aspect = window.innerWidth / window.innerHeight;
           camera.updateProjectionMatrix();
           renderer.setSize(window.innerWidth, window.innerHeight);
@@ -1722,26 +2158,34 @@
 
       // Three.js initialization for hero section
       function initHeroThreeJS() {
-        const container = document.getElementById('hero-threejs-container');
+        const container = document.getElementById("hero-threejs-container");
         const scene = new THREE.Scene();
-        const camera = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 0.1, 1000);
-        const renderer = new THREE.WebGLRenderer({ alpha: true, antialias: true });
-        
+        const camera = new THREE.PerspectiveCamera(
+          75,
+          window.innerWidth / window.innerHeight,
+          0.1,
+          1000
+        );
+        const renderer = new THREE.WebGLRenderer({
+          alpha: true,
+          antialias: true,
+        });
+
         renderer.setSize(window.innerWidth, window.innerHeight);
         container.appendChild(renderer.domElement);
-        
+
         // Enhanced Particles for Hero Section
         const particlesGeometry = new THREE.BufferGeometry();
         const particleCount = 1000; // Slightly fewer particles for performance
-        
+
         const posArray = new Float32Array(particleCount * 3);
         const colors = new Float32Array(particleCount * 3);
-        
-        for(let i = 0; i < particleCount * 3; i += 3) {
+
+        for (let i = 0; i < particleCount * 3; i += 3) {
           posArray[i] = (Math.random() - 0.5) * 10;
           posArray[i + 1] = (Math.random() - 0.5) * 10;
           posArray[i + 2] = (Math.random() - 0.5) * 10;
-          
+
           const color = new THREE.Color(
             Math.random() * 0.3 + 0.7, // Slightly brighter for hero section
             Math.random() * 0.3,
@@ -1751,159 +2195,182 @@
           colors[i + 1] = color.g;
           colors[i + 2] = color.b;
         }
-        
-        particlesGeometry.setAttribute('position', new THREE.BufferAttribute(posArray, 3));
-        particlesGeometry.setAttribute('color', new THREE.BufferAttribute(colors, 3));
-        
+
+        particlesGeometry.setAttribute(
+          "position",
+          new THREE.BufferAttribute(posArray, 3)
+        );
+        particlesGeometry.setAttribute(
+          "color",
+          new THREE.BufferAttribute(colors, 3)
+        );
+
         const particlesMaterial = new THREE.PointsMaterial({
           size: 0.02,
           vertexColors: true,
           transparent: true,
           opacity: 0.5,
-          blending: THREE.AdditiveBlending
+          blending: THREE.AdditiveBlending,
         });
-        
-        const particlesMesh = new THREE.Points(particlesGeometry, particlesMaterial);
+
+        const particlesMesh = new THREE.Points(
+          particlesGeometry,
+          particlesMaterial
+        );
         scene.add(particlesMesh);
-        
+
         camera.position.z = 4;
-        
+
         function animate() {
           requestAnimationFrame(animate);
           particlesMesh.rotation.x += 0.0002;
           particlesMesh.rotation.y += 0.0002;
           particlesMesh.rotation.z += 0.0001;
-          
+
           const positions = particlesGeometry.attributes.position.array;
-          for(let i = 0; i < particleCount * 3; i += 3) {
-            positions[i + 1] += Math.sin(Date.now() * 0.0008 + positions[i]) * 0.003;
+          for (let i = 0; i < particleCount * 3; i += 3) {
+            positions[i + 1] +=
+              Math.sin(Date.now() * 0.0008 + positions[i]) * 0.003;
           }
           particlesGeometry.attributes.position.needsUpdate = true;
-          
+
           renderer.render(scene, camera);
         }
-        
+
         animate();
-        
-        window.addEventListener('resize', () => {
+
+        window.addEventListener("resize", () => {
           camera.aspect = window.innerWidth / window.innerHeight;
           camera.updateProjectionMatrix();
           renderer.setSize(window.innerWidth, window.innerHeight);
         });
       }
-      
+
       // Floating Icons Initialization
       function initFloatingIcons() {
-        const container = document.getElementById('floating-icons');
+        const container = document.getElementById("floating-icons");
         const icons = [
-          '/img/html.svg',
-          '/img/css-3.svg',
-          '/img/javascript.svg',
-          '/img/tailwind.svg',
-          '/img/node-js (1).svg'
+          "/img/html.svg",
+          "/img/css-3.svg",
+          "/img/javascript.svg",
+          "/img/tailwind.svg",
+          "/img/node-js (1).svg",
         ];
-        
-        for(let i = 0; i < 20; i++) {
-          const icon = document.createElement('img');
+
+        for (let i = 0; i < 20; i++) {
+          const icon = document.createElement("img");
           icon.src = icons[Math.floor(Math.random() * icons.length)];
-          icon.className = 'floating-icon';
+          icon.className = "floating-icon";
           icon.style.left = `${Math.random() * 100}%`;
           icon.style.top = `${Math.random() * 100}%`;
           icon.style.animationDelay = `${Math.random() * 5}s`;
           container.appendChild(icon);
-          
-          icon.addEventListener('click', () => {
-            icon.style.animation = 'clickPulse 0.3s ease';
+
+          icon.addEventListener("click", () => {
+            icon.style.animation = "clickPulse 0.3s ease";
             setTimeout(() => {
-              icon.style.animation = 'floatIcon 10s infinite ease-in-out';
+              icon.style.animation = "floatIcon 10s infinite ease-in-out";
             }, 300);
           });
         }
       }
-      
+
       // Mobile menu toggle
-      const menuButton = document.getElementById('menu-button');
-      const mobileMenu = document.getElementById('mobile-menu');
-      menuButton.addEventListener('click', () => {
-        mobileMenu.classList.toggle('active');
-        menuButton.classList.toggle('active');
+      const menuButton = document.getElementById("menu-button");
+      const mobileMenu = document.getElementById("mobile-menu");
+      menuButton.addEventListener("click", () => {
+        mobileMenu.classList.toggle("active");
+        menuButton.classList.toggle("active");
       });
-      
-      document.querySelectorAll('.mobile-nav-menu a').forEach(link => {
-        link.addEventListener('click', () => {
-          mobileMenu.classList.remove('active');
+
+      document.querySelectorAll(".mobile-nav-menu a").forEach((link) => {
+        link.addEventListener("click", () => {
+          mobileMenu.classList.remove("active");
         });
       });
-      
+
       // Back to top button
-      const backToTopBtn = document.getElementById('back-to-top');
-      window.addEventListener('scroll', () => {
+      const backToTopBtn = document.getElementById("back-to-top");
+      window.addEventListener("scroll", () => {
         if (window.scrollY > 300) {
-          backToTopBtn.classList.add('show');
+          backToTopBtn.classList.add("show");
         } else {
-          backToTopBtn.classList.remove('show');
+          backToTopBtn.classList.remove("show");
         }
       });
-      
-      backToTopBtn.addEventListener('click', () => {
-        window.scrollTo({ top: 0, behavior: 'smooth' });
+
+      backToTopBtn.addEventListener("click", () => {
+        window.scrollTo({ top: 0, behavior: "smooth" });
       });
-      
+
       // Dark/Light mode toggle
-      const themeToggleBtn = document.getElementById('theme-toggle-btn');
-      themeToggleBtn.addEventListener('click', () => {
-        document.body.classList.toggle('light-mode');
-        localStorage.setItem('theme', document.body.classList.contains('light-mode') ? 'light' : 'dark');
+      const themeToggleBtn = document.getElementById("theme-toggle-btn");
+      themeToggleBtn.addEventListener("click", () => {
+        document.body.classList.toggle("light-mode");
+        localStorage.setItem(
+          "theme",
+          document.body.classList.contains("light-mode") ? "light" : "dark"
+        );
       });
-      
-      if (localStorage.getItem('theme') === 'light') {
-        document.body.classList.add('light-mode');
+
+      if (localStorage.getItem("theme") === "light") {
+        document.body.classList.add("light-mode");
       }
-      
-      document.addEventListener('DOMContentLoaded', () => {
+
+      document.addEventListener("DOMContentLoaded", () => {
         initThreeJS();
         initHeroThreeJS();
         initFloatingIcons();
-        
-        document.querySelectorAll('.service-card').forEach((card, index) => {
+
+        document.querySelectorAll(".service-card").forEach((card, index) => {
           card.style.animationDelay = `${index * 0.1}s`;
-          card.classList.add('animate__animated', 'animate__fadeInUp');
+          card.classList.add("animate__animated", "animate__fadeInUp");
         });
-        
-        document.querySelectorAll('.project-card').forEach((card, index) => {
+
+        document.querySelectorAll(".project-card").forEach((card, index) => {
           card.style.animationDelay = `${index * 0.15}s`;
-          card.classList.add('animate__animated', 'animate__fadeInUp');
+          card.classList.add("animate__animated", "animate__fadeInUp");
         });
-        
+
         // 3D hover effect for project cards
-        document.querySelectorAll('.project-card').forEach(card => {
-          card.addEventListener('mousemove', (e) => {
+        document.querySelectorAll(".project-card").forEach((card) => {
+          card.addEventListener("mousemove", (e) => {
             card.style.transform = `translateY(-10px) scale(1.05)`;
           });
-          
-          card.addEventListener('mouseenter', () => {
-            card.style.transition = 'none';
+
+          card.addEventListener("mouseenter", () => {
+            card.style.transition = "none";
           });
-          
-          card.addEventListener('mouseleave', () => {
-            card.style.transition = 'all 0.5s ease';
-            card.style.transform = 'translateY(0) scale(1)';
+
+          card.addEventListener("mouseleave", () => {
+            card.style.transition = "all 0.5s ease";
+            card.style.transform = "translateY(0) scale(1)";
           });
         });
       });
-      
-      const observer = new IntersectionObserver((entries) => {
-        entries.forEach(entry => {
-          if (entry.isIntersecting) {
-            entry.target.classList.add('animate__animated', 'animate__fadeInUp');
-            observer.unobserve(entry.target);
-          }
+
+      const observer = new IntersectionObserver(
+        (entries) => {
+          entries.forEach((entry) => {
+            if (entry.isIntersecting) {
+              entry.target.classList.add(
+                "animate__animated",
+                "animate__fadeInUp"
+              );
+              observer.unobserve(entry.target);
+            }
+          });
+        },
+        { threshold: 0.1 }
+      );
+
+      document
+        .querySelectorAll(
+          ".about-section, .services-section, .projects-section, .clients-section, .skills-section, .testimonials-section, .contact-section"
+        )
+        .forEach((section) => {
+          observer.observe(section);
         });
-      }, { threshold: 0.1 });
-      
-      document.querySelectorAll('.about-section, .services-section, .projects-section, .clients-section, .skills-section, .testimonials-section, .contact-section').forEach(section => {
-        observer.observe(section);
-      });
     </script>
   </body>
 </html>
