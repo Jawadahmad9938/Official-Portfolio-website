@@ -5,6 +5,33 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta
       name="description"
+      content="Portfolio of Jawad Ahmad, a full stack developer in Pakistan skilled in MERN stack, HTML, CSS, JavaScript, Node.js, Express, MongoDB. Hire me for web development in Multan, Punjab."
+    />
+    <meta
+      name="keywords"
+      content="full stack developer Pakistan, MERN stack developer in Pakistan, hire full stack developer Multan, Jawad Ahmad full stack, web developer Pakistan, frontend developer Punjab"
+    />
+    <meta
+      name="google-site-verification"
+      content="qKESQtyOFuGC6aDczLrSDiSVjJYUPIn3g_5YadxPHjQ"
+    />
+    <meta
+      property="og:title"
+      content="Jawad Ahmad - Full Stack Developer Portfolio | Pakistan"
+    />
+    <meta
+      property="og:description"
+      content="Experienced full stack developer in Pakistan offering MERN stack solutions, web design, and more. Based in Multan."
+    />
+    <meta property="og:image" content="/img/jawad2-removebg-preview3.png" />
+    <meta property="og:url" content="https://jawadahmad.me/" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta
+      name="description"
+      content="Jawad Ahmad - Full Stack Developer from Multan, Pakistan. Specializing in MERN stack, React.js, Node.js, and MongoDB. Building scalable web applications for clients worldwide."
+    />
+    <meta
+      name="description"
       content="Portfolio of Jawad Ahmad, a frontend web developer skilled in HTML, CSS, JavaScript, and Tailwind CSS."
     />
     <meta
@@ -28,7 +55,72 @@
       href="/img/jawad2-removebg-preview3.png"
       type="image/x-icon"
     />
-    <title>Jawad Ahmad Portfolio</title>
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "Person",
+        "name": "Jawad Ahmad",
+        "jobTitle": "Full Stack Developer",
+        "url": "https://jawadahmad.me/",
+        "address": {
+          "@type": "PostalAddress",
+          "addressLocality": "Multan",
+          "addressRegion": "Punjab",
+          "addressCountry": "Pakistan"
+        },
+        "sameAs": [
+          "https://www.linkedin.com/in/jawad-ahmad-9938938484djf",
+          "https://www.facebook.com/jawad.ahmed.961811",
+          "https://x.com/yourprofile"
+        ]
+      }
+    </script>
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "LocalBusiness",
+        "name": "Jawad Ahmad Web Development",
+        "address": {
+          "@type": "PostalAddress",
+          "streetAddress": "Multan",
+          "addressLocality": "Multan",
+          "addressRegion": "Punjab",
+          "postalCode": "60000",
+          "addressCountry": "PK"
+        },
+        "telephone": "+923011414134",
+        "email": "jawadahmad9938@gmail.com",
+        "url": "https://jawadahmad.me/",
+        "description": "Full stack web development services in Pakistan, specializing in MERN stack and responsive design."
+      }
+    </script>
+    <!-- Google tag (gtag.js) -->
+    <script
+      async
+      src="https://www.googletagmanager.com/gtag/js?id=GA_MEASUREMENT_ID"
+    ></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag() {
+        dataLayer.push(arguments);
+      }
+      gtag("js", new Date());
+      gtag("config", "GA_MEASUREMENT_ID");
+    </script>
+    <title>Jawad Ahmad|Portfolio</title>
+    <title>
+      Jawad Ahmad | Full Stack Developer from Multan, Pakistan | MERN Expert
+    </title>
+    <title>
+      About Jawad Ahmad | Full Stack Developer from Pakistan | Skills &
+      Experience
+    </title>
+    <title>
+      Jawad Ahmad's Projects | Full Stack Web Development Portfolio | Pakistan
+    </title>
+    <title>
+      Contact Jawad Ahmad | Full Stack Developer in Multan, Pakistan
+    </title>
     <style>
       :root {
         --bg-color: #0a0a0a;
@@ -39,6 +131,9 @@
         --card-bg: #1a1a1a;
         --nav-bg: rgb(26 60 110);
         --shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
+        --primary-color: #2563eb;
+        --secondary-color: #1e3a8a;
+        --accent-color: #38bdf8;
       }
 
       body.light-mode {
@@ -291,277 +386,332 @@
       }
 
       /* === Hero Section (Desktop) === */
-.home-section {
-  min-height: 85vh;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  padding: 6rem 5%;
-  background: linear-gradient(
-    135deg,
-    var(--primary-color) 0%,
-    var(--secondary-color) 50%,
-    #0a0a0a 100%
-  );
-  position: relative;
-  overflow: hidden;
-  animation: gradientShift 12s ease-in-out infinite;
-  transition: transform 0.3s ease;
-  margin-top: 20px;
-}
+      .home-section {
+        min-height: 90vh;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        padding: 5rem 5%;
+        background: linear-gradient(
+          135deg,
+          var(--primary-color) 0%,
+          var(--secondary-color) 40%,
+          rgba(10, 10, 10, 0.9) 100%
+        );
+        position: relative;
+        overflow: hidden;
+        margin-top: 80px; /* offset for navbar */
+        transition: transform 0.3s ease;
+      }
 
-.home-section:hover {
-  transform: scale(1.01);
-}
+      .home-section:hover {
+        transform: scale(1.003); /* subtle hover depth */
+      }
 
-.hero-content {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  width: 100%;
-  max-width: 1150px;
-  gap: 4rem;
-}
+      .hero-content {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        max-width: 1200px;
+        width: 100%;
+        gap: 3rem;
+        z-index: 1;
+      }
 
-.left-content {
-  max-width: 600px;
-  position: relative;
-  z-index: 1;
-  padding-right: 1rem;
-}
+      /* === Left Section === */
+      .left-content {
+        max-width: 650px;
+        padding-right: 2rem;
+        z-index: 1;
+      }
 
-.intro {
-  font-size: 1.25rem;
-  margin-bottom: 1.2rem;
-  color: rgba(255, 255, 255, 0.95);
-  animation: slideInLeft 1s ease-out;
-}
+      .intro {
+        font-size: 1.4rem;
+        font-weight: 500;
+        margin-bottom: 1rem;
+        color: rgba(255, 255, 255, 0.95);
+        animation: slideInLeft 1s ease-out;
+      }
 
-.name {
-  font-size: 3.5rem;
-  margin-bottom: 0.8rem;
-  color: white;
-  display: inline-block;
-  overflow: hidden;
-  white-space: nowrap;
-  animation: typewriter 3s steps(40, end);
-}
+      .name {
+        font-size: 4rem;
+        font-weight: 800;
+        margin-bottom: 0.5rem;
+        letter-spacing: -0.02em;
+        color: #fff;
+        animation: fadeInUp 1s ease-out;
+      }
 
-.title {
-  font-size: 1.5rem;
-  margin-bottom: 1.8rem;
-  color: rgba(255, 255, 255, 0.9);
-  animation: fadeInUp 1s ease-out 0.5s;
-  animation-fill-mode: both;
-}
+      .title {
+        font-size: 1.8rem;
+        font-weight: 600;
+        margin-bottom: 1rem;
+        color: rgba(255, 255, 255, 0.9);
+        animation: fadeInUp 1s ease-out 0.2s;
+        animation-fill-mode: both;
+      }
 
-.description {
-  margin-bottom: 2.5rem;
-  color: rgba(255, 255, 255, 0.85);
-  line-height: 1.6;
-  animation: fadeInUp 1s ease-out 0.7s;
-  animation-fill-mode: both;
-}
+      .subheading {
+        font-size: 1.3rem;
+        margin-bottom: 1.5rem;
+        color: var(--accent-color);
+        font-weight: 500;
+        animation: fadeInUp 1s ease-out 0.4s;
+        animation-fill-mode: both;
+      }
 
-.button-group {
-  display: flex;
-  gap: 1.5rem;
-  animation: fadeInUp 1s ease-out 0.9s;
-  animation-fill-mode: both;
-}
+      .description {
+        font-size: 1.1rem;
+        line-height: 1.7;
+        margin-bottom: 2rem;
+        color: rgba(255, 255, 255, 0.9);
+        animation: fadeInUp 1s ease-out 0.6s;
+        animation-fill-mode: both;
+      }
 
-.contact-btn,
-.projects-btn {
-  padding: 0.9rem 1.8rem;
-  border-radius: 8px;
-  font-weight: 600;
-  cursor: pointer;
-  transition: all 0.3s ease;
-  position: relative;
-  overflow: hidden;
-}
+      /* === Buttons === */
+      .button-group {
+        display: flex;
+        gap: 1.5rem;
+        animation: fadeInUp 1s ease-out 0.8s;
+        animation-fill-mode: both;
+      }
 
-.contact-btn {
-  background-color: white;
-  color: var(--primary-color);
-  border: none;
-}
+      .contact-btn,
+      .projects-btn {
+        display: flex;
+        align-items: center;
+        gap: 0.5rem;
+        padding: 1rem 2rem;
+        border-radius: 50px;
+        font-weight: 600;
+        font-size: 1rem;
+        cursor: pointer;
+        transition: all 0.3s ease;
+        position: relative;
+        overflow: hidden;
+        text-transform: uppercase;
+        letter-spacing: 0.05em;
+      }
 
-.projects-btn {
-  background-color: transparent;
-  color: white;
-  border: 2px solid white;
-}
+      .contact-btn {
+        background-color: var(--accent-color);
+        color: white;
+        border: none;
+        box-shadow: 0 4px 12px rgba(56, 189, 248, 0.35);
+      }
 
-.contact-btn:hover,
-.projects-btn:hover {
-  transform: translateY(-2px) scale(1.04);
-}
+      .projects-btn {
+        background-color: transparent;
+        color: white;
+        border: 2px solid var(--primary-color);
+        box-shadow: 0 4px 12px rgba(37, 99, 235, 0.35);
+      }
 
-.contact-btn:active,
-.projects-btn:active {
-  animation: clickPulse 0.3s ease;
-}
+      .contact-btn:hover,
+      .projects-btn:hover {
+        transform: translateY(-3px) scale(1.05);
+        box-shadow: 0 6px 20px rgba(0, 0, 0, 0.35);
+      }
 
-.contact-btn::after,
-.projects-btn::after {
-  content: "";
-  position: absolute;
-  top: 0;
-  left: -100%;
-  width: 100%;
-  height: 100%;
-  background: linear-gradient(
-    90deg,
-    transparent,
-    rgba(255, 255, 255, 0.2),
-    transparent
-  );
-  transition: all 0.5s ease;
-}
+      .contact-btn::after,
+      .projects-btn::after {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: -100%;
+        width: 100%;
+        height: 100%;
+        background: linear-gradient(
+          90deg,
+          transparent,
+          rgba(255, 255, 255, 0.25),
+          transparent
+        );
+        transition: all 0.4s ease;
+      }
 
-.contact-btn:hover::after,
-.projects-btn:hover::after {
-  left: 100%;
-}
+      .contact-btn:hover::after,
+      .projects-btn:hover::after {
+        left: 100%;
+      }
 
-.right-image {
-  flex-shrink: 0;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  padding: 1rem;
-}
+      .btn-icon {
+        width: 20px;
+        height: 20px;
+      }
 
-.right-image img {
-  width: 220px;
-  height: 220px;
-  border-radius: 50%;
-  object-fit: cover;
-  object-position: center top;
-  border: 4px solid rgba(255, 255, 255, 0.2);
-  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.35);
-  animation: zoomIn 1s ease-out;
-}
+      .social-proof {
+        font-size: 0.95rem;
+        color: rgba(255, 255, 255, 0.8);
+        margin-top: 1.5rem;
+        animation: fadeInUp 1s ease-out 1s;
+        animation-fill-mode: both;
+      }
 
-/* === Responsive Fixes === */
-@media (max-width: 992px) {
-  .hero-content {
-    flex-direction: column; /* Stack content */
-    text-align: center;
-    gap: 2rem;
-  }
+      /* === Right Image === */
+      .right-image {
+        flex-shrink: 0;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        padding: 1.5rem;
+      }
 
-  .left-content {
-    max-width: 100%;
-    padding-right: 0;
-  }
+      .right-image img {
+        width: 280px;
+        height: 280px;
+        border-radius: 50%;
+        object-fit: cover;
+        object-position: center top;
+        border: 5px solid var(--primary-color);
+        box-shadow: 0 8px 24px rgba(0, 0, 0, 0.4);
+        transition: transform 0.3s ease, box-shadow 0.3s ease;
+      }
 
-  .name {
-    font-size: 2.5rem; /* Adjust heading size */
-  }
+      .right-image img:hover {
+        transform: scale(1.05);
+        box-shadow: 0 12px 30px rgba(0, 0, 0, 0.5);
+      }
 
-  .title {
-    font-size: 1.3rem;
-  }
+      /* === Responsive Fixes === */
+      @media (max-width: 992px) {
+        .hero-content {
+          flex-direction: column;
+          text-align: center;
+          gap: 2.5rem;
+        }
 
-  .description {
-    font-size: 1rem;
-  }
+        .left-content {
+          max-width: 100%;
+          padding: 0 1rem;
+        }
 
-  .button-group {
-    justify-content: center; /* Center buttons */
-    flex-wrap: wrap;
-    gap: 1rem;
-  }
+        .name {
+          font-size: 3rem;
+        }
+        .title {
+          font-size: 1.5rem;
+        }
+        .subheading {
+          font-size: 1.2rem;
+        }
+        .description {
+          font-size: 1rem;
+        }
 
-  .contact-btn,
-  .projects-btn {
-    width: 100%;
-  }
+        .contact-btn,
+        .projects-btn {
+          width: 100%;
+          max-width: 300px;
+        }
 
-  .right-image img {
-    width: 180px;
-    height: 180px;
-  }
-}
+        .right-image img {
+          width: 200px;
+          height: 200px;
+        }
+      }
 
-@media (max-width: 600px) {
-  .home-section {
-    padding: 4rem 1.5rem;
-  }
+      @media (max-width: 600px) {
+        .home-section {
+          padding: 4rem 1.5rem;
+          min-height: 80vh;
+        }
 
-  .name {
-    font-size: 2rem;
-  }
+        .name {
+          font-size: 2.5rem;
+        }
+        .intro {
+          font-size: 1.2rem;
+        }
+        .title {
+          font-size: 1.3rem;
+        }
+        .subheading {
+          font-size: 1.1rem;
+        }
+        .description {
+          font-size: 0.95rem;
+          line-height: 1.5;
+        }
 
-  .intro {
-    font-size: 1rem;
-  }
+        .right-image img {
+          width: 160px;
+          height: 160px;
+        }
+      }
 
-  .title {
-    font-size: 1.1rem;
-  }
+      @media (max-width: 390px) {
+        .home-section {
+          padding: 3rem 1rem;
+        }
+        .hero-content {
+          gap: 1.5rem;
+        }
 
-  .description {
-    font-size: 0.95rem;
-  }
+        .name {
+          font-size: 2rem;
+          word-break: break-word;
+        }
+        .intro {
+          font-size: 1rem;
+        }
+        .title {
+          font-size: 1.2rem;
+        }
+        .subheading {
+          font-size: 1rem;
+        }
+        .description {
+          font-size: 0.9rem;
+          line-height: 1.4;
+        }
 
-  .right-image img {
-    width: 150px;
-    height: 150px;
-  }
-}
-@media (max-width: 390px) {
-  .home-section {
-    padding: 3rem 1rem; /* tighter padding */
-  }
+        .button-group {
+          flex-direction: column;
+          gap: 0.8rem;
+        }
 
-  .hero-content {
-    gap: 1.2rem; /* reduce gap */
-  }
+        .right-image img {
+          width: 140px;
+          height: 140px;
+        }
+      }
 
-  .left-content {
-    padding-right: 0;
-    text-align: center;
-  }
+      /* Animations */
+      @keyframes slideInLeft {
+        from {
+          opacity: 0;
+          transform: translateX(-50px);
+        }
+        to {
+          opacity: 1;
+          transform: translateX(0);
+        }
+      }
 
-  .intro {
-    font-size: 0.9rem;
-  }
+      @keyframes fadeInUp {
+        from {
+          opacity: 0;
+          transform: translateY(20px);
+        }
+        to {
+          opacity: 1;
+          transform: translateY(0);
+        }
+      }
 
-  .name {
-    font-size: 1.6rem;
-    white-space: normal; /* ✅ allow wrapping on very small screens */
-    word-break: break-word;
-  }
-
-  .title {
-    font-size: 1rem;
-  }
-
-  .description {
-    font-size: 0.85rem;
-    line-height: 1.4;
-  }
-
-  .button-group {
-    flex-direction: column; /* stack buttons vertically */
-    gap: 0.8rem;
-  }
-
-  .contact-btn,
-  .projects-btn {
-    width: 100%;
-    max-width: 240px; /* keep buttons compact */
-    margin: 0 auto;
-  }
-
-  .right-image img {
-    width: 120px;
-    height: 120px;
-  }
-}
+      @keyframes clickPulse {
+        0% {
+          transform: scale(1);
+        }
+        50% {
+          transform: scale(0.95);
+        }
+        100% {
+          transform: scale(1);
+        }
+      }
 
       /* About Section */
       .about-section {
@@ -1501,31 +1651,68 @@
 
     <section class="home-section" id="Home">
       <div id="hero-threejs-container" class="hero-threejs-container"></div>
-      <div class="left-content">
-        <p class="intro">Hey There 👋 I am</p>
-        <h1 class="name">Jawad Ahmad</h1>
-        <p class="title">Full-Stack Web Developer</p>
-        <p class="description">
-          Full Stack Developer with a passion for building responsive and
-          scalable web applications. Experienced in both frontend and backend
-          technologies including HTML, CSS, JavaScript, Node.js, Express, SQL
-          and MongoDB, with a track record of delivering projects for
-          international clients.
-        </p>
-        <div class="button-group">
-          <button class="contact-btn">
-            <a href="#Contact">Contact Me</a>
-          </button>
-          <button class="projects-btn">
-            <a href="#Projects">View Projects</a>
-          </button>
+      <div class="hero-content">
+        <div class="left-content">
+          <p class="intro animate__animated animate__fadeIn">
+            Hey There 👋 I am
+          </p>
+          <h1 class="name animate__animated animate__fadeInUp">Jawad Ahmad</h1>
+          <h2 class="title animate__animated animate__fadeInUp">
+            Full-Stack Web Developer
+          </h2>
+          <p class="subheading animate__animated animate__fadeInUp">
+            Crafting Scalable Web Solutions in Pakistan
+          </p>
+          <p class="description animate__animated animate__fadeInUp">
+            Full Stack Developer in Pakistan specializing in MERN stack, HTML,
+            CSS, JavaScript, Node.js, Express, SQL, and MongoDB. Trusted by
+            international clients, including UAE-based businesses, for
+            delivering responsive and scalable web applications.
+          </p>
+          <div class="button-group animate__animated animate__fadeInUp">
+            <a href="#Contact" class="contact-btn">
+              <svg
+                class="btn-icon"
+                width="20"
+                height="20"
+                viewBox="0 0 24 24"
+                fill="none"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  d="M21 4H3C1.9 4 1 4.9 1 6V18C1 19.1 1.9 20 3 20H21C22.1 20 23 19.1 23 18V6C23 4.9 22.1 4 21 4ZM21 6V18H3V6H21ZM4 8H20L12 13L4 8ZM4 16V10L12 15L20 10V16H4Z"
+                  fill="currentColor"
+                />
+              </svg>
+              Contact Me
+            </a>
+            <a href="#Projects" class="projects-btn">
+              <svg
+                class="btn-icon"
+                width="20"
+                height="20"
+                viewBox="0 0 24 24"
+                fill="none"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  d="M19 3H5C3.9 3 3 3.9 3 5V19C3 20.1 3.9 21 5 21H19C20.1 21 21 20.1 21 19V5C21 3.9 20.1 3 19 3ZM19 19H5V5H19V19ZM7 10H17V12H7V10ZM7 14H17V16H7V14Z"
+                  fill="currentColor"
+                />
+              </svg>
+              View Projects
+            </a>
+          </div>
+          <p class="social-proof animate__animated animate__fadeInUp">
+            Trusted by clients in UAE and Pakistan for scalable web solutions
+          </p>
         </div>
-      </div>
-      <div class="right-image">
-        <img
-          src="/img/jawad2-removebg-preview3.png"
-          alt="Jawad Ahmad Portrait"
-        />
+        <div class="right-image animate__animated animate__zoomIn">
+          <img
+            src="/img/jawad2-removebg-preview3.png"
+            alt="Jawad Ahmad, Full Stack Developer in Pakistan Portrait"
+          />
+        </div>
       </div>
     </section>
 
@@ -1557,7 +1744,10 @@
           <a href="https://x.com/yourprofile" target="_blank">
             <img src="/img/free-twitter-logo-icon-2429-thumb.png" alt="X" />
           </a>
-          <a href="www.linkedin.com/in/jawad-ahmad-9938938484djf" target="_blank">
+          <a
+            href="www.linkedin.com/in/jawad-ahmad-9938938484djf"
+            target="_blank"
+          >
             <img
               src="/img/linkedin-icon-logo-png-transparent.png"
               alt="LinkedIn"
@@ -1830,13 +2020,20 @@
         <p class="cta-text">
           Want to work together and create <br />amazing products with me?
         </p>
-        <div class="cta-input-group">
-          <input
-            type="text"
-            placeholder="Enter Your Email"
-            class="email-input"
-          />
-          <button class="quote-btn">Get a Quote</button>
+        <form
+        action="https://formspree.io/f/xeolvgya"
+        method="POST"
+        class="cta-input-group"
+      >
+        <input
+          type="email"
+          name="email"
+          placeholder="Enter Your Email"
+          class="email-input"
+          required
+        />
+        <button type="submit" class="quote-btn">Get a Quote</button>
+      </form>
         </div>
       </div>
     </div>
@@ -2011,12 +2208,14 @@
           <p class="info-detail">+92 301 1414134</p>
         </div>
         <div class="contact-form">
-          <form>
-            <input type="text" placeholder="Your Name" required />
-            <input type="email" placeholder="Your Email" required />
-            <textarea placeholder="Your Message" required></textarea>
+          <form action="https://formspree.io/f/xeolvgya"
+           method="POST">
+            <input type="text" name="name" placeholder="Your Name" required />
+            <input type="email" name="email" placeholder="Your Email" required />
+            <textarea name="message" placeholder="Your Message" required></textarea>
             <button type="submit" class="submit-btn">Send Message</button>
           </form>
+          
         </div>
       </div>
       <div class="social-links">
