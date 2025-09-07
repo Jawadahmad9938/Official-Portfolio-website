@@ -128,9 +128,9 @@
         --primary-color: #4cc9f0;
         --secondary-color: #4895ef;
         --accent-color: #f72585;
-        --card-bg: #1a1a1a;
+        /*--card-bg: #1a1a1a;*/
         --nav-bg: rgb(26 60 110);
-        --shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
+        --shadow: 0 4px 6px rgb(15 244 195 / 100%);
         --primary-color: #2563eb;
         --secondary-color: #1e3a8a;
         --accent-color: #38bdf8;
@@ -808,7 +808,6 @@
       }
 
       .service-card {
-        background-color: var(--card-bg);
         border-radius: 10px;
         padding: 2rem;
         box-shadow: var(--shadow);
@@ -876,7 +875,6 @@
       }
 
       .project-card {
-        background-color: var(--card-bg);
         border-radius: 10px;
         overflow: hidden;
         box-shadow: var(--shadow);
@@ -971,11 +969,7 @@
 
       /* === Base CTA Section === */
       .cta-section {
-        background: linear-gradient(
-          135deg,
-          var(--primary-color) 0%,
-          var(--secondary-color) 100%
-        );
+        background:linear-gradient(135deg, #0e15514a 0%, #067e52ab 100%);
         padding: 3rem;
         border-radius: 10px;
         max-width: 800px;
