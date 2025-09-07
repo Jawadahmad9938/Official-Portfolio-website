@@ -1210,63 +1210,114 @@
         border-radius: 4px;
       }
 
-      /* Testimonials Section */
-      .testimonials-section {
-        padding: 5rem 5%;
-        text-align: center;
-        position: relative;
-      }
+/* Testimonials Section */
+.testimonials-section {
+  padding: 8rem 8%;
+  text-align: center;
+  border-radius: 25px;
+  color-scheme: light dark; 
+}
 
-      .testimonials-section:hover {
-        transform: scale(1.01);
-      }
+.testimonials-subtitle {
+  color: var(--accent-color, #ffce54);
+  font-weight: 600;
+  margin-bottom: 0.5rem;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+}
 
-      .testimonials-subtitle {
-        color: var(--primary-color);
-        font-weight: 600;
-        margin-bottom: 0.5rem;
-      }
+.testimonials-title {
+  font-size: 3rem;
+  margin-bottom: 3rem;
+  font-weight: 800;
+  color: var(--title-color,  #ffce54);
+}
 
-      .testimonials-title {
-        font-size: 2.5rem;
-        margin-bottom: 1rem;
-      }
+/* Container */
+.testimonials-container {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+  max-width: 900px;
+  margin: 0 auto;
+  padding-bottom: 1rem;
+}
 
-      .testimonials-container {
-        display: flex;
-        gap: 2rem;
-        max-width: 1200px;
-        margin: 3rem auto 0;
-      }
+.testimonial-card {
+  min-width: 320px;
+  border-radius: 20px;
+  padding: 2rem;
+  text-align: left;
+  background: var(--card-bg, linear-gradient(145deg, #1a1a1a, #222));
+  color: var(--text-color, #eee);
+  transition: all 0.4s ease-in-out;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+}
 
-      .testimonial-card {
-        flex: 1;
-        background-color: var(--card-bg);
-        border-radius: 10px;
-        padding: 2rem;
-        box-shadow: var(--shadow);
-        text-align: left;
-        transition: all 0.3s ease;
-      }
+.testimonial-card:hover {
+  transform: translateY(-10px) scale(1.04);
+  box-shadow: 0 8px 24px rgba(0,0,0,0.3);
+  border: 2px solid var(--accent-color, #ffce54);
+}
 
-      .testimonial-card:hover {
-        transform: scale(1.05);
-        box-shadow: 0 15px 30px rgba(0, 0, 0, 0.2);
-      }
+.testimonial-text {
+  font-size: 1.15rem;
+  line-height: 1.6;
+  margin-bottom: 1.5rem;
+  color: var(--text-color, #eaeaea);
+}
 
-      .testimonial-card:active {
-        animation: clickPulse 0.3s ease;
-      }
+.testimonial-author {
+  font-weight: 700;
+  font-size: 1rem;
+  color: var(--accent-color, #ffce54);
+}
 
-      .testimonial-text {
-        font-style: italic;
-        margin-bottom: 1.5rem;
-      }
+/* ================== Responsive ================== */
+@media (max-width: 1024px) {
+  .testimonials-title {
+    font-size: 2.5rem;
+  }
+  .testimonials-container {
+    gap: 1.5rem;
+  }
+}
 
-      .testimonial-author {
-        font-weight: 600;
-        color: var(--primary-color);
-      }
+@media (max-width: 768px) {
+  .testimonials-section {
+    padding: 3rem 5%;
+  }
+  .testimonials-title {
+    font-size: 2rem;
+  }
+  .testimonial-card {
+    min-width: 280px;
+    padding: 1.5rem;
+  }
+  .testimonial-text {
+    font-size: 1rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .testimonials-title {
+    font-size: 1.6rem;
+  }
+  .testimonials-subtitle {
+    font-size: 0.9rem;
+  }
+  .testimonial-card {
+    min-width: 250px;
+    padding: 1.2rem;
+  }
+  .testimonial-text {
+    font-size: 0.95rem;
+  }
+  .testimonial-author {
+    font-size: 0.9rem;
+  }
+}
+
 
       /* Quick Contact Icons */
       .quick-contact-icons {
@@ -2163,24 +2214,34 @@
     <div class="testimonials-section" id="Testimonials">
       <p class="testimonials-subtitle">What People Say</p>
       <h1 class="testimonials-title">Testimonials</h1>
+    
       <div class="testimonials-container">
         <div class="testimonial-card">
           <p class="testimonial-text">
             "Jawad delivered an amazing website for my business in the UAE. His
             attention to detail and responsiveness were top-notch!"
           </p>
-          <p class="testimonial-author">— Client, 800batterie.com</p>
+          <p class="testimonial-author">Client, 800batterie.com</p>
         </div>
+    
         <div class="testimonial-card">
           <p class="testimonial-text">
             "Working with Jawad on our e-commerce project was a great
             experience. He's skilled and professional."
           </p>
-          <p class="testimonial-author">— Peer, MNS University</p>
+          <p class="testimonial-author">Peer, MNS University</p>
+        </div>
+    
+        <div class="testimonial-card">
+          <p class="testimonial-text">
+            "One of the best developers I've worked with. Clean code, modern
+            design, and always on time."
+          </p>
+          <p class="testimonial-author">Client, Freelance Project</p>
         </div>
       </div>
     </div>
-
+    
     <div class="quick-contact-icons">
       <a href="tel:+923011414134" class="quick-contact-icon">
         <img src="img/mobileicon.png" alt="Call Me" />
