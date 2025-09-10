@@ -4,13 +4,10 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <!-- Google Fonts -->
   <link
     href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&family=Montserrat:wght@600;700&display=swap"
     rel="stylesheet">
-  <!-- Devicons (Tech Stack Logos) -->
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/devicons/devicon@v2.15.1/devicon.min.css">
-  <!-- Font Awesome -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
     crossorigin="anonymous" referrerpolicy="no-referrer" />
 
@@ -74,7 +71,6 @@
         "description": "Full stack web development services in Pakistan, specializing in MERN stack and responsive design."
       }
     </script>
-  <!-- Google tag (gtag.js) -->
   <script async src="https://www.googletagmanager.com/gtag/js?id=GA_MEASUREMENT_ID"></script>
   <script>
     window.dataLayer = window.dataLayer || [];
@@ -105,7 +101,6 @@
       --primary-color: #4cc9f0;
       --secondary-color: #4895ef;
       --accent-color: #f72585;
-      /*--card-bg: #1a1a1a;*/
       --nav-bg: rgb(26 60 110);
       --shadow: 0 4px 6px rgb(15 244 195 / 100%);
       --primary-color: #2563eb;
@@ -366,7 +361,7 @@
       transform: translateX(0);
     }
 
-    /* === Hero Section (Desktop) === */
+    /*Hero Section (Desktop)*/
     .home-section {
       min-height: 90vh;
       display: flex;
@@ -380,13 +375,11 @@
       position: relative;
       overflow: hidden;
       margin-top: 80px;
-      /* offset for navbar */
       transition: transform 0.3s ease;
     }
 
     .home-section:hover {
       transform: scale(1.003);
-      /* subtle hover depth */
     }
 
     .hero-content {
@@ -399,7 +392,7 @@
       z-index: 1;
     }
 
-    /* === Left Section === */
+    /*Left Section*/
     .left-content {
       max-width: 650px;
       padding-right: 2rem;
@@ -528,7 +521,6 @@
       animation-fill-mode: both;
     }
 
-    /* === Right Image === */
     .right-image {
       flex-shrink: 0;
       display: flex;
@@ -553,7 +545,7 @@
       box-shadow: 0 12px 30px rgba(0, 0, 0, 0.5);
     }
 
-    /* === Responsive Fixes === */
+    /*Responsive Fixes*/
     @media (max-width: 992px) {
       .hero-content {
         flex-direction: column;
@@ -789,7 +781,6 @@
       margin-bottom: 1rem;
       font-family: 'Montserrat', sans-serif;
       color: #ffd43b;
-      /* stylish heading */
     }
 
     .services-description {
@@ -800,20 +791,18 @@
       line-height: 1.6;
     }
 
-    /* Services Container */
     .services-container {
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
       gap: 2rem;
     }
 
-    /* Service Card */
     .service-card {
       border: 2px solid #333;
       border-radius: 12px;
       padding: 2rem;
       transition: all 0.4s ease;
-      background-color:#021225e8;
+      background-color: #021225e8;
     }
 
     .service-card:hover {
@@ -822,7 +811,6 @@
 
     }
 
-    /* Service Card Icon */
     .service-card img {
       width: 80px;
       height: 80px;
@@ -835,10 +823,8 @@
     .service-card img:hover {
       transform: scale(1.15) rotate(10deg);
       box-shadow: 0 0 15px #ffd43b;
-      /* soft glow */
     }
 
-    /* Service Title */
     .service-title {
       font-size: 1.3rem;
       margin-bottom: 0.8rem;
@@ -847,40 +833,36 @@
       font-family: 'Poppins', sans-serif;
     }
 
-    /* Service Description */
     .service-description {
       font-size: 0.95rem;
       color: #ddd;
       line-height: 1.6;
     }
 
-/* Tech stack inside services */
-.service-card .tech-stack {
-  display: flex;
-  gap: 0.6rem;
-  justify-content: center;
-  margin-top: 1rem;
-}
+    .service-card .tech-stack {
+      display: flex;
+      gap: 0.6rem;
+      justify-content: center;
+      margin-top: 1rem;
+    }
 
-/* Tech stack icon container */
-.service-card .tech-stack i {
-  font-size: 1.4rem;
-  padding: 0.6rem;
-  border-radius: 50%;
-  background: rgba(255, 255, 255, 0.04); /* very subtle bg */
-  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.25); /* softer shadow */
-  transition: transform 0.3s ease, text-shadow 0.3s ease,
-    background 0.3s ease, box-shadow 0.3s ease;
-  cursor: pointer;
-}
+    .service-card .tech-stack i {
+      font-size: 1.4rem;
+      padding: 0.6rem;
+      border-radius: 50%;
+      background: rgba(255, 255, 255, 0.04);
+      box-shadow: 0 1px 4px rgba(0, 0, 0, 0.25);
+      transition: transform 0.3s ease, text-shadow 0.3s ease,
+        background 0.3s ease, box-shadow 0.3s ease;
+      cursor: pointer;
+    }
 
-/* Hover effect (light glow) */
-.service-card .tech-stack i:hover {
-  transform: scale(1.15);
-  text-shadow: 0 0 5px currentColor, 0 0 10px currentColor;
-  background: rgba(255, 255, 255, 0.08);
-  box-shadow: 0 0 6px currentColor, 0 0 12px currentColor;
-}
+    .service-card .tech-stack i:hover {
+      transform: scale(1.15);
+      text-shadow: 0 0 5px currentColor, 0 0 10px currentColor;
+      background: rgba(255, 255, 255, 0.08);
+      box-shadow: 0 0 6px currentColor, 0 0 12px currentColor;
+    }
 
 
 
@@ -925,7 +907,6 @@
       box-shadow: var(--shadow);
       transition: all 0.5s ease;
       background: #111;
-      /* dark card background */
       color: #fff;
     }
 
@@ -971,17 +952,14 @@
 
     .detail-heading.problem {
       color: #ff4d6d;
-      /* red-pink */
     }
 
     .detail-heading.solution {
       color: #ffd43b;
-      /* yellow */
     }
 
     .detail-heading.impact {
       color: #4dd0e1;
-      /* cyan-blue */
     }
 
     .project-link {
@@ -1011,10 +989,8 @@
       cursor: pointer;
       color: inherit;
       text-shadow: 0 0 2px rgba(255, 255, 255, 0.15);
-      /* light base shadow */
     }
 
-    /* Soft Glow Hover */
     .tech-stack i:hover {
       transform: scale(1.2);
       text-shadow:
@@ -1065,7 +1041,7 @@
       transform: scale(1.2) rotate(360deg);
     }
 
-    /* === Base CTA Section === */
+    /*Base CTA Section*/
     .cta-section {
       background: linear-gradient(135deg, #0e15514a 0%, #067e52ab 100%);
       padding: 3rem;
@@ -1074,7 +1050,6 @@
       margin: 0 auto;
       transition: transform 0.5s ease;
       text-align: center;
-      /* ✅ keeps text centered on small screens */
     }
 
     .cta-section:hover {
@@ -1137,7 +1112,7 @@
       }
     }
 
-    /* === Responsive Fix for Mobile === */
+    /* Responsive Fix for Mobile */
     @media (max-width: 600px) {
       .cta-section {
         padding: 2rem 1rem;
@@ -1149,22 +1124,18 @@
 
       .cta-input-group {
         flex-direction: column;
-        /* ✅ stack input + button */
         width: 100%;
       }
 
       .email-input {
         border-radius: 5px;
-        /* reset radius */
         margin-bottom: 1rem;
-        /* spacing between input and button */
         width: 100%;
       }
 
       .quote-btn {
         border-radius: 5px;
         width: 100%;
-        /* button takes full width */
         padding: 0.75rem;
       }
     }
@@ -1637,7 +1608,6 @@
       transform: translateY(-3px) rotate(360deg);
     }
 
-    /* Responsive Design */
     @media (max-width: 1024px) {
 
       .about-section,
@@ -1718,10 +1688,7 @@
 </head>
 
 <body>
-  <!-- Three.js Background Container -->
   <div id="threejs-container" class="threejs-container"></div>
-
-  <!-- Floating Icons Container -->
   <div class="floating-icons" id="floating-icons"></div>
 
   <nav class="navbar">
@@ -1749,7 +1716,6 @@
     </div>
     <div class="theme-toggle">
       <button id="theme-toggle-btn" class="theme-toggle-btn">
-        <!-- Sun (Light Mode Icon) -->
         <svg id="sun-icon" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
           stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon">
           <circle cx="12" cy="12" r="5" />
@@ -1766,7 +1732,6 @@
     </div>
   </nav>
 
-  <!-- Mobile menu -->
   <ul class="mobile-nav-menu" id="mobile-menu">
     <li><a href="#Home">Home</a></li>
     <li><a href="#About">About</a></li>
@@ -1876,7 +1841,6 @@
 
     <div class="services-container">
 
-      <!-- Service 1 -->
       <div class="service-card">
         <img src="/img/html gify.gif" alt="Full-Stack Development Icon" />
         <h3 class="service-title">Full-Stack Development</h3>
@@ -1892,7 +1856,6 @@
         </div>
       </div>
 
-      <!-- Service 2 -->
       <div class="service-card">
         <img src="/img/designer.webp" alt="UI/UX Design Icon" />
         <h3 class="service-title">UI/UX Design</h3>
@@ -1907,7 +1870,6 @@
         </div>
       </div>
 
-      <!-- Service 3 -->
       <div class="service-card">
         <img src="/img/cssss.webp" alt="Tailwind CSS Icon" />
         <h3 class="service-title">Modern Styling</h3>
@@ -1921,7 +1883,6 @@
         </div>
       </div>
 
-      <!-- Service 4 -->
       <div class="service-card">
         <img src="/img/js.webp" alt="JavaScript Icon" />
         <h3 class="service-title">Interactive JavaScript</h3>
@@ -1935,7 +1896,6 @@
         </div>
       </div>
 
-      <!-- Service 5 -->
       <div class="service-card">
         <img src="/img/application-programming-interface.png" alt="API Integration Icon" />
         <h3 class="service-title">API Integration</h3>
@@ -1977,7 +1937,7 @@
           <i class="devicon-docker-plain colored" title="Docker"></i>
         </div>
       </div>
-      
+
 
     </div>
   </div>
@@ -2397,7 +2357,6 @@
     </svg>
   </button>
 
-  <!-- Three.js and other scripts -->
   <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
   <script>
     // Three.js initialization for main background
@@ -2510,7 +2469,7 @@
 
       // Enhanced Particles for Hero Section
       const particlesGeometry = new THREE.BufferGeometry();
-      const particleCount = 1000; // Slightly fewer particles for performance
+      const particleCount = 1000;
 
       const posArray = new Float32Array(particleCount * 3);
       const colors = new Float32Array(particleCount * 3);
@@ -2521,7 +2480,7 @@
         posArray[i + 2] = (Math.random() - 0.5) * 10;
 
         const color = new THREE.Color(
-          Math.random() * 0.3 + 0.7, // Slightly brighter for hero section
+          Math.random() * 0.3 + 0.7,
           Math.random() * 0.3,
           Math.random() * 0.3
         );
