@@ -25,6 +25,8 @@ It showcases my frontend & full-stack skills, services, and projects using moder
 
 📸 Preview
 
+(Add screenshot image here if available)
+
 🛠️ Tech Stack
 
 Frontend: HTML, CSS, JavaScript, Tailwind CSS
@@ -55,7 +57,7 @@ Contact – Email, WhatsApp & quick links
 
 🚀 Deployment
 
-The portfolio is live at 👉 jawadahmad.me
+The portfolio is live at 👉 https://jawadahmad.me/
 
 To run locally:
 
