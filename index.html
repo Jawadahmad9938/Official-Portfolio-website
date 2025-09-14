@@ -109,16 +109,16 @@
     }
 
     body.light-mode {
-      --bg-color: #fdfdfd;          
-      --text-color: #1e1e1e;        
-      --primary-color: #2563eb;     
-      --secondary-color: #9333ea;    
-      --accent-color: #f43f5e;       
-      --card-bg: #ffffff;          
+      --bg-color: #fdfdfd;
+      --text-color: #1e1e1e;
+      --primary-color: #2563eb;
+      --secondary-color: #9333ea;
+      --accent-color: #f43f5e;
+      --card-bg: #ffffff;
       --nav-bg: rgba(255, 255, 255, 0.85);
-      --shadow: 0 6px 12px rgba(0, 0, 0, 0.08); 
+      --shadow: 0 6px 12px rgba(0, 0, 0, 0.08);
     }
-    
+
 
     * {
       margin: 0;
@@ -1405,7 +1405,7 @@
       gap: 1rem;
       z-index: 1000;
     }
-    
+
     /* 🌟 Button Style */
     .quick-contact-icon {
       width: 55px;
@@ -1422,26 +1422,26 @@
       overflow: hidden;
       position: relative;
     }
-    
+
     /* ✨ Hover effect */
     .quick-contact-icon:hover {
       transform: scale(1.15) translateY(-3px);
       background: linear-gradient(135deg, var(--accent-color), var(--secondary-color));
       box-shadow: 0 10px 28px rgba(0, 0, 0, 0.35);
     }
-    
+
     /* 🎭 Icon inside button */
     .quick-contact-icon img {
       width: 28px;
       height: 28px;
       transition: transform 0.4s ease;
-      filter: drop-shadow(0 2px 2px rgba(0,0,0,0.2));
+      filter: drop-shadow(0 2px 2px rgba(0, 0, 0, 0.2));
     }
-    
+
     .quick-contact-icon:hover img {
       transform: scale(1.25) rotate(12deg);
     }
-    
+
 
     /* Contact Section */
     .contact-section {
@@ -1586,39 +1586,6 @@
       color: rgba(var(--text-color), 0.7);
     }
 
-    /* Back to Top Button */
-    .back-to-top-btn {
-      position: fixed;
-      bottom: 6rem; 
-      right: 2rem;
-      width: 45px;
-      height: 45px;
-      border: none;
-      background: transparent;
-      color: var(--primary-color);
-      cursor: pointer;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-size: 2rem; 
-      opacity: 0;
-      visibility: hidden;
-      transition: all 0.4s ease-in-out;
-      z-index: 999;
-    }
-
-    .back-to-top-btn.show {
-      opacity: 1;
-      visibility: visible;
-    }
-
-    .back-to-top-btn:hover {
-      color: var(--accent-color);
-      transform: translateY(-4px) scale(1.2);
-      text-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
-    }
-    
-
     @media (max-width: 1024px) {
 
       .about-section,
@@ -1704,12 +1671,11 @@
       color: aqua;
       transition: transform 0.3s ease, color 0.3s ease;
     }
-    
+
     .theme-toggle:hover {
       transform: rotate(20deg) scale(1.1);
-      color: #060606; 
+      color: #060606;
     }
-    
   </style>
 </head>
 
@@ -1742,7 +1708,7 @@
     </div>
     <button id="theme-toggle-btn" class="theme-toggle">
       <i id="theme-icon" class="fas fa-moon"></i>
-    </button>    
+    </button>
   </nav>
 
   <ul class="mobile-nav-menu" id="mobile-menu">
@@ -2363,10 +2329,6 @@
     <p class="footer-text">All rights reserved by © Jawad Ahmad Creation.</p>
   </div>
 
-  <button class="back-to-top-btn" id="backToTopBtn">
-    <i class="fas fa-arrow-up"></i>
-  </button>
-
   <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
   <script>
     // Three.js initialization for main background
@@ -2592,20 +2554,6 @@
       });
     });
 
-    // Back to top button
-    const backToTopBtn = document.getElementById("back-to-top");
-    window.addEventListener("scroll", () => {
-      if (window.scrollY > 300) {
-        backToTopBtn.classList.add("show");
-      } else {
-        backToTopBtn.classList.remove("show");
-      }
-    });
-
-    backToTopBtn.addEventListener("click", () => {
-      window.scrollTo({ top: 0, behavior: "smooth" });
-    });
-
     // Dark/Light mode toggle
     const themeToggleBtn = document.getElementById("theme-toggle-btn");
     const themeIcon = document.getElementById("theme-icon");
@@ -2615,10 +2563,10 @@
 
       if (document.body.classList.contains("light-mode")) {
         localStorage.setItem("theme", "light");
-        themeIcon.classList.replace("fa-moon", "fa-sun"); 
+        themeIcon.classList.replace("fa-moon", "fa-sun");
       } else {
         localStorage.setItem("theme", "dark");
-        themeIcon.classList.replace("fa-sun", "fa-moon"); 
+        themeIcon.classList.replace("fa-sun", "fa-moon");
       }
     });
 
