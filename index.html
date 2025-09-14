@@ -109,15 +109,16 @@
     }
 
     body.light-mode {
-      --bg-color: #f8f9fa;
-      --text-color: #212529;
-      --primary-color: #4361ee;
-      --secondary-color: #3a0ca3;
-      --accent-color: #f72585;
-      --card-bg: #ffffff;
-      --nav-bg: rgba(255, 255, 255, 0.9);
-      --shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+      --bg-color: #fdfdfd;          
+      --text-color: #1e1e1e;        
+      --primary-color: #2563eb;     
+      --secondary-color: #9333ea;    
+      --accent-color: #f43f5e;       
+      --card-bg: #ffffff;          
+      --nav-bg: rgba(255, 255, 255, 0.85);
+      --shadow: 0 6px 12px rgba(0, 0, 0, 0.08); 
     }
+    
 
     * {
       margin: 0;
@@ -1404,33 +1405,43 @@
       gap: 1rem;
       z-index: 1000;
     }
-
+    
+    /* 🌟 Button Style */
     .quick-contact-icon {
-      width: 50px;
-      height: 50px;
+      width: 55px;
+      height: 55px;
       border-radius: 50%;
-      background-color: var(--primary-color);
+      background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
       display: flex;
       align-items: center;
       justify-content: center;
-      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
-      transition: all 0.5s ease-in-out;
+      box-shadow: 0 6px 18px rgba(0, 0, 0, 0.25);
+      backdrop-filter: blur(6px);
+      transition: transform 0.4s ease, box-shadow 0.4s ease, background 0.4s ease;
+      cursor: pointer;
+      overflow: hidden;
+      position: relative;
     }
-
+    
+    /* ✨ Hover effect */
     .quick-contact-icon:hover {
-      transform: scale(1.2) rotate(360deg);
-      background-color: var(--accent-color);
+      transform: scale(1.15) translateY(-3px);
+      background: linear-gradient(135deg, var(--accent-color), var(--secondary-color));
+      box-shadow: 0 10px 28px rgba(0, 0, 0, 0.35);
     }
-
+    
+    /* 🎭 Icon inside button */
     .quick-contact-icon img {
-      width: 30px;
-      height: 30px;
-      transition: transform 0.5s ease-in-out;
+      width: 28px;
+      height: 28px;
+      transition: transform 0.4s ease;
+      filter: drop-shadow(0 2px 2px rgba(0,0,0,0.2));
     }
-
-    .quick-contact-icon img:hover {
-      transform: scale(1.2) rotate(360deg);
+    
+    .quick-contact-icon:hover img {
+      transform: scale(1.25) rotate(12deg);
     }
+    
 
     /* Contact Section */
     .contact-section {
@@ -1578,23 +1589,22 @@
     /* Back to Top Button */
     .back-to-top-btn {
       position: fixed;
-      bottom: 2rem;
+      bottom: 6rem; 
       right: 2rem;
-      width: 50px;
-      height: 50px;
-      border-radius: 50%;
-      background-color: var(--primary-color);
-      color: white;
+      width: 45px;
+      height: 45px;
       border: none;
+      background: transparent;
+      color: var(--primary-color);
       cursor: pointer;
       display: flex;
       align-items: center;
       justify-content: center;
-      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+      font-size: 2rem; 
       opacity: 0;
       visibility: hidden;
-      transition: all 0.5s ease-in-out;
-      z-index: 1000;
+      transition: all 0.4s ease-in-out;
+      z-index: 999;
     }
 
     .back-to-top-btn.show {
@@ -1603,9 +1613,11 @@
     }
 
     .back-to-top-btn:hover {
-      background-color: var(--accent-color);
-      transform: translateY(-3px) rotate(360deg);
+      color: var(--accent-color);
+      transform: translateY(-4px) scale(1.2);
+      text-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
     }
+    
 
     @media (max-width: 1024px) {
 
@@ -2310,7 +2322,7 @@
       <img src="img/mobileicon.png" alt="Call Me" />
     </a>
     <a href="https://wa.me/923011414134" target="_blank" class="quick-contact-icon">
-      <img src="img/icons8-whatsapp.gif" alt="WhatsApp" />
+      <img src="img/whatsapp.png" alt="WhatsApp" />
     </a>
   </div>
 
@@ -2351,11 +2363,8 @@
     <p class="footer-text">All rights reserved by © Jawad Ahmad Creation.</p>
   </div>
 
-  <button id="back-to-top" class="back-to-top-btn">
-    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-      <path d="M12 4L12 20M12 4L6 10M12 4L18 10" stroke="currentColor" stroke-width="2" stroke-linecap="round"
-        stroke-linejoin="round" />
-    </svg>
+  <button class="back-to-top-btn" id="backToTopBtn">
+    <i class="fas fa-arrow-up"></i>
   </button>
 
   <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
