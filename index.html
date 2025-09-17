@@ -276,15 +276,29 @@
     }
 
     .menu-toggle {
-      background: none;
-      border: none;
+      background:rgb(15 244 195 / 100%); /* dark bluish black glass */
+      border: 1px solid rgba(255, 255, 255, 0.15);
+      border-radius: 50%;
+      padding: 6px 7px;
       cursor: pointer;
-      transition: transform 0.5s ease-in-out;
-    }
+      color: black; /* soft icy blue text */
+      font-weight: 600;
+      font-size: 10px;
 
+      transition: all 0.4s ease-in-out;
+
+    }
+    
     .menu-toggle:hover {
       transform: scale(1.1) rotate(360deg);
+      background: rgba(20, 40, 80, 0.55); /* deeper blue glass */
+      color: #ffffff; /* brighter on hover */
+      box-shadow: 0 8px 28px rgba(0, 150, 255, 0.6),
+                  0 0 20px rgba(0, 150, 255, 0.8),
+                  inset 0 0 10px rgba(0, 150, 255, 0.4);
     }
+    
+    
 
     .nav-btn .cv-button,
     .mobile-nav-menu .cv-button {
