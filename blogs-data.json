@@ -1,0 +1,54 @@
+{
+    "blogs": [
+      {
+        "id": 1,
+        "title": "Complete MERN Stack Tutorial for Beginners in 2025",
+        "excerpt": "Learn how to build full-stack applications using MongoDB, Express.js, React, and Node.js with this comprehensive tutorial covering everything from setup to deployment.",
+        "category": "mern",
+        "image": "https://images.unsplash.com/photo-1633356122544-f134324a6cee?w=500",
+        "date": "Jan 15, 2025",
+        "readTime": "12 min read",
+        "content": "MERN Stack full tutorial content..."
+      },
+      {
+        "id": 2,
+        "title": "10 Advanced React Hooks You Should Know in 2025",
+        "excerpt": "Discover powerful React hooks beyond useState and useEffect. Learn custom hooks for authentication, animations, and performance optimization.",
+        "category": "react",
+        "image": "https://images.unsplash.com/photo-1633356122102-3fe601e05bd2?w=500",
+        "date": "Jan 10, 2025",
+        "readTime": "8 min read",
+        "content": "React Hooks tutorial content..."
+      },
+      {
+        "id": 3,
+        "title": "JavaScript ES2025 Features: What's New and Exciting",
+        "excerpt": "Explore the latest JavaScript features coming in ES2025. Learn about new array methods, pattern matching, and other enhancements that will change how you write JavaScript.",
+        "category": "javascript",
+        "image": "https://images.unsplash.com/photo-1627398242454-45a1465c2479?w=500",
+        "date": "Jan 5, 2025",
+        "readTime": "6 min read",
+        "content": "JavaScript ES2025 content..."
+      },
+      {
+        "id": 4,
+        "title": "Building Scalable REST APIs with Node.js and Express",
+        "excerpt": "Learn best practices for building production-ready REST APIs with Node.js. Includes authentication, error handling, testing, and deployment strategies.",
+        "category": "node",
+        "image": "https://images.unsplash.com/photo-1618477247222-acbdb0e159b3?w=500",
+        "date": "Dec 28, 2024",
+        "readTime": "10 min read",
+        "content": "Node.js API tutorial content..."
+      },
+      {
+        "id": 5,
+        "title": "SEO Best Practices Every Web Developer Should Know",
+        "excerpt": "Essential SEO techniques for developers. Learn how to optimize your websites for search engines with technical SEO, structured data, and performance optimization.",
+        "category": "seo",
+        "image": "https://images.unsplash.com/photo-1551434678-e076c223a692?w=500",
+        "date": "Dec 20, 2024",
+        "readTime": "7 min read",
+        "content": "SEO best practices content..."
+      }
+    ]
+  }

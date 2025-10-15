@@ -1,0 +1,936 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Web Development Blog | Jawad Ahmad</title>
+    <meta name="description" content="Web development tutorials, tech insights, and programming tips by Jawad Ahmad - Full Stack Developer from Pakistan" />
+    
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&family=Montserrat:wght@600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" />
+    
+    <style>
+      :root {
+        --bg-color: #0a0a0a;
+        --text-color: #f8f9fa;
+        --primary-color: #2563eb;
+        --secondary-color: #1e3a8a;
+        --accent-color: #38bdf8;
+        --nav-bg: rgb(26 60 110);
+        --card-bg: #111;
+        --shadow: 0 4px 6px rgb(15 244 195 / 100%);
+        --gradient-primary: linear-gradient(135deg, #2563eb 0%, #1e3a8a 100%);
+        --gradient-accent: linear-gradient(135deg, #38bdf8 0%, #2563eb 100%);
+    }
+    
+    body.light-mode {
+        --bg-color: #fdfdfd;
+        --text-color: #1e1e1e;
+        --primary-color: #2563eb;
+        --secondary-color: #9333ea;
+        --accent-color: #f43f5e;
+        --card-bg: #ffffff;
+        --nav-bg: rgba(255, 255, 255, 0.85);
+        --shadow: 0 6px 12px rgba(0, 0, 0, 0.08);
+        --gradient-primary: linear-gradient(135deg, #2563eb 0%, #9333ea 100%);
+        --gradient-accent: linear-gradient(135deg, #f43f5e 0%, #2563eb 100%);
+    }
+    
+    * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+    }
+    
+    html {
+        scroll-behavior: smooth;
+    }
+    
+    body {
+        font-family: "Poppins", sans-serif;
+        background-color: var(--bg-color);
+        color: var(--text-color);
+        transition: all 0.5s ease;
+        line-height: 1.6;
+        overflow-x: hidden;
+    }
+    
+    a {
+        text-decoration: none;
+        color: inherit;
+    }
+    
+    /* Navigation Styles */
+    .navbar {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 1.5rem 5%;
+        background-color: var(--nav-bg);
+        position: fixed;
+        width: 100%;
+        top: 0;
+        z-index: 1000;
+        backdrop-filter: blur(10px);
+    }
+    
+    .logo {
+        height: 50px;
+        width: auto;
+        transition: transform 0.5s ease-in-out;
+        border-radius: 25px;
+    }
+    
+    .logo:hover {
+        transform: scale(1.1) rotate(360deg);
+    }
+    
+    .nav-menu {
+        display: flex;
+        list-style: none;
+        gap: 2rem;
+    }
+    
+    .nav-menu a {
+        position: relative;
+        font-weight: 500;
+        transition: color 0.3s ease;
+    }
+    
+    .nav-menu a::after {
+        content: "";
+        position: absolute;
+        bottom: -5px;
+        left: 0;
+        width: 0;
+        height: 2px;
+        background-color: var(--accent-color);
+        transition: width 0.3s ease;
+    }
+    
+    .nav-menu a:hover {
+        color: var(--primary-color);
+    }
+    
+    .nav-menu a:hover::after {
+        width: 100%;
+    }
+    
+    .mobile-menu-btn {
+        display: none;
+    }
+    
+    .menu-toggle {
+        background: rgb(15 244 195 / 100%);
+        border: 1px solid rgba(255, 255, 255, 0.15);
+        border-radius: 50%;
+        padding: 6px 7px;
+        cursor: pointer;
+        color: black;
+        font-weight: 600;
+        font-size: 10px;
+        transition: all 0.4s ease-in-out;
+    }
+    
+    .menu-toggle:hover {
+        transform: scale(1.1) rotate(360deg);
+        background: rgba(20, 40, 80, 0.55);
+        color: #ffffff;
+        box-shadow: 0 8px 28px rgba(0, 150, 255, 0.6),
+            0 0 20px rgba(0, 150, 255, 0.8),
+            inset 0 0 10px rgba(0, 150, 255, 0.4);
+    }
+    
+    .nav-btn .cv-button,
+    .mobile-nav-menu .cv-button {
+        background-color: var(--primary-color);
+        color: white;
+        border: none;
+        padding: 0.5rem 1.5rem;
+        border-radius: 5px;
+        font-weight: 600;
+        cursor: pointer;
+        transition: all 0.3s ease;
+        position: relative;
+        overflow: hidden;
+    }
+    
+    .nav-btn .cv-button:hover,
+    .mobile-nav-menu .cv-button:hover {
+        background-color: var(--secondary-color);
+        transform: translateY(-2px) scale(1.05);
+    }
+    
+    .nav-btn .cv-button:active,
+    .mobile-nav-menu .cv-button:active {
+        animation: clickPulse 0.3s ease;
+    }
+    
+    .theme-toggle {
+        background: none;
+        border: none;
+        cursor: pointer;
+        margin-left: 1rem;
+        transition: transform 0.5s ease-in-out;
+    }
+    
+    .theme-toggle:hover {
+        transform: scale(1.1) rotate(360deg);
+    }
+    
+    @keyframes clickPulse {
+        0% { transform: scale(1); }
+        50% { transform: scale(0.95); }
+        100% { transform: scale(1); }
+    }
+    
+    .mobile-nav-menu {
+        position: fixed;
+        top: 80px;
+        right: 0;
+        width: 70%;
+        height: calc(100vh - 80px);
+        background-color: var(--nav-bg);
+        backdrop-filter: blur(10px);
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        gap: 2rem;
+        list-style: none;
+        transform: translateX(100%);
+        transition: transform 0.3s ease;
+        z-index: 999;
+    }
+    
+    .mobile-nav-menu.active {
+        transform: translateX(0);
+    }
+    
+    /* Enhanced Blog Page Styles */
+    .blog-page {
+        padding-top: 100px;
+        min-height: 100vh;
+    }
+    
+    .blog-hero {
+        text-align: center;
+        padding: 5rem 5%;
+        background: var(--gradient-primary);
+        margin-bottom: 4rem;
+        position: relative;
+        overflow: hidden;
+    }
+    
+    .blog-hero::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 1000"><polygon fill="rgba(255,255,255,0.05)" points="0,1000 1000,0 1000,1000"/></svg>');
+        background-size: cover;
+    }
+    
+    .blog-hero h1 {
+        font-size: 3.5rem;
+        margin-bottom: 1.5rem;
+        position: relative;
+        z-index: 2;
+        text-shadow: 0 2px 10px rgba(0,0,0,0.3);
+    }
+    
+    .blog-hero p {
+        font-size: 1.3rem;
+        max-width: 700px;
+        margin: 0 auto;
+        opacity: 0.95;
+        position: relative;
+        z-index: 2;
+        line-height: 1.7;
+    }
+    
+    .blog-container {
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 0 2rem;
+    }
+    
+    .blog-filters {
+        display: flex;
+        gap: 1rem;
+        justify-content: center;
+        margin-bottom: 4rem;
+        flex-wrap: wrap;
+    }
+    
+    .filter-btn {
+        background: var(--card-bg);
+        color: var(--text-color);
+        padding: 0.8rem 1.8rem;
+        border-radius: 50px;
+        border: 2px solid var(--primary-color);
+        cursor: pointer;
+        transition: all 0.4s ease;
+        font-size: 0.95rem;
+        font-weight: 600;
+        letter-spacing: 0.5px;
+        position: relative;
+        overflow: hidden;
+    }
+    
+    .filter-btn::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: -100%;
+        width: 100%;
+        height: 100%;
+        background: var(--gradient-primary);
+        transition: left 0.4s ease;
+        z-index: -1;
+    }
+    
+    .filter-btn.active,
+    .filter-btn:hover {
+        color: white;
+        transform: translateY(-3px);
+        box-shadow: 0 10px 25px rgba(0,0,0,0.2);
+        border-color: transparent;
+    }
+    
+    .filter-btn.active::before,
+    .filter-btn:hover::before {
+        left: 0;
+    }
+    
+    /* Enhanced Blog Grid & Cards */
+    .blog-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fill, minmax(380px, 1fr));
+        gap: 3rem;
+        margin-bottom: 5rem;
+    }
+    
+    .blog-card {
+        background: var(--card-bg);
+        border-radius: 20px;
+        overflow: hidden;
+        box-shadow: var(--shadow);
+        transition: all 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+        border: 1px solid rgba(var(--text-color), 0.08);
+        position: relative;
+        height: fit-content;
+    }
+    
+    .blog-card::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        height: 4px;
+        background: var(--gradient-accent);
+        transform: scaleX(0);
+        transition: transform 0.4s ease;
+    }
+    
+    .blog-card:hover {
+        transform: translateY(-12px) scale(1.02);
+        box-shadow: 0 25px 50px rgba(0, 0, 0, 0.25);
+        border-color: var(--primary-color);
+    }
+    
+    .blog-card:hover::before {
+        transform: scaleX(1);
+    }
+    
+    .blog-image-container {
+        position: relative;
+        overflow: hidden;
+        height: 240px;
+    }
+    
+    .blog-image {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        transition: all 0.6s ease;
+    }
+    
+    .blog-card:hover .blog-image {
+        transform: scale(1.15) rotate(2deg);
+    }
+    
+    .blog-category {
+        position: absolute;
+        top: 1rem;
+        left: 1rem;
+        background: var(--gradient-primary);
+        color: white;
+        padding: 0.5rem 1.2rem;
+        border-radius: 50px;
+        font-size: 0.8rem;
+        font-weight: 700;
+        letter-spacing: 0.5px;
+        text-transform: uppercase;
+        box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+        z-index: 2;
+    }
+    
+    .blog-content {
+        padding: 2rem;
+        display: flex;
+        flex-direction: column;
+        gap: 1.2rem;
+    }
+    
+    .blog-post-title {
+        font-size: 1.4rem;
+        font-weight: 700;
+        margin: 0;
+        line-height: 1.4;
+        color: var(--text-color);
+        display: -webkit-box;
+        -webkit-line-clamp: 2;
+        -webkit-box-orient: vertical;
+        overflow: hidden;
+        min-height: 3.5rem;
+    }
+    
+    .blog-excerpt {
+        color: var(--text-color);
+        opacity: 0.85;
+        line-height: 1.7;
+        margin: 0;
+        font-size: 1rem;
+        display: -webkit-box;
+        -webkit-line-clamp: 3;
+        -webkit-box-orient: vertical;
+        overflow: hidden;
+        min-height: 5.25rem;
+    }
+    
+    .blog-meta {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        font-size: 0.85rem;
+        color: var(--text-color);
+        opacity: 0.7;
+        border-top: 1px solid rgba(var(--text-color), 0.1);
+        padding-top: 1.2rem;
+        margin-top: auto;
+    }
+    
+    .meta-item {
+        display: flex;
+        align-items: center;
+        gap: 0.5rem;
+        font-weight: 500;
+    }
+    
+    .meta-item i {
+        color: var(--accent-color);
+        font-size: 1rem;
+    }
+    
+    /* Enhanced Read More Button */
+    .read-more-btn {
+        background: var(--gradient-primary);
+        color: white;
+        padding: 1rem 2.5rem;
+        border-radius: 50px;
+        font-weight: 700;
+        transition: all 0.4s ease;
+        border: none;
+        cursor: pointer;
+        text-decoration: none;
+        display: inline-flex;
+        align-items: center;
+        gap: 0.8rem;
+        font-size: 1rem;
+        letter-spacing: 0.5px;
+        position: relative;
+        overflow: hidden;
+        width: fit-content;
+        margin-top: 0.5rem;
+        box-shadow: 0 6px 20px rgba(37, 99, 235, 0.3);
+    }
+    
+    .read-more-btn::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: -100%;
+        width: 100%;
+        height: 100%;
+        background: var(--gradient-accent);
+        transition: left 0.4s ease;
+        z-index: -1;
+    }
+    
+    .read-more-btn:hover {
+        transform: translateY(-3px);
+        box-shadow: 0 12px 30px rgba(37, 99, 235, 0.4);
+        color: white;
+    }
+    
+    .read-more-btn:hover::before {
+        left: 0;
+    }
+    
+    .read-more-btn i {
+        transition: transform 0.3s ease;
+    }
+    
+    .read-more-btn:hover i {
+        transform: translateX(4px);
+    }
+    
+    /* Loading and No Posts States */
+    .no-posts {
+        text-align: center;
+        padding: 4rem 2rem;
+        color: var(--text-color);
+        opacity: 0.7;
+        grid-column: 1 / -1;
+    }
+    
+    .no-posts i {
+        font-size: 3rem;
+        margin-bottom: 1rem;
+        opacity: 0.5;
+    }
+    
+    .loading {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        gap: 1rem;
+        padding: 4rem;
+        grid-column: 1 / -1;
+        flex-direction: column;
+    }
+    
+    .loading i {
+        font-size: 2rem;
+        color: var(--primary-color);
+    }
+    
+    /* Footer */
+    .footer {
+        
+        padding: 4rem 5%;
+        text-align: center;
+        margin-top: 6rem;
+        position: relative;
+    }
+    
+    .footer::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        height: 1px;
+        background: var(--gradient-primary);
+    }
+    
+    .social-links {
+        display: flex;
+        justify-content: center;
+        gap: 2rem;
+        margin: 2.5rem 0;
+    }
+    
+    .footer-icon {
+        width: 40px;
+        height: 40px;
+        transition: all 0.4s ease;
+        border-radius: 50%;
+        padding: 8px;
+    }
+    
+    .footer-icon:hover {
+        transform: scale(1.2) rotate(360deg);
+      
+    }
+    
+    .footer-text {
+        color: rgba(var(--text-color), 0.7);
+        font-size: 0.95rem;
+        margin-bottom: 0.5rem;
+    }
+    
+    .footer-text a {
+  
+        transition: color 0.3s ease;
+    }
+    
+  
+    /* Responsive Design */
+    @media (max-width: 1200px) {
+        .blog-grid {
+            grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+            gap: 2.5rem;
+        }
+    }
+    
+    @media (max-width: 1024px) {
+        .blog-hero h1 {
+            font-size: 3rem;
+        }
+        
+        .blog-grid {
+            grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+        }
+    }
+    
+    @media (max-width: 768px) {
+        .nav-menu,
+        .nav-btn {
+            display: none;
+        }
+    
+        .mobile-menu-btn {
+            display: block;
+        }
+    
+        .blog-hero {
+            padding: 4rem 2rem;
+        }
+    
+        .blog-hero h1 {
+            font-size: 2.5rem;
+        }
+    
+        .blog-hero p {
+            font-size: 1.1rem;
+        }
+    
+        .blog-grid {
+            grid-template-columns: 1fr;
+            gap: 2rem;
+        }
+    
+        .blog-filters {
+            gap: 0.8rem;
+            margin-bottom: 3rem;
+        }
+    
+        .filter-btn {
+            padding: 0.7rem 1.5rem;
+            font-size: 0.9rem;
+        }
+        
+        .blog-content {
+            padding: 1.8rem;
+        }
+        
+        .blog-post-title {
+            font-size: 1.3rem;
+        }
+    }
+    
+    @media (max-width: 480px) {
+        .blog-hero h1 {
+            font-size: 2rem;
+        }
+    
+        .blog-hero p {
+            font-size: 1rem;
+        }
+    
+        .blog-container {
+            padding: 0 1.5rem;
+        }
+        
+        .blog-filters {
+            gap: 0.5rem;
+        }
+        
+        .filter-btn {
+            padding: 0.6rem 1.2rem;
+            font-size: 0.85rem;
+        }
+        
+        .blog-content {
+            padding: 1.5rem;
+            gap: 1rem;
+        }
+        
+        .blog-post-title {
+            font-size: 1.2rem;
+            min-height: 3rem;
+        }
+        
+        .blog-excerpt {
+            font-size: 0.95rem;
+            min-height: 4.75rem;
+        }
+        
+        .read-more-btn {
+            padding: 0.9rem 2rem;
+            font-size: 0.95rem;
+        }
+    }
+    
+    /* Animations */
+    @keyframes fadeIn {
+        from {
+            opacity: 0;
+            transform: translateY(30px);
+        }
+        to {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    }
+    
+    .blog-card {
+        animation: fadeIn 0.6s ease forwards;
+    }
+    
+    /* Stagger animation for cards */
+    .blog-card:nth-child(1) { animation-delay: 0.1s; }
+    .blog-card:nth-child(2) { animation-delay: 0.2s; }
+    .blog-card:nth-child(3) { animation-delay: 0.3s; }
+    .blog-card:nth-child(4) { animation-delay: 0.4s; }
+    .blog-card:nth-child(5) { animation-delay: 0.5s; }
+    .blog-card:nth-child(6) { animation-delay: 0.6s; }
+    
+    /* Pulse animation for loading */
+    @keyframes pulse {
+        0%, 100% { opacity: 1; }
+        50% { opacity: 0.5; }
+    }
+    
+    .loading i {
+        animation: pulse 1.5s ease-in-out infinite;
+    }
+    </style>
+</head>
+
+<body>
+    <!-- Navigation Bar -->
+    <nav class="navbar">
+        <a href="index.html">
+            <img class="logo" src="https://i.ibb.co/rfstVnt3/jawad-sectionlogo.png" alt="Jawad Ahmad Logo" />
+        </a>
+        <div class="mobile-menu-btn">
+            <button id="menu-button" class="menu-toggle">
+                <svg width="24" height="24" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                    <path stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                        d="M4 6h16M4 12h16M4 18h16" />
+                </svg>
+            </button>
+        </div>
+        <ul class="nav-menu" id="menu">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="index.html#About">About</a></li>
+            <li><a href="index.html#Services">Services</a></li>
+            <li><a href="index.html#Projects">Projects</a></li>
+            <li><a href="blogs.html">Blog</a></li>
+            <li><a href="index.html#Testimonials">Testimonials</a></li>
+            <li><a href="index.html#Skills">Skills</a></li>
+            <li><a href="index.html#Contact">Contact</a></li>
+        </ul>
+        <div class="nav-btn">
+            <button class="cv-button">
+                <a href="Jawad Ahmad CV.pdf" download>Download CV</a>
+            </button>
+        </div>
+        <button id="theme-toggle-btn" class="theme-toggle">
+            <i id="theme-icon" class="fas fa-moon"></i>
+        </button>
+    </nav>
+
+    <!-- Mobile Navigation Menu -->
+    <ul class="mobile-nav-menu" id="mobile-menu">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="index.html#About">About</a></li>
+        <li><a href="index.html#Services">Services</a></li>
+        <li><a href="index.html#Projects">Projects</a></li>
+        <li><a href="blogs.html">Blog</a></li>
+        <li><a href="index.html#Testimonials">Testimonials</a></li>
+        <li><a href="index.html#Skills">Skills</a></li>
+        <li><a href="index.html#Contact">Contact</a></li>
+        <li>
+            <button class="cv-button">
+                <a href="Jawad Ahmad CV.pdf" download>Download CV</a>
+            </button>
+        </li>
+    </ul>
+
+    <!-- Blog Page Content -->
+    <div class="blog-page">
+        <section class="blog-hero">
+            <h1>Web Development Blog</h1>
+            <p>Insights, tutorials, and thoughts on web development, programming, and technology trends from a full-stack developer's perspective.</p>
+        </section>
+
+        <div class="blog-container">
+            <div class="blog-filters">
+                <button class="filter-btn active" data-category="all">All Posts</button>
+                <button class="filter-btn" data-category="mern">MERN Stack</button>
+                <button class="filter-btn" data-category="react">React</button>
+                <button class="filter-btn" data-category="node">Node.js</button>
+                <button class="filter-btn" data-category="javascript">JavaScript</button>
+                <button class="filter-btn" data-category="seo">SEO</button>
+            </div>
+
+            <div class="blog-grid" id="blogGrid">
+                <div class="loading">
+                    <i class="fas fa-spinner fa-spin"></i>
+                    <p>Loading blogs...</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Footer -->
+        <footer class="footer">
+            <div class="social-links">
+                <a href="https://www.facebook.com/jawad.ahmed.961811" target="_blank">
+                    <img src="/img/facebook-logo-1-2.png" alt="Facebook" class="footer-icon" />
+                </a>
+                <a href="https://x.com/yourprofile" target="_blank">
+                    <img src="/img/free-twitter-logo-icon-2429-thumb.png" alt="X" class="footer-icon" />
+                </a>
+                <a href="www.linkedin.com/in/jawad-ahmad-9938938484djf" target="_blank">
+                    <img src="/img/linkedin-icon-logo-png-transparent.png" alt="LinkedIn" class="footer-icon" />
+                </a>
+            </div>
+            <p class="footer-text">
+                <a href="/privacy.html">Privacy Policy</a> | <a href="/disclaimer.html">Disclaimer</a>
+            </p>
+            <p class="footer-text">All rights reserved by © Jawad Ahmad Creation.</p>
+        </footer>
+    </div>
+
+    <script>
+        // Navigation and Theme Toggle Scripts
+        const themeToggleBtn = document.getElementById("theme-toggle-btn");
+        const themeIcon = document.getElementById("theme-icon");
+
+        // Load theme from localStorage
+        if (localStorage.getItem("theme") === "light") {
+            document.body.classList.add("light-mode");
+            themeIcon.classList.replace("fa-moon", "fa-sun");
+        }
+
+        themeToggleBtn.addEventListener("click", () => {
+            document.body.classList.toggle("light-mode");
+
+            if (document.body.classList.contains("light-mode")) {
+                localStorage.setItem("theme", "light");
+                themeIcon.classList.replace("fa-moon", "fa-sun");
+            } else {
+                localStorage.setItem("theme", "dark");
+                themeIcon.classList.replace("fa-sun", "fa-moon");
+            }
+        });
+
+        // Mobile menu toggle
+        const menuButton = document.getElementById("menu-button");
+        const mobileMenu = document.getElementById("mobile-menu");
+        
+        menuButton.addEventListener("click", () => {
+            mobileMenu.classList.toggle("active");
+            menuButton.classList.toggle("active");
+        });
+
+        document.querySelectorAll(".mobile-nav-menu a").forEach((link) => {
+            link.addEventListener("click", () => {
+                mobileMenu.classList.remove("active");
+                menuButton.classList.remove("active");
+            });
+        });
+
+        // Blog Loading Script - FIXED VERSION
+        async function loadBlogs() {
+            try {
+                console.log('Loading blogs data...');
+                
+                // Use JSON file instead of JS file for better compatibility
+                const response = await fetch('./blogs-data.json');
+                
+                if (!response.ok) {
+                    throw new Error(`HTTP error! status: ${response.status}`);
+                }
+                
+                const data = await response.json();
+                console.log('Blogs data loaded:', data);
+                
+                displayBlogs(data.blogs);
+                setupFilters(data.blogs);
+                
+            } catch (error) {
+                console.error('Error loading blogs:', error);
+                document.getElementById('blogGrid').innerHTML = `
+                    <div class="no-posts">
+                        <i class="fas fa-exclamation-triangle"></i>
+                        <p>Error loading blogs. Please check if blogs-data.json file exists.</p>
+                        <p style="font-size: 0.8rem; margin-top: 0.5rem;">Error: ${error.message}</p>
+                    </div>
+                `;
+            }
+        }
+
+        function displayBlogs(blogs, category = 'all') {
+            const blogGrid = document.getElementById('blogGrid');
+            const filteredBlogs = category === 'all' 
+                ? blogs 
+                : blogs.filter(blog => blog.category === category);
+            
+            if (filteredBlogs.length === 0) {
+                blogGrid.innerHTML = `
+                    <div class="no-posts">
+                        <i class="fas fa-search"></i>
+                        <p>No blog posts found for this category.</p>
+                    </div>
+                `;
+                return;
+            }
+
+            blogGrid.innerHTML = filteredBlogs.map(blog => `
+                <div class="blog-card" data-category="${blog.category}">
+                    <img src="${blog.image}" alt="${blog.title}" class="blog-image" 
+                         onerror="this.src='https://images.unsplash.com/photo-1555066931-4365d14bab8c?w=500'">
+                    <div class="blog-content">
+                        <span class="blog-category">${blog.category.toUpperCase()}</span>
+                        <h3 class="blog-post-title">${blog.title}</h3>
+                        <p class="blog-excerpt">${blog.excerpt}</p>
+                        <div class="blog-meta">
+                            <span><i class="far fa-calendar"></i> ${blog.date}</span>
+                            <span><i class="far fa-clock"></i> ${blog.readTime}</span>
+                        </div>
+                        <a href="blog-post.html?id=${blog.id}" class="read-more-btn">Read More</a>
+                    </div>
+                </div>
+            `).join('');
+        }
+
+        function setupFilters(blogs) {
+            const filterButtons = document.querySelectorAll('.filter-btn');
+            
+            filterButtons.forEach(button => {
+                button.addEventListener('click', function() {
+                    // Remove active class from all buttons
+                    filterButtons.forEach(btn => btn.classList.remove('active'));
+                    // Add active class to clicked button
+                    this.classList.add('active');
+                    
+                    // Filter blog posts based on category
+                    const category = this.getAttribute('data-category');
+                    displayBlogs(blogs, category);
+                });
+            });
+        }
+
+        // Load blogs when page loads
+        document.addEventListener('DOMContentLoaded', loadBlogs);
+    </script>
+</body>
+</html>

@@ -1,0 +1,1130 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Blog Post | Jawad Ahmad</title>
+    <meta name="description" content="Read insightful web development tutorials and articles by Jawad Ahmad" />
+    
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&family=Montserrat:wght@600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism-tomorrow.min.css" />
+    
+    <style>
+        :root {
+            --bg-color: #0a0a0a;
+            --text-color: #f8f9fa;
+            --primary-color: #2563eb;
+            --secondary-color: #1e3a8a;
+            --accent-color: #38bdf8;
+            --nav-bg: rgb(26 60 110);
+            --card-bg: #111;
+            --shadow: 0 4px 6px rgb(15 244 195 / 100%);
+        }
+
+        body.light-mode {
+            --bg-color: #fdfdfd;
+            --text-color: #1e1e1e;
+            --primary-color: #2563eb;
+            --secondary-color: #9333ea;
+            --accent-color: #f43f5e;
+            --card-bg: #ffffff;
+            --nav-bg: rgba(255, 255, 255, 0.85);
+            --shadow: 0 6px 12px rgba(0, 0, 0, 0.08);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: "Poppins", sans-serif;
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            transition: all 0.5s ease;
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+        }
+
+        /* Navigation Styles */
+        .navbar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1.5rem 5%;
+            background-color: var(--nav-bg);
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+            backdrop-filter: blur(10px);
+        }
+
+        .logo {
+            height: 50px;
+            width: auto;
+            transition: transform 0.5s ease-in-out;
+            border-radius: 25px;
+        }
+
+        .logo:hover {
+            transform: scale(1.1) rotate(360deg);
+        }
+
+        .nav-menu {
+            display: flex;
+            list-style: none;
+            gap: 2rem;
+        }
+
+        .nav-menu a {
+            position: relative;
+            font-weight: 500;
+            transition: color 0.3s ease;
+        }
+
+        .nav-menu a::after {
+            content: "";
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background-color: var(--accent-color);
+            transition: width 0.3s ease;
+        }
+
+        .nav-menu a:hover {
+            color: var(--primary-color);
+        }
+
+        .nav-menu a:hover::after {
+            width: 100%;
+        }
+
+        .mobile-menu-btn {
+            display: none;
+        }
+
+        .menu-toggle {
+            background: rgb(15 244 195 / 100%);
+            border: 1px solid rgba(255, 255, 255, 0.15);
+            border-radius: 50%;
+            padding: 6px 7px;
+            cursor: pointer;
+            color: black;
+            font-weight: 600;
+            font-size: 10px;
+            transition: all 0.4s ease-in-out;
+        }
+
+        .menu-toggle:hover {
+            transform: scale(1.1) rotate(360deg);
+            background: rgba(20, 40, 80, 0.55);
+            color: #ffffff;
+            box-shadow: 0 8px 28px rgba(0, 150, 255, 0.6),
+                0 0 20px rgba(0, 150, 255, 0.8),
+                inset 0 0 10px rgba(0, 150, 255, 0.4);
+        }
+
+        .nav-btn .cv-button,
+        .mobile-nav-menu .cv-button {
+            background-color: var(--primary-color);
+            color: white;
+            border: none;
+            padding: 0.5rem 1.5rem;
+            border-radius: 5px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .nav-btn .cv-button:hover,
+        .mobile-nav-menu .cv-button:hover {
+            background-color: var(--secondary-color);
+            transform: translateY(-2px) scale(1.05);
+        }
+
+        .nav-btn .cv-button:active,
+        .mobile-nav-menu .cv-button:active {
+            animation: clickPulse 0.3s ease;
+        }
+
+        .theme-toggle {
+            background: none;
+            border: none;
+            cursor: pointer;
+            margin-left: 1rem;
+            transition: transform 0.5s ease-in-out;
+        }
+
+        .theme-toggle:hover {
+            transform: scale(1.1) rotate(360deg);
+        }
+
+        @keyframes clickPulse {
+            0% { transform: scale(1); }
+            50% { transform: scale(0.95); }
+            100% { transform: scale(1); }
+        }
+
+        .mobile-nav-menu {
+            position: fixed;
+            top: 80px;
+            right: 0;
+            width: 70%;
+            height: calc(100vh - 80px);
+            background-color: var(--nav-bg);
+            backdrop-filter: blur(10px);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            gap: 2rem;
+            list-style: none;
+            transform: translateX(100%);
+            transition: transform 0.3s ease;
+            z-index: 999;
+        }
+
+        .mobile-nav-menu.active {
+            transform: translateX(0);
+        }
+
+        /* Blog Post Styles */
+        .article-container {
+            max-width: 900px;
+            margin: 120px auto 4rem;
+            padding: 0 2rem;
+        }
+
+        .breadcrumb {
+            display: flex;
+            gap: 0.5rem;
+            margin-bottom: 2rem;
+            font-size: 0.9rem;
+            color: var(--primary-color);
+        }
+
+        .breadcrumb a {
+            color: var(--primary-color);
+            transition: opacity 0.3s ease;
+        }
+
+        .breadcrumb a:hover {
+            opacity: 0.7;
+        }
+
+        .article-header {
+            margin-bottom: 3rem;
+        }
+
+        .article-category {
+            display: inline-block;
+            background: var(--accent-color);
+            color: #fff;
+            padding: 0.4rem 1rem;
+            border-radius: 50px;
+            font-size: 0.85rem;
+            font-weight: 600;
+            margin-bottom: 1rem;
+            text-transform: uppercase;
+        }
+
+        .article-title {
+            font-size: 3rem;
+            line-height: 1.2;
+            margin-bottom: 1.5rem;
+            color: var(--text-color);
+        }
+
+        .article-meta {
+            display: flex;
+            gap: 2rem;
+            align-items: center;
+            flex-wrap: wrap;
+            padding: 1.5rem 0;
+            border-top: 1px solid rgba(255,255,255,0.1);
+            border-bottom: 1px solid rgba(255,255,255,0.1);
+        }
+
+        .author-info {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+
+        .author-avatar {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            border: 2px solid var(--primary-color);
+        }
+
+        .author-details h4 {
+            margin-bottom: 0.2rem;
+        }
+
+        .author-details p {
+            font-size: 0.85rem;
+            color: var(--primary-color);
+        }
+
+        .meta-item {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            color: var(--primary-color);
+            font-size: 0.95rem;
+        }
+
+        .meta-item i {
+            color: var(--accent-color);
+        }
+
+        .featured-image {
+            width: 100%;
+            height: 500px;
+            object-fit: cover;
+            border-radius: 20px;
+            margin: 2rem 0 3rem;
+            box-shadow: var(--shadow);
+        }
+
+        .article-content {
+            font-size: 1.1rem;
+            line-height: 1.9;
+            color: var(--text-color);
+        }
+
+        .article-content h2 {
+            font-size: 2rem;
+            margin: 2.5rem 0 1rem;
+            color: var(--primary-color);
+        }
+
+        .article-content h3 {
+            font-size: 1.5rem;
+            margin: 2rem 0 1rem;
+            color: var(--secondary-color);
+        }
+
+        .article-content p {
+            margin-bottom: 1.5rem;
+        }
+
+        .article-content ul,
+        .article-content ol {
+            margin: 1.5rem 0;
+            padding-left: 2rem;
+        }
+
+        .article-content li {
+            margin-bottom: 0.8rem;
+        }
+
+        .article-content a {
+            color: var(--primary-color);
+            text-decoration: underline;
+            transition: color 0.3s ease;
+        }
+
+        .article-content a:hover {
+            color: var(--accent-color);
+        }
+
+        .article-content blockquote {
+            border-left: 4px solid var(--primary-color);
+            padding: 1rem 1.5rem;
+            margin: 2rem 0;
+            background: var(--card-bg);
+            border-radius: 0 10px 10px 0;
+            font-style: italic;
+        }
+
+        .article-content img {
+            max-width: 100%;
+            height: auto;
+            border-radius: 10px;
+            margin: 2rem 0;
+        }
+
+        .article-content pre {
+            background: #1e1e1e;
+            padding: 1.5rem;
+            border-radius: 10px;
+            overflow-x: auto;
+            margin: 2rem 0;
+            border: 1px solid var(--primary-color);
+        }
+
+        .article-content code {
+            font-family: 'Courier New', monospace;
+            font-size: 0.95rem;
+            color: #f8f8f2;
+        }
+
+        .article-content p code {
+            background: var(--card-bg);
+            padding: 0.2rem 0.5rem;
+            border-radius: 4px;
+            color: var(--accent-color);
+            font-size: 0.9rem;
+        }
+
+        .info-box {
+            background: linear-gradient(135deg, var(--primary-color) 0%, var(--secondary-color) 100%);
+            padding: 1.5rem;
+            border-radius: 15px;
+            margin: 2rem 0;
+            color: #fff;
+        }
+
+        .info-box h4 {
+            margin-bottom: 0.5rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .article-tags {
+            display: flex;
+            gap: 1rem;
+            flex-wrap: wrap;
+            margin: 3rem 0;
+            padding: 2rem 0;
+            border-top: 1px solid rgba(255,255,255,0.1);
+            border-bottom: 1px solid rgba(255,255,255,0.1);
+        }
+
+        .tag {
+            background: var(--card-bg);
+            padding: 0.5rem 1rem;
+            border-radius: 50px;
+            border: 1px solid var(--primary-color);
+            font-size: 0.9rem;
+            transition: all 0.3s ease;
+        }
+
+        .tag:hover {
+            background: var(--primary-color);
+            transform: translateY(-2px);
+        }
+
+        .share-section {
+            text-align: center;
+            margin: 3rem 0;
+            padding: 2rem;
+            background: var(--card-bg);
+            border-radius: 15px;
+        }
+
+        .share-section h3 {
+            margin-bottom: 1.5rem;
+        }
+
+        .share-buttons {
+            display: flex;
+            gap: 1rem;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        .share-btn {
+            padding: 0.8rem 1.5rem;
+            border-radius: 50px;
+            border: none;
+            cursor: pointer;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .share-btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 20px rgba(0,0,0,0.2);
+        }
+
+        .share-btn.twitter {
+            background: #1DA1F2;
+            color: #fff;
+        }
+
+        .share-btn.facebook {
+            background: #4267B2;
+            color: #fff;
+        }
+
+        .share-btn.linkedin {
+            background: #0077B5;
+            color: #fff;
+        }
+
+        .share-btn.copy {
+            background: var(--primary-color);
+            color: #fff;
+        }
+
+        .read-more-btn {
+            background: var(--primary-color);
+            color: white;
+            padding: 0.8rem 2rem;
+            border-radius: 50px;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            border: none;
+            cursor: pointer;
+            text-decoration: none;
+            display: inline-block;
+        }
+
+        .read-more-btn:hover {
+            background: var(--secondary-color);
+            transform: translateY(-2px);
+        }
+
+        .error-message {
+            text-align: center;
+            padding: 4rem 2rem;
+        }
+
+        .loading {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 1rem;
+            padding: 4rem;
+            text-align: center;
+        }
+
+        /* Footer */
+        .footer {
+            background: var(--nav-bg);
+            padding: 3rem 5%;
+            text-align: center;
+            margin-top: 4rem;
+        }
+
+        .social-links {
+            display: flex;
+            justify-content: center;
+            gap: 1.5rem;
+            margin: 2rem 0;
+        }
+
+        .footer-icon {
+            width: 30px;
+            height: 30px;
+            transition: transform 0.5s ease-in-out;
+        }
+
+        .footer-icon:hover {
+            transform: scale(1.2) rotate(360deg);
+        }
+
+        .footer-text {
+            color: rgba(var(--text-color), 0.7);
+            font-size: 0.9rem;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 1024px) {
+            .article-title {
+                font-size: 2.5rem;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .nav-menu,
+            .nav-btn {
+                display: none;
+            }
+
+            .mobile-menu-btn {
+                display: block;
+            }
+
+            .article-title {
+                font-size: 2rem;
+            }
+
+            .article-meta {
+                flex-direction: column;
+                align-items: flex-start;
+                gap: 1rem;
+            }
+
+            .featured-image {
+                height: 300px;
+            }
+
+            .article-content {
+                font-size: 1rem;
+            }
+
+            .share-buttons {
+                flex-direction: column;
+            }
+
+            .share-btn {
+                width: 100%;
+                justify-content: center;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .article-container {
+                padding: 0 1rem;
+            }
+            
+            .article-title {
+                font-size: 1.8rem;
+            }
+        }
+
+        /* Animations */
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .article-container > * {
+            animation: fadeIn 0.6s ease forwards;
+        }
+    </style>
+</head>
+
+<body>
+    <!-- Navigation Bar -->
+    <nav class="navbar">
+        <a href="index.html">
+            <img class="logo" src="https://i.ibb.co/rfstVnt3/jawad-sectionlogo.png" alt="Jawad Ahmad Logo" />
+        </a>
+        <div class="mobile-menu-btn">
+            <button id="menu-button" class="menu-toggle">
+                <svg width="24" height="24" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                    <path stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                        d="M4 6h16M4 12h16M4 18h16" />
+                </svg>
+            </button>
+        </div>
+        <ul class="nav-menu" id="menu">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="index.html#About">About</a></li>
+            <li><a href="index.html#Services">Services</a></li>
+            <li><a href="index.html#Projects">Projects</a></li>
+            <li><a href="blogs.html">Blog</a></li>
+            <li><a href="index.html#Testimonials">Testimonials</a></li>
+            <li><a href="index.html#Skills">Skills</a></li>
+            <li><a href="index.html#Contact">Contact</a></li>
+        </ul>
+        <div class="nav-btn">
+            <button class="cv-button">
+                <a href="Jawad Ahmad CV.pdf" download>Download CV</a>
+            </button>
+        </div>
+        <button id="theme-toggle-btn" class="theme-toggle">
+            <i id="theme-icon" class="fas fa-moon"></i>
+        </button>
+    </nav>
+
+    <!-- Mobile Navigation Menu -->
+    <ul class="mobile-nav-menu" id="mobile-menu">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="index.html#About">About</a></li>
+        <li><a href="index.html#Services">Services</a></li>
+        <li><a href="index.html#Projects">Projects</a></li>
+        <li><a href="blogs.html">Blog</a></li>
+        <li><a href="index.html#Testimonials">Testimonials</a></li>
+        <li><a href="index.html#Skills">Skills</a></li>
+        <li><a href="index.html#Contact">Contact</a></li>
+        <li>
+            <button class="cv-button">
+                <a href="Jawad Ahmad CV.pdf" download>Download CV</a>
+            </button>
+        </li>
+    </ul>
+
+    <div id="blog-post-container">
+        <div class="loading">
+            <i class="fas fa-spinner fa-spin"></i>
+            <p>Loading blog post...</p>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="social-links">
+            <a href="https://www.facebook.com/jawad.ahmed.961811" target="_blank">
+                <img src="/img/facebook-logo-1-2.png" alt="Facebook" class="footer-icon" />
+            </a>
+            <a href="https://x.com/yourprofile" target="_blank">
+                <img src="/img/free-twitter-logo-icon-2429-thumb.png" alt="X" class="footer-icon" />
+            </a>
+            <a href="www.linkedin.com/in/jawad-ahmad-9938938484djf" target="_blank">
+                <img src="/img/linkedin-icon-logo-png-transparent.png" alt="LinkedIn" class="footer-icon" />
+            </a>
+        </div>
+        <p class="footer-text">
+            <a href="/privacy.html">Privacy Policy</a> | <a href="/disclaimer.html">Disclaimer</a>
+        </p>
+        <p class="footer-text">All rights reserved by © Jawad Ahmad Creation.</p>
+    </footer>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-javascript.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-bash.min.js"></script>
+    
+    <script>
+        // Navigation and Theme Scripts
+        const themeToggleBtn = document.getElementById("theme-toggle-btn");
+        const themeIcon = document.getElementById("theme-icon");
+
+        // Load theme from localStorage
+        if (localStorage.getItem("theme") === "light") {
+            document.body.classList.add("light-mode");
+            themeIcon.classList.replace("fa-moon", "fa-sun");
+        }
+
+        themeToggleBtn.addEventListener("click", () => {
+            document.body.classList.toggle("light-mode");
+
+            if (document.body.classList.contains("light-mode")) {
+                localStorage.setItem("theme", "light");
+                themeIcon.classList.replace("fa-moon", "fa-sun");
+            } else {
+                localStorage.setItem("theme", "dark");
+                themeIcon.classList.replace("fa-sun", "fa-moon");
+            }
+        });
+
+        // Mobile menu toggle
+        const menuButton = document.getElementById("menu-button");
+        const mobileMenu = document.getElementById("mobile-menu");
+        
+        menuButton.addEventListener("click", () => {
+            mobileMenu.classList.toggle("active");
+            menuButton.classList.toggle("active");
+        });
+
+        document.querySelectorAll(".mobile-nav-menu a").forEach((link) => {
+            link.addEventListener("click", () => {
+                mobileMenu.classList.remove("active");
+                menuButton.classList.remove("active");
+            });
+        });
+
+        // Blog Post Loading
+        async function loadBlogPost() {
+            try {
+                const urlParams = new URLSearchParams(window.location.search);
+                const blogId = urlParams.get('id');
+
+                if (!blogId) {
+                    throw new Error('No blog ID provided');
+                }
+
+                const response = await fetch('./blogs-data.json');
+                if (!response.ok) {
+                    throw new Error(`HTTP error! status: ${response.status}`);
+                }
+                
+                const data = await response.json();
+                const blog = data.blogs.find(b => b.id == blogId);
+
+                if (blog) {
+                    displayBlogPost(blog);
+                    document.title = `${blog.title} | Jawad Ahmad Blog`;
+                    
+                    // Update meta description
+                    const metaDesc = document.querySelector('meta[name="description"]');
+                    if (metaDesc) {
+                        metaDesc.content = blog.excerpt;
+                    }
+                } else {
+                    throw new Error('Blog post not found');
+                }
+            } catch (error) {
+                console.error('Error loading blog post:', error);
+                document.getElementById('blog-post-container').innerHTML = `
+                    <div class="error-message">
+                        <h2>Blog Post Not Found</h2>
+                        <p>The requested blog post could not be found.</p>
+                        <a href="blogs.html" class="read-more-btn">← Back to Blogs</a>
+                    </div>
+                `;
+            }
+        }
+
+        function displayBlogPost(blog) {
+            // Get actual content based on blog ID
+            const blogContent = getBlogContent(blog.id);
+            
+            document.getElementById('blog-post-container').innerHTML = `
+                <article class="article-container">
+                    <nav class="breadcrumb">
+                        <a href="index.html">Home</a>
+                        <span>/</span>
+                        <a href="blogs.html">Blog</a>
+                        <span>/</span>
+                        <span>${blog.title}</span>
+                    </nav>
+
+                    <header class="article-header">
+                        <span class="article-category">${blog.category.toUpperCase()}</span>
+                        <h1 class="article-title">${blog.title}</h1>
+                        
+                        <div class="article-meta">
+                            <div class="author-info">
+                                <img src="https://i.ibb.co/673LQyg4/jawad2-removebg-preview3.png" alt="Jawad Ahmad" class="author-avatar" />
+                                <div class="author-details">
+                                    <h4>Jawad Ahmad</h4>
+                                    <p>Full Stack Developer</p>
+                                </div>
+                            </div>
+                            <div class="meta-item">
+                                <i class="far fa-calendar"></i>
+                                <span>${blog.date}</span>
+                            </div>
+                            <div class="meta-item">
+                                <i class="far fa-clock"></i>
+                                <span>${blog.readTime}</span>
+                            </div>
+                        </div>
+                    </header>
+
+                    <img src="${blog.image}" alt="${blog.title}" class="featured-image" 
+                         onerror="this.src='https://images.unsplash.com/photo-1555066931-4365d14bab8c?w=1200'">
+
+                    <div class="article-content">
+                        ${blogContent}
+                    </div>
+
+                    <div class="article-tags">
+                        <span class="tag">#${blog.category}</span>
+                        <span class="tag">#WebDevelopment</span>
+                        <span class="tag">#Programming</span>
+                        <span class="tag">#Tutorial</span>
+                    </div>
+
+                    <div class="share-section">
+                        <h3>📢 Share This Article</h3>
+                        <div class="share-buttons">
+                            <button class="share-btn twitter" onclick="shareOnTwitter()">
+                                <i class="fab fa-twitter"></i> Twitter
+                            </button>
+                            <button class="share-btn facebook" onclick="shareOnFacebook()">
+                                <i class="fab fa-facebook"></i> Facebook
+                            </button>
+                            <button class="share-btn linkedin" onclick="shareOnLinkedIn()">
+                                <i class="fab fa-linkedin"></i> LinkedIn
+                            </button>
+                            <button class="share-btn copy" onclick="copyLink()">
+                                <i class="fas fa-link"></i> Copy Link
+                            </button>
+                        </div>
+                    </div>
+
+                    <div style="text-align: center; margin: 3rem 0;">
+                        <a href="blogs.html" class="read-more-btn">← Back to All Blogs</a>
+                    </div>
+                </article>
+            `;
+
+            // Highlight code blocks after content is loaded
+            if (window.Prism) {
+                Prism.highlightAll();
+            }
+        }
+
+        function getBlogContent(blogId) {
+            const contentMap = {
+                1: `
+                    <h2 id="intro">Introduction to MERN Stack</h2>
+                    <p>The MERN stack has become one of the most popular technology stacks for building modern web applications in 2025. MERN stands for <strong>MongoDB, Express.js, React, and Node.js</strong> – a powerful combination of JavaScript technologies that allows you to build full-stack applications using a single programming language.</p>
+
+                    <div class="info-box">
+                        <h4><i class="fas fa-lightbulb"></i> Why Choose MERN Stack?</h4>
+                        <p>MERN stack offers excellent performance, scalability, and a unified development experience. Companies like Netflix, Facebook, and Airbnb use these technologies in their tech stacks.</p>
+                    </div>
+
+                    <h2 id="setup">Setting Up Your Development Environment</h2>
+                    <p>Before we dive into code, let's set up our development environment. You'll need the following tools installed on your machine:</p>
+
+                    <ul>
+                        <li><strong>Node.js</strong> (v18 or higher)</li>
+                        <li><strong>MongoDB</strong> - Either install locally or use MongoDB Atlas (cloud)</li>
+                        <li><strong>VS Code</strong> - Recommended code editor</li>
+                        <li><strong>Git</strong> - For version control</li>
+                    </ul>
+
+                    <h3>Installing Node.js and npm</h3>
+                    <p>Open your terminal and verify the installation:</p>
+
+                    <pre><code class="language-bash">node --version
+npm --version</code></pre>
+
+                    <h2 id="mongodb">Working with MongoDB</h2>
+                    <p>MongoDB is a NoSQL database that stores data in flexible, JSON-like documents. It's perfect for applications that need to scale and handle unstructured data.</p>
+
+                    <h3>Creating Your First Database</h3>
+                    <p>Let's create a simple user schema using Mongoose:</p>
+
+                    <pre><code class="language-javascript">const mongoose = require('mongoose');
+
+const userSchema = new mongoose.Schema({
+    name: {
+        type: String,
+        required: true
+    },
+    email: {
+        type: String,
+        required: true,
+        unique: true
+    },
+    password: {
+        type: String,
+        required: true
+    },
+    createdAt: {
+        type: Date,
+        default: Date.now
+    }
+});
+
+module.exports = mongoose.model('User', userSchema);</code></pre>
+
+                    <blockquote>
+                        <p><strong>Pro Tip:</strong> Always validate your data both on the client-side and server-side for better security and user experience.</p>
+                    </blockquote>
+
+                    <h2 id="conclusion">Conclusion</h2>
+                    <p>Congratulations! You've learned the fundamentals of building full-stack applications with the MERN stack. This is just the beginning – there's so much more to explore including authentication, state management with Redux, testing, and performance optimization.</p>
+                `,
+                2: `
+                    <h2>Advanced React Hooks for 2025</h2>
+                    <p>React hooks have revolutionized how we write React components. While useState and useEffect are fundamental, there are many more powerful hooks that can significantly improve your code quality and developer experience.</p>
+
+                    <h3>1. useReducer for Complex State</h3>
+                    <p>When you have complex state logic that involves multiple sub-values or when the next state depends on the previous one, useReducer is usually preferable over useState.</p>
+
+                    <pre><code class="language-javascript">const initialState = {count: 0};
+
+function reducer(state, action) {
+    switch (action.type) {
+        case 'increment':
+            return {count: state.count + 1};
+        case 'decrement':
+            return {count: state.count - 1};
+        default:
+            throw new Error();
+    }
+}
+
+function Counter() {
+    const [state, dispatch] = useReducer(reducer, initialState);
+    return (
+        <>
+            Count: {state.count}
+            <button onClick={() => dispatch({type: 'decrement'})}>-</button>
+            <button onClick={() => dispatch({type: 'increment'})}>+</button>
+        </>
+    );
+}</code></pre>
+
+                    <h3>2. Custom Hooks for Reusability</h3>
+                    <p>Custom hooks allow you to extract component logic into reusable functions.</p>
+
+                    <pre><code class="language-javascript">function useLocalStorage(key, initialValue) {
+    const [storedValue, setStoredValue] = useState(() => {
+        try {
+            const item = window.localStorage.getItem(key);
+            return item ? JSON.parse(item) : initialValue;
+        } catch (error) {
+            return initialValue;
+        }
+    });
+
+    const setValue = (value) => {
+        try {
+            setStoredValue(value);
+            window.localStorage.setItem(key, JSON.stringify(value));
+        } catch (error) {
+            console.log(error);
+        }
+    };
+
+    return [storedValue, setValue];
+}</code></pre>
+                `,
+                3: `
+                    <h2>JavaScript ES2025: What's Coming</h2>
+                    <p>JavaScript continues to evolve, and ES2025 brings some exciting new features that will change how we write JavaScript code. Let's explore the most anticipated additions.</p>
+
+                    <h3>Pipeline Operator</h3>
+                    <p>The pipeline operator (|>) allows you to write function chains in a more readable way.</p>
+
+                    <pre><code class="language-javascript">// Instead of this:
+const result = exclaim(capitalize(doubleSay("hello")));
+
+// You can write this:
+const result = "hello"
+    |> doubleSay
+    |> capitalize
+    |> exclaim;</code></pre>
+
+                    <h3>Record and Tuple</h3>
+                    <p>Records and Tuples are new immutable data structures that bring immutability to JavaScript primitives.</p>
+
+                    <pre><code class="language-javascript">// Records (immutable objects)
+const record = #{
+    name: "John",
+    age: 30
+};
+
+// Tuples (immutable arrays)
+const tuple = #[1, 2, 3];</code></pre>
+
+                    <div class="info-box">
+                        <h4><i class="fas fa-rocket"></i> Performance Benefits</h4>
+                        <p>These new immutable data structures can lead to significant performance improvements in React applications and state management.</p>
+                    </div>
+                `,
+                4: `
+                    <h2>Building Scalable REST APIs with Node.js</h2>
+                    <p>Creating robust and scalable REST APIs is crucial for modern web applications. Node.js with Express.js provides an excellent foundation for building high-performance APIs.</p>
+
+                    <h3>Project Structure</h3>
+                    <p>A well-organized project structure is key to maintainable code:</p>
+
+                    <pre><code class="language-bash">project/
+├── src/
+│   ├── controllers/
+│   ├── models/
+│   ├── routes/
+│   ├── middleware/
+│   ├── config/
+│   └── utils/
+├── tests/
+├── package.json
+└── README.md</code></pre>
+
+                    <h3>Error Handling Middleware</h3>
+                    <p>Proper error handling is essential for production applications:</p>
+
+                    <pre><code class="language-javascript">app.use((err, req, res, next) => {
+    console.error(err.stack);
+    
+    if (err.name === 'ValidationError') {
+        return res.status(400).json({
+            error: 'Validation Error',
+            details: err.details
+        });
+    }
+    
+    res.status(500).json({
+        error: 'Internal Server Error',
+        message: process.env.NODE_ENV === 'production' 
+            ? 'Something went wrong!' 
+            : err.message
+    });
+});</code></pre>
+                `,
+                5: `
+                    <h2>SEO Best Practices for Developers</h2>
+                    <p>Search Engine Optimization (SEO) is no longer just for marketers. As a developer, understanding and implementing SEO best practices can significantly impact your website's visibility and success.</p>
+
+                    <h3>Technical SEO Essentials</h3>
+                    <p>Technical SEO forms the foundation of your website's search engine performance:</p>
+
+                    <ul>
+                        <li><strong>Page Speed Optimization</strong> - Compress images, minify CSS/JS, use CDN</li>
+                        <li><strong>Mobile Responsiveness</strong> - Google uses mobile-first indexing</li>
+                        <li><strong>Structured Data</strong> - Implement schema.org markup</li>
+                        <li><strong>XML Sitemaps</strong> - Help search engines discover your pages</li>
+                        <li><strong>Robots.txt</strong> - Control search engine crawling</li>
+                    </ul>
+
+                    <h3>Structured Data Example</h3>
+                    <p>Implementing structured data helps search engines understand your content better:</p>
+
+                    <pre><code class="language-html">&lt;script type="application/ld+json"&gt;
+{
+    "@context": "https://schema.org",
+    "@type": "Article",
+    "headline": "Complete MERN Stack Tutorial",
+    "description": "Learn how to build full-stack applications...",
+    "author": {
+        "@type": "Person",
+        "name": "Jawad Ahmad"
+    },
+    "datePublished": "2025-01-15",
+    "publisher": {
+        "@type": "Organization",
+        "name": "Jawad Ahmad Blog"
+    }
+}
+&lt;/script&gt;</code></pre>
+
+                    <div class="info-box">
+                        <h4><i class="fas fa-chart-line"></i> SEO Impact</h4>
+                        <p>Websites with proper technical SEO implementation see up to 50% more organic traffic and better user engagement metrics.</p>
+                    </div>
+                `
+            };
+
+            return contentMap[blogId] || '<p>Content coming soon...</p>';
+        }
+
+        // Social Share Functions
+        const currentUrl = window.location.href;
+        const articleTitle = document.title;
+
+        function shareOnTwitter() {
+            const url = `https://twitter.com/intent/tweet?text=${encodeURIComponent(articleTitle)}&url=${encodeURIComponent(currentUrl)}`;
+            window.open(url, '_blank');
+        }
+
+        function shareOnFacebook() {
+            const url = `https://www.facebook.com/sharer/sharer.php?u=${encodeURIComponent(currentUrl)}`;
+            window.open(url, '_blank');
+        }
+
+        function shareOnLinkedIn() {
+            const url = `https://www.linkedin.com/shareArticle?mini=true&url=${encodeURIComponent(currentUrl)}&title=${encodeURIComponent(articleTitle)}`;
+            window.open(url, '_blank');
+        }
+
+        function copyLink() {
+            navigator.clipboard.writeText(currentUrl).then(() => {
+                alert("Link copied to clipboard!");
+            }).catch(err => {
+                console.error('Could not copy text: ', err);
+            });
+        }
+
+        document.addEventListener('DOMContentLoaded', loadBlogPost);
+    </script>
+</body>
+</html>
