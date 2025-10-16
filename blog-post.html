@@ -170,9 +170,13 @@
             margin-left: 1rem;
             transition: transform 0.5s ease-in-out;
         }
-
+        
         .theme-toggle:hover {
             transform: scale(1.1) rotate(360deg);
+        }
+        
+        .theme-toggle i {
+            font-size: 1.8rem;
         }
 
         @keyframes clickPulse {
@@ -514,7 +518,6 @@
 
         /* Footer */
         .footer {
-            background: var(--nav-bg);
             padding: 3rem 5%;
             text-align: center;
             margin-top: 4rem;
@@ -695,6 +698,7 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-javascript.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-bash.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/marked/4.3.0/marked.min.js"></script>
     
     <script>
         // Navigation and Theme Scripts
@@ -735,14 +739,27 @@
             });
         });
 
-        // Blog Post Loading
+        // Function to generate slug from title
+        function generateSlug(title) {
+            return title
+                .toLowerCase()
+                .replace(/[^\w ]+/g, '')
+                .replace(/ +/g, '-');
+        }
+
+        // Function to find blog by slug
+        function findBlogBySlug(blogs, slug) {
+            return blogs.find(blog => generateSlug(blog.title) === slug);
+        }
+
+        // Blog Post Loading with Slug Support
         async function loadBlogPost() {
             try {
                 const urlParams = new URLSearchParams(window.location.search);
-                const blogId = urlParams.get('id');
+                const slug = urlParams.get('slug');
 
-                if (!blogId) {
-                    throw new Error('No blog ID provided');
+                if (!slug) {
+                    throw new Error('No blog slug provided');
                 }
 
                 const response = await fetch('./blogs-data.json');
@@ -751,7 +768,7 @@
                 }
                 
                 const data = await response.json();
-                const blog = data.blogs.find(b => b.id == blogId);
+                const blog = findBlogBySlug(data.blogs, slug);
 
                 if (blog) {
                     displayBlogPost(blog);
@@ -778,8 +795,8 @@
         }
 
         function displayBlogPost(blog) {
-            // Get actual content based on blog ID
-            const blogContent = getBlogContent(blog.id);
+            // Convert markdown content to HTML
+            const blogContentHTML = marked.parse(blog.content);
             
             document.getElementById('blog-post-container').innerHTML = `
                 <article class="article-container">
@@ -818,7 +835,7 @@
                          onerror="this.src='https://images.unsplash.com/photo-1555066931-4365d14bab8c?w=1200'">
 
                     <div class="article-content">
-                        ${blogContent}
+                        ${blogContentHTML}
                     </div>
 
                     <div class="article-tags">
@@ -856,245 +873,6 @@
             if (window.Prism) {
                 Prism.highlightAll();
             }
-        }
-
-        function getBlogContent(blogId) {
-            const contentMap = {
-                1: `
-                    <h2 id="intro">Introduction to MERN Stack</h2>
-                    <p>The MERN stack has become one of the most popular technology stacks for building modern web applications in 2025. MERN stands for <strong>MongoDB, Express.js, React, and Node.js</strong> – a powerful combination of JavaScript technologies that allows you to build full-stack applications using a single programming language.</p>
-
-                    <div class="info-box">
-                        <h4><i class="fas fa-lightbulb"></i> Why Choose MERN Stack?</h4>
-                        <p>MERN stack offers excellent performance, scalability, and a unified development experience. Companies like Netflix, Facebook, and Airbnb use these technologies in their tech stacks.</p>
-                    </div>
-
-                    <h2 id="setup">Setting Up Your Development Environment</h2>
-                    <p>Before we dive into code, let's set up our development environment. You'll need the following tools installed on your machine:</p>
-
-                    <ul>
-                        <li><strong>Node.js</strong> (v18 or higher)</li>
-                        <li><strong>MongoDB</strong> - Either install locally or use MongoDB Atlas (cloud)</li>
-                        <li><strong>VS Code</strong> - Recommended code editor</li>
-                        <li><strong>Git</strong> - For version control</li>
-                    </ul>
-
-                    <h3>Installing Node.js and npm</h3>
-                    <p>Open your terminal and verify the installation:</p>
-
-                    <pre><code class="language-bash">node --version
-npm --version</code></pre>
-
-                    <h2 id="mongodb">Working with MongoDB</h2>
-                    <p>MongoDB is a NoSQL database that stores data in flexible, JSON-like documents. It's perfect for applications that need to scale and handle unstructured data.</p>
-
-                    <h3>Creating Your First Database</h3>
-                    <p>Let's create a simple user schema using Mongoose:</p>
-
-                    <pre><code class="language-javascript">const mongoose = require('mongoose');
-
-const userSchema = new mongoose.Schema({
-    name: {
-        type: String,
-        required: true
-    },
-    email: {
-        type: String,
-        required: true,
-        unique: true
-    },
-    password: {
-        type: String,
-        required: true
-    },
-    createdAt: {
-        type: Date,
-        default: Date.now
-    }
-});
-
-module.exports = mongoose.model('User', userSchema);</code></pre>
-
-                    <blockquote>
-                        <p><strong>Pro Tip:</strong> Always validate your data both on the client-side and server-side for better security and user experience.</p>
-                    </blockquote>
-
-                    <h2 id="conclusion">Conclusion</h2>
-                    <p>Congratulations! You've learned the fundamentals of building full-stack applications with the MERN stack. This is just the beginning – there's so much more to explore including authentication, state management with Redux, testing, and performance optimization.</p>
-                `,
-                2: `
-                    <h2>Advanced React Hooks for 2025</h2>
-                    <p>React hooks have revolutionized how we write React components. While useState and useEffect are fundamental, there are many more powerful hooks that can significantly improve your code quality and developer experience.</p>
-
-                    <h3>1. useReducer for Complex State</h3>
-                    <p>When you have complex state logic that involves multiple sub-values or when the next state depends on the previous one, useReducer is usually preferable over useState.</p>
-
-                    <pre><code class="language-javascript">const initialState = {count: 0};
-
-function reducer(state, action) {
-    switch (action.type) {
-        case 'increment':
-            return {count: state.count + 1};
-        case 'decrement':
-            return {count: state.count - 1};
-        default:
-            throw new Error();
-    }
-}
-
-function Counter() {
-    const [state, dispatch] = useReducer(reducer, initialState);
-    return (
-        <>
-            Count: {state.count}
-            <button onClick={() => dispatch({type: 'decrement'})}>-</button>
-            <button onClick={() => dispatch({type: 'increment'})}>+</button>
-        </>
-    );
-}</code></pre>
-
-                    <h3>2. Custom Hooks for Reusability</h3>
-                    <p>Custom hooks allow you to extract component logic into reusable functions.</p>
-
-                    <pre><code class="language-javascript">function useLocalStorage(key, initialValue) {
-    const [storedValue, setStoredValue] = useState(() => {
-        try {
-            const item = window.localStorage.getItem(key);
-            return item ? JSON.parse(item) : initialValue;
-        } catch (error) {
-            return initialValue;
-        }
-    });
-
-    const setValue = (value) => {
-        try {
-            setStoredValue(value);
-            window.localStorage.setItem(key, JSON.stringify(value));
-        } catch (error) {
-            console.log(error);
-        }
-    };
-
-    return [storedValue, setValue];
-}</code></pre>
-                `,
-                3: `
-                    <h2>JavaScript ES2025: What's Coming</h2>
-                    <p>JavaScript continues to evolve, and ES2025 brings some exciting new features that will change how we write JavaScript code. Let's explore the most anticipated additions.</p>
-
-                    <h3>Pipeline Operator</h3>
-                    <p>The pipeline operator (|>) allows you to write function chains in a more readable way.</p>
-
-                    <pre><code class="language-javascript">// Instead of this:
-const result = exclaim(capitalize(doubleSay("hello")));
-
-// You can write this:
-const result = "hello"
-    |> doubleSay
-    |> capitalize
-    |> exclaim;</code></pre>
-
-                    <h3>Record and Tuple</h3>
-                    <p>Records and Tuples are new immutable data structures that bring immutability to JavaScript primitives.</p>
-
-                    <pre><code class="language-javascript">// Records (immutable objects)
-const record = #{
-    name: "John",
-    age: 30
-};
-
-// Tuples (immutable arrays)
-const tuple = #[1, 2, 3];</code></pre>
-
-                    <div class="info-box">
-                        <h4><i class="fas fa-rocket"></i> Performance Benefits</h4>
-                        <p>These new immutable data structures can lead to significant performance improvements in React applications and state management.</p>
-                    </div>
-                `,
-                4: `
-                    <h2>Building Scalable REST APIs with Node.js</h2>
-                    <p>Creating robust and scalable REST APIs is crucial for modern web applications. Node.js with Express.js provides an excellent foundation for building high-performance APIs.</p>
-
-                    <h3>Project Structure</h3>
-                    <p>A well-organized project structure is key to maintainable code:</p>
-
-                    <pre><code class="language-bash">project/
-├── src/
-│   ├── controllers/
-│   ├── models/
-│   ├── routes/
-│   ├── middleware/
-│   ├── config/
-│   └── utils/
-├── tests/
-├── package.json
-└── README.md</code></pre>
-
-                    <h3>Error Handling Middleware</h3>
-                    <p>Proper error handling is essential for production applications:</p>
-
-                    <pre><code class="language-javascript">app.use((err, req, res, next) => {
-    console.error(err.stack);
-    
-    if (err.name === 'ValidationError') {
-        return res.status(400).json({
-            error: 'Validation Error',
-            details: err.details
-        });
-    }
-    
-    res.status(500).json({
-        error: 'Internal Server Error',
-        message: process.env.NODE_ENV === 'production' 
-            ? 'Something went wrong!' 
-            : err.message
-    });
-});</code></pre>
-                `,
-                5: `
-                    <h2>SEO Best Practices for Developers</h2>
-                    <p>Search Engine Optimization (SEO) is no longer just for marketers. As a developer, understanding and implementing SEO best practices can significantly impact your website's visibility and success.</p>
-
-                    <h3>Technical SEO Essentials</h3>
-                    <p>Technical SEO forms the foundation of your website's search engine performance:</p>
-
-                    <ul>
-                        <li><strong>Page Speed Optimization</strong> - Compress images, minify CSS/JS, use CDN</li>
-                        <li><strong>Mobile Responsiveness</strong> - Google uses mobile-first indexing</li>
-                        <li><strong>Structured Data</strong> - Implement schema.org markup</li>
-                        <li><strong>XML Sitemaps</strong> - Help search engines discover your pages</li>
-                        <li><strong>Robots.txt</strong> - Control search engine crawling</li>
-                    </ul>
-
-                    <h3>Structured Data Example</h3>
-                    <p>Implementing structured data helps search engines understand your content better:</p>
-
-                    <pre><code class="language-html">&lt;script type="application/ld+json"&gt;
-{
-    "@context": "https://schema.org",
-    "@type": "Article",
-    "headline": "Complete MERN Stack Tutorial",
-    "description": "Learn how to build full-stack applications...",
-    "author": {
-        "@type": "Person",
-        "name": "Jawad Ahmad"
-    },
-    "datePublished": "2025-01-15",
-    "publisher": {
-        "@type": "Organization",
-        "name": "Jawad Ahmad Blog"
-    }
-}
-&lt;/script&gt;</code></pre>
-
-                    <div class="info-box">
-                        <h4><i class="fas fa-chart-line"></i> SEO Impact</h4>
-                        <p>Websites with proper technical SEO implementation see up to 50% more organic traffic and better user engagement metrics.</p>
-                    </div>
-                `
-            };
-
-            return contentMap[blogId] || '<p>Content coming soon...</p>';
         }
 
         // Social Share Functions

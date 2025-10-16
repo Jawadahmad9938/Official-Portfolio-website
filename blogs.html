@@ -178,6 +178,11 @@
         transform: scale(1.1) rotate(360deg);
     }
     
+    .theme-toggle i {
+        font-size: 1.8rem;
+    }
+    
+    
     @keyframes clickPulse {
         0% { transform: scale(1); }
         50% { transform: scale(0.95); }
@@ -255,6 +260,33 @@
         max-width: 1200px;
         margin: 0 auto;
         padding: 0 2rem;
+    }
+    
+    .blog-search {
+        margin-bottom: 2rem;
+        text-align: center;
+    }
+
+    #blogSearch {
+        padding: 0.8rem 2rem;
+        width: min(500px, 90%);
+        border-radius: 50px;
+        border: 2px solid var(--primary-color);
+        background: var(--card-bg);
+        color: var(--text-color);
+        font-size: 1rem;
+        transition: all 0.3s ease;
+    }
+
+    #blogSearch:focus {
+        outline: none;
+        box-shadow: 0 0 0 4px rgba(var(--primary-color), 0.3);
+        border-color: var(--accent-color);
+    }
+
+    #blogSearch::placeholder {
+        color: var(--text-color);
+        opacity: 0.6;
     }
     
     .blog-filters {
@@ -360,7 +392,7 @@
     }
     
     .blog-card:hover .blog-image {
-        transform: scale(1.15) rotate(2deg);
+        transform: scale(1.15);
     }
     
     .blog-category {
@@ -603,7 +635,7 @@
         }
     
         .blog-hero h1 {
-            font-size: 2.5rem;
+            fontSize: 2.5rem;
         }
     
         .blog-hero p {
@@ -772,6 +804,9 @@
         </section>
 
         <div class="blog-container">
+            <div class="blog-search">
+                <input type="text" id="blogSearch" placeholder="Search blogs by title or content...">
+            </div>
             <div class="blog-filters">
                 <button class="filter-btn active" data-category="all">All Posts</button>
                 <button class="filter-btn" data-category="mern">MERN Stack</button>
@@ -848,12 +883,11 @@
             });
         });
 
-        // Blog Loading Script - FIXED VERSION
+        // Blog Loading Script with Slug Support
         async function loadBlogs() {
             try {
                 console.log('Loading blogs data...');
                 
-                // Use JSON file instead of JS file for better compatibility
                 const response = await fetch('./blogs-data.json');
                 
                 if (!response.ok) {
@@ -878,17 +912,27 @@
             }
         }
 
-        function displayBlogs(blogs, category = 'all') {
+        // Function to generate slug from title
+        function generateSlug(title) {
+            return title
+                .toLowerCase()
+                .replace(/[^\w ]+/g, '')
+                .replace(/ +/g, '-');
+        }
+
+        function displayBlogs(blogs, category = 'all', search = '') {
             const blogGrid = document.getElementById('blogGrid');
-            const filteredBlogs = category === 'all' 
-                ? blogs 
-                : blogs.filter(blog => blog.category === category);
+            const filteredBlogs = blogs.filter(blog => {
+                if (category !== 'all' && blog.category !== category) return false;
+                if (search && !blog.title.toLowerCase().includes(search.toLowerCase()) && !blog.excerpt.toLowerCase().includes(search.toLowerCase())) return false;
+                return true;
+            });
             
             if (filteredBlogs.length === 0) {
                 blogGrid.innerHTML = `
                     <div class="no-posts">
                         <i class="fas fa-search"></i>
-                        <p>No blog posts found for this category.</p>
+                        <p>No blog posts found for this category or search.</p>
                     </div>
                 `;
                 return;
@@ -896,17 +940,19 @@
 
             blogGrid.innerHTML = filteredBlogs.map(blog => `
                 <div class="blog-card" data-category="${blog.category}">
-                    <img src="${blog.image}" alt="${blog.title}" class="blog-image" 
-                         onerror="this.src='https://images.unsplash.com/photo-1555066931-4365d14bab8c?w=500'">
+                    <div class="blog-image-container">
+                        <img src="${blog.image}" alt="${blog.title}" class="blog-image" 
+                             onerror="this.src='https://images.unsplash.com/photo-1555066931-4365d14bab8c?w=500'">
+                    </div>
                     <div class="blog-content">
                         <span class="blog-category">${blog.category.toUpperCase()}</span>
                         <h3 class="blog-post-title">${blog.title}</h3>
                         <p class="blog-excerpt">${blog.excerpt}</p>
                         <div class="blog-meta">
-                            <span><i class="far fa-calendar"></i> ${blog.date}</span>
-                            <span><i class="far fa-clock"></i> ${blog.readTime}</span>
+                            <span class="meta-item"><i class="far fa-calendar"></i> ${blog.date}</span>
+                            <span class="meta-item"><i class="far fa-clock"></i> ${blog.readTime}</span>
                         </div>
-                        <a href="blog-post.html?id=${blog.id}" class="read-more-btn">Read More</a>
+                        <a href="blog-post.html?slug=${generateSlug(blog.title)}" class="read-more-btn">Read More <i class="fas fa-arrow-right"></i></a>
                     </div>
                 </div>
             `).join('');
@@ -914,6 +960,7 @@
 
         function setupFilters(blogs) {
             const filterButtons = document.querySelectorAll('.filter-btn');
+            const searchInput = document.getElementById('blogSearch');
             
             filterButtons.forEach(button => {
                 button.addEventListener('click', function() {
@@ -924,9 +971,18 @@
                     
                     // Filter blog posts based on category
                     const category = this.getAttribute('data-category');
-                    displayBlogs(blogs, category);
+                    const search = searchInput ? searchInput.value : '';
+                    displayBlogs(blogs, category, search);
                 });
             });
+
+            if (searchInput) {
+                searchInput.addEventListener('input', () => {
+                    const search = searchInput.value;
+                    const activeCategory = document.querySelector('.filter-btn.active').getAttribute('data-category');
+                    displayBlogs(blogs, activeCategory, search);
+                });
+            }
         }
 
         // Load blogs when page loads
