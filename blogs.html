@@ -21,6 +21,8 @@
         --shadow: 0 4px 6px rgb(15 244 195 / 100%);
         --gradient-primary: linear-gradient(135deg, #2563eb 0%, #1e3a8a 100%);
         --gradient-accent: linear-gradient(135deg, #38bdf8 0%, #2563eb 100%);
+        /* Blog section surfaces */
+        --surface-border: rgba(255, 255, 255, 0.08);
     }
     
     body.light-mode {
@@ -34,6 +36,7 @@
         --shadow: 0 6px 12px rgba(0, 0, 0, 0.08);
         --gradient-primary: linear-gradient(135deg, #2563eb 0%, #9333ea 100%);
         --gradient-accent: linear-gradient(135deg, #f43f5e 0%, #2563eb 100%);
+        --surface-border: rgba(0, 0, 0, 0.08);
     }
     
     * {
@@ -308,10 +311,14 @@
     /* Enhanced Blog Grid & Cards */
     .blog-grid {
         display: grid;
-        grid-template-columns: repeat(auto-fill, minmax(380px, 1fr));
-        gap: 3rem;
+        grid-template-columns: repeat(12, minmax(0, 1fr));
+        gap: 2.5rem;
+        grid-auto-flow: dense;
         margin-bottom: 5rem;
     }
+
+    /* Default grid item spans; overridden at breakpoints */
+    .blog-card { grid-column: span 12; }
     
     .blog-card {
         background: var(--card-bg);
@@ -319,7 +326,7 @@
         overflow: hidden;
         box-shadow: var(--shadow);
         transition: all 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94);
-        border: 1px solid rgba(var(--text-color), 0.08);
+        border: 1px solid var(--surface-border);
         position: relative;
         height: fit-content;
     }
@@ -335,6 +342,22 @@
         transform: scaleX(0);
         transition: transform 0.4s ease;
     }
+
+    /* Subtle gradient outline glow on hover */
+    .blog-card::after {
+        content: '';
+        position: absolute;
+        inset: 0;
+        border-radius: 20px;
+        padding: 1px;
+        background: linear-gradient(135deg, rgba(56, 189, 248, 0.35), rgba(37, 99, 235, 0.35));
+        -webkit-mask: linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0);
+        -webkit-mask-composite: xor;
+        mask-composite: exclude;
+        opacity: 0;
+        pointer-events: none;
+        transition: opacity 0.4s ease;
+    }
     
     .blog-card:hover {
         transform: translateY(-12px) scale(1.02);
@@ -345,11 +368,20 @@
     .blog-card:hover::before {
         transform: scaleX(1);
     }
+
+    .blog-card:hover::after {
+        opacity: 1;
+    }
     
-    .blog-image-container {
+    .blog-media {
         position: relative;
         overflow: hidden;
-        height: 240px;
+        border-bottom: 1px solid var(--surface-border);
+        height: 260px;
+    }
+
+    .blog-card.featured .blog-media {
+        height: 360px;
     }
     
     .blog-image {
@@ -362,6 +394,19 @@
     .blog-card:hover .blog-image {
         transform: scale(1.15) rotate(2deg);
     }
+
+    /* Media gradient overlay for better text contrast */
+    .blog-media::after {
+        content: '';
+        position: absolute;
+        inset: 0;
+        background: linear-gradient(180deg, rgba(0,0,0,0) 40%, rgba(0,0,0,0.45) 100%);
+        opacity: 0.85;
+        transition: opacity 0.4s ease;
+        pointer-events: none;
+    }
+
+    .blog-card:hover .blog-media::after { opacity: 1; }
     
     .blog-category {
         position: absolute;
@@ -377,6 +422,8 @@
         text-transform: uppercase;
         box-shadow: 0 4px 15px rgba(0,0,0,0.2);
         z-index: 2;
+        border: 1px solid var(--surface-border);
+        backdrop-filter: blur(6px);
     }
     
     .blog-content {
@@ -419,10 +466,15 @@
         font-size: 0.85rem;
         color: var(--text-color);
         opacity: 0.7;
-        border-top: 1px solid rgba(var(--text-color), 0.1);
+        border-top: 1px solid var(--surface-border);
         padding-top: 1.2rem;
         margin-top: auto;
     }
+
+    /* Featured card typography tweaks */
+    .blog-card.featured .blog-post-title { font-size: 1.75rem; }
+    .blog-card.featured .blog-excerpt { -webkit-line-clamp: 4; }
+    .blog-card.featured .blog-content { padding: 2.2rem; }
     
     .meta-item {
         display: flex;
@@ -573,8 +625,7 @@
     /* Responsive Design */
     @media (max-width: 1200px) {
         .blog-grid {
-            grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
-            gap: 2.5rem;
+            gap: 2.25rem;
         }
     }
     
@@ -583,9 +634,7 @@
             font-size: 3rem;
         }
         
-        .blog-grid {
-            grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
-        }
+        /* grid managed by min-width rules below */
     }
     
     @media (max-width: 768px) {
@@ -614,6 +663,7 @@
             grid-template-columns: 1fr;
             gap: 2rem;
         }
+        .blog-card, .blog-card.featured { grid-column: span 1; }
     
         .blog-filters {
             gap: 0.8rem;
@@ -675,6 +725,22 @@
             padding: 0.9rem 2rem;
             font-size: 0.95rem;
         }
+    }
+
+    /* New responsive grid spans (placed after max-width rules to take precedence) */
+    @media (min-width: 768px) {
+        .blog-card { grid-column: span 6; }
+        .blog-card.featured { grid-column: span 12; }
+    }
+
+    @media (min-width: 1024px) {
+        .blog-card { grid-column: span 4; }
+        .blog-card.featured { grid-column: span 8; }
+    }
+
+    @media (min-width: 1280px) {
+        .blog-card { grid-column: span 4; }
+        .blog-card.featured { grid-column: span 8; }
     }
     
     /* Animations */
@@ -880,10 +946,10 @@
 
         function displayBlogs(blogs, category = 'all') {
             const blogGrid = document.getElementById('blogGrid');
-            const filteredBlogs = category === 'all' 
-                ? blogs 
+            const filteredBlogs = category === 'all'
+                ? [...blogs]
                 : blogs.filter(blog => blog.category === category);
-            
+
             if (filteredBlogs.length === 0) {
                 blogGrid.innerHTML = `
                     <div class="no-posts">
@@ -894,22 +960,35 @@
                 return;
             }
 
-            blogGrid.innerHTML = filteredBlogs.map(blog => `
-                <div class="blog-card" data-category="${blog.category}">
-                    <img src="${blog.image}" alt="${blog.title}" class="blog-image" 
-                         onerror="this.src='https://images.unsplash.com/photo-1555066931-4365d14bab8c?w=500'">
-                    <div class="blog-content">
+            // Featured: pick the most recent by date when 'all', otherwise first item
+            let featured = null;
+            let rest = filteredBlogs;
+            if (category === 'all' && filteredBlogs.length > 1) {
+                featured = [...filteredBlogs].sort((a, b) => new Date(b.date) - new Date(a.date))[0];
+                rest = filteredBlogs.filter(b => b.id !== featured.id);
+            }
+
+            const renderCard = (blog, isFeatured = false) => `
+                <article class="blog-card ${isFeatured ? 'featured' : ''}" data-category="${blog.category}">
+                    <div class="blog-media">
+                        <img src="${blog.image}" alt="${blog.title}" class="blog-image" onerror="this.src='https://images.unsplash.com/photo-1555066931-4365d14bab8c?w=1200'" />
                         <span class="blog-category">${blog.category.toUpperCase()}</span>
+                    </div>
+                    <div class="blog-content">
                         <h3 class="blog-post-title">${blog.title}</h3>
                         <p class="blog-excerpt">${blog.excerpt}</p>
                         <div class="blog-meta">
-                            <span><i class="far fa-calendar"></i> ${blog.date}</span>
-                            <span><i class="far fa-clock"></i> ${blog.readTime}</span>
+                            <span class="meta-item"><i class="far fa-calendar"></i> ${blog.date}</span>
+                            <span class="meta-item"><i class="far fa-clock"></i> ${blog.readTime}</span>
                         </div>
-                        <a href="blog-post.html?id=${blog.id}" class="read-more-btn">Read More</a>
+                        <a href="blog-post.html?id=${blog.id}" class="read-more-btn">Read More <i class="fas fa-arrow-right"></i></a>
                     </div>
-                </div>
-            `).join('');
+                </article>`;
+
+            const htmlParts = [];
+            if (featured) htmlParts.push(renderCard(featured, true));
+            htmlParts.push(...rest.map(b => renderCard(b)));
+            blogGrid.innerHTML = htmlParts.join('');
         }
 
         function setupFilters(blogs) {
