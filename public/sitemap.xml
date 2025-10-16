@@ -1,14 +1,149 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+        xmlns:news="http://www.google.com/schemas/sitemap-news/0.9"
+        xmlns:xhtml="http://www.w3.org/1999/xhtml"
+        xmlns:image="http://www.google.com/schemas/sitemap-image/1.1"
+        xmlns:video="http://www.google.com/schemas/sitemap-video/1.1">
+  
+  <!-- Home Page -->
   <url>
     <loc>https://jawadahmad.me/</loc>
-    <lastmod>2024-12-01</lastmod>
+    <lastmod>2024-12-20</lastmod>
+    <changefreq>weekly</changefreq>
     <priority>1.00</priority>
   </url>
+
+  <!-- About Page -->
   <url>
     <loc>https://jawadahmad.me/about</loc>
     <lastmod>2024-11-25</lastmod>
+    <changefreq>monthly</changefreq>
     <priority>0.80</priority>
   </url>
-  <!-- Add all other pages -->
+
+  <!-- Services Page -->
+  <url>
+    <loc>https://jawadahmad.me/services</loc>
+    <lastmod>2024-11-20</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.80</priority>
+  </url>
+
+  <!-- Projects Page -->
+  <url>
+    <loc>https://jawadahmad.me/projects</loc>
+    <lastmod>2024-12-15</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.90</priority>
+  </url>
+
+  <!-- Blogs Listing Page -->
+  <url>
+    <loc>https://jawadahmad.me/blogs</loc>
+    <lastmod>2024-12-20</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.90</priority>
+  </url>
+
+  <!-- Blog Posts -->
+  <url>
+    <loc>https://jawadahmad.me/blog-post.html?slug=mastering-the-mern-stack-a-comprehensive-guide-for-beginners-in-2025</loc>
+    <lastmod>2024-12-15</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.85</priority>
+    <image:image>
+      <image:loc>https://images.unsplash.com/photo-1633356122544-f134324a6cee?w=1200</image:loc>
+      <image:title>Mastering the MERN Stack: A Comprehensive Guide for Beginners in 2025</image:title>
+      <image:caption>Complete MERN Stack development tutorial with MongoDB, Express.js, React, and Node.js</image:caption>
+    </image:image>
+  </url>
+
+  <url>
+    <loc>https://jawadahmad.me/blog-post.html?slug=10-advanced-react-hooks-you-should-master-in-2025</loc>
+    <lastmod>2024-12-10</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.85</priority>
+    <image:image>
+      <image:loc>https://images.unsplash.com/photo-1633356122102-3fe601e05bd2?w=1200</image:loc>
+      <image:title>10 Advanced React Hooks You Should Master in 2025</image:title>
+      <image:caption>Advanced React hooks tutorial with practical examples and use cases</image:caption>
+    </image:image>
+  </url>
+
+  <url>
+    <loc>https://jawadahmad.me/blog-post.html?slug=javascript-es2025-features-gamechanging-updates-for-developers</loc>
+    <lastmod>2024-12-05</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.85</priority>
+    <image:image>
+      <image:loc>https://images.unsplash.com/photo-1627398242454-45a1465c2479?w=1200</image:loc>
+      <image:title>JavaScript ES2025 Features: Game-Changing Updates for Developers</image:title>
+      <image:caption>Latest JavaScript features and ECMAScript 2025 updates for web developers</image:caption>
+    </image:image>
+  </url>
+
+  <url>
+    <loc>https://jawadahmad.me/blog-post.html?slug=building-scalable-rest-apis-with-nodejs-and-express</loc>
+    <lastmod>2024-11-28</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.85</priority>
+    <image:image>
+      <image:loc>https://images.unsplash.com/photo-1618477247222-acbdb0e159b3?w=1200</image:loc>
+      <image:title>Building Scalable REST APIs with Node.js and Express</image:title>
+      <image:caption>Complete guide to building production-ready REST APIs with Node.js and Express</image:caption>
+    </image:image>
+  </url>
+
+  <url>
+    <loc>https://jawadahmad.me/blog-post.html?slug=seo-best-practices-every-web-developer-should-master-in-2025</loc>
+    <lastmod>2024-11-20</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.85</priority>
+    <image:image>
+      <image:loc>https://images.unsplash.com/photo-1551434678-e076c223a692?w=1200</image:loc>
+      <image:title>SEO Best Practices Every Web Developer Should Master in 2025</image:title>
+      <image:caption>Complete SEO guide for web developers with technical optimization techniques</image:caption>
+    </image:image>
+  </url>
+
+  <!-- Contact Page -->
+  <url>
+    <loc>https://jawadahmad.me/contact</loc>
+    <lastmod>2024-11-15</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.70</priority>
+  </url>
+
+  <!-- Testimonials Page -->
+  <url>
+    <loc>https://jawadahmad.me/testimonials</loc>
+    <lastmod>2024-12-10</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.70</priority>
+  </url>
+
+  <!-- Skills Page -->
+  <url>
+    <loc>https://jawadahmad.me/skills</loc>
+    <lastmod>2024-12-05</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.80</priority>
+  </url>
+
+  <!-- Privacy Policy -->
+  <url>
+    <loc>https://jawadahmad.me/privacy</loc>
+    <lastmod>2024-01-01</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.30</priority>
+  </url>
+
+  <!-- Disclaimer -->
+  <url>
+    <loc>https://jawadahmad.me/disclaimer</loc>
+    <lastmod>2024-01-01</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.30</priority>
+  </url>
+
 </urlset>
