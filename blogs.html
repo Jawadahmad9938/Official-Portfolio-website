@@ -3,8 +3,72 @@
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Web Development Blog | Jawad Ahmad</title>
-    <meta name="description" content="Web development tutorials, tech insights, and programming tips by Jawad Ahmad - Full Stack Developer from Pakistan" />
+    
+    <!-- Primary SEO Meta Tags -->
+    <title>Web Development Blog | Jawad Ahmad - Full Stack Developer Pakistan</title>
+    <meta name="description" content="Expert web development tutorials, MERN stack guides, and tech insights by Jawad Ahmad. Learn React, Node.js, MongoDB, and SEO strategies to grow your business." />
+    
+    <!-- Canonical URL -->
+    <link rel="canonical" href="https://jawadahmad.me/blogs.html" />
+    
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://jawadahmad.me/blogs.html" />
+    <meta property="og:title" content="Web Development Blog | Jawad Ahmad - Full Stack Developer Pakistan" />
+    <meta property="og:description" content="Expert web development tutorials, MERN stack guides, and tech insights by Jawad Ahmad. Learn React, Node.js, MongoDB, and SEO strategies to grow your business." />
+    <meta property="og:image" content="https://jawadahmad.me/img/blog-og-image.jpg" />
+    <meta property="og:site_name" content="Jawad Ahmad - Full Stack Developer" />
+    
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image" />
+    <meta property="twitter:url" content="https://jawadahmad.me/blogs.html" />
+    <meta property="twitter:title" content="Web Development Blog | Jawad Ahmad - Full Stack Developer Pakistan" />
+    <meta property="twitter:description" content="Expert web development tutorials, MERN stack guides, and tech insights by Jawad Ahmad. Learn React, Node.js, MongoDB, and SEO strategies to grow your business." />
+    <meta property="twitter:image" content="https://jawadahmad.me/img/blog-twitter-image.jpg" />
+    
+    <!-- Additional SEO Meta Tags -->
+    <meta name="robots" content="index, follow, max-snippet:150, max-image-preview:large, max-video-preview:-1" />
+    <meta name="author" content="Jawad Ahmad" />
+    <meta name="keywords" content="web development blog, MERN stack tutorials, React.js guide, Node.js development, MongoDB database, full stack developer Pakistan, hire web developer, freelance developer Multan, Lahore web development, Faisalabad programmer, Islamabad tech blog, Rawalpindi coding tutorials, Karachi web design, UK web developer, London freelance developer, Toronto full stack, Canada web development, Sydney programmer, Dubai tech consultant, SEO optimization, JavaScript tutorials, responsive web design" />
+    
+    <!-- Structured Data for Blog -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Blog",
+      "name": "Jawad Ahmad Web Development Blog",
+      "description": "Expert web development tutorials, MERN stack guides, and tech insights",
+      "url": "https://jawadahmad.me/blogs.html",
+      "publisher": {
+        "@type": "Person",
+        "name": "Jawad Ahmad",
+        "jobTitle": "Full Stack Developer",
+        "url": "https://jawadahmad.me",
+        "sameAs": [
+          "https://www.linkedin.com/in/jawad-ahmad-9938938484djf",
+          "https://www.facebook.com/jawad.ahmed.961811"
+        ]
+      },
+      "mainEntityOfPage": {
+        "@type": "WebPage",
+        "@id": "https://jawadahmad.me/blogs.html"
+      }
+    }
+    </script>
+    
+    <!-- Preload Critical Resources -->
+    <link rel="preload" href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&family=Montserrat:wght@600;700&display=swap" as="style" onload="this.onload=null;this.rel='stylesheet'">
+    <link rel="preload" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+    
+    <!-- DNS Prefetch for External Domains -->
+    <link rel="dns-prefetch" href="//fonts.googleapis.com">
+    <link rel="dns-prefetch" href="//cdnjs.cloudflare.com">
+    
+    <!-- Favicon -->
+    <link rel="icon" type="image/x-icon" href="/favicon.ico">
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
     
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&family=Montserrat:wght@600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" />
@@ -30,7 +94,7 @@
         --secondary-color: #9333ea;
         --accent-color: #f43f5e;
         --card-bg: #ffffff;
-        --nav-bg: rgba(255, 255, 255, 0.85);
+        --nav-bg: rgba(255, 255, 255, 0.95);
         --shadow: 0 6px 12px rgba(0, 0, 0, 0.08);
         --gradient-primary: linear-gradient(135deg, #2563eb 0%, #9333ea 100%);
         --gradient-accent: linear-gradient(135deg, #f43f5e 0%, #2563eb 100%);
@@ -59,157 +123,523 @@
         text-decoration: none;
         color: inherit;
     }
-    
-    /* Navigation Styles */
+
+    /* ===== ENHANCED NAVBAR STYLES ===== */
     .navbar {
         display: flex;
         justify-content: space-between;
         align-items: center;
-        padding: 1.5rem 5%;
+        padding: 1.2rem 5%;
         background-color: var(--nav-bg);
         position: fixed;
         width: 100%;
         top: 0;
         z-index: 1000;
-        backdrop-filter: blur(10px);
+        backdrop-filter: blur(20px);
+        border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+        box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
     }
-    
+
+    body.light-mode .navbar {
+        border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+        box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
+    }
+
     .logo {
         height: 50px;
         width: auto;
         transition: transform 0.5s ease-in-out;
         border-radius: 25px;
-    }
-    
-    .logo:hover {
+      }
+  
+      .logo:hover {
         transform: scale(1.1) rotate(360deg);
-    }
-    
+      }
+
     .nav-menu {
         display: flex;
         list-style: none;
-        gap: 2rem;
+        gap: 2.5rem;
+        align-items: center;
     }
-    
+
     .nav-menu a {
         position: relative;
         font-weight: 500;
-        transition: color 0.3s ease;
+        font-size: 0.95rem;
+        transition: all 0.3s ease;
+        padding: 0.5rem 0;
     }
-    
+
     .nav-menu a::after {
         content: "";
         position: absolute;
-        bottom: -5px;
+        bottom: -2px;
         left: 0;
         width: 0;
         height: 2px;
-        background-color: var(--accent-color);
+        background: var(--accent-color);
         transition: width 0.3s ease;
     }
-    
+
     .nav-menu a:hover {
-        color: var(--primary-color);
+        color: var(--accent-color);
     }
-    
+
     .nav-menu a:hover::after {
         width: 100%;
     }
-    
-    .mobile-menu-btn {
-        display: none;
+
+
+    .nav-actions {
+        display: flex;
+        align-items: center;
+        gap: 1.5rem;
     }
-    
-    .menu-toggle {
-        background: rgb(15 244 195 / 100%);
-        border: 1px solid rgba(255, 255, 255, 0.15);
-        border-radius: 50%;
-        padding: 6px 7px;
-        cursor: pointer;
-        color: black;
-        font-weight: 600;
-        font-size: 10px;
-        transition: all 0.4s ease-in-out;
-    }
-    
-    .menu-toggle:hover {
-        transform: scale(1.1) rotate(360deg);
-        background: rgba(20, 40, 80, 0.55);
-        color: #ffffff;
-        box-shadow: 0 8px 28px rgba(0, 150, 255, 0.6),
-            0 0 20px rgba(0, 150, 255, 0.8),
-            inset 0 0 10px rgba(0, 150, 255, 0.4);
-    }
-    
-    .nav-btn .cv-button,
-    .mobile-nav-menu .cv-button {
-        background-color: var(--primary-color);
+
+    .nav-btn .cv-button {
+        background: linear-gradient(135deg, var(--primary-color) 0%, var(--secondary-color) 100%);
         color: white;
         border: none;
-        padding: 0.5rem 1.5rem;
-        border-radius: 5px;
+        padding: 0.7rem 1.8rem;
+        border-radius: 10px;
         font-weight: 600;
         cursor: pointer;
         transition: all 0.3s ease;
         position: relative;
         overflow: hidden;
+        font-size: 0.9rem;
     }
-    
-    .nav-btn .cv-button:hover,
-    .mobile-nav-menu .cv-button:hover {
-        background-color: var(--secondary-color);
-        transform: translateY(-2px) scale(1.05);
+
+    .nav-btn .cv-button::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: -100%;
+        width: 100%;
+        height: 100%;
+        background: linear-gradient(135deg, var(--accent-color) 0%, var(--primary-color) 100%);
+        transition: left 0.4s ease;
+        z-index: -1;
     }
-    
-    .nav-btn .cv-button:active,
-    .mobile-nav-menu .cv-button:active {
-        animation: clickPulse 0.3s ease;
+
+    .nav-btn .cv-button:hover {
+        transform: translateY(-2px);
+        box-shadow: 0 8px 25px rgba(37, 99, 235, 0.3);
     }
-    
+
+    .nav-btn .cv-button:hover::before {
+        left: 0;
+    }
+
+    .nav-btn .cv-button a {
+        color: white;
+        text-decoration: none;
+    }
+
     .theme-toggle {
-        background: none;
-        border: none;
-        cursor: pointer;
-        margin-left: 1rem;
-        transition: transform 0.5s ease-in-out;
-    }
-    
-    .theme-toggle:hover {
-        transform: scale(1.1) rotate(360deg);
-    }
-    
-    .theme-toggle i {
-        font-size: 1.8rem;
-    }
-    
-    
-    @keyframes clickPulse {
-        0% { transform: scale(1); }
-        50% { transform: scale(0.95); }
-        100% { transform: scale(1); }
-    }
-    
-    .mobile-nav-menu {
-        position: fixed;
-        top: 80px;
-        right: 0;
-        width: 70%;
-        height: calc(100vh - 80px);
-        background-color: var(--nav-bg);
-        backdrop-filter: blur(10px);
+        background: rgba(255, 255, 255, 0.1);
+        border: 2px solid rgba(255, 255, 255, 0.2);
+        border-radius: 50%;
+        width: 45px;
+        height: 45px;
         display: flex;
-        flex-direction: column;
         align-items: center;
         justify-content: center;
-        gap: 2rem;
-        list-style: none;
-        transform: translateX(100%);
-        transition: transform 0.3s ease;
-        z-index: 999;
+        cursor: pointer;
+        transition: all 0.3s ease;
+        color: var(--text-color);
     }
-    
+
+    body.light-mode .theme-toggle {
+        background: rgba(0, 0, 0, 0.05);
+        border: 2px solid rgba(0, 0, 0, 0.1);
+    }
+
+    .theme-toggle:hover {
+        background: var(--primary-color);
+        border-color: var(--primary-color);
+        color: white;
+        transform: scale(1.05);
+    }
+
+    .theme-toggle i {
+        font-size: 1.3rem;
+        transition: transform 0.5s ease;
+    }
+
+    .theme-toggle:hover i {
+        transform: rotate(15deg);
+    }
+
+    /* ===== PROFESSIONAL MOBILE MENU STYLES ===== */
+    .mobile-menu-btn {
+        display: none;
+        z-index: 1001;
+    }
+
+    .menu-toggle {
+        background: transparent;
+        border: none;
+        border-radius: 10px;
+        padding: 10px;
+        cursor: pointer;
+        color: var(--text-color, #f5f5f5);
+        transition: all 0.3s ease;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 45px;
+        height: 45px;
+        position: relative;
+        backdrop-filter: blur(10px);
+      }
+
+      /* Light Mode */
+      body.light-mode .menu-toggle {
+        color: #111;
+      }
+
+      /* Hover Effect */
+      .menu-toggle:hover {
+        transform: scale(1.05);
+        background: rgba(255, 255, 255, 0.05);
+      }
+
+      body.light-mode .menu-toggle:hover {
+        background: rgba(0, 0, 0, 0.05);
+      }
+
+      /* ===== Hamburger Icon ===== */
+      .menu-toggle__hamburger {
+        width: 22px;
+        height: 2px;
+        background: currentColor;
+        position: relative;
+        transition: all 0.3s ease;
+        border-radius: 2px;
+      }
+
+      .menu-toggle__hamburger::before,
+      .menu-toggle__hamburger::after {
+        content: "";
+        position: absolute;
+        width: 22px;
+        height: 2px;
+        background: currentColor;
+        left: 0;
+        border-radius: 2px;
+        transition: all 0.3s ease;
+      }
+
+      .menu-toggle__hamburger::before {
+        top: -7px;
+      }
+
+      .menu-toggle__hamburger::after {
+        top: 7px;
+      }
+
+      /* ===== Active State (Turns into "X") ===== */
+      .menu-toggle.active .menu-toggle__hamburger {
+        background: transparent;
+      }
+
+      .menu-toggle.active .menu-toggle__hamburger::before {
+        top: 0;
+        transform: rotate(45deg);
+      }
+
+      .menu-toggle.active .menu-toggle__hamburger::after {
+        top: 0;
+        transform: rotate(-45deg);
+      }
+    /* Mobile Navigation Menu */
+    .mobile-nav-menu {
+        position: fixed;
+        top: 0;
+        right: -100%;
+        width: 320px;
+        height: 100vh;
+        background: linear-gradient(160deg, var(--nav-bg) 0%, rgba(26, 60, 110, 0.98) 100%);
+        backdrop-filter: blur(30px);
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        justify-content: flex-start;
+        padding: 100px 2rem 2rem;
+        list-style: none;
+        transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+        z-index: 999;
+        box-shadow: -5px 0 40px rgba(0, 0, 0, 0.4);
+        border-left: 1px solid rgba(255, 255, 255, 0.15);
+    }
+
+    body.light-mode .mobile-nav-menu {
+        background: linear-gradient(160deg, rgba(255, 255, 255, 0.98) 0%, rgba(255, 255, 255, 0.95) 100%);
+        border-left: 1px solid rgba(0, 0, 0, 0.1);
+    }
+
     .mobile-nav-menu.active {
+        right: 0;
+    }
+
+    .mobile-nav-menu::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background: 
+            radial-gradient(circle at 20% 80%, rgba(56, 189, 248, 0.1) 0%, transparent 50%),
+            radial-gradient(circle at 80% 20%, rgba(37, 99, 235, 0.1) 0%, transparent 50%);
+        opacity: 0.6;
+    }
+
+    .mobile-nav-menu li {
+        width: 100%;
+        margin-bottom: 0.8rem;
+        opacity: 0;
+        transform: translateX(50px);
+        transition: all 0.4s ease;
+    }
+
+    .mobile-nav-menu.active li {
+        opacity: 1;
         transform: translateX(0);
+    }
+
+    /* Stagger animation for menu items */
+    .mobile-nav-menu.active li:nth-child(1) { transition-delay: 0.1s; }
+    .mobile-nav-menu.active li:nth-child(2) { transition-delay: 0.15s; }
+    .mobile-nav-menu.active li:nth-child(3) { transition-delay: 0.2s; }
+    .mobile-nav-menu.active li:nth-child(4) { transition-delay: 0.25s; }
+    .mobile-nav-menu.active li:nth-child(5) { transition-delay: 0.3s; }
+    .mobile-nav-menu.active li:nth-child(6) { transition-delay: 0.35s; }
+    .mobile-nav-menu.active li:nth-child(7) { transition-delay: 0.4s; }
+    .mobile-nav-menu.active li:nth-child(8) { transition-delay: 0.45s; }
+    .mobile-nav-menu.active li:nth-child(9) { transition-delay: 0.5s; }
+
+    .mobile-nav-menu a {
+        display: flex;
+        align-items: center;
+        width: 100%;
+        padding: 1.1rem 1.5rem;
+        color: rgba(255, 255, 255, 0.9);
+        font-weight: 500;
+        font-size: 1.05rem;
+        border-radius: 12px;
+        transition: all 0.3s ease;
+        position: relative;
+        overflow: hidden;
+        border: 1px solid transparent;
+    }
+
+    body.light-mode .mobile-nav-menu a {
+        color: rgba(0, 0, 0, 0.8);
+    }
+
+    .mobile-nav-menu a::before {
+        content: '';
+        position: absolute;
+        left: 0;
+        top: 0;
+        height: 100%;
+        width: 4px;
+        background: var(--accent-color);
+        transform: scaleY(0);
+        transition: transform 0.3s ease;
+        border-radius: 0 4px 4px 0;
+    }
+
+    .mobile-nav-menu a:hover::before,
+    .mobile-nav-menu a:focus::before {
+        transform: scaleY(1);
+    }
+
+    .mobile-nav-menu a:hover,
+    .mobile-nav-menu a:focus {
+        background: rgba(255, 255, 255, 0.1);
+        color: white;
+        transform: translateX(8px);
+        padding-left: 1.8rem;
+        border-color: rgba(255, 255, 255, 0.2);
+    }
+
+    body.light-mode .mobile-nav-menu a:hover,
+    body.light-mode .mobile-nav-menu a:focus {
+        background: rgba(0, 0, 0, 0.05);
+        color: var(--primary-color);
+        border-color: rgba(0, 0, 0, 0.1);
+    }
+
+    .mobile-nav-menu .cv-button {
+        background: linear-gradient(135deg, var(--primary-color) 0%, var(--secondary-color) 100%);
+        color: white;
+        border: none;
+        padding: 1.2rem 2rem;
+        border-radius: 12px;
+        font-weight: 600;
+        cursor: pointer;
+        transition: all 0.3s ease;
+        width: 100%;
+        margin-top: 1rem;
+        position: relative;
+        overflow: hidden;
+        font-size: 1.05rem;
+        box-shadow: 0 6px 20px rgba(37, 99, 235, 0.3);
+    }
+
+    .mobile-nav-menu .cv-button::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: -100%;
+        width: 100%;
+        height: 100%;
+        background: linear-gradient(135deg, var(--accent-color) 0%, var(--primary-color) 100%);
+        transition: left 0.4s ease;
+        z-index: -1;
+    }
+
+    .mobile-nav-menu .cv-button:hover {
+        transform: translateY(-3px);
+        box-shadow: 0 12px 30px rgba(37, 99, 235, 0.4);
+    }
+
+    .mobile-nav-menu .cv-button:hover::before {
+        left: 0;
+    }
+
+    .mobile-nav-menu .cv-button a {
+        color: white;
+        text-decoration: none;
+        padding: 0;
+        background: none;
+        width: auto;
+        border: none;
+    }
+
+    .mobile-nav-menu .cv-button a:hover {
+        background: none;
+        transform: none;
+        padding-left: 0;
+    }
+
+    /* Enhanced Close Button */
+    .mobile-nav-close {
+        position: absolute;
+        top: 1.8rem;
+        right: 1.8rem;
+        background: rgba(255, 255, 255, 0.15);
+        border: 2px solid rgba(255, 255, 255, 0.25);
+        border-radius: 50%;
+        width: 44px;
+        height: 44px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: white;
+        cursor: pointer;
+        transition: all 0.3s ease;
+        z-index: 1002;
+        font-size: 1.2rem;
+    }
+
+    body.light-mode .mobile-nav-close {
+        background: rgba(0, 0, 0, 0.1);
+        border: 2px solid rgba(0, 0, 0, 0.2);
+        color: var(--text-color);
+    }
+
+    .mobile-nav-close:hover {
+        background: var(--accent-color);
+        border-color: var(--accent-color);
+        transform: rotate(90deg) scale(1.1);
+        color: white;
+    }
+
+    /* Overlay when menu is open */
+    .mobile-menu-overlay {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: rgba(0, 0, 0, 0.7);
+        backdrop-filter: blur(8px);
+        z-index: 998;
+        opacity: 0;
+        visibility: hidden;
+        transition: all 0.3s ease;
+    }
+
+    .mobile-menu-overlay.active {
+        opacity: 1;
+        visibility: visible;
+    }
+
+    /* Mobile menu icons */
+    .mobile-nav-menu a i {
+        margin-right: 12px;
+        width: 20px;
+        text-align: center;
+        font-size: 1.1rem;
+        opacity: 0.9;
+    }
+
+    /* ===== RESPONSIVE DESIGN ===== */
+    @media (max-width: 1024px) {
+        .nav-menu {
+            gap: 2rem;
+        }
+    }
+
+    @media (max-width: 768px) {
+        .nav-menu,
+        .nav-btn {
+            display: none;
+        }
+
+        .mobile-menu-btn {
+            display: block;
+        }
+
+        .nav-actions {
+            gap: 1rem;
+        }
+
+        .navbar {
+            padding: 1rem 5%;
+        }
+
+        .logo {
+            height: 40px;
+        }
+    }
+
+    @media (max-width: 480px) {
+        .mobile-nav-menu {
+            width: 280px;
+            padding: 90px 1.5rem 1.5rem;
+        }
+        
+        .mobile-nav-menu a {
+            padding: 1rem 1.2rem;
+            font-size: 1rem;
+        }
+        
+        .mobile-nav-close {
+            top: 1.5rem;
+            right: 1.5rem;
+            width: 40px;
+            height: 40px;
+        }
+
+        .navbar {
+            padding: 0.8rem 5%;
+        }
     }
     
     /* Enhanced Blog Page Styles */
@@ -223,6 +653,7 @@
         padding: 5rem 5%;
         background: var(--gradient-primary);
         margin-bottom: 4rem;
+        margin-top: -26px;
         position: relative;
         overflow: hidden;
     }
@@ -254,6 +685,48 @@
         position: relative;
         z-index: 2;
         line-height: 1.7;
+    }
+    
+    /* Breadcrumb Styles */
+    .breadcrumb {
+        margin-top: 1.5rem;
+        font-size: 0.9rem;
+    }
+    
+    .breadcrumb ol {
+        list-style: none;
+        display: flex;
+        gap: 0.5rem;
+        justify-content: center;
+        flex-wrap: wrap;
+    }
+    
+    .breadcrumb li {
+        display: flex;
+        align-items: center;
+    }
+    
+    .breadcrumb li:not(:last-child)::after {
+        content: "›";
+        margin-left: 0.5rem;
+        opacity: 0.7;
+    }
+    
+    .breadcrumb a {
+        color: rgba(255, 255, 255, 0.9);
+        transition: color 0.3s ease;
+    }
+    
+    .breadcrumb a:hover {
+        color: white;
+    }
+    
+    body.light-mode .breadcrumb a {
+        color: rgba(0, 0, 0, 0.8);
+    }
+    
+    body.light-mode .breadcrumb a:hover {
+        color: black;
     }
     
     .blog-container {
@@ -521,6 +994,84 @@
         transform: translateX(4px);
     }
     
+    /* Newsletter Section */
+    .newsletter-section {
+        background: var(--gradient-primary);
+        padding: 4rem 2rem;
+        text-align: center;
+        margin: 4rem 0;
+        border-radius: 20px;
+        position: relative;
+        overflow: hidden;
+    }
+    
+    .newsletter-section::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 1000"><polygon fill="rgba(255,255,255,0.05)" points="0,1000 1000,0 1000,1000"/></svg>');
+        background-size: cover;
+    }
+    
+    .newsletter-container {
+        position: relative;
+        z-index: 2;
+        max-width: 600px;
+        margin: 0 auto;
+    }
+    
+    .newsletter-section h2 {
+        font-size: 2.2rem;
+        margin-bottom: 1rem;
+        color: white;
+    }
+    
+    .newsletter-section p {
+        color: rgba(255, 255, 255, 0.9);
+        margin-bottom: 2rem;
+        font-size: 1.1rem;
+    }
+    
+    .newsletter-form {
+        display: flex;
+        gap: 1rem;
+        max-width: 500px;
+        margin: 0 auto 1rem;
+    }
+    
+    .newsletter-form input {
+        flex: 1;
+        padding: 1rem 1.5rem;
+        border: none;
+        border-radius: 50px;
+        font-size: 1rem;
+        background: rgba(255, 255, 255, 0.95);
+    }
+    
+    .newsletter-form button {
+        background: var(--accent-color);
+        color: white;
+        border: none;
+        padding: 1rem 2rem;
+        border-radius: 50px;
+        font-weight: 600;
+        cursor: pointer;
+        transition: all 0.3s ease;
+    }
+    
+    .newsletter-form button:hover {
+        background: var(--secondary-color);
+        transform: translateY(-2px);
+    }
+    
+    .newsletter-note {
+        font-size: 0.9rem;
+        opacity: 0.8;
+    }
+    
     /* Loading and No Posts States */
     .no-posts {
         text-align: center;
@@ -553,7 +1104,6 @@
     
     /* Footer */
     .footer {
-        
         padding: 4rem 5%;
         text-align: center;
         margin-top: 6rem;
@@ -587,7 +1137,6 @@
     
     .footer-icon:hover {
         transform: scale(1.2) rotate(360deg);
-      
     }
     
     .footer-text {
@@ -597,11 +1146,22 @@
     }
     
     .footer-text a {
-  
         transition: color 0.3s ease;
     }
     
-  
+    /* Accessibility */
+    .sr-only {
+        position: absolute;
+        width: 1px;
+        height: 1px;
+        padding: 0;
+        margin: -1px;
+        overflow: hidden;
+        clip: rect(0, 0, 0, 0);
+        white-space: nowrap;
+        border: 0;
+    }
+    
     /* Responsive Design */
     @media (max-width: 1200px) {
         .blog-grid {
@@ -618,18 +1178,17 @@
         .blog-grid {
             grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
         }
+        
+        .newsletter-form {
+            flex-direction: column;
+        }
+        
+        .newsletter-section h2 {
+            font-size: 1.8rem;
+        }
     }
     
     @media (max-width: 768px) {
-        .nav-menu,
-        .nav-btn {
-            display: none;
-        }
-    
-        .mobile-menu-btn {
-            display: block;
-        }
-    
         .blog-hero {
             padding: 4rem 2rem;
         }
@@ -663,6 +1222,10 @@
         
         .blog-post-title {
             font-size: 1.3rem;
+        }
+        
+        .breadcrumb {
+            font-size: 0.8rem;
         }
     }
     
@@ -746,106 +1309,207 @@
 </head>
 
 <body>
-    <!-- Navigation Bar -->
-    <nav class="navbar">
-        <a href="index.html">
-            <img class="logo" src="https://i.ibb.co/rfstVnt3/jawad-sectionlogo.png" alt="Jawad Ahmad Logo" />
+    <!-- ===== ENHANCED NAVIGATION BAR ===== -->
+    <nav class="navbar" role="navigation" aria-label="Main navigation">
+        <!-- Logo -->
+        <a href="index.html" aria-label="Home page">
+            <img class="logo" src="https://i.ibb.co/rfstVnt3/jawad-sectionlogo.png" alt="Jawad Ahmad - Full Stack Developer Logo" />
         </a>
-        <div class="mobile-menu-btn">
-            <button id="menu-button" class="menu-toggle">
-                <svg width="24" height="24" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                    <path stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
-                        d="M4 6h16M4 12h16M4 18h16" />
-                </svg>
-            </button>
-        </div>
+
+        <!-- Desktop Navigation Menu -->
         <ul class="nav-menu" id="menu">
             <li><a href="index.html">Home</a></li>
             <li><a href="index.html#About">About</a></li>
             <li><a href="index.html#Services">Services</a></li>
             <li><a href="index.html#Projects">Projects</a></li>
-            <li><a href="blogs.html">Blog</a></li>
+            <li><a href="blogs.html" class="active">Blog</a></li>
             <li><a href="index.html#Testimonials">Testimonials</a></li>
             <li><a href="index.html#Skills">Skills</a></li>
             <li><a href="index.html#Contact">Contact</a></li>
         </ul>
-        <div class="nav-btn">
-            <button class="cv-button">
-                <a href="Jawad Ahmad CV.pdf" download>Download CV</a>
+
+        <!-- Desktop Actions -->
+        <div class="nav-actions">
+            <!-- Theme Toggle - Centered for mobile -->
+            <button id="theme-toggle-btn" class="theme-toggle" aria-label="Toggle dark/light mode">
+                <i id="theme-icon" class="fas fa-moon"></i>
             </button>
+
+            <!-- Download CV Button -->
+            <div class="nav-btn">
+                <button class="cv-button">
+                    <a href="Jawad Ahmad CV.pdf" download="Jawad Ahmad CV.pdf">Download CV</a>
+                </button>
+            </div>
+
+            <!-- Mobile Menu Toggle - Right side -->
+            <div class="mobile-menu-btn">
+                <button id="menu-button" class="menu-toggle" aria-label="Toggle mobile menu" aria-expanded="false">
+                    <span class="menu-toggle__hamburger"></span>
+                </button>
+            </div>
         </div>
-        <button id="theme-toggle-btn" class="theme-toggle">
-            <i id="theme-icon" class="fas fa-moon"></i>
-        </button>
     </nav>
 
-    <!-- Mobile Navigation Menu -->
+    <!-- ===== PROFESSIONAL MOBILE NAVIGATION MENU ===== -->
+    <div class="mobile-menu-overlay" id="mobile-overlay"></div>
     <ul class="mobile-nav-menu" id="mobile-menu">
-        <li><a href="index.html">Home</a></li>
-        <li><a href="index.html#About">About</a></li>
-        <li><a href="index.html#Services">Services</a></li>
-        <li><a href="index.html#Projects">Projects</a></li>
-        <li><a href="blogs.html">Blog</a></li>
-        <li><a href="index.html#Testimonials">Testimonials</a></li>
-        <li><a href="index.html#Skills">Skills</a></li>
-        <li><a href="index.html#Contact">Contact</a></li>
+        <button class="mobile-nav-close" id="mobile-close" aria-label="Close menu">
+            <i class="fas fa-times"></i>
+        </button>
+        <li><a href="index.html">
+            <i class="fas fa-home"></i>
+            Home
+        </a></li>
+        <li><a href="index.html#About">
+            <i class="fas fa-user"></i>
+            About
+        </a></li>
+        <li><a href="index.html#Services">
+            <i class="fas fa-briefcase"></i>
+            Services
+        </a></li>
+        <li><a href="index.html#Projects">
+            <i class="fas fa-project-diagram"></i>
+            Projects
+        </a></li>
+        <li><a href="blogs.html" class="active">
+            <i class="fas fa-blog"></i>
+            Blog
+        </a></li>
+        <li><a href="index.html#Testimonials">
+            <i class="fas fa-comments"></i>
+            Testimonials
+        </a></li>
+        <li><a href="index.html#Skills">
+            <i class="fas fa-star"></i>
+            Skills
+        </a></li>
+        <li><a href="index.html#Contact">
+            <i class="fas fa-envelope"></i>
+            Contact
+        </a></li>
         <li>
             <button class="cv-button">
-                <a href="Jawad Ahmad CV.pdf" download>Download CV</a>
+                <a href="Jawad Ahmad CV.pdf" download="Jawad Ahmad CV.pdf">Download CV</a>
             </button>
         </li>
     </ul>
 
     <!-- Blog Page Content -->
-    <div class="blog-page">
-        <section class="blog-hero">
-            <h1>Web Development Blog</h1>
-            <p>Insights, tutorials, and thoughts on web development, programming, and technology trends from a full-stack developer's perspective.</p>
-        </section>
+    <main class="blog-page" role="main">
+        <header class="blog-hero">
+            <h1>Web Development Blog & Tutorials</h1>
+            <p>Expert insights on MERN stack development, React.js, Node.js, MongoDB, and SEO strategies. Learn from a professional full stack developer based in Pakistan serving clients worldwide.</p>
+            
+            <!-- Breadcrumb Navigation -->
+            <nav aria-label="Breadcrumb" class="breadcrumb">
+                <ol>
+                    <li><a href="index.html">Home</a></li>
+                    <li aria-current="page">Blog</li>
+                </ol>
+            </nav>
+        </header>
 
         <div class="blog-container">
             <div class="blog-search">
-                <input type="text" id="blogSearch" placeholder="Search blogs by title or content...">
+                <label for="blogSearch" class="sr-only">Search blog posts</label>
+                <input type="text" id="blogSearch" placeholder="Search web development tutorials, MERN stack guides, React tips..." aria-label="Search blog posts">
             </div>
+            
+            <!-- Blog Categories with SEO-friendly URLs -->
             <div class="blog-filters">
-                <button class="filter-btn active" data-category="all">All Posts</button>
-                <button class="filter-btn" data-category="mern">MERN Stack</button>
-                <button class="filter-btn" data-category="react">React</button>
-                <button class="filter-btn" data-category="node">Node.js</button>
-                <button class="filter-btn" data-category="javascript">JavaScript</button>
-                <button class="filter-btn" data-category="seo">SEO</button>
+                <button class="filter-btn active" data-category="all">All Web Development Posts</button>
+                <button class="filter-btn" data-category="mern">MERN Stack Development</button>
+                <button class="filter-btn" data-category="react">React.js Framework</button>
+                <button class="filter-btn" data-category="node">Node.js Backend</button>
+                <button class="filter-btn" data-category="javascript">JavaScript Programming</button>
+                <button class="filter-btn" data-category="seo">SEO & Performance</button>
             </div>
 
+            <!-- Blog Posts Grid -->
             <div class="blog-grid" id="blogGrid">
                 <div class="loading">
-                    <i class="fas fa-spinner fa-spin"></i>
-                    <p>Loading blogs...</p>
+                    <i class="fas fa-spinner fa-spin" aria-hidden="true"></i>
+                    <p>Loading web development tutorials...</p>
                 </div>
             </div>
         </div>
 
+        <!-- Newsletter Subscription -->
+        <section class="newsletter-section" aria-labelledby="newsletter-heading">
+            <div class="newsletter-container">
+                <h2 id="newsletter-heading">Get Web Development Insights</h2>
+                <p>Subscribe to receive exclusive MERN stack tutorials, React tips, and web development strategies directly to your inbox.</p>
+                <form class="newsletter-form" id="newsletterForm">
+                    <input type="email" placeholder="Enter your email address" required aria-label="Email address for newsletter">
+                    <button type="submit">Subscribe</button>
+                </form>
+                <p class="newsletter-note">No spam. Unsubscribe anytime.</p>
+            </div>
+        </section>
+
         <!-- Footer -->
-        <footer class="footer">
+        <footer class="footer" role="contentinfo">
             <div class="social-links">
-                <a href="https://www.facebook.com/jawad.ahmed.961811" target="_blank">
+                <a href="https://www.facebook.com/jawad.ahmed.961811" target="_blank" rel="noopener noreferrer" aria-label="Follow on Facebook">
                     <img src="/img/facebook-logo-1-2.png" alt="Facebook" class="footer-icon" />
                 </a>
-                <a href="https://x.com/yourprofile" target="_blank">
-                    <img src="/img/free-twitter-logo-icon-2429-thumb.png" alt="X" class="footer-icon" />
+                <a href="https://x.com/yourprofile" target="_blank" rel="noopener noreferrer" aria-label="Follow on X (Twitter)">
+                    <img src="/img/free-twitter-logo-icon-2429-thumb.png" alt="X (Twitter)" class="footer-icon" />
                 </a>
-                <a href="www.linkedin.com/in/jawad-ahmad-9938938484djf" target="_blank">
+                <a href="https://www.linkedin.com/in/jawad-ahmad-9938938484djf" target="_blank" rel="noopener noreferrer" aria-label="Connect on LinkedIn">
                     <img src="/img/linkedin-icon-logo-png-transparent.png" alt="LinkedIn" class="footer-icon" />
                 </a>
             </div>
             <p class="footer-text">
-                <a href="/privacy.html">Privacy Policy</a> | <a href="/disclaimer.html">Disclaimer</a>
+                <a href="/privacy.html">Privacy Policy</a> | <a href="/disclaimer.html">Disclaimer</a> | <a href="/sitemap.html">Sitemap</a>
             </p>
             <p class="footer-text">All rights reserved by © Jawad Ahmad Creation.</p>
         </footer>
-    </div>
+    </main>
 
     <script>
-        // Navigation and Theme Toggle Scripts
+        // ===== ENHANCED MOBILE MENU FUNCTIONALITY =====
+        const menuButton = document.getElementById("menu-button");
+        const mobileMenu = document.getElementById("mobile-menu");
+        const mobileOverlay = document.getElementById("mobile-overlay");
+        const mobileClose = document.getElementById("mobile-close");
+
+        function toggleMobileMenu() {
+            const isOpening = !mobileMenu.classList.contains("active");
+            
+            mobileMenu.classList.toggle("active");
+            mobileOverlay.classList.toggle("active");
+            menuButton.classList.toggle("active");
+            
+            // Update aria-expanded attribute
+            menuButton.setAttribute("aria-expanded", isOpening);
+            
+            // Prevent body scroll when menu is open
+            document.body.style.overflow = isOpening ? "hidden" : "";
+        }
+
+        // Event listeners for mobile menu
+        menuButton.addEventListener("click", toggleMobileMenu);
+        mobileOverlay.addEventListener("click", toggleMobileMenu);
+        mobileClose.addEventListener("click", toggleMobileMenu);
+
+        // Close menu when clicking on links
+        document.querySelectorAll(".mobile-nav-menu a").forEach((link) => {
+            link.addEventListener("click", () => {
+                toggleMobileMenu();
+            });
+        });
+
+        // Close menu with Escape key
+        document.addEventListener("keydown", (e) => {
+            if (e.key === "Escape" && mobileMenu.classList.contains("active")) {
+                toggleMobileMenu();
+            }
+        });
+
+        // ===== THEME TOGGLE FUNCTIONALITY =====
         const themeToggleBtn = document.getElementById("theme-toggle-btn");
         const themeIcon = document.getElementById("theme-icon");
 
@@ -867,26 +1531,36 @@
             }
         });
 
-        // Mobile menu toggle
-        const menuButton = document.getElementById("menu-button");
-        const mobileMenu = document.getElementById("mobile-menu");
-        
-        menuButton.addEventListener("click", () => {
-            mobileMenu.classList.toggle("active");
-            menuButton.classList.toggle("active");
-        });
+        // Enhanced structured data for blog posts
+        function generateBlogStructuredData(blog) {
+            return {
+                "@context": "https://schema.org",
+                "@type": "BlogPosting",
+                "headline": blog.title,
+                "description": blog.excerpt,
+                "image": blog.image,
+                "author": {
+                    "@type": "Person",
+                    "name": "Jawad Ahmad",
+                    "url": "https://jawadahmad.me"
+                },
+                "publisher": {
+                    "@type": "Person",
+                    "name": "Jawad Ahmad"
+                },
+                "datePublished": blog.publishDate,
+                "dateModified": blog.updateDate || blog.publishDate,
+                "mainEntityOfPage": {
+                    "@type": "WebPage",
+                    "@id": `https://jawadahmad.me/blog-post.html?slug=${generateSlug(blog.title)}`
+                }
+            };
+        }
 
-        document.querySelectorAll(".mobile-nav-menu a").forEach((link) => {
-            link.addEventListener("click", () => {
-                mobileMenu.classList.remove("active");
-                menuButton.classList.remove("active");
-            });
-        });
-
-        // Blog Loading Script with Slug Support
+        // Enhanced blog loading with structured data
         async function loadBlogs() {
             try {
-                console.log('Loading blogs data...');
+                console.log('Loading web development blogs...');
                 
                 const response = await fetch('./blogs-data.json');
                 
@@ -895,17 +1569,26 @@
                 }
                 
                 const data = await response.json();
-                console.log('Blogs data loaded:', data);
+                console.log('Web development blogs loaded:', data);
                 
                 displayBlogs(data.blogs);
                 setupFilters(data.blogs);
                 
+                // Add structured data for each blog post
+                data.blogs.forEach(blog => {
+                    const structuredData = generateBlogStructuredData(blog);
+                    const script = document.createElement('script');
+                    script.type = 'application/ld+json';
+                    script.text = JSON.stringify(structuredData);
+                    document.head.appendChild(script);
+                });
+                
             } catch (error) {
-                console.error('Error loading blogs:', error);
+                console.error('Error loading web development tutorials:', error);
                 document.getElementById('blogGrid').innerHTML = `
                     <div class="no-posts">
-                        <i class="fas fa-exclamation-triangle"></i>
-                        <p>Error loading blogs. Please check if blogs-data.json file exists.</p>
+                        <i class="fas fa-exclamation-triangle" aria-hidden="true"></i>
+                        <p>Error loading web development tutorials. Please check if blogs-data.json file exists.</p>
                         <p style="font-size: 0.8rem; margin-top: 0.5rem;">Error: ${error.message}</p>
                     </div>
                 `;
@@ -931,15 +1614,15 @@
             if (filteredBlogs.length === 0) {
                 blogGrid.innerHTML = `
                     <div class="no-posts">
-                        <i class="fas fa-search"></i>
-                        <p>No blog posts found for this category or search.</p>
+                        <i class="fas fa-search" aria-hidden="true"></i>
+                        <p>No web development tutorials found for this category or search.</p>
                     </div>
                 `;
                 return;
             }
 
             blogGrid.innerHTML = filteredBlogs.map(blog => `
-                <div class="blog-card" data-category="${blog.category}">
+                <article class="blog-card" data-category="${blog.category}">
                     <div class="blog-image-container">
                         <img src="${blog.image}" alt="${blog.title}" class="blog-image" 
                              onerror="this.src='https://images.unsplash.com/photo-1555066931-4365d14bab8c?w=500'">
@@ -949,12 +1632,12 @@
                         <h3 class="blog-post-title">${blog.title}</h3>
                         <p class="blog-excerpt">${blog.excerpt}</p>
                         <div class="blog-meta">
-                            <span class="meta-item"><i class="far fa-calendar"></i> ${blog.date}</span>
-                            <span class="meta-item"><i class="far fa-clock"></i> ${blog.readTime}</span>
+                            <span class="meta-item"><i class="far fa-calendar" aria-hidden="true"></i> ${blog.date}</span>
+                            <span class="meta-item"><i class="far fa-clock" aria-hidden="true"></i> ${blog.readTime}</span>
                         </div>
-                        <a href="blog-post.html?slug=${generateSlug(blog.title)}" class="read-more-btn">Read More <i class="fas fa-arrow-right"></i></a>
+                        <a href="blog-post.html?slug=${generateSlug(blog.title)}" class="read-more-btn" aria-label="Read more about ${blog.title}">Read More <i class="fas fa-arrow-right" aria-hidden="true"></i></a>
                     </div>
-                </div>
+                </article>
             `).join('');
         }
 
@@ -984,6 +1667,19 @@
                 });
             }
         }
+
+        // Newsletter form handler
+        document.getElementById('newsletterForm')?.addEventListener('submit', function(e) {
+            e.preventDefault();
+            const email = this.querySelector('input[type="email"]').value;
+            
+            // Here you would typically send this to your newsletter service
+            console.log('Newsletter subscription:', email);
+            
+            // Show success message
+            alert('Thank you for subscribing to our web development insights!');
+            this.reset();
+        });
 
         // Load blogs when page loads
         document.addEventListener('DOMContentLoaded', loadBlogs);

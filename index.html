@@ -212,20 +212,28 @@
       }
     }
 
+    /* ===== ENHANCED NAVBAR STYLES ===== */
     .navbar {
       display: flex;
       justify-content: space-between;
       align-items: center;
-      padding: 1.5rem 5%;
+      padding: 1.2rem 5%;
       background-color: var(--nav-bg);
       position: fixed;
       width: 100%;
       top: 0;
       z-index: 1000;
-      backdrop-filter: blur(10px);
-    }
+      backdrop-filter: blur(20px);
+      border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+  }
 
-    .logo {
+  body.light-mode .navbar {
+      border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
+  }
+
+  .logo {
       height: 50px;
       width: auto;
       transition: transform 0.5s ease-in-out;
@@ -236,138 +244,492 @@
       transform: scale(1.1) rotate(360deg);
     }
 
-    .nav-menu {
+  .nav-menu {
       display: flex;
       list-style: none;
-      gap: 2rem;
-    }
+      gap: 2.5rem;
+      align-items: center;
+  }
 
-    .nav-menu a {
+  .nav-menu a {
       position: relative;
       font-weight: 500;
-      transition: color 0.3s ease;
-    }
+      font-size: 0.95rem;
+      transition: all 0.3s ease;
+      padding: 0.5rem 0;
+  }
 
-    .nav-menu a::after {
+  .nav-menu a::after {
       content: "";
       position: absolute;
-      bottom: -5px;
+      bottom: -2px;
       left: 0;
       width: 0;
       height: 2px;
-      background-color: var(--accent-color);
+      background: var(--accent-color);
       transition: width 0.3s ease;
-    }
+  }
 
-    .nav-menu a:hover {
-      color: var(--primary-color);
-    }
+  .nav-menu a:hover {
+      color: var(--accent-color);
+  }
 
-    .nav-menu a:hover::after {
+  .nav-menu a:hover::after {
       width: 100%;
-    }
-
-    .mobile-menu-btn {
-      display: none;
-    }
-
-    .menu-toggle {
-      background: rgb(15 244 195 / 100%);
-      border: 1px solid rgba(255, 255, 255, 0.15);
-      border-radius: 50%;
-      padding: 6px 7px;
-      cursor: pointer;
-      color: black;
-      font-weight: 600;
-      font-size: 10px;
-      transition: all 0.4s ease-in-out;
-    }
-
-    .menu-toggle:hover {
-      transform: scale(1.1) rotate(360deg);
-      background: rgba(20, 40, 80, 0.55);
-      color: #ffffff;
-      box-shadow: 0 8px 28px rgba(0, 150, 255, 0.6),
-        0 0 20px rgba(0, 150, 255, 0.8),
-        inset 0 0 10px rgba(0, 150, 255, 0.4);
-    }
+  }
 
 
+  .nav-actions {
+      display: flex;
+      align-items: center;
+      gap: 1.5rem;
+  }
 
-    .nav-btn .cv-button,
-    .mobile-nav-menu .cv-button {
-      background-color: var(--primary-color);
+  .nav-btn .cv-button {
+      background: linear-gradient(135deg, var(--primary-color) 0%, var(--secondary-color) 100%);
       color: white;
       border: none;
-      padding: 0.5rem 1.5rem;
-      border-radius: 5px;
+      padding: 0.7rem 1.8rem;
+      border-radius: 10px;
       font-weight: 600;
       cursor: pointer;
       transition: all 0.3s ease;
       position: relative;
       overflow: hidden;
-    }
+      font-size: 0.9rem;
+  }
 
-    .nav-btn .cv-button:hover,
-    .mobile-nav-menu .cv-button:hover {
-      background-color: var(--secondary-color);
-      transform: translateY(-2px) scale(1.05);
-    }
+  .nav-btn .cv-button::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: -100%;
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(135deg, var(--accent-color) 0%, var(--primary-color) 100%);
+      transition: left 0.4s ease;
+      z-index: -1;
+  }
 
-    .nav-btn .cv-button:active,
-    .mobile-nav-menu .cv-button:active {
-      animation: clickPulse 0.3s ease;
-    }
+  .nav-btn .cv-button:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 8px 25px rgba(37, 99, 235, 0.3);
+  }
 
-    .theme-toggle-btn {
-      background: none;
-      border: none;
-      cursor: pointer;
-      margin-left: 1rem;
-      transition: transform 0.5s ease-in-out;
-    }
+  .nav-btn .cv-button:hover::before {
+      left: 0;
+  }
 
-    .theme-toggle-btn:hover {
-      transform: scale(1.1) rotate(360deg);
-    }
+  .nav-btn .cv-button a {
+      color: white;
+      text-decoration: none;
+  }
 
-    @keyframes clickPulse {
-      0% {
-        transform: scale(1);
-      }
-
-      50% {
-        transform: scale(0.95);
-      }
-
-      100% {
-        transform: scale(1);
-      }
-    }
-
-    .mobile-nav-menu {
-      position: fixed;
-      top: 80px;
-      right: 0;
-      width: 70%;
-      height: calc(100vh - 80px);
-      background-color: var(--nav-bg);
-      backdrop-filter: blur(10px);
+  .theme-toggle {
+      background: rgba(255, 255, 255, 0.1);
+      border: 2px solid rgba(255, 255, 255, 0.2);
+      border-radius: 50%;
+      width: 45px;
+      height: 45px;
       display: flex;
-      flex-direction: column;
       align-items: center;
       justify-content: center;
-      gap: 2rem;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      color: var(--text-color);
+  }
+
+  body.light-mode .theme-toggle {
+      background: rgba(0, 0, 0, 0.05);
+      border: 2px solid rgba(0, 0, 0, 0.1);
+  }
+
+  .theme-toggle:hover {
+      background: var(--primary-color);
+      border-color: var(--primary-color);
+      color: white;
+      transform: scale(1.05);
+  }
+
+  .theme-toggle i {
+      font-size: 1.3rem;
+      transition: transform 0.5s ease;
+  }
+
+  .theme-toggle:hover i {
+      transform: rotate(15deg);
+  }
+
+  /* ===== PROFESSIONAL MOBILE MENU STYLES ===== */
+  .mobile-menu-btn {
+      display: none;
+      z-index: 1001;
+  }
+
+  .menu-toggle {
+      background: transparent;
+      border: none;
+      border-radius: 10px;
+      padding: 10px;
+      cursor: pointer;
+      color: var(--text-color, #f5f5f5);
+      transition: all 0.3s ease;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 45px;
+      height: 45px;
+      position: relative;
+      backdrop-filter: blur(10px);
+    }
+
+    /* Light Mode */
+    body.light-mode .menu-toggle {
+      color: #111;
+    }
+
+    /* Hover Effect */
+    .menu-toggle:hover {
+      transform: scale(1.05);
+      background: rgba(255, 255, 255, 0.05);
+    }
+
+    body.light-mode .menu-toggle:hover {
+      background: rgba(0, 0, 0, 0.05);
+    }
+
+    /* ===== Hamburger Icon ===== */
+    .menu-toggle__hamburger {
+      width: 22px;
+      height: 2px;
+      background: currentColor;
+      position: relative;
+      transition: all 0.3s ease;
+      border-radius: 2px;
+    }
+
+    .menu-toggle__hamburger::before,
+    .menu-toggle__hamburger::after {
+      content: "";
+      position: absolute;
+      width: 22px;
+      height: 2px;
+      background: currentColor;
+      left: 0;
+      border-radius: 2px;
+      transition: all 0.3s ease;
+    }
+
+    .menu-toggle__hamburger::before {
+      top: -7px;
+    }
+
+    .menu-toggle__hamburger::after {
+      top: 7px;
+    }
+
+    /* ===== Active State (Turns into "X") ===== */
+    .menu-toggle.active .menu-toggle__hamburger {
+      background: transparent;
+    }
+
+    .menu-toggle.active .menu-toggle__hamburger::before {
+      top: 0;
+      transform: rotate(45deg);
+    }
+
+    .menu-toggle.active .menu-toggle__hamburger::after {
+      top: 0;
+      transform: rotate(-45deg);
+    }
+  /* Mobile Navigation Menu */
+  .mobile-nav-menu {
+      position: fixed;
+      top: 0;
+      right: -100%;
+      width: 320px;
+      height: 100vh;
+      background: linear-gradient(160deg, var(--nav-bg) 0%, rgba(26, 60, 110, 0.98) 100%);
+      backdrop-filter: blur(30px);
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      justify-content: flex-start;
+      padding: 100px 2rem 2rem;
       list-style: none;
-      transform: translateX(100%);
-      transition: transform 0.3s ease;
+      transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
       z-index: 999;
-    }
+      box-shadow: -5px 0 40px rgba(0, 0, 0, 0.4);
+      border-left: 1px solid rgba(255, 255, 255, 0.15);
+  }
 
-    .mobile-nav-menu.active {
+  body.light-mode .mobile-nav-menu {
+      background: linear-gradient(160deg, rgba(255, 255, 255, 0.98) 0%, rgba(255, 255, 255, 0.95) 100%);
+      border-left: 1px solid rgba(0, 0, 0, 0.1);
+  }
+
+  .mobile-nav-menu.active {
+      right: 0;
+  }
+
+  .mobile-nav-menu::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background: 
+          radial-gradient(circle at 20% 80%, rgba(56, 189, 248, 0.1) 0%, transparent 50%),
+          radial-gradient(circle at 80% 20%, rgba(37, 99, 235, 0.1) 0%, transparent 50%);
+      opacity: 0.6;
+  }
+
+  .mobile-nav-menu li {
+      width: 100%;
+      margin-bottom: 0.8rem;
+      opacity: 0;
+      transform: translateX(50px);
+      transition: all 0.4s ease;
+  }
+
+  .mobile-nav-menu.active li {
+      opacity: 1;
       transform: translateX(0);
-    }
+  }
 
+  /* Stagger animation for menu items */
+  .mobile-nav-menu.active li:nth-child(1) { transition-delay: 0.1s; }
+  .mobile-nav-menu.active li:nth-child(2) { transition-delay: 0.15s; }
+  .mobile-nav-menu.active li:nth-child(3) { transition-delay: 0.2s; }
+  .mobile-nav-menu.active li:nth-child(4) { transition-delay: 0.25s; }
+  .mobile-nav-menu.active li:nth-child(5) { transition-delay: 0.3s; }
+  .mobile-nav-menu.active li:nth-child(6) { transition-delay: 0.35s; }
+  .mobile-nav-menu.active li:nth-child(7) { transition-delay: 0.4s; }
+  .mobile-nav-menu.active li:nth-child(8) { transition-delay: 0.45s; }
+  .mobile-nav-menu.active li:nth-child(9) { transition-delay: 0.5s; }
+
+  .mobile-nav-menu a {
+      display: flex;
+      align-items: center;
+      width: 100%;
+      padding: 1.1rem 1.5rem;
+      color: rgba(255, 255, 255, 0.9);
+      font-weight: 500;
+      font-size: 1.05rem;
+      border-radius: 12px;
+      transition: all 0.3s ease;
+      position: relative;
+      overflow: hidden;
+      border: 1px solid transparent;
+  }
+
+  body.light-mode .mobile-nav-menu a {
+      color: rgba(0, 0, 0, 0.8);
+  }
+
+  .mobile-nav-menu a::before {
+      content: '';
+      position: absolute;
+      left: 0;
+      top: 0;
+      height: 100%;
+      width: 4px;
+      background: var(--accent-color);
+      transform: scaleY(0);
+      transition: transform 0.3s ease;
+      border-radius: 0 4px 4px 0;
+  }
+
+  .mobile-nav-menu a:hover::before,
+  .mobile-nav-menu a:focus::before {
+      transform: scaleY(1);
+  }
+
+  .mobile-nav-menu a:hover,
+  .mobile-nav-menu a:focus {
+      background: rgba(255, 255, 255, 0.1);
+      color: white;
+      transform: translateX(8px);
+      padding-left: 1.8rem;
+      border-color: rgba(255, 255, 255, 0.2);
+  }
+
+  body.light-mode .mobile-nav-menu a:hover,
+  body.light-mode .mobile-nav-menu a:focus {
+      background: rgba(0, 0, 0, 0.05);
+      color: var(--primary-color);
+      border-color: rgba(0, 0, 0, 0.1);
+  }
+
+  .mobile-nav-menu .cv-button {
+      background: linear-gradient(135deg, var(--primary-color) 0%, var(--secondary-color) 100%);
+      color: white;
+      border: none;
+      padding: 1.2rem 2rem;
+      border-radius: 12px;
+      font-weight: 600;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      width: 100%;
+      margin-top: 1rem;
+      position: relative;
+      overflow: hidden;
+      font-size: 1.05rem;
+      box-shadow: 0 6px 20px rgba(37, 99, 235, 0.3);
+  }
+
+  .mobile-nav-menu .cv-button::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: -100%;
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(135deg, var(--accent-color) 0%, var(--primary-color) 100%);
+      transition: left 0.4s ease;
+      z-index: -1;
+  }
+
+  .mobile-nav-menu .cv-button:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 12px 30px rgba(37, 99, 235, 0.4);
+  }
+
+  .mobile-nav-menu .cv-button:hover::before {
+      left: 0;
+  }
+
+  .mobile-nav-menu .cv-button a {
+      color: white;
+      text-decoration: none;
+      padding: 0;
+      background: none;
+      width: auto;
+      border: none;
+  }
+
+  .mobile-nav-menu .cv-button a:hover {
+      background: none;
+      transform: none;
+      padding-left: 0;
+  }
+
+  /* Enhanced Close Button */
+  .mobile-nav-close {
+      position: absolute;
+      top: 1.8rem;
+      right: 1.8rem;
+      background: rgba(255, 255, 255, 0.15);
+      border: 2px solid rgba(255, 255, 255, 0.25);
+      border-radius: 50%;
+      width: 44px;
+      height: 44px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: white;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      z-index: 1002;
+      font-size: 1.2rem;
+  }
+
+  body.light-mode .mobile-nav-close {
+      background: rgba(0, 0, 0, 0.1);
+      border: 2px solid rgba(0, 0, 0, 0.2);
+      color: var(--text-color);
+  }
+
+  .mobile-nav-close:hover {
+      background: var(--accent-color);
+      border-color: var(--accent-color);
+      transform: rotate(90deg) scale(1.1);
+      color: white;
+  }
+
+  /* Overlay when menu is open */
+  .mobile-menu-overlay {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(0, 0, 0, 0.7);
+      backdrop-filter: blur(8px);
+      z-index: 998;
+      opacity: 0;
+      visibility: hidden;
+      transition: all 0.3s ease;
+  }
+
+  .mobile-menu-overlay.active {
+      opacity: 1;
+      visibility: visible;
+  }
+
+  /* Mobile menu icons */
+  .mobile-nav-menu a i {
+      margin-right: 12px;
+      width: 20px;
+      text-align: center;
+      font-size: 1.1rem;
+      opacity: 0.9;
+  }
+
+  /* ===== RESPONSIVE DESIGN ===== */
+  @media (max-width: 1024px) {
+      .nav-menu {
+          gap: 2rem;
+      }
+  }
+
+  @media (max-width: 768px) {
+      .nav-menu,
+      .nav-btn {
+          display: none;
+      }
+
+      .mobile-menu-btn {
+          display: block;
+      }
+
+      .nav-actions {
+          gap: 1rem;
+      }
+
+      .navbar {
+          padding: 1rem 5%;
+      }
+
+      .logo {
+          height: 40px;
+      }
+  }
+
+  @media (max-width: 480px) {
+      .mobile-nav-menu {
+          width: 280px;
+          padding: 90px 1.5rem 1.5rem;
+      }
+      
+      .mobile-nav-menu a {
+          padding: 1rem 1.2rem;
+          font-size: 1rem;
+      }
+      
+      .mobile-nav-close {
+          top: 1.5rem;
+          right: 1.5rem;
+          width: 40px;
+          height: 40px;
+      }
+
+      .navbar {
+          padding: 0.8rem 5%;
+      }
+  }
+  
     /*Hero Section (Desktop)*/
     .home-section {
       min-height: 90vh;
@@ -1678,49 +2040,92 @@
   <div id="threejs-container" class="threejs-container"></div>
   <div class="floating-icons" id="floating-icons"></div>
 
-  <nav class="navbar">
-    <img class="logo" src="https://i.ibb.co/rfstVnt3/jawad-sectionlogo.png" alt="Jawad Ahmad Logo" />
-    <div class="mobile-menu-btn">
-      <button id="menu-button" class="menu-toggle">
-        <svg width="24" height="24" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-          <path stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
-            d="M4 6h16M4 12h16M4 18h16" />
-        </svg>
-      </button>
-    </div>
-    <ul class="nav-menu" id="menu">
-      <li><a href="#Home">Home</a></li>
-      <li><a href="#About">About</a></li>
-      <li><a href="#Projects">Projects</a></li>
-      <li><a href="/blogs.html">Blog</a></li>
-      <li><a href="#Testimonials">Testimonials</a></li>
-      <li><a href="#Skills">Skills</a></li>
-      <li><a href="#Contact">Contact</a></li>
-    </ul>
-    <div class="nav-btn">
-      <button class="cv-button">
-        <a href="Jawad Ahmad CV.pdf" download>Download CV</a>
-      </button>
-    </div>
-    <button id="theme-toggle-btn" class="theme-toggle">
-      <i id="theme-icon" class="fas fa-moon"></i>
-    </button>
-  </nav>
+  <!-- ===== ENHANCED NAVIGATION BAR ===== -->
+  <nav class="navbar" role="navigation" aria-label="Main navigation">
+    <!-- Logo -->
+    <a href="index.html" aria-label="Home page">
+        <img class="logo" src="https://i.ibb.co/rfstVnt3/jawad-sectionlogo.png" alt="Jawad Ahmad - Full Stack Developer Logo" />
+    </a>
 
-  <ul class="mobile-nav-menu" id="mobile-menu">
-    <li><a href="#Home">Home</a></li>
-    <li><a href="#About">About</a></li>
-    <li><a href="#Projects">Projects</a></li>
-    <li><a href="/blogs.html">Blog</a></li>
-    <li><a href="#Testimonials">Testimonials</a></li>
-    <li><a href="#Skills">Skills</a></li>
-    <li><a href="#Contact">Contact</a></li>
+    <!-- Desktop Navigation Menu -->
+    <ul class="nav-menu" id="menu">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="index.html#About">About</a></li>
+        <li><a href="index.html#Services">Services</a></li>
+        <li><a href="index.html#Projects">Projects</a></li>
+        <li><a href="blogs.html" class="active">Blog</a></li>
+        <li><a href="index.html#Testimonials">Testimonials</a></li>
+        <li><a href="index.html#Skills">Skills</a></li>
+        <li><a href="index.html#Contact">Contact</a></li>
+    </ul>
+
+    <!-- Desktop Actions -->
+    <div class="nav-actions">
+        <!-- Theme Toggle - Centered for mobile -->
+        <button id="theme-toggle-btn" class="theme-toggle" aria-label="Toggle dark/light mode">
+            <i id="theme-icon" class="fas fa-moon"></i>
+        </button>
+
+        <!-- Download CV Button -->
+        <div class="nav-btn">
+            <button class="cv-button">
+                <a href="Jawad Ahmad CV.pdf" download="Jawad Ahmad CV.pdf">Download CV</a>
+            </button>
+        </div>
+
+        <!-- Mobile Menu Toggle - Right side -->
+        <div class="mobile-menu-btn">
+            <button id="menu-button" class="menu-toggle" aria-label="Toggle mobile menu" aria-expanded="false">
+                <span class="menu-toggle__hamburger"></span>
+            </button>
+        </div>
+    </div>
+</nav>
+
+<!-- ===== PROFESSIONAL MOBILE NAVIGATION MENU ===== -->
+<div class="mobile-menu-overlay" id="mobile-overlay"></div>
+<ul class="mobile-nav-menu" id="mobile-menu">
+    <button class="mobile-nav-close" id="mobile-close" aria-label="Close menu">
+        <i class="fas fa-times"></i>
+    </button>
+    <li><a href="index.html">
+        <i class="fas fa-home"></i>
+        Home
+    </a></li>
+    <li><a href="index.html#About">
+        <i class="fas fa-user"></i>
+        About
+    </a></li>
+    <li><a href="index.html#Services">
+        <i class="fas fa-briefcase"></i>
+        Services
+    </a></li>
+    <li><a href="index.html#Projects">
+        <i class="fas fa-project-diagram"></i>
+        Projects
+    </a></li>
+    <li><a href="blogs.html" class="active">
+        <i class="fas fa-blog"></i>
+        Blog
+    </a></li>
+    <li><a href="index.html#Testimonials">
+        <i class="fas fa-comments"></i>
+        Testimonials
+    </a></li>
+    <li><a href="index.html#Skills">
+        <i class="fas fa-star"></i>
+        Skills
+    </a></li>
+    <li><a href="index.html#Contact">
+        <i class="fas fa-envelope"></i>
+        Contact
+    </a></li>
     <li>
-      <button class="cv-button">
-        <a href="Jawad Ahmad CV.pdf" download>Download CV</a>
-      </button>
+        <button class="cv-button">
+            <a href="Jawad Ahmad CV.pdf" download="Jawad Ahmad CV.pdf">Download CV</a>
+        </button>
     </li>
-  </ul>
+</ul>
 
   <section class="home-section" id="Home">
     <div id="hero-threejs-container" class="hero-threejs-container"></div>
@@ -2323,7 +2728,9 @@
         <img src="/img/linkedin-icon-logo-png-transparent.png" alt="LinkedIn" class="footer-icon" />
       </a>
     </div>
-    <a href="/privacy.html">Privacy Policy</a> | <a href="/disclaimer.html">Disclaimer</a>
+    <p class="footer-text">
+      <a href="/privacy.html">Privacy Policy</a> | <a href="/disclaimer.html">Disclaimer</a> | <a href="/sitemap.html">Sitemap</a>
+  </p>
     <p class="footer-text">All rights reserved by © Jawad Ahmad Creation.</p>
   </div>
 <!-- Adsterra Ad Script -->
