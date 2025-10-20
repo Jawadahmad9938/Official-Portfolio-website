@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
-        xmlns:news="http://www.google.com/schemas/sitemap-news/0.9"
-        xmlns:xhtml="http://www.w3.org/1999/xhtml"
-        xmlns:image="http://www.google.com/schemas/sitemap-image/1.1"
-        xmlns:video="http://www.google.com/schemas/sitemap-video/1.1">
-  
-  <!-- Home Page -->
+<urlset 
+  xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+  xmlns:news="http://www.google.com/schemas/sitemap-news/0.9"
+  xmlns:xhtml="http://www.w3.org/1999/xhtml"
+  xmlns:image="http://www.google.com/schemas/sitemap-image/1.1"
+  xmlns:video="http://www.google.com/schemas/sitemap-video/1.1">
+
   <url>
     <loc>https://jawadahmad.me/</loc>
     <lastmod>2024-12-20</lastmod>
@@ -13,31 +13,6 @@
     <priority>1.00</priority>
   </url>
 
-  <!-- About Page -->
-  <url>
-    <loc>https://jawadahmad.me/about</loc>
-    <lastmod>2024-11-25</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.80</priority>
-  </url>
-
-  <!-- Services Page -->
-  <url>
-    <loc>https://jawadahmad.me/services</loc>
-    <lastmod>2024-11-20</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.80</priority>
-  </url>
-
-  <!-- Projects Page -->
-  <url>
-    <loc>https://jawadahmad.me/projects</loc>
-    <lastmod>2024-12-15</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.90</priority>
-  </url>
-
-  <!-- Blogs Listing Page -->
   <url>
     <loc>https://jawadahmad.me/blogs</loc>
     <lastmod>2024-12-20</lastmod>
@@ -45,7 +20,6 @@
     <priority>0.90</priority>
   </url>
 
-  <!-- Blog Posts -->
   <url>
     <loc>https://jawadahmad.me/blog-post.html?slug=mastering-the-mern-stack-a-comprehensive-guide-for-beginners-in-2025</loc>
     <lastmod>2024-12-15</lastmod>
@@ -106,31 +80,6 @@
     </image:image>
   </url>
 
-  <!-- Contact Page -->
-  <url>
-    <loc>https://jawadahmad.me/contact</loc>
-    <lastmod>2024-11-15</lastmod>
-    <changefreq>yearly</changefreq>
-    <priority>0.70</priority>
-  </url>
-
-  <!-- Testimonials Page -->
-  <url>
-    <loc>https://jawadahmad.me/testimonials</loc>
-    <lastmod>2024-12-10</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.70</priority>
-  </url>
-
-  <!-- Skills Page -->
-  <url>
-    <loc>https://jawadahmad.me/skills</loc>
-    <lastmod>2024-12-05</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.80</priority>
-  </url>
-
-  <!-- Privacy Policy -->
   <url>
     <loc>https://jawadahmad.me/privacy</loc>
     <lastmod>2024-01-01</lastmod>
@@ -138,7 +87,6 @@
     <priority>0.30</priority>
   </url>
 
-  <!-- Disclaimer -->
   <url>
     <loc>https://jawadahmad.me/disclaimer</loc>
     <lastmod>2024-01-01</lastmod>
