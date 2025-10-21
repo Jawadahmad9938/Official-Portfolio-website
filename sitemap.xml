@@ -6,6 +6,7 @@
   xmlns:image="http://www.google.com/schemas/sitemap-image/1.1"
   xmlns:video="http://www.google.com/schemas/sitemap-video/1.1">
 
+  <!-- Homepage -->
   <url>
     <loc>https://jawadahmad.me/</loc>
     <lastmod>2024-12-20</lastmod>
@@ -13,6 +14,7 @@
     <priority>1.00</priority>
   </url>
 
+  <!-- Blogs Index -->
   <url>
     <loc>https://jawadahmad.me/blogs</loc>
     <lastmod>2024-12-20</lastmod>
@@ -20,6 +22,7 @@
     <priority>0.90</priority>
   </url>
 
+  <!-- Blog Posts -->
   <url>
     <loc>https://jawadahmad.me/blog-post.html?slug=mastering-the-mern-stack-a-comprehensive-guide-for-beginners-in-2025</loc>
     <lastmod>2024-12-15</lastmod>
@@ -80,6 +83,27 @@
     </image:image>
   </url>
 
+  <!-- Philosophy Section -->
+  <url>
+    <loc>https://jawadahmad.me/philosophy/philosophy</loc>
+    <lastmod>2025-10-21</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.90</priority>
+  </url>
+
+  <url>
+    <loc>https://jawadahmad.me/philosophy/philosophy-post.html?slug=nietzsche-prophet-of-power-or-enemy-of-humanity</loc>
+    <lastmod>2025-10-21</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.85</priority>
+    <image:image>
+      <image:loc>https://upload.wikimedia.org/wikipedia/commons/thumb/1/1b/Nietzsche187a.jpg/500px-Nietzsche187a.jpg</image:loc>
+      <image:title>Nietzsche: Prophet of Power or Enemy of Humanity?</image:title>
+      <image:caption>A critical essay examining Nietzsche's philosophy of power, morality, and human potential.</image:caption>
+    </image:image>
+  </url>
+
+  <!-- Legal Pages -->
   <url>
     <loc>https://jawadahmad.me/privacy</loc>
     <lastmod>2024-01-01</lastmod>
