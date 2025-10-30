@@ -3092,7 +3092,7 @@ body.light-mode .form-note {
 .social-links {
   display: flex;
   justify-content: center;
-  gap: 15px;
+  gap: 18px;
   flex-wrap: wrap;
 }
 
@@ -3101,39 +3101,70 @@ body.light-mode .form-note {
   flex-direction: column;
   align-items: center;
   text-decoration: none;
-
   transition: all 0.3s ease;
   padding: 15px;
   border-radius: 12px;
   min-width: 80px;
+  position: relative;
 }
-
-/* .social-link:hover {
-  color: #3b82f6;
-  transform: translateY(-5px);
-  background: rgba(59, 130, 246, 0.1);
-} */
 
 .social-icon {
   width: 50px;
   height: 50px;
   border-radius: 50%;
-  background: #334155;
+  background: #1e293b;
   display: flex;
   align-items: center;
   justify-content: center;
   margin-bottom: 8px;
   transition: all 0.3s ease;
+  position: relative;
 }
 
-.social-link:hover .social-icon {
-  background: #021c45;
-  transform: scale(1.1);
+.social-icon i {
+  font-size: 1.3rem;
+  color: #fff;
 }
+
+.verified-badge {
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  background: #fff;
+  border-radius: 50%;
+  width: 18px;
+  height: 18px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.verified-badge i {
+  color: #3b82f6;
+  font-size: 0.9rem;
+}
+
+/* Hover animation */
+.social-link:hover .social-icon {
+  transform: scale(1.15);
+  box-shadow: 0 4px 12px rgba(59, 130, 246, 0.4);
+}
+
+/* Platform-specific colors */
+.facebook { background: #1877f2; }
+.twitter { background: #1da1f2; }
+.linkedin { background: #0077b5; }
+.github { background: #24292e; }
+.whatsapp { background: #25d366; }
 
 .social-link span {
   font-size: 0.85rem;
   font-weight: 500;
+  color: #cbd5e1;
+}
+
+.social-link:hover span {
+  color: #fff;
 }
 
 .legal-section {
