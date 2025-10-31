@@ -3072,27 +3072,31 @@ body.light-mode .form-note {
   box-shadow: 0 8px 25px rgba(16, 185, 129, 0.4);
 }
 
-/* Footer Bottom */
+/* ===== Footer Bottom ===== */
 .footer-bottom {
   border-top: 1px solid #334155;
-  padding-top: 30px;
+  padding-top: 40px;
+  text-align: center;
 }
 
+/* ===== Social Section ===== */
 .social-section {
-  text-align: center;
-  margin-bottom: 30px;
+  margin-bottom: 35px;
 }
 
 .social-title {
   color: #94a3b8;
-  margin-bottom: 20px;
   font-weight: 500;
+  margin-bottom: 25px;
+  font-size: 1.1rem;
+  letter-spacing: 0.3px;
 }
 
 .social-links {
   display: flex;
   justify-content: center;
-  gap: 18px;
+  align-items: center;
+  gap: 22px;
   flex-wrap: wrap;
 }
 
@@ -3102,41 +3106,37 @@ body.light-mode .form-note {
   align-items: center;
   text-decoration: none;
   transition: all 0.3s ease;
-  padding: 15px;
   border-radius: 12px;
-  min-width: 80px;
+  padding: 10px;
   position: relative;
 }
 
 .social-icon {
-  width: 50px;
-  height: 50px;
+  width: 52px;
+  height: 52px;
   border-radius: 50%;
-  background: #1e293b;
   display: flex;
   align-items: center;
   justify-content: center;
-  margin-bottom: 8px;
-  transition: all 0.3s ease;
-  position: relative;
-}
-
-.social-icon i {
-  font-size: 1.3rem;
   color: #fff;
+  margin-bottom: 8px;
+  position: relative;
+  transition: all 0.3s ease;
 }
 
+/* Verified Badge */
 .verified-badge {
   position: absolute;
-  bottom: 0;
-  right: 0;
-  background: #fff;
+  bottom: -4px;
+  right: -4px;
+  background: #1e293b;
   border-radius: 50%;
   width: 18px;
   height: 18px;
   display: flex;
   align-items: center;
   justify-content: center;
+  border: 2px solid #fff;
 }
 
 .verified-badge i {
@@ -3147,24 +3147,67 @@ body.light-mode .form-note {
 /* Hover animation */
 .social-link:hover .social-icon {
   transform: scale(1.15);
-  box-shadow: 0 4px 12px rgba(59, 130, 246, 0.4);
+  box-shadow: 0 6px 16px rgba(59, 130, 246, 0.4);
 }
 
-/* Platform-specific colors */
+/* Platform colors */
 .facebook { background: #1877f2; }
 .twitter { background: #1da1f2; }
 .linkedin { background: #0077b5; }
 .github { background: #24292e; }
 .whatsapp { background: #25d366; }
 
+.social-icon i {
+  font-size: 1.4rem;
+}
+
 .social-link span {
-  font-size: 0.85rem;
+  font-size: 0.9rem;
   font-weight: 500;
   color: #cbd5e1;
+  transition: color 0.3s ease;
 }
 
 .social-link:hover span {
   color: #fff;
+}
+
+/* ===== Legal Section ===== */
+.legal {
+  margin-top: 25px;
+}
+
+.legal-links {
+  color: #94a3b8;
+  margin-bottom: 10px;
+  font-size: 0.9rem;
+}
+
+.legal-links a {
+  color: #94a3b8;
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+.legal-links a:hover {
+  color: #3b82f6;
+}
+
+.copyright {
+  color: #64748b;
+  font-size: 0.85rem;
+  margin-top: 5px;
+}
+
+/* Responsive */
+@media (max-width: 600px) {
+  .social-icon {
+    width: 45px;
+    height: 45px;
+  }
+  .social-link span {
+    font-size: 0.8rem;
+  }
 }
 
 .legal-section {
