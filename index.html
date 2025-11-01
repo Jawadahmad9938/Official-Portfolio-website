@@ -4,24 +4,211 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-    <!-- Favicon -->
-    <link rel="icon" type="image/x-icon" href="favicon.ico?v=1.1" />
-    <link rel="shortcut icon" type="image/x-icon" href="favicon.ico?v=1.1" />
-
     <!-- Preload critical resources -->
     <link rel="preload" href="style.css" as="style">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    
+    <!-- Preload LCP image -->
+    <link rel="preload" as="image" href="https://i.ibb.co/673LQyg4/jawad2-removebg-preview3.png" imagesrcset="https://i.ibb.co/673LQyg4/jawad2-removebg-preview3.png 400w, https://i.ibb.co/673LQyg4/jawad2-removebg-preview3.png 200w" imagesizes="(max-width: 768px) 200px, 400px">
 
-    <!-- ✅ Optimized Typography Fonts -->
-    <link
+    <!-- Favicon -->
+    <link rel="icon" type="image/x-icon" href="favicon.ico?v=1.1" />
+    <link rel="shortcut icon" type="image/x-icon" href="favicon.ico?v=1.1" />
+
+    <!-- CRITICAL INLINE CSS -->
+    <style>
+/* ===========================
+   CRITICAL ABOVE-THE-FOLD CSS
+=========================== */
+
+:root {
+  --heading-font: "Playfair Display", serif;
+  --body-font: "Inter", sans-serif;
+  --accent-font: "Great Vibes", cursive;
+  --ui-font: "Inter", sans-serif;
+}
+
+/* Reset and base styles */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: var(--body-font);
+  font-weight: 400;
+  line-height: 1.75;
+  letter-spacing: 0.3px;
+  -webkit-font-smoothing: antialiased;
+  overflow-x: hidden;
+}
+
+/* Critical navigation styles */
+.navbar {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  z-index: 1000;
+  background: rgba(255, 255, 255, 0.95);
+  backdrop-filter: blur(10px);
+  padding: 1rem 2rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.logo {
+  width: 120px;
+  height: auto;
+}
+
+/* Critical hero styles */
+.home-section {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  padding: 2rem;
+  position: relative;
+}
+
+.hero-content {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 2rem;
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.hero-content h1.name {
+  font-family: var(--accent-font);
+  font-weight: 400;
+  font-size: clamp(2.5rem, 8vw, 4rem);
+  line-height: 1.1;
+  margin-bottom: 1rem;
+}
+
+.hero-content h2.title {
+  font-family: var(--heading-font);
+  font-weight: 600;
+  font-size: clamp(1rem, 4vw, 1.4rem);
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  margin-bottom: 1rem;
+}
+
+.hero-content .subheading {
+  font-size: clamp(1.1rem, 4vw, 1.3rem);
+  margin-bottom: 1rem;
+  font-weight: 500;
+}
+
+.hero-content .description {
+  font-size: clamp(0.9rem, 3vw, 1.05rem);
+  margin-bottom: 2rem;
+  opacity: 0.9;
+}
+
+.right-image img {
+  width: 100%;
+  height: auto;
+  max-width: 400px;
+  margin: 0 auto;
+  display: block;
+}
+
+/* Button styles */
+.button-group {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  margin-bottom: 2rem;
+}
+
+.contact-btn, .projects-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.75rem 1.5rem;
+  text-decoration: none;
+  border-radius: 8px;
+  font-weight: 600;
+  transition: all 0.3s ease;
+  text-align: center;
+  justify-content: center;
+}
+
+.contact-btn {
+  background: #2563eb;
+  color: white;
+}
+
+.projects-btn {
+  background: transparent;
+  color: #2563eb;
+  border: 2px solid #2563eb;
+}
+
+
+/* Ensure content is visible immediately */
+.hero-content {
+  opacity: 1 !important;
+  visibility: visible !important;
+}
+
+/* Mobile menu base styles */
+.mobile-menu-overlay {
+  display: none;
+}
+
+.mobile-nav-menu-container {
+  display: none;
+}
+
+/* Media queries for critical mobile styles */
+@media (max-width: 768px) {
+  .navbar {
+    padding: 1rem;
+  }
+  
+  .logo {
+    width: 100px;
+  }
+  
+  .home-section {
+    padding: 1rem;
+    padding-top: 80px;
+  }
+  
+  .hero-content {
+    text-align: center;
+  }
+  
+  .button-group {
+    flex-direction: column;
+  }
+}
+
+/* Print styles for deferred resources */
+@media print {
+  .hero-threejs-container {
+    display: none !important;
+  }
+}
+    </style>
+
+    <!-- DEFERRED GOOGLE FONTS -->
+    <link 
       href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Playfair+Display:wght@500;600;700&family=Inter:wght@300;400;500;600&display=swap"
       rel="stylesheet"
       media="print" 
-      onload="this.media='all'"
+      onload="this.media='all'; this.onload=null;"
     />
 
-    <link rel="stylesheet" href="style.css" />
+    <!-- DEFERRED EXTERNAL CSS -->
+    <link rel="stylesheet" href="style.css" media="print" onload="this.media='all'" />
     <link
       rel="stylesheet"
       href="https://cdn.jsdelivr.net/gh/devicons/devicon@v2.15.1/devicon.min.css"
@@ -144,95 +331,6 @@
       });
     </script>
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-XXXXXXX"></script>
-    <style>
-/* ===========================
-   ✨ PREMIUM TYPOGRAPHY SETUP
-=========================== */
-
-
-:root {
-  --heading-font: "Playfair Display", serif;
-  --body-font: "Inter", sans-serif;
-  --accent-font: "Great Vibes", cursive;
-  --ui-font: "Inter", sans-serif;
-}
-
-/* Global */
-body {
-  font-family: var(--body-font);
-  font-weight: 400;
-  line-height: 1.75;
-  letter-spacing: 0.3px;
-  -webkit-font-smoothing: antialiased;
-}
-
-/* Headings */
-h1, h2, h3, h4, h5, h6 {
-  font-family: var(--heading-font);
-  font-weight: 700;
-  letter-spacing: -0.5px;
-  line-height: 1.2;
-}
-
-/* Hero Title */
-.hero-content h1.name {
-  font-family: var(--accent-font);
-  font-weight: 400;
-  font-size: 4rem;
-  letter-spacing: 0;
-  line-height: 1.1;
-}
-
-.hero-content h2.title {
-  font-family: var(--heading-font);
-  font-weight: 600;
-  font-size: 1.4rem;
-  letter-spacing: 2px;
-  text-transform: uppercase;
-}
-
-/* Section Subtitles */
-p.services-subtitle,
-p.skills-subtitle,
-p.testimonials-subtitle,
-p.contact-subtitle {
-  font-family: var(--ui-font);
-  text-transform: uppercase;
-  font-weight: 600;
-  letter-spacing: 2px;
-}
-
-/* Paragraphs */
-p, li {
-  font-family: var(--body-font);
-  font-size: 1.05rem;
-}
-
-
-.nav-menu a {
-  font-family: var(--ui-font);
-  font-weight: 600;
-  font-size: 0.8rem;    
-  letter-spacing: 0.8px;
-  text-transform: uppercase;
-}
-
-
-/* Accent / Signature Text */
-.signature-text {
-  font-family: var(--accent-font);
-  font-size: 2.3rem;
-  letter-spacing: 1px;
-  font-weight: 400;
-}
-
-/* Smoother Font Rendering */
-* {
-  text-rendering: optimizeLegibility;
-  -webkit-font-smoothing: antialiased;
-}
-
-    </style>
   </head>
 
   <body>
@@ -395,8 +493,11 @@ p, li {
     </div>
   </div>
 </div>
+
     <section class="home-section" id="Home">
+      <!-- Three.js container - will be loaded conditionally -->
       <div id="hero-threejs-container" class="hero-threejs-container"></div>
+      
       <div class="hero-content">
         <div class="left-content">
           <h1 class="name animate__animated animate__fadeInUp">Jawad Ahmad</h1>
@@ -460,13 +561,15 @@ p, li {
           </p>
         </div>
         <div class="right-image">
+          <!-- Optimized Hero Image with eager loading -->
           <img
             src="https://i.ibb.co/673LQyg4/jawad2-removebg-preview3.png"
             alt="Jawad Ahmad - Business Web Solutions Expert Portrait - Full Stack Developer"
             width="400"
             height="500"
-            loading="lazy"
+            loading="eager"
             class="animate__animated animate__fadeInUp"
+            style="width: 100%; height: auto; max-width: 400px;"
           />
         </div>
       </div>
@@ -1920,8 +2023,20 @@ p, li {
 </div>
 
 </footer>
-    <!-- Three.js Script -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
-    <script src="script.js"></script>
+
+    <!-- DEFERRED JAVASCRIPT FILES -->
+    <!-- Three.js Script - Loaded conditionally for mobile -->
+    <script>
+      // Load Three.js only on desktop for better mobile performance
+      if (window.innerWidth > 768) {
+        var script = document.createElement('script');
+        script.src = 'https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js';
+        script.defer = true;
+        document.head.appendChild(script);
+      }
+    </script>
+    
+    <!-- Main JavaScript file -->
+    <script src="script.js" defer></script>
   </body>
 </html>
