@@ -1,2042 +1,1346 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-    <!-- Preload critical resources -->
-    <link rel="preload" href="style.css" as="style">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    
-    <!-- Preload LCP image -->
-    <link rel="preload" as="image" href="https://i.ibb.co/673LQyg4/jawad2-removebg-preview3.png" imagesrcset="https://i.ibb.co/673LQyg4/jawad2-removebg-preview3.png 400w, https://i.ibb.co/673LQyg4/jawad2-removebg-preview3.png 200w" imagesizes="(max-width: 768px) 200px, 400px">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-    <!-- Favicon -->
-    <link rel="icon" type="image/x-icon" href="favicon.ico?v=1.1" />
-    <link rel="shortcut icon" type="image/x-icon" href="favicon.ico?v=1.1" />
+  <style>
+    :root {
+      --heading-font: system-ui, -apple-system, sans-serif;
+      --body-font: system-ui, -apple-system, sans-serif;
+      --accent-font: cursive;
+    }
+  </style>
 
-    <!-- CRITICAL INLINE CSS -->
+<!-- Preload hero image -->
+<link rel="preload" as="image" href="https://i.ibb.co/673LQyg4/jawad2-removebg-preview3.png" fetchpriority="high">
+
+<!-- Single favicon (browsers will auto-scale) -->
+<link rel="icon" href="https://i.ibb.co/rfstVnt3/jawad-sectionlogo.png">
+<meta name="theme-color" content="#2563eb">
+
     <style>
-/* ===========================
-   CRITICAL ABOVE-THE-FOLD CSS
-=========================== */
+      :root{--heading-font:"Playfair Display",serif;--body-font:"Inter",sans-serif;--accent-font:"Great Vibes",cursive;--ui-font:"Inter",sans-serif}*{margin:0;padding:0;box-sizing:border-box}body{font-family:var(--body-font);font-weight:400;line-height:1.75;letter-spacing:.3px;-webkit-font-smoothing:antialiased;overflow-x:hidden}.navbar{position:fixed;top:0;width:100%;z-index:1000;background:rgba(255,255,255,.95);backdrop-filter:blur(10px);padding:1rem 2rem;display:flex;justify-content:space-between;align-items:center}.logo{width:120px;height:auto}.home-section{min-height:100vh;display:flex;align-items:center;padding:2rem;position:relative}.hero-content{display:grid;grid-template-columns:1fr;gap:2rem;width:100%;max-width:1200px;margin:0 auto}.hero-content h1.name{font-family:var(--accent-font);font-weight:400;font-size:clamp(2.5rem,8vw,4rem);line-height:1.1;margin-bottom:1rem}.hero-content h2.title{font-family:var(--heading-font);font-weight:600;font-size:clamp(1rem,4vw,1.4rem);letter-spacing:2px;text-transform:uppercase;margin-bottom:1rem}.hero-content .subheading{font-size:clamp(1.1rem,4vw,1.3rem);margin-bottom:1rem;font-weight:500}.hero-content .description{font-size:clamp(.9rem,3vw,1.05rem);margin-bottom:2rem;opacity:.9}.right-image img{width:100%;height:auto;max-width:400px;margin:0 auto;display:block}.button-group{display:flex;flex-direction:column;gap:1rem;margin-bottom:2rem}.contact-btn,.projects-btn{display:inline-flex;align-items:center;gap:.5rem;padding:.75rem 1.5rem;text-decoration:none;border-radius:8px;font-weight:600;transition:all .3s ease;text-align:center;justify-content:center}.contact-btn{background:#2563eb;color:#fff}.projects-btn{background:transparent;color:#2563eb;border:2px solid #2563eb}.hero-content{opacity:1!important;visibility:visible!important}.mobile-menu-overlay,.mobile-nav-menu-container{display:none}@media (max-width:768px){.navbar{padding:1rem}.logo{width:100px}.home-section{padding:1rem;padding-top:80px}.hero-content{text-align:center}.button-group{flex-direction:column}}@media print{.hero-threejs-container{display:none!important}}
+      </style>
+  <!-- Single preconnect for all CDNs -->
+<link rel="preconnect" href="https://fonts.gstatic.com">
+<link rel="preconnect" href="https://cdnjs.cloudflare.com">
 
-:root {
-  --heading-font: "Playfair Display", serif;
-  --body-font: "Inter", sans-serif;
-  --accent-font: "Great Vibes", cursive;
-  --ui-font: "Inter", sans-serif;
+<!-- Only essential font -->
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap" rel="stylesheet" media="print" onload="this.media='all'">
+
+<!-- Main CSS -->
+<link rel="stylesheet" href="style.css" media="print" onload="this.media='all'">
+
+<!-- Font Awesome only (remove Devicon if not critical) -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" media="print" onload="this.media='all'">
+<!-- Essential Meta -->
+<title>Jawad Ahmad | Full Stack Developer - MERN & Web Solutions</title>
+<meta name="description" content="Professional full stack developer in Pakistan. MERN stack expert working with clients in Pakistan, UK, Canada, UAE. Based in Multan.">
+
+<!-- Canonical -->
+<link rel="canonical" href="https://jawadahmad.me/">
+
+<!-- Open Graph (Essential Only) -->
+<meta property="og:title" content="Jawad Ahmad - Full Stack Developer">
+<meta property="og:description" content="MERN stack developer in Pakistan. Web solutions for businesses in Pakistan, UK, Canada, UAE.">
+<meta property="og:image" content="https://i.ibb.co/rfstVnt3/jawad-sectionlogo.png">
+<meta property="og:url" content="https://jawadahmad.me/">
+<meta property="og:type" content="website">
+
+<!-- Twitter Card -->
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Jawad Ahmad - Full Stack Developer">
+<meta name="twitter:description" content="MERN stack developer specializing in business web solutions across Pakistan and internationally.">
+<meta name="twitter:image" content="https://i.ibb.co/rfstVnt3/jawad-sectionlogo.png">
+
+<!-- Google Verification -->
+<meta name="google-site-verification" content="qKESQtyOFuGC6aDczLrSDiSVjJYUPIn3g_5YadxPHjQ">
+
+<!-- Combined Schema Markup -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "Person",
+      "name": "Jawad Ahmad",
+      "jobTitle": "Full Stack Developer",
+      "url": "https://jawadahmad.me/",
+      "address": {
+        "@type": "PostalAddress",
+        "addressLocality": "Multan",
+        "addressRegion": "Punjab", 
+        "addressCountry": "Pakistan"
+      },
+      "sameAs": [
+        "https://www.linkedin.com/in/jawad-ahmad-9938938484djf",
+        "https://www.facebook.com/jawad.ahmed.961811",
+        "https://github.com/Jawadahmad9938"
+      ]
+    },
+    {
+      "@type": "LocalBusiness",
+      "name": "Jawad Ahmad Web Development",
+      "address": {
+        "@type": "PostalAddress",
+        "addressLocality": "Multan",
+        "addressRegion": "Punjab",
+        "addressCountry": "PK"
+      },
+      "telephone": "+923011414134",
+      "email": "jawadahmad9938@gmail.com",
+      "url": "https://jawadahmad.me/",
+      "description": "Full stack web development services in Pakistan, specializing in MERN stack and responsive design."
+    }
+  ]
 }
-
-/* Reset and base styles */
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-}
-
-body {
-  font-family: var(--body-font);
-  font-weight: 400;
-  line-height: 1.75;
-  letter-spacing: 0.3px;
-  -webkit-font-smoothing: antialiased;
-  overflow-x: hidden;
-}
-
-/* Critical navigation styles */
-.navbar {
-  position: fixed;
-  top: 0;
-  width: 100%;
-  z-index: 1000;
-  background: rgba(255, 255, 255, 0.95);
-  backdrop-filter: blur(10px);
-  padding: 1rem 2rem;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-}
-
-.logo {
-  width: 120px;
-  height: auto;
-}
-
-/* Critical hero styles */
-.home-section {
-  min-height: 100vh;
-  display: flex;
-  align-items: center;
-  padding: 2rem;
-  position: relative;
-}
-
-.hero-content {
-  display: grid;
-  grid-template-columns: 1fr;
-  gap: 2rem;
-  width: 100%;
-  max-width: 1200px;
-  margin: 0 auto;
-}
-
-.hero-content h1.name {
-  font-family: var(--accent-font);
-  font-weight: 400;
-  font-size: clamp(2.5rem, 8vw, 4rem);
-  line-height: 1.1;
-  margin-bottom: 1rem;
-}
-
-.hero-content h2.title {
-  font-family: var(--heading-font);
-  font-weight: 600;
-  font-size: clamp(1rem, 4vw, 1.4rem);
-  letter-spacing: 2px;
-  text-transform: uppercase;
-  margin-bottom: 1rem;
-}
-
-.hero-content .subheading {
-  font-size: clamp(1.1rem, 4vw, 1.3rem);
-  margin-bottom: 1rem;
-  font-weight: 500;
-}
-
-.hero-content .description {
-  font-size: clamp(0.9rem, 3vw, 1.05rem);
-  margin-bottom: 2rem;
-  opacity: 0.9;
-}
-
-.right-image img {
-  width: 100%;
-  height: auto;
-  max-width: 400px;
-  margin: 0 auto;
-  display: block;
-}
-
-/* Button styles */
-.button-group {
-  display: flex;
-  flex-direction: column;
-  gap: 1rem;
-  margin-bottom: 2rem;
-}
-
-.contact-btn, .projects-btn {
-  display: inline-flex;
-  align-items: center;
-  gap: 0.5rem;
-  padding: 0.75rem 1.5rem;
-  text-decoration: none;
-  border-radius: 8px;
-  font-weight: 600;
-  transition: all 0.3s ease;
-  text-align: center;
-  justify-content: center;
-}
-
-.contact-btn {
-  background: #2563eb;
-  color: white;
-}
-
-.projects-btn {
-  background: transparent;
-  color: #2563eb;
-  border: 2px solid #2563eb;
-}
-
-
-/* Ensure content is visible immediately */
-.hero-content {
-  opacity: 1 !important;
-  visibility: visible !important;
-}
-
-/* Mobile menu base styles */
-.mobile-menu-overlay {
-  display: none;
-}
-
-.mobile-nav-menu-container {
-  display: none;
-}
-
-/* Media queries for critical mobile styles */
-@media (max-width: 768px) {
-  .navbar {
-    padding: 1rem;
-  }
-  
-  .logo {
-    width: 100px;
-  }
-  
-  .home-section {
-    padding: 1rem;
-    padding-top: 80px;
-  }
-  
-  .hero-content {
-    text-align: center;
-  }
-  
-  .button-group {
-    flex-direction: column;
-  }
-}
-
-/* Print styles for deferred resources */
-@media print {
-  .hero-threejs-container {
-    display: none !important;
-  }
-}
-    </style>
-
-    <!-- DEFERRED GOOGLE FONTS -->
-    <link 
-      href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Playfair+Display:wght@500;600;700&family=Inter:wght@300;400;500;600&display=swap"
-      rel="stylesheet"
-      media="print" 
-      onload="this.media='all'; this.onload=null;"
-    />
-
-    <!-- DEFERRED EXTERNAL CSS -->
-    <link rel="stylesheet" href="style.css" media="print" onload="this.media='all'" />
-    <link
-      rel="stylesheet"
-      href="https://cdn.jsdelivr.net/gh/devicons/devicon@v2.15.1/devicon.min.css"
-      media="print"
-      onload="this.media='all'"
-    />
-    <link
-      rel="stylesheet"
-      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
-      crossorigin="anonymous"
-      referrerpolicy="no-referrer"
-      media="print"
-      onload="this.media='all'"
-    />
-
-    <!-- Meta -->
-    <title>
-      Jawad Ahmad | Full Stack Developer Portfolio - MERN & Web Solutions
-    </title>
-    <meta
-      name="description"
-      content="Hire Jawad Ahmad, a professional full stack web developer in Pakistan. Expert in MERN stack, React, Node.js, MongoDB. Based in Multan, working with clients across Pakistan, UK, Canada & UAE."
-    />
-    <meta
-      name="keywords"
-      content="full stack developer Pakistan, MERN stack developer, hire web developer Multan, Lahore web developer, Faisalabad full stack developer, Islamabad freelance developer, web design Rawalpindi, MERN developer Karachi, portfolio developer Pakistan, hire developer London, freelance developer Toronto, Sydney web developer, Dubai web developer"
-    />
-
-    <!-- Canonical URL -->
-    <link rel="canonical" href="https://jawadahmad.me/" />
-
-    <!-- Open Graph -->
-    <meta
-      property="og:title"
-      content="Jawad Ahmad - Full Stack Developer | Pakistan, UK, Canada, Australia, UAE"
-    />
-    <meta
-      property="og:description"
-      content="Hire Jawad Ahmad - Experienced full stack developer offering MERN stack and responsive web solutions in Pakistan (Multan, Lahore, Faisalabad, Islamabad) and internationally (London, Toronto, Sydney, Dubai)."
-    />
-    <meta
-      property="og:image"
-      content="https://i.ibb.co/rfstVnt3/jawad-sectionlogo.png"
-    />
-    <meta property="og:url" content="https://jawadahmad.me/" />
-    <meta property="og:type" content="website" />
-    <meta property="og:site_name" content="Jawad Ahmad Portfolio" />
-
-    <!-- Twitter -->
-    <meta name="twitter:card" content="summary_large_image" />
-    <meta
-      name="twitter:title"
-      content="Jawad Ahmad - Full Stack Developer Portfolio"
-    />
-    <meta
-      name="twitter:description"
-      content="Professional full stack developer specializing in MERN stack solutions for businesses in Pakistan and internationally."
-    />
-    <meta
-      name="twitter:image"
-      content="https://i.ibb.co/rfstVnt3/jawad-sectionlogo.png"
-    />
-
-    <!-- Google Verification -->
-    <meta
-      name="google-site-verification"
-      content="qKESQtyOFuGC6aDczLrSDiSVjJYUPIn3g_5YadxPHjQ"
-    />
-
-    <!-- Schema Markup -->
-    <script type="application/ld+json">
-      {
-        "@context": "https://schema.org",
-        "@type": "Person",
-        "name": "Jawad Ahmad",
-        "jobTitle": "Full Stack Developer",
-        "url": "https://jawadahmad.me/",
-        "address": {
-          "@type": "PostalAddress",
-          "addressLocality": "Multan",
-          "addressRegion": "Punjab",
-          "addressCountry": "Pakistan"
-        },
-        "sameAs": [
-          "https://www.linkedin.com/in/jawad-ahmad-9938938484djf",
-          "https://www.facebook.com/jawad.ahmed.961811",
-          "https://github.com/Jawadahmad9938"
-        ]
-      }
-    </script>
-
-    <script type="application/ld+json">
-      {
-        "@context": "https://schema.org",
-        "@type": "LocalBusiness",
-        "name": "Jawad Ahmad Web Development",
-        "address": {
-          "@type": "PostalAddress",
-          "streetAddress": "Multan",
-          "addressLocality": "Multan",
-          "addressRegion": "Punjab",
-          "postalCode": "60000",
-          "addressCountry": "PK"
-        },
-        "telephone": "+923011414134",
-        "email": "jawadahmad9938@gmail.com",
-        "url": "https://jawadahmad.me/",
-        "description": "Full stack web development services in Pakistan, specializing in MERN stack and responsive design."
-      }
-    </script>
-
-    <!-- Google Analytics - Optimized -->
-    <script>
-      window.dataLayer = window.dataLayer || [];
-      function gtag(){dataLayer.push(arguments);}
-      gtag('js', new Date());
-      gtag('config', 'G-XXXXXXX', {
-        'transport_type': 'beacon',
-        'anonymize_ip': true
-      });
-    </script>
-    <script async src="https://www.googletagmanager.com/gtag/js?id=G-XXXXXXX"></script>
-  </head>
-
-  <body>
-    <!-- Floating Icons Background - Optimized -->
-    <div class="floating-icons" id="floating-icons" aria-hidden="true">
-      <!-- These will be added by JavaScript for better performance -->
-    </div>
-
-    <!-- ===== ENHANCED NAVIGATION BAR ===== -->
-    <nav class="navbar" role="navigation" aria-label="Main navigation">
-      <!-- Logo -->
-      <a href="index.html" aria-label="Home page">
-        <img
-          class="logo"
-          src="https://i.ibb.co/rfstVnt3/jawad-sectionlogo.png"
-          alt="Jawad Ahmad - Full Stack Developer Logo - Business Web Solutions Expert"
-          width="120"
-          height="40"
-          loading="eager"
-        />
-      </a>
-
-      <!-- Desktop Navigation Menu -->
-      <ul class="nav-menu" id="menu">
-        <li><a href="index.html">Home</a></li>
-        <li><a href="#About">About</a></li>
-        <li><a href="#Services">Services</a></li>
-        <li><a href="#Projects">CaseStudies</a></li>
-        <li><a href="blogs.html">Blogs</a></li>
-        <li><a href="philosophy/philosophy.html">Philosophy</a></li>
-        <li><a href="#Testimonials">Results</a></li>
-        <li><a href="#Skills">Expertise</a></li>
-        <li><a href="#Contact">Consultation</a></li>
-      </ul>
-
-     <!-- Desktop Actions -->
-<div class="nav-actions">
-  <!-- Theme Toggle - Centered for mobile -->
-  <button
-    id="theme-toggle-btn"
-    class="theme-toggle"
-    aria-label="Toggle dark/light mode"
-  >
-    <i id="theme-icon" class="fas fa-moon" aria-hidden="true"></i>
-  </button>
-
-  <!-- Download Business Profile Button -->
-  <div class="nav-btn">
-    <button class="cv-button" aria-label="Download CV">
-      <a
-        href="Jawad Ahmad CV.pdf"
-        download="Jawad Ahmad CV.pdf"
-        aria-label="Download Jawad Ahmad Business Profile PDF"
-      >
-        <svg
-          xmlns="http://www.w3.org/2000/svg"
-          width="18"
-          height="18"
-          viewBox="0 0 24 24"
-          fill="none"
-          stroke="currentColor"
-          stroke-width="2"
-          stroke-linecap="round"
-          stroke-linejoin="round"
-        >
-          <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4" />
-          <polyline points="7 10 12 15 17 10" />
-          <line x1="12" y1="15" x2="12" y2="3" />
-        </svg>
-      </a>
-    </button>
+</script>
+<body>
+  <!-- Floating Icons Background - Optimized -->
+  <div class="floating-icons" id="floating-icons" aria-hidden="true">
   </div>
 
-    <!-- Mobile Menu Toggle - Right side -->
-    <div class="mobile-menu-btn">
-      <button
-        id="menu-button"
-        class="menu-toggle"
-        aria-label="Toggle mobile menu"
-        aria-expanded="false"
-      >
-        <span class="menu-toggle__hamburger" aria-hidden="true"></span>
+  <!-- ===== ENHANCED NAVIGATION BAR ===== -->
+  <nav class="navbar" role="navigation" aria-label="Main navigation">
+    <!-- Logo -->
+    <a href="index.html" aria-label="Home page">
+      <img class="logo" src="https://i.ibb.co/rfstVnt3/jawad-sectionlogo.png"
+        alt="Jawad Ahmad - Full Stack Developer Logo - Business Web Solutions Expert" width="120" height="40"
+        loading="eager" />
+    </a>
+
+    <!-- Desktop Navigation Menu -->
+    <ul class="nav-menu" id="menu">
+      <li><a href="index.html">Home</a></li>
+      <li><a href="#About">About</a></li>
+      <li><a href="#Services">Services</a></li>
+      <li><a href="#Projects">CaseStudies</a></li>
+      <li><a href="blogs.html">Blogs</a></li>
+      <li><a href="philosophy/philosophy.html">Philosophy</a></li>
+      <li><a href="#Testimonials">Results</a></li>
+      <li><a href="#Skills">Expertise</a></li>
+      <li><a href="#Contact">Consultation</a></li>
+    </ul>
+
+    <!-- Desktop Actions -->
+    <div class="nav-actions">
+      <!-- Theme Toggle - Centered for mobile -->
+      <button id="theme-toggle-btn" class="theme-toggle" aria-label="Toggle dark/light mode">
+        <i id="theme-icon" class="fas fa-moon" aria-hidden="true"></i>
       </button>
+
+      <!-- Download Business Profile Button -->
+      <div class="nav-btn">
+        <button class="cv-button" aria-label="Download CV">
+          <a href="Jawad Ahmad CV.pdf" download="Jawad Ahmad CV.pdf"
+            aria-label="Download Jawad Ahmad Business Profile PDF">
+            <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none"
+              stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4" />
+              <polyline points="7 10 12 15 17 10" />
+              <line x1="12" y1="15" x2="12" y2="3" />
+            </svg>
+          </a>
+        </button>
+      </div>
+
+      <!-- Mobile Menu Toggle - Right side -->
+      <div class="mobile-menu-btn">
+        <button id="menu-button" class="menu-toggle" aria-label="Toggle mobile menu" aria-expanded="false">
+          <span class="menu-toggle__hamburger" aria-hidden="true"></span>
+        </button>
+      </div>
+    </div>
+  </nav>
+
+  <!-- ===== PROFESSIONAL MOBILE NAVIGATION MENU ===== -->
+  <div class="mobile-menu-overlay" id="mobile-overlay"></div>
+  <div class="mobile-nav-menu-container" id="mobile-menu-container">
+    <div class="mobile-nav-menu" id="mobile-menu" role="navigation" aria-label="Mobile menu">
+      <div class="mobile-nav-header">
+        <button class="mobile-nav-close" id="mobile-close" aria-label="Close menu">
+          <i class="fas fa-times" aria-hidden="true"></i>
+        </button>
+      </div>
+
+      <div class="mobile-nav-content">
+        <a href="index.html" class="mobile-nav-item">
+          <i class="fas fa-home" aria-hidden="true"></i>
+          <span>Home</span>
+        </a>
+        <a href="#About" class="mobile-nav-item">
+          <i class="fas fa-user" aria-hidden="true"></i>
+          <span>About</span>
+        </a>
+        <a href="#Services" class="mobile-nav-item">
+          <i class="fas fa-briefcase" aria-hidden="true"></i>
+          <span>Services</span>
+        </a>
+        <a href="#Projects" class="mobile-nav-item">
+          <i class="fas fa-project-diagram" aria-hidden="true"></i>
+          <span>Case Studies</span>
+        </a>
+        <a href="blogs.html" class="mobile-nav-item">
+          <i class="fas fa-blog" aria-hidden="true"></i>
+          <span>Blogs</span>
+        </a>
+        <a href="philosophy/philosophy.html" class="mobile-nav-item">
+          <i class="fas fa-lightbulb" aria-hidden="true"></i>
+          <span>Philosophy</span>
+        </a>
+        <a href="#Testimonials" class="mobile-nav-item">
+          <i class="fas fa-comments" aria-hidden="true"></i>
+          <span>Results</span>
+        </a>
+        <a href="#Skills" class="mobile-nav-item">
+          <i class="fas fa-star" aria-hidden="true"></i>
+          <span>Expertise</span>
+        </a>
+        <a href="#Contact" class="mobile-nav-item">
+          <i class="fas fa-envelope" aria-hidden="true"></i>
+          <span>Consultation</span>
+        </a>
+
+        <div class="mobile-nav-download">
+          <a href="Jawad Ahmad CV.pdf" download="Jawad Ahmad CV.pdf" class="mobile-download-btn">
+            <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none"
+              stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4" />
+              <polyline points="7 10 12 15 17 10" />
+              <line x1="12" y1="15" x2="12" y2="3" />
+            </svg>
+            Download CV
+          </a>
+        </div>
+      </div>
     </div>
   </div>
-</nav>
 
-<!-- ===== PROFESSIONAL MOBILE NAVIGATION MENU ===== -->
-<div class="mobile-menu-overlay" id="mobile-overlay"></div>
-<div class="mobile-nav-menu-container" id="mobile-menu-container">
-  <div class="mobile-nav-menu" id="mobile-menu" role="navigation" aria-label="Mobile menu">
-    <div class="mobile-nav-header">
-      <button
-        class="mobile-nav-close"
-        id="mobile-close"
-        aria-label="Close menu"
-      >
-        <i class="fas fa-times" aria-hidden="true"></i>
-      </button>
+  <section class="home-section" id="Home">
+    <!-- Three.js container - will be loaded conditionally -->
+    <div id="hero-threejs-container" class="hero-threejs-container"></div>
+
+    <div class="hero-content">
+      <div class="left-content">
+        <h1 class="name animate__animated animate__fadeInUp">Jawad Ahmad</h1>
+        <h2 class="title animate__animated animate__fadeInUp">
+          Business Web Solutions Expert
+        </h2>
+        <p class="subheading animate__animated animate__fadeInUp">
+          Transforming Pakistani Businesses with High-Converting Digital
+          Solutions
+        </p>
+        <p class="description animate__animated animate__fadeInUp">
+          I help businesses attract more customers and increase revenue with
+          professional websites that work as your 24/7 sales team. From local
+          shops in Pakistan to international companies in UAE, I build digital
+          solutions that deliver measurable business results.
+        </p>
+        <div class="button-group animate__animated animate__fadeInUp">
+          <a href="https://wa.me/923011414134?text=Hi%20Jawad,%20I'm%20interested%20in%20starting%20a%20project%20with%20you.%20Please%20share%20more%20details."
+            target="_blank" class="contact-btn" aria-label="Start a project with Jawad Ahmad on WhatsApp">
+            <svg class="btn-icon" width="20" height="20" viewBox="0 0 24 24" fill="none"
+              xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+              <path
+                d="M21 4H3C1.9 4 1 4.9 1 6V18C1 19.1 1.9 20 3 20H21C22.1 20 23 19.1 23 18V6C23 4.9 22.1 4 21 4ZM21 6V18H3V6H21ZM4 8H20L12 13L4 8ZM4 16V10L12 15L20 10V16H4Z"
+                fill="currentColor" />
+            </svg>
+            Start Your Project
+          </a>
+          <a href="#Projects" class="projects-btn" aria-label="See client results and case studies">
+            <svg class="btn-icon" width="20" height="20" viewBox="0 0 24 24" fill="none"
+              xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+              <path
+                d="M19 3H5C3.9 3 3 3.9 3 5V19C3 20.1 3.9 21 5 21H19C20.1 21 21 20.1 21 19V5C21 3.9 20.1 3 19 3ZM19 19H5V5H19V19ZM7 10H17V12H7V10ZM7 14H17V16H7V14Z"
+                fill="currentColor" />
+            </svg>
+            See Client Results
+          </a>
+        </div>
+        <p class="social-proof animate__animated animate__fadeInUp">
+          Trusted by business owners across UAE and Pakistan for
+          revenue-generating web solutions
+        </p>
+      </div>
+      <div class="right-image">
+        <!-- Optimized Hero Image with eager loading -->
+        <img src="https://i.ibb.co/673LQyg4/jawad2-removebg-preview3.png"
+          alt="Jawad Ahmad - Business Web Solutions Expert Portrait - Full Stack Developer" width="400" height="500"
+          loading="eager" class="animate__animated animate__fadeInUp"
+          style="width: 100%; height: auto; max-width: 400px;" />
+      </div>
     </div>
-    
-    <div class="mobile-nav-content">
-      <a href="index.html" class="mobile-nav-item">
-        <i class="fas fa-home" aria-hidden="true"></i>
-        <span>Home</span>
-      </a>
-      <a href="#About" class="mobile-nav-item">
-        <i class="fas fa-user" aria-hidden="true"></i>
-        <span>About</span>
-      </a>
-      <a href="#Services" class="mobile-nav-item">
-        <i class="fas fa-briefcase" aria-hidden="true"></i>
-        <span>Services</span>
-      </a>
-      <a href="#Projects" class="mobile-nav-item">
-        <i class="fas fa-project-diagram" aria-hidden="true"></i>
-        <span>Case Studies</span>
-      </a>
-      <a href="blogs.html" class="mobile-nav-item">
-        <i class="fas fa-blog" aria-hidden="true"></i>
-        <span>Blogs</span>
-      </a>
-      <a href="philosophy/philosophy.html" class="mobile-nav-item">
-        <i class="fas fa-lightbulb" aria-hidden="true"></i>
-        <span>Philosophy</span>
-      </a>
-      <a href="#Testimonials" class="mobile-nav-item">
-        <i class="fas fa-comments" aria-hidden="true"></i>
-        <span>Results</span>
-      </a>
-      <a href="#Skills" class="mobile-nav-item">
-        <i class="fas fa-star" aria-hidden="true"></i>
-        <span>Expertise</span>
-      </a>
-      <a href="#Contact" class="mobile-nav-item">
-        <i class="fas fa-envelope" aria-hidden="true"></i>
-        <span>Consultation</span>
-      </a>
-      
-      <div class="mobile-nav-download">
-        <a href="Jawad Ahmad CV.pdf" download="Jawad Ahmad CV.pdf" class="mobile-download-btn">
-          <svg
-            xmlns="http://www.w3.org/2000/svg"
-            width="18"
-            height="18"
-            viewBox="0 0 24 24"
-            fill="none"
-            stroke="currentColor"
-            stroke-width="2"
-            stroke-linecap="round"
-            stroke-linejoin="round"
-          >
-            <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4" />
-            <polyline points="7 10 12 15 17 10" />
-            <line x1="12" y1="15" x2="12" y2="3" />
-          </svg>
-          Download CV
+  </section>
+
+  <div class="about-section" id="About">
+    <div class="about-left">
+      <p class="about-title">ABOUT ME</p>
+      <div class="about-text">
+        <h1>Creating Business-First Digital Experiences</h1>
+        <p class="about-description">
+          I'm Jawad Ahmad, a business-focused web solutions expert with a
+          Computer Science background from MNS University of Agriculture,
+          Multan. I started my journey to help Pakistani businesses and
+          international clients build affordable, high-performing websites
+          that drive growth. My approach centers on creating digital solutions
+          that not only look professional but deliver tangible business
+          results. I've successfully partnered with clients like
+          800batterie.com in the UAE, delivering projects that increase
+          customer engagement and strengthen online presence.
+        </p>
+      </div>
+    </div>
+    <div class="about-right">
+      <h2>Let's Connect</h2>
+      <p class="connect-description">
+        Ready to transform your business online? Reach out for a complimentary
+        consultation about your digital growth strategy.
+      </p>
+      <div class="social-buttons">
+        <a href="https://www.facebook.com/jawad.ahmed.961811" target="_blank"
+          aria-label="Visit Jawad Ahmad's Facebook profile">
+          <img src="img/facebook-logo-1-2.png" alt="Facebook Logo - Connect with Jawad Ahmad on Facebook" width="20"
+            height="20" loading="lazy" />
+        </a>
+        <a href="https://x.com/yourprofile" target="_blank" aria-label="Visit Jawad Ahmad's X (Twitter) profile">
+          <img src="img/free-twitter-logo-icon-2429-thumb.png" alt="X (Twitter) Logo - Connect with Jawad Ahmad on X"
+            width="20" height="20" loading="lazy" />
+        </a>
+        <a href="https://www.linkedin.com/in/jawad-ahmad-9938938484djf" target="_blank"
+          aria-label="Visit Jawad Ahmad's LinkedIn profile">
+          <img src="img/linkedin-icon-logo-png-transparent.png"
+            alt="LinkedIn Logo - Connect with Jawad Ahmad on LinkedIn" width="20" height="20" loading="lazy" />
         </a>
       </div>
     </div>
   </div>
-</div>
 
-    <section class="home-section" id="Home">
-      <!-- Three.js container - will be loaded conditionally -->
-      <div id="hero-threejs-container" class="hero-threejs-container"></div>
-      
-      <div class="hero-content">
-        <div class="left-content">
-          <h1 class="name animate__animated animate__fadeInUp">Jawad Ahmad</h1>
-          <h2 class="title animate__animated animate__fadeInUp">
-            Business Web Solutions Expert
-          </h2>
-          <p class="subheading animate__animated animate__fadeInUp">
-            Transforming Pakistani Businesses with High-Converting Digital
-            Solutions
-          </p>
-          <p class="description animate__animated animate__fadeInUp">
-            I help businesses attract more customers and increase revenue with
-            professional websites that work as your 24/7 sales team. From local
-            shops in Pakistan to international companies in UAE, I build digital
-            solutions that deliver measurable business results.
-          </p>
-          <div class="button-group animate__animated animate__fadeInUp">
-            <a
-              href="https://wa.me/923011414134?text=Hi%20Jawad,%20I'm%20interested%20in%20starting%20a%20project%20with%20you.%20Please%20share%20more%20details."
-              target="_blank"
-              class="contact-btn"
-              aria-label="Start a project with Jawad Ahmad on WhatsApp"
-            >
-              <svg
-                class="btn-icon"
-                width="20"
-                height="20"
-                viewBox="0 0 24 24"
-                fill="none"
-                xmlns="http://www.w3.org/2000/svg"
-                aria-hidden="true"
-              >
-                <path
-                  d="M21 4H3C1.9 4 1 4.9 1 6V18C1 19.1 1.9 20 3 20H21C22.1 20 23 19.1 23 18V6C23 4.9 22.1 4 21 4ZM21 6V18H3V6H21ZM4 8H20L12 13L4 8ZM4 16V10L12 15L20 10V16H4Z"
-                  fill="currentColor"
-                />
-              </svg>
-              Start Your Project
-            </a>
-            <a href="#Projects" class="projects-btn" aria-label="See client results and case studies">
-              <svg
-                class="btn-icon"
-                width="20"
-                height="20"
-                viewBox="0 0 24 24"
-                fill="none"
-                xmlns="http://www.w3.org/2000/svg"
-                aria-hidden="true"
-              >
-                <path
-                  d="M19 3H5C3.9 3 3 3.9 3 5V19C3 20.1 3.9 21 5 21H19C20.1 21 21 20.1 21 19V5C21 3.9 20.1 3 19 3ZM19 19H5V5H19V19ZM7 10H17V12H7V10ZM7 14H17V16H7V14Z"
-                  fill="currentColor"
-                />
-              </svg>
-              See Client Results
-            </a>
-          </div>
-          <p class="social-proof animate__animated animate__fadeInUp">
-            Trusted by business owners across UAE and Pakistan for
-            revenue-generating web solutions
-          </p>
-        </div>
-        <div class="right-image">
-          <!-- Optimized Hero Image with eager loading -->
-          <img
-            src="https://i.ibb.co/673LQyg4/jawad2-removebg-preview3.png"
-            alt="Jawad Ahmad - Business Web Solutions Expert Portrait - Full Stack Developer"
-            width="400"
-            height="500"
-            loading="eager"
-            class="animate__animated animate__fadeInUp"
-            style="width: 100%; height: auto; max-width: 400px;"
-          />
-        </div>
-      </div>
-    </section>
-
-    <div class="about-section" id="About">
-      <div class="about-left">
-        <p class="about-title">ABOUT ME</p>
-        <div class="about-text">
-          <h1>Creating Business-First Digital Experiences</h1>
-          <p class="about-description">
-            I'm Jawad Ahmad, a business-focused web solutions expert with a
-            Computer Science background from MNS University of Agriculture,
-            Multan. I started my journey to help Pakistani businesses and
-            international clients build affordable, high-performing websites
-            that drive growth. My approach centers on creating digital solutions
-            that not only look professional but deliver tangible business
-            results. I've successfully partnered with clients like
-            800batterie.com in the UAE, delivering projects that increase
-            customer engagement and strengthen online presence.
-          </p>
-        </div>
-      </div>
-      <div class="about-right">
-        <h2>Let's Connect</h2>
-        <p class="connect-description">
-          Ready to transform your business online? Reach out for a complimentary
-          consultation about your digital growth strategy.
+  <!-- Services Section -->
+  <section class="services-section" id="Services">
+    <div class="container">
+      <!-- Section Header -->
+      <div class="services-header">
+        <p class="services-subtitle">My Business Solutions</p>
+        <h2 class="services-title">Services That Drive Revenue Growth</h2>
+        <p class="services-description">
+          I build digital solutions that help businesses increase sales,
+          improve customer engagement, and scale operations efficiently. Every
+          project is focused on delivering measurable business outcomes.
         </p>
-        <div class="social-buttons">
-          <a
-            href="https://www.facebook.com/jawad.ahmed.961811"
-            target="_blank"
-            aria-label="Visit Jawad Ahmad's Facebook profile"
-          >
-            <img
-              src="img/facebook-logo-1-2.png"
-              alt="Facebook Logo - Connect with Jawad Ahmad on Facebook"
-              width="20"
-              height="20"
-              loading="lazy"
-            />
-          </a>
-          <a
-            href="https://x.com/yourprofile"
-            target="_blank"
-            aria-label="Visit Jawad Ahmad's X (Twitter) profile"
-          >
-            <img
-              src="img/free-twitter-logo-icon-2429-thumb.png"
-              alt="X (Twitter) Logo - Connect with Jawad Ahmad on X"
-              width="20"
-              height="20"
-              loading="lazy"
-            />
-          </a>
-          <a
-            href="https://www.linkedin.com/in/jawad-ahmad-9938938484djf"
-            target="_blank"
-            aria-label="Visit Jawad Ahmad's LinkedIn profile"
-          >
-            <img
-              src="img/linkedin-icon-logo-png-transparent.png"
-              alt="LinkedIn Logo - Connect with Jawad Ahmad on LinkedIn"
-              width="20"
-              height="20"
-              loading="lazy"
-            />
-          </a>
-        </div>
       </div>
-    </div>
 
-    <!-- Services Section -->
-    <section class="services-section" id="Services">
-      <div class="container">
-        <!-- Section Header -->
-        <div class="services-header">
-          <p class="services-subtitle">My Business Solutions</p>
-          <h2 class="services-title">Services That Drive Revenue Growth</h2>
-          <p class="services-description">
-            I build digital solutions that help businesses increase sales,
-            improve customer engagement, and scale operations efficiently. Every
-            project is focused on delivering measurable business outcomes.
+      <!-- Services Grid -->
+      <div class="services-grid">
+        <!-- Service 1 - Full Stack Development -->
+        <div class="service-card">
+          <div class="service-icon">
+            <div class="icon-wrapper">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+                <polyline points="23 6 13.5 15.5 8.5 10.5 1 17"></polyline>
+                <polyline points="17 6 23 6 23 12"></polyline>
+              </svg>
+            </div>
+          </div>
+          <h3 class="service-title">Complete Business Web Solutions</h3>
+          <p class="service-description">
+            End-to-end web applications designed to meet your specific
+            business objectives. From initial strategy to final deployment, I
+            ensure your digital presence drives results.
           </p>
-        </div>
-
-        <!-- Services Grid -->
-        <div class="services-grid">
-          <!-- Service 1 - Full Stack Development -->
-          <div class="service-card">
-            <div class="service-icon">
-              <div class="icon-wrapper">
-                <i class="fas fa-chart-line" aria-hidden="true"></i>
-              </div>
-            </div>
-            <h3 class="service-title">Complete Business Web Solutions</h3>
-            <p class="service-description">
-              End-to-end web applications designed to meet your specific
-              business objectives. From initial strategy to final deployment, I
-              ensure your digital presence drives results.
-            </p>
-            <div class="service-features">
-              <span class="feature">Custom Business Applications</span>
-              <span class="feature">Customer Management Systems</span>
-              <span class="feature">Revenue-Focused Features</span>
-            </div>
-            <div class="tech-stack">
-              <i
-                class="devicon-react-original colored"
-                title="React"
-                aria-hidden="true"
-              ></i>
-              <i
-                class="devicon-nodejs-plain colored"
-                title="Node.js"
-                aria-hidden="true"
-              ></i>
-              <i
-                class="devicon-mongodb-plain colored"
-                title="MongoDB"
-                aria-hidden="true"
-              ></i>
-              <i
-                class="devicon-express-original colored"
-                title="Express"
-                aria-hidden="true"
-              ></i>
-            </div>
-            <div class="service-cta">
-              <a href="#Contact" class="service-link">
-                Get Custom Quote
-                <i class="fas fa-file-invoice-dollar" aria-hidden="true"></i>
-              </a>
-            </div>
+          <div class="service-features">
+            <span class="feature">Custom Business Applications</span>
+            <span class="feature">Customer Management Systems</span>
+            <span class="feature">Revenue-Focused Features</span>
           </div>
-
-          <!-- Service 2 - E-commerce Solutions -->
-          <div class="service-card featured">
-            <div class="popular-badge">Highest ROI</div>
-            <div class="service-icon">
-              <div class="icon-wrapper">
-                <i class="fas fa-shopping-cart" aria-hidden="true"></i>
-              </div>
-            </div>
-            <h3 class="service-title">Revenue-Generating Online Stores</h3>
-            <p class="service-description">
-              Build complete e-commerce solutions that convert visitors into
-              paying customers. Complete with secure payment systems and
-              inventory management to grow your sales.
-            </p>
-            <div class="service-features">
-              <span class="feature">24/7 Sales Channel</span>
-              <span class="feature">Secure Payment Processing</span>
-              <span class="feature">Business Analytics Dashboard</span>
-            </div>
-            <div class="tech-stack">
-              <i
-                class="devicon-react-original colored"
-                title="React"
-                aria-hidden="true"
-              ></i>
-              <i
-                class="devicon-nodejs-plain colored"
-                title="Node.js"
-                aria-hidden="true"
-              ></i>
-              <i
-                class="devicon-mongodb-plain colored"
-                title="MongoDB"
-                aria-hidden="true"
-              ></i>
-              <i
-                class="fas fa-credit-card"
-                title="Payment Integration"
-                aria-hidden="true"
-              ></i>
-            </div>
-            <div class="service-cta">
-              <a href="#Contact" class="service-link">
-                See Revenue Examples
-                <i class="fas fa-eye" aria-hidden="true"></i>
-              </a>
-            </div>
+          <div class="tech-stack">
+            <i class="devicon-react-original colored" title="React" aria-hidden="true"></i>
+            <i class="devicon-nodejs-plain colored" title="Node.js" aria-hidden="true"></i>
+            <i class="devicon-mongodb-plain colored" title="MongoDB" aria-hidden="true"></i>
+            <i class="devicon-express-original colored" title="Express" aria-hidden="true"></i>
           </div>
-
-          <!-- Service 3 - UI/UX Design -->
-          <div class="service-card">
-            <div class="service-icon">
-              <div class="icon-wrapper">
-                <i class="fas fa-users" aria-hidden="true"></i>
-              </div>
-            </div>
-            <h3 class="service-title">Customer-Focused Design</h3>
-            <p class="service-description">
-              Create engaging customer experiences that keep visitors on your
-              site longer and guide them toward making purchases or inquiries.
-            </p>
-            <div class="service-features">
-              <span class="feature">Customer Journey Mapping</span>
-              <span class="feature">Conversion-Focused Design</span>
-              <span class="feature">User Behavior Analysis</span>
-            </div>
-            <div class="tech-stack">
-              <i
-                class="devicon-figma-plain colored"
-                title="Figma"
-                aria-hidden="true"
-              ></i>
-              <i
-                class="devicon-html5-plain colored"
-                title="HTML5"
-                aria-hidden="true"
-              ></i>
-              <i
-                class="devicon-css3-plain colored"
-                title="CSS3"
-                aria-hidden="true"
-              ></i>
-            </div>
-            <div class="service-cta">
-              <a href="#Projects" class="service-link">
-                View Success Stories
-                <i class="fas fa-briefcase" aria-hidden="true"></i>
-              </a>
-            </div>
-          </div>
-
-          <!-- Service 4 - API Integration -->
-          <div class="service-card">
-            <div class="service-icon">
-              <div class="icon-wrapper">
-                <i class="fas fa-network-wired" aria-hidden="true"></i>
-              </div>
-            </div>
-            <h3 class="service-title">Business System Integration</h3>
-            <p class="service-description">
-              Connect your digital presence with essential business tools,
-              payment systems, and operational platforms to streamline your
-              operations.
-            </p>
-            <div class="service-features">
-              <span class="feature">Payment Gateway Setup</span>
-              <span class="feature">Business Tool Connections</span>
-              <span class="feature">Operational Automation</span>
-            </div>
-            <div class="tech-stack">
-              <i
-                class="fas fa-plug"
-                title="Business Integration"
-                aria-hidden="true"
-              ></i>
-              <i
-                class="devicon-nodejs-plain colored"
-                title="Node.js"
-                aria-hidden="true"
-              ></i>
-              <i
-                class="devicon-graphql-plain colored"
-                title="GraphQL"
-                aria-hidden="true"
-              ></i>
-            </div>
-            <div class="service-cta">
-              <a href="#Contact" class="service-link">
-                Streamline Operations
-                <i class="fas fa-plug" aria-hidden="true"></i>
-              </a>
-            </div>
-          </div>
-
-          <!-- Service 5 - Website Maintenance -->
-          <div class="service-card">
-            <div class="service-icon">
-              <div class="icon-wrapper">
-                <i class="fas fa-shield-alt" aria-hidden="true"></i>
-              </div>
-            </div>
-            <h3 class="service-title">Business Continuity Services</h3>
-            <p class="service-description">
-              Keep your digital business assets running smoothly with ongoing
-              maintenance, security protection, and performance optimization.
-            </p>
-            <div class="service-features">
-              <span class="feature">Business Security Protection</span>
-              <span class="feature">Performance Optimization</span>
-              <span class="feature">Priority Business Support</span>
-            </div>
-            <div class="tech-stack">
-              <i
-                class="fas fa-shield-alt"
-                title="Security"
-                aria-hidden="true"
-              ></i>
-              <i
-                class="fas fa-tachometer-alt"
-                title="Performance"
-                aria-hidden="true"
-              ></i>
-              <i
-                class="fas fa-headset"
-                title="Business Support"
-                aria-hidden="true"
-              ></i>
-            </div>
-            <div class="service-cta">
-              <a href="#Contact" class="service-link">
-                Protect Your Investment
-                <i class="fas fa-comments" aria-hidden="true"></i>
-              </a>
-            </div>
-          </div>
-
-          <!-- Service 6 - Consultation -->
-          <div class="service-card">
-            <div class="service-icon">
-              <div class="icon-wrapper">
-                <i class="fas fa-lightbulb" aria-hidden="true"></i>
-              </div>
-            </div>
-            <h3 class="service-title">Digital Growth Strategy</h3>
-            <p class="service-description">
-              Get expert guidance on your digital transformation, technology
-              selection, and business growth roadmap tailored to your market.
-            </p>
-            <div class="service-features">
-              <span class="feature">Business Growth Planning</span>
-              <span class="feature">Technology Strategy</span>
-              <span class="feature">Market-Specific Solutions</span>
-            </div>
-            <div class="tech-stack">
-              <i
-                class="fas fa-chart-line"
-                title="Growth Strategy"
-                aria-hidden="true"
-              ></i>
-              <i
-                class="fas fa-cogs"
-                title="Business Planning"
-                aria-hidden="true"
-              ></i>
-              <i
-                class="fas fa-road"
-                title="Growth Roadmap"
-                aria-hidden="true"
-              ></i>
-            </div>
-            <div class="service-cta">
-              <a href="#Contact" class="service-link">
-                Plan Your Growth
-                <i class="fas fa-rocket" aria-hidden="true"></i>
-              </a>
-            </div>
+          <div class="service-cta">
+            <a href="#Contact" class="service-link">
+              Get Custom Quote
+              <i class="fas fa-file-invoice-dollar" aria-hidden="true"></i>
+            </a>
           </div>
         </div>
 
-        <!-- Services CTA -->
-        <div class="services-cta">
-          <div class="cta-content">
-            <h3>Need a Custom Business Solution?</h3>
-            <p>
-              Let's discuss your specific business challenges and I'll design
-              the perfect digital solution to drive your growth
-            </p>
-            <a href="#contact" class="btn btn-primary">
+        <!-- Service 2 - E-commerce Solutions -->
+        <div class="service-card featured">
+          <div class="popular-badge">Highest ROI</div>
+          <div class="service-icon">
+            <div class="icon-wrapper">
+              <i class="fas fa-shopping-cart" aria-hidden="true"></i>
+            </div>
+          </div>
+          <h3 class="service-title">Revenue-Generating Online Stores</h3>
+          <p class="service-description">
+            Build complete e-commerce solutions that convert visitors into
+            paying customers. Complete with secure payment systems and
+            inventory management to grow your sales.
+          </p>
+          <div class="service-features">
+            <span class="feature">24/7 Sales Channel</span>
+            <span class="feature">Secure Payment Processing</span>
+            <span class="feature">Business Analytics Dashboard</span>
+          </div>
+          <div class="tech-stack">
+            <i class="devicon-react-original colored" title="React" aria-hidden="true"></i>
+            <i class="devicon-nodejs-plain colored" title="Node.js" aria-hidden="true"></i>
+            <i class="devicon-mongodb-plain colored" title="MongoDB" aria-hidden="true"></i>
+            <i class="fas fa-credit-card" title="Payment Integration" aria-hidden="true"></i>
+          </div>
+          <div class="service-cta">
+            <a href="#Contact" class="service-link">
+              See Revenue Examples
+              <i class="fas fa-eye" aria-hidden="true"></i>
+            </a>
+          </div>
+        </div>
+
+        <!-- Service 3 - UI/UX Design -->
+        <div class="service-card">
+          <div class="service-icon">
+            <div class="icon-wrapper">
+              <i class="fas fa-users" aria-hidden="true"></i>
+            </div>
+          </div>
+          <h3 class="service-title">Customer-Focused Design</h3>
+          <p class="service-description">
+            Create engaging customer experiences that keep visitors on your
+            site longer and guide them toward making purchases or inquiries.
+          </p>
+          <div class="service-features">
+            <span class="feature">Customer Journey Mapping</span>
+            <span class="feature">Conversion-Focused Design</span>
+            <span class="feature">User Behavior Analysis</span>
+          </div>
+          <div class="tech-stack">
+            <i class="devicon-figma-plain colored" title="Figma" aria-hidden="true"></i>
+            <i class="devicon-html5-plain colored" title="HTML5" aria-hidden="true"></i>
+            <i class="devicon-css3-plain colored" title="CSS3" aria-hidden="true"></i>
+          </div>
+          <div class="service-cta">
+            <a href="#Projects" class="service-link">
+              View Success Stories
+              <i class="fas fa-briefcase" aria-hidden="true"></i>
+            </a>
+          </div>
+        </div>
+
+        <!-- Service 4 - API Integration -->
+        <div class="service-card">
+          <div class="service-icon">
+            <div class="icon-wrapper">
+              <i class="fas fa-network-wired" aria-hidden="true"></i>
+            </div>
+          </div>
+          <h3 class="service-title">Business System Integration</h3>
+          <p class="service-description">
+            Connect your digital presence with essential business tools,
+            payment systems, and operational platforms to streamline your
+            operations.
+          </p>
+          <div class="service-features">
+            <span class="feature">Payment Gateway Setup</span>
+            <span class="feature">Business Tool Connections</span>
+            <span class="feature">Operational Automation</span>
+          </div>
+          <div class="tech-stack">
+            <i class="fas fa-plug" title="Business Integration" aria-hidden="true"></i>
+            <i class="devicon-nodejs-plain colored" title="Node.js" aria-hidden="true"></i>
+            <i class="devicon-graphql-plain colored" title="GraphQL" aria-hidden="true"></i>
+          </div>
+          <div class="service-cta">
+            <a href="#Contact" class="service-link">
+              Streamline Operations
+              <i class="fas fa-plug" aria-hidden="true"></i>
+            </a>
+          </div>
+        </div>
+
+        <!-- Service 5 - Website Maintenance -->
+        <div class="service-card">
+          <div class="service-icon">
+            <div class="icon-wrapper">
+              <i class="fas fa-shield-alt" aria-hidden="true"></i>
+            </div>
+          </div>
+          <h3 class="service-title">Business Continuity Services</h3>
+          <p class="service-description">
+            Keep your digital business assets running smoothly with ongoing
+            maintenance, security protection, and performance optimization.
+          </p>
+          <div class="service-features">
+            <span class="feature">Business Security Protection</span>
+            <span class="feature">Performance Optimization</span>
+            <span class="feature">Priority Business Support</span>
+          </div>
+          <div class="tech-stack">
+            <i class="fas fa-shield-alt" title="Security" aria-hidden="true"></i>
+            <i class="fas fa-tachometer-alt" title="Performance" aria-hidden="true"></i>
+            <i class="fas fa-headset" title="Business Support" aria-hidden="true"></i>
+          </div>
+          <div class="service-cta">
+            <a href="#Contact" class="service-link">
+              Protect Your Investment
               <i class="fas fa-comments" aria-hidden="true"></i>
-              Get Complimentary Consultation
+            </a>
+          </div>
+        </div>
+
+        <!-- Service 6 - Consultation -->
+        <div class="service-card">
+          <div class="service-icon">
+            <div class="icon-wrapper">
+              <i class="fas fa-lightbulb" aria-hidden="true"></i>
+            </div>
+          </div>
+          <h3 class="service-title">Digital Growth Strategy</h3>
+          <p class="service-description">
+            Get expert guidance on your digital transformation, technology
+            selection, and business growth roadmap tailored to your market.
+          </p>
+          <div class="service-features">
+            <span class="feature">Business Growth Planning</span>
+            <span class="feature">Technology Strategy</span>
+            <span class="feature">Market-Specific Solutions</span>
+          </div>
+          <div class="tech-stack">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+              <polyline points="23 6 13.5 15.5 8.5 10.5 1 17"></polyline>
+              <polyline points="17 6 23 6 23 12"></polyline>
+            </svg>
+            <i class="fas fa-cogs" title="Business Planning" aria-hidden="true"></i>
+            <i class="fas fa-road" title="Growth Roadmap" aria-hidden="true"></i>
+          </div>
+          <div class="service-cta">
+            <a href="#Contact" class="service-link">
+              Plan Your Growth
+              <i class="fas fa-rocket" aria-hidden="true"></i>
             </a>
           </div>
         </div>
       </div>
-    </section>
 
-    <div class="projects-section" id="Projects">
-      <p class="projects-subtitle">Client Success Stories</p>
-      <h2 class="projects-title">Business Results Delivered</h2>
-      <p class="projects-description">
-        Explore real business challenges I've solved for clients, showcasing
-        measurable results and the strategic approach that drove their success.
-      </p>
-
-      <div class="projects-container">
-        <!-- Project 1 -->
-        <div class="project-card">
-          <img
-            src="https://i.postimg.cc/W1d4ryRY/lms-pic.png"
-            alt="LMS EduTool Business Solution - Learning Management System Platform"
-            loading="lazy"
-          />
-          <h3 class="project-name">
-            LMS EduTool – Revenue-Generating Learning Platform
-          </h3>
-          <p class="project-details">
-            <span class="detail-heading problem">Business Challenge:</span>
-            Educational providers needed a professional platform to deliver paid
-            courses and manage student enrollment efficiently.<br />
-            <span class="detail-heading solution">Business Solution:</span>
-            Built a complete learning management system with course
-            monetization, student management, and professional reporting.<br />
-            <span class="detail-heading impact">Business Impact:</span> Enabled
-            new revenue streams and streamlined educational service delivery.
+      <!-- Services CTA -->
+      <div class="services-cta">
+        <div class="cta-content">
+          <h3>Need a Custom Business Solution?</h3>
+          <p>
+            Let's discuss your specific business challenges and I'll design
+            the perfect digital solution to drive your growth
           </p>
-          <div class="tech-stack">
-            <i
-              class="devicon-tailwindcss-plain colored"
-              title="Tailwind CSS"
-              aria-hidden="true"
-            ></i>
-            <i
-              class="devicon-javascript-plain colored"
-              title="JavaScript"
-              aria-hidden="true"
-            ></i>
-            <i
-              class="devicon-html5-plain colored"
-              title="HTML5"
-              aria-hidden="true"
-            ></i>
-            <i
-              class="devicon-css3-plain colored"
-              title="CSS3"
-              aria-hidden="true"
-            ></i>
-          </div>
-
-          <a
-            href="https://jawadedugametools.netlify.app/"
-            target="_blank"
-            class="project-link"
-            >See Live Solution</a
-          >
-          |
-          <a
-            href="https://github.com/Jawadahmad9938/LMS-Project"
-            target="_blank"
-            class="project-link"
-            >Business Case</a
-          >
-        </div>
-
-        <!-- Project 2 -->
-        <div class="project-card">
-          <img
-            src="https://i.postimg.cc/yxcs8MwJ/goatnova.jpg"
-            alt="GoatNova Agency Business Growth - Digital Agency Website"
-            loading="lazy"
-          />
-          <h3 class="project-name">
-            GoatNova – Digital Agency Revenue Platform
-          </h3>
-          <p class="project-details">
-            <span class="detail-heading problem">Business Challenge:</span> A
-            UK-based digital agency needed a professional online presence to
-            attract high-value clients and showcase their premium services.<br />
-            <span class="detail-heading solution">Business Solution:</span>
-            Developed a conversion-focused website with client portfolio,
-            service showcase, and lead generation optimization.<br />
-            <span class="detail-heading impact">Business Impact:</span>
-            Increased qualified client inquiries by 20% within first month of
-            launch.
-          </p>
-          <div class="tech-stack">
-            <i
-              class="devicon-nextjs-plain colored"
-              title="Next.js"
-              aria-hidden="true"
-            ></i>
-            <i
-              class="devicon-tailwindcss-plain colored"
-              title="Tailwind CSS"
-              aria-hidden="true"
-            ></i>
-            <i
-              class="devicon-javascript-plain colored"
-              title="JavaScript"
-              aria-hidden="true"
-            ></i>
-            <i
-              class="devicon-html5-plain colored"
-              title="HTML5"
-              aria-hidden="true"
-            ></i>
-          </div>
-          <a
-            href="https://goatnova.online/"
-            target="_blank"
-            class="project-link"
-            >See Live Solution</a
-          >
-          |
-          <a
-            href="https://github.com/Jawadahmad9938/goatnova-project"
-            target="_blank"
-            class="project-link"
-            >Business Case</a
-          >
-        </div>
-
-        <!-- Project 3 -->
-        <div class="project-card">
-          <img
-            src="https://i.ibb.co/RpCRXLhL/shopstock.jpg"
-            alt="Shopstockk Revenue Growth Platform - E-commerce Website"
-            loading="lazy"
-          />
-          <h3 class="project-name">
-            Shopstockk – Complete E-commerce Business Solution
-          </h3>
-          <p class="project-details">
-            <span class="detail-heading problem">Business Challenge:</span>
-            Retail businesses needed a secure, scalable online sales channel to
-            compete in digital marketplace.<br />
-            <span class="detail-heading solution">Business Solution:</span>
-            Developed a complete business e-commerce platform with secure
-            transactions, inventory management, and customer relationship
-            features.<br />
-            <span class="detail-heading impact">Business Impact:</span> Created
-            24/7 revenue stream with professional customer shopping experience.
-          </p>
-          <div class="tech-stack">
-            <i
-              class="devicon-react-original colored"
-              title="React"
-              aria-hidden="true"
-            ></i>
-            <i
-              class="devicon-nodejs-plain colored"
-              title="Node.js"
-              aria-hidden="true"
-            ></i>
-            <i
-              class="devicon-mongodb-plain colored"
-              title="MongoDB"
-              aria-hidden="true"
-            ></i>
-            <i
-              class="devicon-tailwindcss-plain colored"
-              title="Tailwind CSS"
-              aria-hidden="true"
-            ></i>
-            <i
-              class="devicon-javascript-plain colored"
-              title="JavaScript"
-              aria-hidden="true"
-            ></i>
-            <i
-              class="devicon-html5-plain colored"
-              title="HTML5"
-              aria-hidden="true"
-            ></i>
-            <i
-              class="devicon-css3-plain colored"
-              title="CSS3"
-              aria-hidden="true"
-            ></i>
-          </div>
-
-          <a
-            href="https://shopstockk.netlify.app"
-            target="_blank"
-            class="project-link"
-            >See Live Solution</a
-          >
-          |
-          <a
-            href="https://github.com/Jawadahmad9938/ecommerce-mern-stack-semester-project"
-            target="_blank"
-            class="project-link"
-            >Business Case</a
-          >
-        </div>
-
-        <!-- Project 4 -->
-        <div class="project-card">
-          <img
-            src="https://i.ibb.co/67bYdr1T/800batteries.jpg"
-            alt="800batterie Business Transformation - Automobile Battery Company Website"
-            loading="lazy"
-          />
-          <h3 class="project-name">
-            800batterie – Professional Business Presence
-          </h3>
-          <p class="project-details">
-            <span class="detail-heading problem">Business Challenge:</span> A
-            UAE-based automobile battery company needed to establish
-            professional online credibility and attract corporate clients.<br />
-            <span class="detail-heading solution">Business Solution:</span>
-            Designed and developed a business-class website with optimized
-            performance and professional presentation.<br />
-            <span class="detail-heading impact">Business Impact:</span> Enhanced
-            corporate image and increased high-value customer inquiries.
-          </p>
-          <div class="tech-stack">
-            <i
-              class="devicon-html5-plain colored"
-              title="HTML5"
-              aria-hidden="true"
-            ></i>
-            <i
-              class="devicon-css3-plain colored"
-              title="CSS3"
-              aria-hidden="true"
-            ></i>
-            <i
-              class="devicon-javascript-plain colored"
-              title="JavaScript"
-              aria-hidden="true"
-            ></i>
-            <i
-              class="devicon-php-plain colored"
-              title="PHP"
-              aria-hidden="true"
-            ></i>
-          </div>
-          <a href="https://800batterie.com" target="_blank" class="project-link"
-            >See Live Solution</a
-          >
-          |
-          <a
-            href="https://github.com/Jawadahmad9938/automobile-site-for-client"
-            target="_blank"
-            class="project-link"
-            >Business Case</a
-          >
-        </div>
-
-        <!-- Project 5 -->
-        <div class="project-card">
-          <img
-            src="https://i.ibb.co/8LCC8m3P/movies.jpg"
-            alt="Movieefliixx Customer Engagement Platform - Entertainment Website"
-            loading="lazy"
-          />
-          <h3 class="project-name">
-            Movieefliixx – Customer Engagement Solution
-          </h3>
-          <p class="project-details">
-            <span class="detail-heading problem">Business Challenge:</span>
-            Entertainment platforms needed to keep users engaged with instant
-            access to content information.<br />
-            <span class="detail-heading solution">Business Solution:</span>
-            Built a responsive entertainment application with real-time search
-            and user-friendly interface.<br />
-            <span class="detail-heading impact">Business Impact:</span>
-            Increased user engagement and time spent on platform.
-          </p>
-          <div class="tech-stack">
-            <i
-              class="devicon-javascript-plain colored"
-              title="JavaScript"
-              aria-hidden="true"
-            ></i>
-            <i
-              class="devicon-html5-plain colored"
-              title="HTML5"
-              aria-hidden="true"
-            ></i>
-            <i
-              class="devicon-css3-plain colored"
-              title="CSS3"
-              aria-hidden="true"
-            ></i>
-          </div>
-          <a
-            href="https://movieefliixx.netlify.app"
-            target="_blank"
-            class="project-link"
-            >See Live Solution</a
-          >
-          |
-          <a
-            href="https://github.com/Jawadahmad9938/MoviesApi"
-            target="_blank"
-            class="project-link"
-            >Business Case</a
-          >
-        </div>
-
-        <!-- Project 6 -->
-        <div class="project-card">
-          <img
-            src="https://i.ibb.co/6Jqk7bq4/Capture.jpg"
-            alt="HSKhaan Professional Branding - Personal Portfolio Website"
-            loading="lazy"
-          />
-          <h3 class="project-name">
-            HSKhaan – Professional Brand Establishment
-          </h3>
-          <p class="project-details">
-            <span class="detail-heading problem">Business Challenge:</span> A
-            professional needed to establish strong online presence and attract
-            career opportunities.<br />
-            <span class="detail-heading solution">Business Solution:</span>
-            Developed a compelling personal brand website showcasing expertise
-            and professional achievements.<br />
-            <span class="detail-heading impact">Business Impact:</span> Enhanced
-            professional credibility and attracted premium opportunities.
-          </p>
-          <div class="tech-stack">
-            <i
-              class="devicon-html5-plain colored"
-              title="HTML5"
-              aria-hidden="true"
-            ></i>
-            <i
-              class="devicon-css3-plain colored"
-              title="CSS3"
-              aria-hidden="true"
-            ></i>
-            <i
-              class="devicon-javascript-plain colored"
-              title="JavaScript"
-              aria-hidden="true"
-            ></i>
-          </div>
-          <a
-            href="https://hskhaan.netlify.app/"
-            target="_blank"
-            class="project-link"
-            >See Live Solution</a
-          >
-          |
-          <a
-            href="https://github.com/Jawadahmad9938/educationWebsite"
-            target="_blank"
-            class="project-link"
-            >Business Case</a
-          >
+          <a href="#contact" class="btn btn-primary">
+            <i class="fas fa-comments" aria-hidden="true"></i>
+            Get Complimentary Consultation
+          </a>
         </div>
       </div>
     </div>
+  </section>
 
-    <div class="cta-section">
-      <p class="cta-text">
-        Ready to transform your business with a professional digital
-        presence?<br />Let's create your revenue-generating solution together.
-      </p>
-      <form
-        action="https://formspree.io/f/xeolvgya"
-        method="POST"
-        class="cta-input-group"
-      >
-        <input
-          type="email"
-          name="email"
-          placeholder="Enter Your Business Email"
-          class="email-input"
-          required
-        />
-        <button type="submit" class="quote-btn">Get Business Proposal</button>
-      </form>
+  <div class="projects-section" id="Projects">
+    <p class="projects-subtitle">Client Success Stories</p>
+    <h2 class="projects-title">Business Results Delivered</h2>
+    <p class="projects-description">
+      Explore real business challenges I've solved for clients, showcasing
+      measurable results and the strategic approach that drove their success.
+    </p>
+
+    <div class="projects-container">
+      <!-- Project 1 -->
+      <div class="project-card">
+        <img src="https://i.postimg.cc/W1d4ryRY/lms-pic.png"
+          alt="LMS EduTool Business Solution - Learning Management System Platform" loading="lazy" />
+        <h3 class="project-name">
+          LMS EduTool – Revenue-Generating Learning Platform
+        </h3>
+        <p class="project-details">
+          <span class="detail-heading problem">Business Challenge:</span>
+          Educational providers needed a professional platform to deliver paid
+          courses and manage student enrollment efficiently.<br />
+          <span class="detail-heading solution">Business Solution:</span>
+          Built a complete learning management system with course
+          monetization, student management, and professional reporting.<br />
+          <span class="detail-heading impact">Business Impact:</span> Enabled
+          new revenue streams and streamlined educational service delivery.
+        </p>
+        <div class="tech-stack">
+          <i class="devicon-tailwindcss-plain colored" title="Tailwind CSS" aria-hidden="true"></i>
+          <i class="devicon-javascript-plain colored" title="JavaScript" aria-hidden="true"></i>
+          <i class="devicon-html5-plain colored" title="HTML5" aria-hidden="true"></i>
+          <i class="devicon-css3-plain colored" title="CSS3" aria-hidden="true"></i>
+        </div>
+
+        <a href="https://jawadedugametools.netlify.app/" target="_blank" class="project-link">See Live Solution</a>
+        |
+        <a href="https://github.com/Jawadahmad9938/LMS-Project" target="_blank" class="project-link">Business Case</a>
+      </div>
+
+      <!-- Project 2 -->
+      <div class="project-card">
+        <img src="https://i.postimg.cc/yxcs8MwJ/goatnova.jpg"
+          alt="GoatNova Agency Business Growth - Digital Agency Website" loading="lazy" />
+        <h3 class="project-name">
+          GoatNova – Digital Agency Revenue Platform
+        </h3>
+        <p class="project-details">
+          <span class="detail-heading problem">Business Challenge:</span> A
+          UK-based digital agency needed a professional online presence to
+          attract high-value clients and showcase their premium services.<br />
+          <span class="detail-heading solution">Business Solution:</span>
+          Developed a conversion-focused website with client portfolio,
+          service showcase, and lead generation optimization.<br />
+          <span class="detail-heading impact">Business Impact:</span>
+          Increased qualified client inquiries by 20% within first month of
+          launch.
+        </p>
+        <div class="tech-stack">
+          <i class="devicon-nextjs-plain colored" title="Next.js" aria-hidden="true"></i>
+          <i class="devicon-tailwindcss-plain colored" title="Tailwind CSS" aria-hidden="true"></i>
+          <i class="devicon-javascript-plain colored" title="JavaScript" aria-hidden="true"></i>
+          <i class="devicon-html5-plain colored" title="HTML5" aria-hidden="true"></i>
+        </div>
+        <a href="https://goatnova.online/" target="_blank" class="project-link">See Live Solution</a>
+        |
+        <a href="https://github.com/Jawadahmad9938/goatnova-project" target="_blank" class="project-link">Business
+          Case</a>
+      </div>
+
+      <!-- Project 3 -->
+      <div class="project-card">
+        <img src="https://i.ibb.co/RpCRXLhL/shopstock.jpg" alt="Shopstockk Revenue Growth Platform - E-commerce Website"
+          loading="lazy" />
+        <h3 class="project-name">
+          Shopstockk – Complete E-commerce Business Solution
+        </h3>
+        <p class="project-details">
+          <span class="detail-heading problem">Business Challenge:</span>
+          Retail businesses needed a secure, scalable online sales channel to
+          compete in digital marketplace.<br />
+          <span class="detail-heading solution">Business Solution:</span>
+          Developed a complete business e-commerce platform with secure
+          transactions, inventory management, and customer relationship
+          features.<br />
+          <span class="detail-heading impact">Business Impact:</span> Created
+          24/7 revenue stream with professional customer shopping experience.
+        </p>
+        <div class="tech-stack">
+          <i class="devicon-react-original colored" title="React" aria-hidden="true"></i>
+          <i class="devicon-nodejs-plain colored" title="Node.js" aria-hidden="true"></i>
+          <i class="devicon-mongodb-plain colored" title="MongoDB" aria-hidden="true"></i>
+          <i class="devicon-tailwindcss-plain colored" title="Tailwind CSS" aria-hidden="true"></i>
+          <i class="devicon-javascript-plain colored" title="JavaScript" aria-hidden="true"></i>
+          <i class="devicon-html5-plain colored" title="HTML5" aria-hidden="true"></i>
+          <i class="devicon-css3-plain colored" title="CSS3" aria-hidden="true"></i>
+        </div>
+
+        <a href="https://shopstockk.netlify.app" target="_blank" class="project-link">See Live Solution</a>
+        |
+        <a href="https://github.com/Jawadahmad9938/ecommerce-mern-stack-semester-project" target="_blank"
+          class="project-link">Business Case</a>
+      </div>
+
+      <!-- Project 4 -->
+      <div class="project-card">
+        <img src="https://i.ibb.co/67bYdr1T/800batteries.jpg"
+          alt="800batterie Business Transformation - Automobile Battery Company Website" loading="lazy" />
+        <h3 class="project-name">
+          800batterie – Professional Business Presence
+        </h3>
+        <p class="project-details">
+          <span class="detail-heading problem">Business Challenge:</span> A
+          UAE-based automobile battery company needed to establish
+          professional online credibility and attract corporate clients.<br />
+          <span class="detail-heading solution">Business Solution:</span>
+          Designed and developed a business-class website with optimized
+          performance and professional presentation.<br />
+          <span class="detail-heading impact">Business Impact:</span> Enhanced
+          corporate image and increased high-value customer inquiries.
+        </p>
+        <div class="tech-stack">
+          <i class="devicon-html5-plain colored" title="HTML5" aria-hidden="true"></i>
+          <i class="devicon-css3-plain colored" title="CSS3" aria-hidden="true"></i>
+          <i class="devicon-javascript-plain colored" title="JavaScript" aria-hidden="true"></i>
+          <i class="devicon-php-plain colored" title="PHP" aria-hidden="true"></i>
+        </div>
+        <a href="https://800batterie.com" target="_blank" class="project-link">See Live Solution</a>
+        |
+        <a href="https://github.com/Jawadahmad9938/automobile-site-for-client" target="_blank"
+          class="project-link">Business Case</a>
+      </div>
+
+      <!-- Project 5 -->
+      <div class="project-card">
+        <img src="https://i.ibb.co/8LCC8m3P/movies.jpg"
+          alt="Movieefliixx Customer Engagement Platform - Entertainment Website" loading="lazy" />
+        <h3 class="project-name">
+          Movieefliixx – Customer Engagement Solution
+        </h3>
+        <p class="project-details">
+          <span class="detail-heading problem">Business Challenge:</span>
+          Entertainment platforms needed to keep users engaged with instant
+          access to content information.<br />
+          <span class="detail-heading solution">Business Solution:</span>
+          Built a responsive entertainment application with real-time search
+          and user-friendly interface.<br />
+          <span class="detail-heading impact">Business Impact:</span>
+          Increased user engagement and time spent on platform.
+        </p>
+        <div class="tech-stack">
+          <i class="devicon-javascript-plain colored" title="JavaScript" aria-hidden="true"></i>
+          <i class="devicon-html5-plain colored" title="HTML5" aria-hidden="true"></i>
+          <i class="devicon-css3-plain colored" title="CSS3" aria-hidden="true"></i>
+        </div>
+        <a href="https://movieefliixx.netlify.app" target="_blank" class="project-link">See Live Solution</a>
+        |
+        <a href="https://github.com/Jawadahmad9938/MoviesApi" target="_blank" class="project-link">Business Case</a>
+      </div>
+
+      <!-- Project 6 -->
+      <div class="project-card">
+        <img src="https://i.ibb.co/6Jqk7bq4/Capture.jpg"
+          alt="HSKhaan Professional Branding - Personal Portfolio Website" loading="lazy" />
+        <h3 class="project-name">
+          HSKhaan – Professional Brand Establishment
+        </h3>
+        <p class="project-details">
+          <span class="detail-heading problem">Business Challenge:</span> A
+          professional needed to establish strong online presence and attract
+          career opportunities.<br />
+          <span class="detail-heading solution">Business Solution:</span>
+          Developed a compelling personal brand website showcasing expertise
+          and professional achievements.<br />
+          <span class="detail-heading impact">Business Impact:</span> Enhanced
+          professional credibility and attracted premium opportunities.
+        </p>
+        <div class="tech-stack">
+          <i class="devicon-html5-plain colored" title="HTML5" aria-hidden="true"></i>
+          <i class="devicon-css3-plain colored" title="CSS3" aria-hidden="true"></i>
+          <i class="devicon-javascript-plain colored" title="JavaScript" aria-hidden="true"></i>
+        </div>
+        <a href="https://hskhaan.netlify.app/" target="_blank" class="project-link">See Live Solution</a>
+        |
+        <a href="https://github.com/Jawadahmad9938/educationWebsite" target="_blank" class="project-link">Business
+          Case</a>
+      </div>
     </div>
+  </div>
 
-    <div class="skills-section" id="Skills">
-      <p class="skills-subtitle">Business Expertise & Qualifications</p>
-      <h1 class="skills-title">My Business Capabilities</h1>
-      <p class="skills-description">
-        A comprehensive overview of my business-focused expertise and
-        qualifications for delivering successful digital solutions.
-      </p>
-      <div class="resume-content">
-        <div class="resume-flex">
-          <div class="resume-box">
-            <h2 class="resume-subheading">Business Education</h2>
-            <div class="resume-details">
-              <h3 class="resume-degree">BS Computer Science</h3>
-              <p class="resume-institution">
-                MNS University of Agriculture, Multan
-              </p>
-              <p class="resume-duration">2022 – 2026</p>
-              <p class="resume-cgpa">Business Excellence: 3.64/4.0</p>
-              <p class="resume-info">
-                Comprehensive education focused on creating business-driven
-                technology solutions. Special emphasis on practical applications
-                that solve real business challenges and drive growth.
-              </p>
-            </div>
-          </div>
-          <div class="resume-box">
-            <h2 class="resume-subheading">Business Experience</h2>
-            <div class="resume-details">
-              <h3 class="resume-degree">Business Solutions Developer</h3>
-              <p class="resume-institution">Independent Business Consultant</p>
-              <p class="resume-duration">2023 – Present</p>
-              <p class="resume-cgpa">
-                Client Portfolio: UAE-based (800batterie.com), Pakistan Market,
-                International Businesses
-              </p>
-              <p class="resume-info">
-                Specializing in creating revenue-focused digital solutions for
-                businesses of all sizes. Delivering measurable results through
-                professional websites, e-commerce platforms, and business
-                applications that drive growth.
-              </p>
-            </div>
+  <div class="cta-section">
+    <p class="cta-text">
+      Ready to transform your business with a professional digital
+      presence?<br />Let's create your revenue-generating solution together.
+    </p>
+    <form action="https://formspree.io/f/xeolvgya" method="POST" class="cta-input-group">
+      <input type="email" name="email" placeholder="Enter Your Business Email" class="email-input" required />
+      <button type="submit" class="quote-btn">Get Business Proposal</button>
+    </form>
+  </div>
+
+  <div class="skills-section" id="Skills">
+    <p class="skills-subtitle">Business Expertise & Qualifications</p>
+    <h1 class="skills-title">My Business Capabilities</h1>
+    <p class="skills-description">
+      A comprehensive overview of my business-focused expertise and
+      qualifications for delivering successful digital solutions.
+    </p>
+    <div class="resume-content">
+      <div class="resume-flex">
+        <div class="resume-box">
+          <h2 class="resume-subheading">Business Education</h2>
+          <div class="resume-details">
+            <h3 class="resume-degree">BS Computer Science</h3>
+            <p class="resume-institution">
+              MNS University of Agriculture, Multan
+            </p>
+            <p class="resume-duration">2022 – 2026</p>
+            <p class="resume-cgpa">Business Excellence: 3.64/4.0</p>
+            <p class="resume-info">
+              Comprehensive education focused on creating business-driven
+              technology solutions. Special emphasis on practical applications
+              that solve real business challenges and drive growth.
+            </p>
           </div>
         </div>
-        <h2 class="resume-subheading skills-heading">
-          Business Solution Capabilities
+        <div class="resume-box">
+          <h2 class="resume-subheading">Business Experience</h2>
+          <div class="resume-details">
+            <h3 class="resume-degree">Business Solutions Developer</h3>
+            <p class="resume-institution">Independent Business Consultant</p>
+            <p class="resume-duration">2023 – Present</p>
+            <p class="resume-cgpa">
+              Client Portfolio: UAE-based (800batterie.com), Pakistan Market,
+              International Businesses
+            </p>
+            <p class="resume-info">
+              Specializing in creating revenue-focused digital solutions for
+              businesses of all sizes. Delivering measurable results through
+              professional websites, e-commerce platforms, and business
+              applications that drive growth.
+            </p>
+          </div>
+        </div>
+      </div>
+      <h2 class="resume-subheading skills-heading">
+        Business Solution Capabilities
+      </h2>
+      <div class="skills-grid">
+        <div class="skill-box">
+          <img src="img/html.svg" alt="HTML5 Logo - Business Web Development Skill" class="skill-logo" loading="lazy" />
+          <p class="skill-name">Business Web Development</p>
+          <div class="progress-bar">
+            <div class="progress" style="width: 90%"></div>
+          </div>
+          <p class="skill-percentage">90%</p>
+        </div>
+        <div class="skill-box">
+          <img src="img/css-3.svg" alt="CSS3 Logo - Professional Design Skill" class="skill-logo" loading="lazy" />
+          <p class="skill-name">Professional Design</p>
+          <div class="progress-bar">
+            <div class="progress" style="width: 85%"></div>
+          </div>
+          <p class="skill-percentage">85%</p>
+        </div>
+        <div class="skill-box">
+          <img src="img/tailwind.svg" alt="Tailwind CSS Logo - Modern Business Interfaces Skill" class="skill-logo"
+            loading="lazy" />
+          <p class="skill-name">Modern Interfaces</p>
+          <div class="progress-bar">
+            <div class="progress" style="width: 80%"></div>
+          </div>
+          <p class="skill-percentage">80%</p>
+        </div>
+        <div class="skill-box">
+          <img src="img/javascript.svg" alt="JavaScript Logo - Interactive Business Solutions Skill" class="skill-logo"
+            loading="lazy" />
+          <p class="skill-name">Interactive Solutions</p>
+          <div class="progress-bar">
+            <div class="progress" style="width: 75%"></div>
+          </div>
+          <p class="skill-percentage">75%</p>
+        </div>
+        <div class="skill-box">
+          <img src="img/node-js.svg" alt="Node.js Logo - Business Application Development Skill" class="skill-logo"
+            loading="lazy" />
+          <p class="skill-name">Application Development</p>
+          <div class="progress-bar">
+            <div class="progress" style="width: 65%"></div>
+          </div>
+          <p class="skill-percentage">65%</p>
+        </div>
+        <div class="skill-box">
+          <img src="img/express.svg" alt="Express.js Logo - Business System Architecture Skill" class="skill-logo"
+            loading="lazy" />
+          <p class="skill-name">System Architecture</p>
+          <div class="progress-bar">
+            <div class="progress" style="width: 60%"></div>
+          </div>
+          <p class="skill-percentage">60%</p>
+        </div>
+        <div class="skill-box">
+          <img src="img/mongodb.svg" alt="MongoDB Logo - Business Data Management Skill" class="skill-logo"
+            loading="lazy" />
+          <p class="skill-name">Data Management</p>
+          <div class="progress-bar">
+            <div class="progress" style="width: 55%"></div>
+          </div>
+          <p class="skill-percentage">55%</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Testimonials Section -->
+  <section class="testimonials-section" id="Testimonials">
+    <div class="container">
+      <!-- Section Header -->
+      <div class="testimonials-header">
+        <p class="testimonials-subtitle">Client Business Results</p>
+        <h2 class="testimonials-title">
+          What Business Owners Say About Our Partnership
         </h2>
-        <div class="skills-grid">
-          <div class="skill-box">
-            <img
-              src="img/html.svg"
-              alt="HTML5 Logo - Business Web Development Skill"
-              class="skill-logo"
-              loading="lazy"
-            />
-            <p class="skill-name">Business Web Development</p>
-            <div class="progress-bar">
-              <div class="progress" style="width: 90%"></div>
-            </div>
-            <p class="skill-percentage">90%</p>
+        <p class="testimonials-description">
+          Real feedback from business owners I've helped achieve their growth
+          objectives through strategic digital solutions.
+        </p>
+      </div>
+
+      <!-- Testimonials Grid -->
+      <div class="testimonials-grid">
+        <!-- Testimonial 1 -->
+        <div class="testimonial-card">
+          <div class="testimonial-header">
+            <img src="https://800batterie.com/img/imggg.png" alt="800batterie.com Logo - UAE Automobile Battery Company"
+              class="client-logo" loading="lazy" />
           </div>
-          <div class="skill-box">
-            <img
-              src="img/css-3.svg"
-              alt="CSS3 Logo - Professional Design Skill"
-              class="skill-logo"
-              loading="lazy"
-            />
-            <p class="skill-name">Professional Design</p>
-            <div class="progress-bar">
-              <div class="progress" style="width: 85%"></div>
+          <div class="testimonial-content">
+            <i class="fas fa-quote-left quote-icon" aria-hidden="true"></i>
+            <p class="testimonial-text">
+              "Jawad transformed our business with a professional website that
+              perfectly represents our brand. He understood our business needs
+              and delivered a solution that has significantly increased our
+              customer inquiries and sales."
+            </p>
+
+            <div class="business-results">
+              <div class="result-item">
+                <div class="result-metric">Increased</div>
+                <div class="result-label">Sales</div>
+              </div>
+              <div class="result-item">
+                <div class="result-metric">Professional</div>
+                <div class="result-label">Image</div>
+              </div>
             </div>
-            <p class="skill-percentage">85%</p>
           </div>
-          <div class="skill-box">
-            <img
-              src="img/tailwind.svg"
-              alt="Tailwind CSS Logo - Modern Business Interfaces Skill"
-              class="skill-logo"
-              loading="lazy"
-            />
-            <p class="skill-name">Modern Interfaces</p>
-            <div class="progress-bar">
-              <div class="progress" style="width: 80%"></div>
+
+          <div class="testimonial-author">
+            <img src="https://800batterie.com/img/imggg.png" alt="Usman Ahmed - 800batterie.com Business Owner"
+              class="author-avatar" loading="lazy" />
+            <div class="author-info">
+              <div class="author-name">Usman Ahmed</div>
+              <div class="author-company">800batterie.com</div>
+              <div class="author-role">Business Owner - UAE</div>
             </div>
-            <p class="skill-percentage">80%</p>
+            <div class="rating">
+              <i class="fas fa-star" aria-hidden="true"></i><i class="fas fa-star" aria-hidden="true"></i>
+              <i class="fas fa-star" aria-hidden="true"></i><i class="fas fa-star" aria-hidden="true"></i>
+              <i class="fas fa-star" aria-hidden="true"></i>
+            </div>
           </div>
-          <div class="skill-box">
-            <img
-              src="img/javascript.svg"
-              alt="JavaScript Logo - Interactive Business Solutions Skill"
-              class="skill-logo"
-              loading="lazy"
-            />
-            <p class="skill-name">Interactive Solutions</p>
-            <div class="progress-bar">
-              <div class="progress" style="width: 75%"></div>
-            </div>
-            <p class="skill-percentage">75%</p>
+        </div>
+
+        <!-- Testimonial 2 -->
+        <div class="testimonial-card">
+          <div class="testimonial-header">
+            <img src="https://i.postimg.cc/RVbjf9np/shopstock.webp" alt="Retail Business Logo - E-commerce Store"
+              class="client-logo" loading="lazy" />
           </div>
-          <div class="skill-box">
-            <img
-              src="img/node-js.svg"
-              alt="Node.js Logo - Business Application Development Skill"
-              class="skill-logo"
-              loading="lazy"
-            />
-            <p class="skill-name">Application Development</p>
-            <div class="progress-bar">
-              <div class="progress" style="width: 65%"></div>
+          <div class="testimonial-content">
+            <i class="fas fa-quote-left quote-icon" aria-hidden="true"></i>
+            <p class="testimonial-text">
+              "Working with Jawad was a game-changer for our retail business.
+              He built us an e-commerce platform that's not only beautiful but
+              incredibly functional. Our online sales have grown steadily
+              since launch."
+            </p>
+
+            <div class="business-results">
+              <div class="result-item">
+                <div class="result-metric">Revenue</div>
+                <div class="result-label">Growth</div>
+              </div>
+              <div class="result-item">
+                <div class="result-metric">Customer</div>
+                <div class="result-label">Satisfaction</div>
+              </div>
             </div>
-            <p class="skill-percentage">65%</p>
           </div>
-          <div class="skill-box">
-            <img
-              src="img/express.svg"
-              alt="Express.js Logo - Business System Architecture Skill"
-              class="skill-logo"
-              loading="lazy"
-            />
-            <p class="skill-name">System Architecture</p>
-            <div class="progress-bar">
-              <div class="progress" style="width: 60%"></div>
+
+          <div class="testimonial-author">
+            <img src="https://i.postimg.cc/RVbjf9np/shopstock.webp" alt="Ali Khan - Retail Business Owner"
+              class="author-avatar" loading="lazy" />
+            <div class="author-info">
+              <div class="author-name">Ali Khan</div>
+              <div class="author-company">Retail Business</div>
+              <div class="author-role">Business Owner - Pakistan</div>
             </div>
-            <p class="skill-percentage">60%</p>
+            <div class="rating">
+              <i class="fas fa-star" aria-hidden="true"></i><i class="fas fa-star" aria-hidden="true"></i>
+              <i class="fas fa-star" aria-hidden="true"></i><i class="fas fa-star" aria-hidden="true"></i>
+              <i class="fas fa-star" aria-hidden="true"></i>
+            </div>
           </div>
-          <div class="skill-box">
-            <img
-              src="img/mongodb.svg"
-              alt="MongoDB Logo - Business Data Management Skill"
-              class="skill-logo"
-              loading="lazy"
-            />
-            <p class="skill-name">Data Management</p>
-            <div class="progress-bar">
-              <div class="progress" style="width: 55%"></div>
+        </div>
+
+        <!-- Testimonial 3 -->
+        <div class="testimonial-card">
+          <div class="testimonial-header">
+            <img src="https://goatnova.online/leftside%20logo.png" alt="GoatNova Agency Logo - UK Digital Agency"
+              class="client-logo" loading="lazy" />
+          </div>
+          <div class="testimonial-content">
+            <i class="fas fa-quote-left quote-icon" aria-hidden="true"></i>
+            <p class="testimonial-text">
+              "Professional, reliable, and business-focused. Jawad delivered
+              our agency website on time and exceeded our expectations. The
+              site has become our most effective business development tool."
+            </p>
+
+            <div class="business-results">
+              <div class="result-item">
+                <div class="result-metric">Business</div>
+                <div class="result-label">Development</div>
+              </div>
+              <div class="result-item">
+                <div class="result-metric">Client</div>
+                <div class="result-label">Acquisition</div>
+              </div>
             </div>
-            <p class="skill-percentage">55%</p>
+          </div>
+
+          <div class="testimonial-author">
+            <img src="https://goatnova.online/leftside%20logo.png" alt="Zohaib Sumbal - GoatNova Agency Director"
+              class="author-avatar" loading="lazy" />
+            <div class="author-info">
+              <div class="author-name">Zohaib Sumbal</div>
+              <div class="author-company">GoatNova Agency</div>
+              <div class="author-role">Business Director - UK</div>
+            </div>
+            <div class="rating">
+              <i class="fas fa-star" aria-hidden="true"></i><i class="fas fa-star" aria-hidden="true"></i>
+              <i class="fas fa-star" aria-hidden="true"></i><i class="fas fa-star" aria-hidden="true"></i>
+              <i class="fas fa-star-half-alt" aria-hidden="true"></i>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Trust Indicators -->
+      <div class="trust-indicators">
+        <div class="trust-title">
+          Delivering Business Results Across Markets
+        </div>
+        <div class="client-locations">
+          <div class="location-item">
+            <i class="fas fa-map-marker-alt" aria-hidden="true"></i><span>Pakistan Market</span>
+          </div>
+          <div class="location-item">
+            <i class="fas fa-map-marker-alt" aria-hidden="true"></i><span>UAE Businesses</span>
+          </div>
+          <div class="location-item">
+            <i class="fas fa-map-marker-alt" aria-hidden="true"></i><span>UK Companies</span>
+          </div>
+          <div class="location-item">
+            <i class="fas fa-map-marker-alt" aria-hidden="true"></i><span>International Clients</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- CTA -->
+      <div class="testimonial-cta">
+        <div class="cta-content">
+          <h3>Ready to Achieve Similar Results?</h3>
+          <p>
+            Let's discuss your business goals and create a digital solution
+            that drives your growth.
+          </p>
+          <div class="cta-buttons">
+            <a href="#Contact" class="btn btn-primary"><i class="fas fa-comments" aria-hidden="true"></i> Start
+              Business Discussion</a>
+            <a href="#Projects" class="btn btn-secondary"><i class="fas fa-briefcase" aria-hidden="true"></i> View
+              Business Cases</a>
           </div>
         </div>
       </div>
     </div>
+  </section>
 
-    <!-- Testimonials Section -->
-    <section class="testimonials-section" id="Testimonials">
-      <div class="container">
-        <!-- Section Header -->
-        <div class="testimonials-header">
-          <p class="testimonials-subtitle">Client Business Results</p>
-          <h2 class="testimonials-title">
-            What Business Owners Say About Our Partnership
-          </h2>
-          <p class="testimonials-description">
-            Real feedback from business owners I've helped achieve their growth
-            objectives through strategic digital solutions.
-          </p>
-        </div>
+  <div class="quick-contact-icons">
+    <a href="tel:+923011414134" class="quick-contact-icon" aria-label="Call Jawad Ahmad for Business Consultation">
+      <img src="img/mobileicon.png" alt="Mobile Phone Icon - Call Jawad Ahmad" loading="lazy" />
+    </a>
+    <a href="https://wa.me/923011414134" target="_blank" class="quick-contact-icon"
+      aria-label="Message Jawad Ahmad on WhatsApp">
+      <img src="img/whatsapp.png" alt="WhatsApp Icon - Message Jawad Ahmad" loading="lazy" />
+    </a>
+  </div>
 
-        <!-- Testimonials Grid -->
-        <div class="testimonials-grid">
-          <!-- Testimonial 1 -->
-          <div class="testimonial-card">
-            <div class="testimonial-header">
-              <img
-                src="https://800batterie.com/img/imggg.png"
-                alt="800batterie.com Logo - UAE Automobile Battery Company"
-                class="client-logo"
-                loading="lazy"
-              />
-            </div>
-            <div class="testimonial-content">
-              <i class="fas fa-quote-left quote-icon" aria-hidden="true"></i>
-              <p class="testimonial-text">
-                "Jawad transformed our business with a professional website that
-                perfectly represents our brand. He understood our business needs
-                and delivered a solution that has significantly increased our
-                customer inquiries and sales."
-              </p>
-
-              <div class="business-results">
-                <div class="result-item">
-                  <div class="result-metric">Increased</div>
-                  <div class="result-label">Sales</div>
-                </div>
-                <div class="result-item">
-                  <div class="result-metric">Professional</div>
-                  <div class="result-label">Image</div>
-                </div>
-              </div>
-            </div>
-
-            <div class="testimonial-author">
-              <img
-                src="https://800batterie.com/img/imggg.png"
-                alt="Usman Ahmed - 800batterie.com Business Owner"
-                class="author-avatar"
-                loading="lazy"
-              />
-              <div class="author-info">
-                <div class="author-name">Usman Ahmed</div>
-                <div class="author-company">800batterie.com</div>
-                <div class="author-role">Business Owner - UAE</div>
-              </div>
-              <div class="rating">
-                <i class="fas fa-star" aria-hidden="true"></i
-                ><i class="fas fa-star" aria-hidden="true"></i>
-                <i class="fas fa-star" aria-hidden="true"></i
-                ><i class="fas fa-star" aria-hidden="true"></i>
-                <i class="fas fa-star" aria-hidden="true"></i>
-              </div>
-            </div>
-          </div>
-
-          <!-- Testimonial 2 -->
-          <div class="testimonial-card">
-            <div class="testimonial-header">
-              <img
-                src="https://i.postimg.cc/RVbjf9np/shopstock.webp"
-                alt="Retail Business Logo - E-commerce Store"
-                class="client-logo"
-                loading="lazy"
-              />
-            </div>
-            <div class="testimonial-content">
-              <i class="fas fa-quote-left quote-icon" aria-hidden="true"></i>
-              <p class="testimonial-text">
-                "Working with Jawad was a game-changer for our retail business.
-                He built us an e-commerce platform that's not only beautiful but
-                incredibly functional. Our online sales have grown steadily
-                since launch."
-              </p>
-
-              <div class="business-results">
-                <div class="result-item">
-                  <div class="result-metric">Revenue</div>
-                  <div class="result-label">Growth</div>
-                </div>
-                <div class="result-item">
-                  <div class="result-metric">Customer</div>
-                  <div class="result-label">Satisfaction</div>
-                </div>
-              </div>
-            </div>
-
-            <div class="testimonial-author">
-              <img
-                src="https://i.postimg.cc/RVbjf9np/shopstock.webp"
-                alt="Ali Khan - Retail Business Owner"
-                class="author-avatar"
-                loading="lazy"
-              />
-              <div class="author-info">
-                <div class="author-name">Ali Khan</div>
-                <div class="author-company">Retail Business</div>
-                <div class="author-role">Business Owner - Pakistan</div>
-              </div>
-              <div class="rating">
-                <i class="fas fa-star" aria-hidden="true"></i
-                ><i class="fas fa-star" aria-hidden="true"></i>
-                <i class="fas fa-star" aria-hidden="true"></i
-                ><i class="fas fa-star" aria-hidden="true"></i>
-                <i class="fas fa-star" aria-hidden="true"></i>
-              </div>
-            </div>
-          </div>
-
-          <!-- Testimonial 3 -->
-          <div class="testimonial-card">
-            <div class="testimonial-header">
-              <img
-                src="https://goatnova.online/leftside%20logo.png"
-                alt="GoatNova Agency Logo - UK Digital Agency"
-                class="client-logo"
-                loading="lazy"
-              />
-            </div>
-            <div class="testimonial-content">
-              <i class="fas fa-quote-left quote-icon" aria-hidden="true"></i>
-              <p class="testimonial-text">
-                "Professional, reliable, and business-focused. Jawad delivered
-                our agency website on time and exceeded our expectations. The
-                site has become our most effective business development tool."
-              </p>
-
-              <div class="business-results">
-                <div class="result-item">
-                  <div class="result-metric">Business</div>
-                  <div class="result-label">Development</div>
-                </div>
-                <div class="result-item">
-                  <div class="result-metric">Client</div>
-                  <div class="result-label">Acquisition</div>
-                </div>
-              </div>
-            </div>
-
-            <div class="testimonial-author">
-              <img
-                src="https://goatnova.online/leftside%20logo.png"
-                alt="Zohaib Sumbal - GoatNova Agency Director"
-                class="author-avatar"
-                loading="lazy"
-              />
-              <div class="author-info">
-                <div class="author-name">Zohaib Sumbal</div>
-                <div class="author-company">GoatNova Agency</div>
-                <div class="author-role">Business Director - UK</div>
-              </div>
-              <div class="rating">
-                <i class="fas fa-star" aria-hidden="true"></i
-                ><i class="fas fa-star" aria-hidden="true"></i>
-                <i class="fas fa-star" aria-hidden="true"></i
-                ><i class="fas fa-star" aria-hidden="true"></i>
-                <i class="fas fa-star-half-alt" aria-hidden="true"></i>
-              </div>
-            </div>
-          </div>
-        </div>
-
-        <!-- Trust Indicators -->
-        <div class="trust-indicators">
-          <div class="trust-title">
-            Delivering Business Results Across Markets
-          </div>
-          <div class="client-locations">
-            <div class="location-item">
-              <i class="fas fa-map-marker-alt" aria-hidden="true"></i
-              ><span>Pakistan Market</span>
-            </div>
-            <div class="location-item">
-              <i class="fas fa-map-marker-alt" aria-hidden="true"></i
-              ><span>UAE Businesses</span>
-            </div>
-            <div class="location-item">
-              <i class="fas fa-map-marker-alt" aria-hidden="true"></i
-              ><span>UK Companies</span>
-            </div>
-            <div class="location-item">
-              <i class="fas fa-map-marker-alt" aria-hidden="true"></i
-              ><span>International Clients</span>
-            </div>
-          </div>
-        </div>
-
-        <!-- CTA -->
-        <div class="testimonial-cta">
-          <div class="cta-content">
-            <h3>Ready to Achieve Similar Results?</h3>
-            <p>
-              Let's discuss your business goals and create a digital solution
-              that drives your growth.
-            </p>
-            <div class="cta-buttons">
-              <a href="#Contact" class="btn btn-primary"
-                ><i class="fas fa-comments" aria-hidden="true"></i> Start
-                Business Discussion</a
-              >
-              <a href="#Projects" class="btn btn-secondary"
-                ><i class="fas fa-briefcase" aria-hidden="true"></i> View
-                Business Cases</a
-              >
-            </div>
-          </div>
-        </div>
+  <!-- Contact Section -->
+  <section class="contact-section" id="Contact">
+    <div class="container">
+      <div class="contact-header">
+        <p class="contact-subtitle">Let's Start Your Project</p>
+        <h2 class="contact-title">Ready to Transform Your Business?</h2>
+        <p class="contact-description">
+          Schedule your complimentary business consultation to discuss your
+          goals and explore how we can create a digital solution that drives
+          your growth.
+        </p>
       </div>
-    </section>
 
-    <div class="quick-contact-icons">
-      <a
-        href="tel:+923011414134"
-        class="quick-contact-icon"
-        aria-label="Call Jawad Ahmad for Business Consultation"
-      >
-        <img
-          src="img/mobileicon.png"
-          alt="Mobile Phone Icon - Call Jawad Ahmad"
-          loading="lazy"
-        />
-      </a>
-      <a
-        href="https://wa.me/923011414134"
-        target="_blank"
-        class="quick-contact-icon"
-        aria-label="Message Jawad Ahmad on WhatsApp"
-      >
-        <img src="img/whatsapp.png" alt="WhatsApp Icon - Message Jawad Ahmad" loading="lazy" />
-      </a>
-    </div>
-
-    <!-- Contact Section -->
-    <section class="contact-section" id="Contact">
-      <div class="container">
-        <div class="contact-header">
-          <p class="contact-subtitle">Let's Start Your Project</p>
-          <h2 class="contact-title">Ready to Transform Your Business?</h2>
-          <p class="contact-description">
-            Schedule your complimentary business consultation to discuss your
-            goals and explore how we can create a digital solution that drives
-            your growth.
+      <div class="contact-content">
+        <div class="contact-info">
+          <h3>Business Consultation</h3>
+          <p>
+            Let's discuss your business objectives and create a strategic plan
+            for your digital transformation.
           </p>
-        </div>
 
-        <div class="contact-content">
-          <div class="contact-info">
-            <h3>Business Consultation</h3>
-            <p>
-              Let's discuss your business objectives and create a strategic plan
-              for your digital transformation.
-            </p>
-
-            <div class="contact-methods">
-              <div class="contact-method">
-                <i class="fas fa-phone" aria-hidden="true"></i>
-                <div>
-                  <h4>Business Call</h4>
-                  <a href="tel:+923011414134">+92 301 1414134</a>
-                </div>
-              </div>
-              <div class="contact-method">
-                <i class="fas fa-envelope" aria-hidden="true"></i>
-                <div>
-                  <h4>Business Email</h4>
-                  <a href="mailto:jawadahmad9938@gmail.com"
-                    >jawadahmad9938@gmail.com</a
-                  >
-                </div>
-              </div>
-              <div class="contact-method">
-                <i class="fas fa-clock" aria-hidden="true"></i>
-                <div>
-                  <h4>Business Hours</h4>
-                  <p>Monday - Friday: 9AM - 6PM</p>
-                </div>
-              </div>
-            </div>
-          </div>
-
-          <div class="contact-form">
-            <h3>Start Your Business Project</h3>
-            <form action="https://formspree.io/f/xeolvgya" method="POST">
-              <div class="form-group">
-                <input
-                  type="text"
-                  name="name"
-                  placeholder="Your Name"
-                  required
-                />
-              </div>
-              <div class="form-group">
-                <input
-                  type="email"
-                  name="email"
-                  placeholder="Business Email"
-                  required
-                />
-              </div>
-              <div class="form-group">
-                <input type="text" name="company" placeholder="Company Name" />
-              </div>
-              <div class="form-group">
-                <select name="service" required>
-                  <option value="">Select Service Interest</option>
-                  <option value="website">Business Website</option>
-                  <option value="ecommerce">Online Store</option>
-                  <option value="webapp">Business Application</option>
-                  <option value="consultation">Business Consultation</option>
-                  <option value="other">Other Business Solution</option>
-                </select>
-              </div>
-              <div class="form-group">
-                <textarea
-                  name="message"
-                  placeholder="Tell me about your business goals and project requirements..."
-                  rows="5"
-                  required
-                ></textarea>
-              </div>
-              <button type="submit" class="submit-btn">
-                <i class="fas fa-paper-plane" aria-hidden="true"></i>
-                Send Business Proposal Request
-              </button>
-            </form>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <footer class="footer-section">
-      <div class="footer-container">
-        <!-- ===== Newsletter Section ===== -->
-        <div class="newsletter-section">
-          <div class="newsletter-content">
-            <h3>Get Business Growth Insights</h3>
-            <p>
-              Join my exclusive newsletter for strategic tips on digital
-              transformation, customer acquisition, and revenue growth for your
-              business.
-            </p>
-
-            <form
-              class="newsletter-form"
-              action="https://formspree.io/f/xeolvgya"
-              method="POST"
-            >
-              <div class="input-group">
-                <input
-                  type="email"
-                  name="newsletter_email"
-                  placeholder="Enter your business email"
-                  required
-                  class="newsletter-input"
-                />
-                <button type="submit" class="newsletter-btn">
-                  <span>Subscribe for Insights</span>
-                  <i class="fas fa-chart-line" aria-hidden="true"></i>
-                </button>
-              </div>
-              <p class="newsletter-note">
-                No spam. Unsubscribe anytime. Exclusive business growth
-                strategies.
-              </p>
-            </form>
-          </div>
-
-          <div class="newsletter-benefits">
-            <div class="benefit-item">
-              <i class="fas fa-chart-line" aria-hidden="true"></i>
-              <span>Revenue Growth Strategies</span>
-            </div>
-            <div class="benefit-item">
-              <i class="fas fa-mobile-alt" aria-hidden="true"></i>
-              <span>Customer Engagement Tips</span>
-            </div>
-            <div class="benefit-item">
-              <i class="fas fa-search" aria-hidden="true"></i>
-              <span>Market Visibility Strategies</span>
-            </div>
-          </div>
-        </div>
-
-        <!-- ===== Main Footer Content ===== -->
-        <div class="footer-main">
-          <!-- Brand Column -->
-          <div class="footer-column brand-column">
-            <div class="footer-logo">
-              <img
-                src="https://i.ibb.co/rfstVnt3/jawad-sectionlogo.png"
-                alt="Jawad Ahmad - Business Web Solutions Expert Logo"
-                class="logo-img"
-                loading="lazy"
-              />
-              <span class="logo-text">Jawad Ahmad</span>
-            </div>
-            <p class="brand-tagline">
-              Creating digital solutions that drive measurable business growth
-              across Pakistan and international markets.
-            </p>
-
-            <div class="contact-info">
-              <div class="contact-item">
-                <i class="fas fa-envelope" aria-hidden="true"></i>
-                <a href="mailto:jawadahmad9938@gmail.com"
-                  >jawadahmad9938@gmail.com</a
-                >
-              </div>
-              <div class="contact-item">
-                <i class="fas fa-phone" aria-hidden="true"></i>
+          <div class="contact-methods">
+            <div class="contact-method">
+              <i class="fas fa-phone" aria-hidden="true"></i>
+              <div>
+                <h4>Business Call</h4>
                 <a href="tel:+923011414134">+92 301 1414134</a>
               </div>
-              <div class="contact-item">
-                <i class="fas fa-map-marker-alt" aria-hidden="true"></i>
-                <span>Multan, Pakistan</span>
+            </div>
+            <div class="contact-method">
+              <i class="fas fa-envelope" aria-hidden="true"></i>
+              <div>
+                <h4>Business Email</h4>
+                <a href="mailto:jawadahmad9938@gmail.com">jawadahmad9938@gmail.com</a>
+              </div>
+            </div>
+            <div class="contact-method">
+              <i class="fas fa-clock" aria-hidden="true"></i>
+              <div>
+                <h4>Business Hours</h4>
+                <p>Monday - Friday: 9AM - 6PM</p>
               </div>
             </div>
           </div>
+        </div>
 
-          <!-- Navigation Sitemap -->
-          <div class="footer-column">
-            <h4>Explore Site</h4>
-            <ul class="footer-links">
-              <li><a href="index.html">Home</a></li>
-              <li><a href="index.html#About">About</a></li>
-              <li><a href="index.html#Services">Services</a></li>
-              <li><a href="index.html#Projects">Case Studies</a></li>
-              <li><a href="index.html#Testimonials">Results</a></li>
-              <li><a href="index.html#Skills">Expertise</a></li>
-              <li><a href="index.html#Contact">Consultation</a></li>
-            </ul>
+        <div class="contact-form">
+          <h3>Start Your Business Project</h3>
+          <form action="https://formspree.io/f/xeolvgya" method="POST">
+            <div class="form-group">
+              <input type="text" name="name" placeholder="Your Name" required />
+            </div>
+            <div class="form-group">
+              <input type="email" name="email" placeholder="Business Email" required />
+            </div>
+            <div class="form-group">
+              <input type="text" name="company" placeholder="Company Name" />
+            </div>
+            <div class="form-group">
+              <select name="service" required>
+                <option value="">Select Service Interest</option>
+                <option value="website">Business Website</option>
+                <option value="ecommerce">Online Store</option>
+                <option value="webapp">Business Application</option>
+                <option value="consultation">Business Consultation</option>
+                <option value="other">Other Business Solution</option>
+              </select>
+            </div>
+            <div class="form-group">
+              <textarea name="message" placeholder="Tell me about your business goals and project requirements..."
+                rows="5" required></textarea>
+            </div>
+            <button type="submit" class="submit-btn">
+              <i class="fas fa-paper-plane" aria-hidden="true"></i>
+              Send Business Proposal Request
+            </button>
+          </form>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <footer class="footer-section">
+    <div class="footer-container">
+      <!-- ===== Newsletter Section ===== -->
+      <div class="newsletter-section">
+        <div class="newsletter-content">
+          <h3>Get Business Growth Insights</h3>
+          <p>
+            Join my exclusive newsletter for strategic tips on digital
+            transformation, customer acquisition, and revenue growth for your
+            business.
+          </p>
+
+          <form class="newsletter-form" action="https://formspree.io/f/xeolvgya" method="POST">
+            <div class="input-group">
+              <input type="email" name="newsletter_email" placeholder="Enter your business email" required
+                class="newsletter-input" />
+              <button type="submit" class="newsletter-btn">
+                <span>Subscribe for Insights</span>
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+                  <polyline points="23 6 13.5 15.5 8.5 10.5 1 17"></polyline>
+                  <polyline points="17 6 23 6 23 12"></polyline>
+                </svg>
+              </button>
+            </div>
+            <p class="newsletter-note">
+              No spam. Unsubscribe anytime. Exclusive business growth
+              strategies.
+            </p>
+          </form>
+        </div>
+
+        <div class="newsletter-benefits">
+          <div class="benefit-item">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+              <polyline points="23 6 13.5 15.5 8.5 10.5 1 17"></polyline>
+              <polyline points="17 6 23 6 23 12"></polyline>
+            </svg>
+            <span>Revenue Growth Strategies</span>
           </div>
-
-          <!-- Blogs & Philosophy -->
-          <div class="footer-column">
-            <h4>Knowledge Center</h4>
-            <ul class="footer-links">
-              <li><a href="blogs.html">Business Blogs</a></li>
-              <li>
-                <a href="philosophy/philosophy.html">Philosophy Insights</a>
-              </li>
-              <li><a href="blogs.html#marketing">Marketing Psychology</a></li>
-              <li><a href="blogs.html#strategy">Business Strategy</a></li>
-              <li><a href="blogs.html#growth">Digital Growth Tips</a></li>
-            </ul>
+          <div class="benefit-item">
+            <i class="fas fa-mobile-alt" aria-hidden="true"></i>
+            <span>Customer Engagement Tips</span>
           </div>
+          <div class="benefit-item">
+            <i class="fas fa-search" aria-hidden="true"></i>
+            <span>Market Visibility Strategies</span>
+          </div>
+        </div>
+      </div>
 
-          <!-- Business CTA -->
-          <div class="footer-column">
-            <h4>Work With Me</h4>
-            <ul class="footer-links">
-              <li><a href="#Contact">Book a Consultation</a></li>
-              <li>
-                <a href="Jawad Ahmad CV.pdf" download
-                  >Download Business Profile</a
-                >
-              </li>
-              <li><a href="#Projects">View Client Results</a></li>
-              <li><a href="#Services">See Business Packages</a></li>
-              <li><a href="#Contact">Get a Custom Quote</a></li>
-            </ul>
+      <!-- ===== Main Footer Content ===== -->
+      <div class="footer-main">
+        <!-- Brand Column -->
+        <div class="footer-column brand-column">
+          <div class="footer-logo">
+            <img src="https://i.ibb.co/rfstVnt3/jawad-sectionlogo.png"
+              alt="Jawad Ahmad - Business Web Solutions Expert Logo" class="logo-img" loading="lazy" />
+            <span class="logo-text">Jawad Ahmad</span>
+          </div>
+          <p class="brand-tagline">
+            Creating digital solutions that drive measurable business growth
+            across Pakistan and international markets.
+          </p>
 
-            <div class="client-cta">
-              <p>Ready to grow your business?</p>
-              <a href="#Contact" class="cta-button">
-                <i class="fas fa-rocket" aria-hidden="true"></i>
-                Start Business Project
-              </a>
+          <div class="contact-info">
+            <div class="contact-item">
+              <i class="fas fa-envelope" aria-hidden="true"></i>
+              <a href="mailto:jawadahmad9938@gmail.com">jawadahmad9938@gmail.com</a>
+            </div>
+            <div class="contact-item">
+              <i class="fas fa-phone" aria-hidden="true"></i>
+              <a href="tel:+923011414134">+92 301 1414134</a>
+            </div>
+            <div class="contact-item">
+              <i class="fas fa-map-marker-alt" aria-hidden="true"></i>
+              <span>Multan, Pakistan</span>
             </div>
           </div>
         </div>
 
+        <!-- Navigation Sitemap -->
+        <div class="footer-column">
+          <h4>Explore Site</h4>
+          <ul class="footer-links">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="index.html#About">About</a></li>
+            <li><a href="index.html#Services">Services</a></li>
+            <li><a href="index.html#Projects">Case Studies</a></li>
+            <li><a href="index.html#Testimonials">Results</a></li>
+            <li><a href="index.html#Skills">Expertise</a></li>
+            <li><a href="index.html#Contact">Consultation</a></li>
+          </ul>
+        </div>
+
+        <!-- Blogs & Philosophy -->
+        <div class="footer-column">
+          <h4>Knowledge Center</h4>
+          <ul class="footer-links">
+            <li><a href="blogs.html">Business Blogs</a></li>
+            <li>
+              <a href="philosophy/philosophy.html">Philosophy Insights</a>
+            </li>
+            <li><a href="blogs.html#marketing">Marketing Psychology</a></li>
+            <li><a href="blogs.html#strategy">Business Strategy</a></li>
+            <li><a href="blogs.html#growth">Digital Growth Tips</a></li>
+          </ul>
+        </div>
+
+        <!-- Business CTA -->
+        <div class="footer-column">
+          <h4>Work With Me</h4>
+          <ul class="footer-links">
+            <li><a href="#Contact">Book a Consultation</a></li>
+            <li>
+              <a href="Jawad Ahmad CV.pdf" download>Download Business Profile</a>
+            </li>
+            <li><a href="#Projects">View Client Results</a></li>
+            <li><a href="#Services">See Business Packages</a></li>
+            <li><a href="#Contact">Get a Custom Quote</a></li>
+          </ul>
+
+          <div class="client-cta">
+            <p>Ready to grow your business?</p>
+            <a href="#Contact" class="cta-button">
+              <i class="fas fa-rocket" aria-hidden="true"></i>
+              Start Business Project
+            </a>
+          </div>
+        </div>
+      </div>
+
       <!-- ===== Social & Legal Section ===== -->
-<div class="footer-bottom">
-  <div class="social-section">
-    <h3 class="social-title">Connect with Jawad Ahmad</h3>
+      <div class="footer-bottom">
+        <div class="social-section">
+          <h3 class="social-title">Connect with Jawad Ahmad</h3>
 
-    <div class="social-links">
-      <a
-        href="https://facebook.com/jawad.ahmed.961811"
-        class="social-link"
-        target="_blank"
-      >
-        <div class="social-icon facebook">
-          <i class="fab fa-facebook-f"></i>
-          <div class="verified-badge"><i class="fas fa-check-circle"></i></div>
+          <div class="social-links">
+            <a href="https://facebook.com/jawad.ahmed.961811" class="social-link" target="_blank">
+              <div class="social-icon facebook">
+                <i class="fab fa-facebook-f"></i>
+                <div class="verified-badge"><i class="fas fa-check-circle"></i></div>
+              </div>
+              <span>Facebook</span>
+            </a>
+
+            <a href="https://x.com/yourprofile" class="social-link" target="_blank">
+              <div class="social-icon twitter">
+                <i class="fab fa-x-twitter"></i>
+                <div class="verified-badge"><i class="fas fa-check-circle"></i></div>
+              </div>
+              <span>Twitter</span>
+            </a>
+
+            <a href="https://linkedin.com/in/jawad-ahmad-9938938484djf" class="social-link" target="_blank">
+              <div class="social-icon linkedin">
+                <i class="fab fa-linkedin-in"></i>
+                <div class="verified-badge"><i class="fas fa-check-circle"></i></div>
+              </div>
+              <span>LinkedIn</span>
+            </a>
+
+            <a href="https://github.com/Jawadahmad9938" class="social-link" target="_blank">
+              <div class="social-icon github">
+                <i class="fab fa-github"></i>
+                <div class="verified-badge"><i class="fas fa-check-circle"></i></div>
+              </div>
+              <span>GitHub</span>
+            </a>
+
+            <a href="https://wa.me/923011414134" class="social-link" target="_blank">
+              <div class="social-icon whatsapp">
+                <i class="fab fa-whatsapp"></i>
+                <div class="verified-badge"><i class="fas fa-check-circle"></i></div>
+              </div>
+              <span>WhatsApp</span>
+            </a>
+          </div>
         </div>
-        <span>Facebook</span>
-      </a>
 
-      <a href="https://x.com/yourprofile" class="social-link" target="_blank">
-        <div class="social-icon twitter">
-          <i class="fab fa-x-twitter"></i>
-          <div class="verified-badge"><i class="fas fa-check-circle"></i></div>
+        <div class="legal">
+          <div class="legal-links">
+            <a href="/privacy.html">Privacy Policy</a> |
+            <a href="/terms.html">Terms</a> |
+            <a href="/disclaimer.html">Disclaimer</a> |
+            <a href="/sitemap.html">Sitemap</a>
+          </div>
+          <p class="copyright">
+            © 2025 Jawad Ahmad Business Solutions Empowering Businesses through
+            Strategic Digital Transformation.
+          </p>
         </div>
-        <span>Twitter</span>
-      </a>
+      </div>
 
-      <a
-        href="https://linkedin.com/in/jawad-ahmad-9938938484djf"
-        class="social-link"
-        target="_blank"
-      >
-        <div class="social-icon linkedin">
-          <i class="fab fa-linkedin-in"></i>
-          <div class="verified-badge"><i class="fas fa-check-circle"></i></div>
-        </div>
-        <span>LinkedIn</span>
-      </a>
+  </footer>
 
-      <a href="https://github.com/Jawadahmad9938" class="social-link" target="_blank">
-        <div class="social-icon github">
-          <i class="fab fa-github"></i>
-          <div class="verified-badge"><i class="fas fa-check-circle"></i></div>
-        </div>
-        <span>GitHub</span>
-      </a>
+  <!-- DEFERRED JAVASCRIPT FILES -->
+  <!-- Three.js Script - Loaded conditionally for mobile -->
+  <script>
+    // Load Three.js only on desktop for better mobile performance
+    if (window.innerWidth > 768) {
+      var script = document.createElement('script');
+      script.src = 'https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js';
+      script.defer = true;
+      document.head.appendChild(script);
+    }
+  </script>
 
-      <a href="https://wa.me/923011414134" class="social-link" target="_blank">
-        <div class="social-icon whatsapp">
-          <i class="fab fa-whatsapp"></i>
-          <div class="verified-badge"><i class="fas fa-check-circle"></i></div>
-        </div>
-        <span>WhatsApp</span>
-      </a>
-    </div>
-  </div>
-
-  <div class="legal">
-    <div class="legal-links">
-      <a href="/privacy.html">Privacy Policy</a> |
-      <a href="/terms.html">Terms</a> |
-      <a href="/disclaimer.html">Disclaimer</a> |
-      <a href="/sitemap.html">Sitemap</a>
-    </div>
-    <p class="copyright">
-      © 2025 Jawad Ahmad Business Solutions Empowering Businesses through
-      Strategic Digital Transformation.
-    </p>
-  </div>
-</div>
-
-</footer>
-
-    <!-- DEFERRED JAVASCRIPT FILES -->
-    <!-- Three.js Script - Loaded conditionally for mobile -->
-    <script>
-      // Load Three.js only on desktop for better mobile performance
-      if (window.innerWidth > 768) {
-        var script = document.createElement('script');
-        script.src = 'https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js';
-        script.defer = true;
-        document.head.appendChild(script);
-      }
-    </script>
-    
-    <!-- Main JavaScript file -->
-    <script src="script.js" defer></script>
-  </body>
+  <!-- Main JavaScript file -->
+  <script src="script.js" defer></script>
+</body>
 </html>
