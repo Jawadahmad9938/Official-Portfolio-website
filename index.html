@@ -31,7 +31,8 @@
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap" rel="stylesheet" media="print" onload="this.media='all'">
 
 <!-- Main CSS -->
-<link rel="stylesheet" href="style.css" media="print" onload="this.media='all'">
+<link rel="preload" href="style.css" as="style">
+<link rel="stylesheet" href="style.css">
 
 <!-- Font Awesome only (remove Devicon if not critical) -->
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" media="print" onload="this.media='all'">
@@ -265,11 +266,14 @@
         </p>
       </div>
       <div class="right-image">
-        <!-- Optimized Hero Image with eager loading -->
-        <img src="https://i.ibb.co/673LQyg4/jawad2-removebg-preview3.png"
-          alt="Jawad Ahmad - Business Web Solutions Expert Portrait - Full Stack Developer" width="400" height="500"
-          loading="eager" class="animate__animated animate__fadeInUp"
-          style="width: 100%; height: auto; max-width: 400px;" />
+    <img
+      src="https://i.ibb.co/673LQyg4/jawad2-removebg-preview3.png"
+        alt="Jawad Ahmad"
+        width="400"
+        height="500" 
+        loading="eager"
+        style="width: 100%; max-width: 400px; height: auto;"
+  />
       </div>
     </div>
   </section>
@@ -1325,22 +1329,7 @@
           </p>
         </div>
       </div>
-
   </footer>
-
-  <!-- DEFERRED JAVASCRIPT FILES -->
-  <!-- Three.js Script - Loaded conditionally for mobile -->
-  <script>
-    // Load Three.js only on desktop for better mobile performance
-    if (window.innerWidth > 768) {
-      var script = document.createElement('script');
-      script.src = 'https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js';
-      script.defer = true;
-      document.head.appendChild(script);
-    }
-  </script>
-
-  <!-- Main JavaScript file -->
   <script src="script.js" defer></script>
 </body>
 </html>
