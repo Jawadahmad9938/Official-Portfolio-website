@@ -1498,9 +1498,7 @@ a {
   padding-top: 4rem;
   position: relative;
   overflow: hidden;
-  background: linear-gradient(180deg, 
-    rgba(10, 10, 10, 0.95) 0%, 
-    rgba(18, 18, 18, 0.98) 100%);
+ 
   border-top: 1px solid var(--border-color);
   margin-top: 4rem;
 }
@@ -1512,10 +1510,7 @@ a {
   left: 0;
   right: 0;
   bottom: 0;
-  background: 
-    radial-gradient(circle at 20% 80%, rgba(178, 151, 92, 0.03) 0%, transparent 50%),
-    radial-gradient(circle at 80% 20%, rgba(212, 201, 168, 0.02) 0%, transparent 50%),
-    url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="100" height="100" viewBox="0 0 100 100"><rect width="100" height="100" fill="%230a0a0a"/><path d="M0,0 Q50,20 100,0 L100,100 L0,100 Z" fill="%23121212" opacity="0.1"/></svg>') repeat;
+
   background-size: cover, cover, 60px 60px;
   z-index: 0;
   opacity: 0.6;
