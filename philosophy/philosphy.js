@@ -41,19 +41,21 @@ document.addEventListener("keydown", (e) => {
 const themeToggleBtn = document.getElementById("theme-toggle-btn");
 const themeIcon = document.getElementById("theme-icon");
 
-// Load theme from memory (not localStorage - Claude.ai compatible)
-let currentTheme = "dark";
+// Load saved theme
+const savedTheme = localStorage.getItem("theme");
+if (savedTheme === "light") {
+  document.body.classList.add("light-mode");
+  themeIcon.classList.replace("fa-moon", "fa-sun");
+}
 
+// Toggle theme on click
 themeToggleBtn.addEventListener("click", () => {
   document.body.classList.toggle("light-mode");
 
-  if (document.body.classList.contains("light-mode")) {
-    currentTheme = "light";
-    themeIcon.classList.replace("fa-moon", "fa-sun");
-  } else {
-    currentTheme = "dark";
-    themeIcon.classList.replace("fa-sun", "fa-moon");
-  }
+  const isLight = document.body.classList.contains("light-mode");
+  themeIcon.classList.replace(isLight ? "fa-moon" : "fa-sun", isLight ? "fa-sun" : "fa-moon");
+
+  localStorage.setItem("theme", isLight ? "light" : "dark");
 });
 
 // Enhanced structured data for philosophy posts
