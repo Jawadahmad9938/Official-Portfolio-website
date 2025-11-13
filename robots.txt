@@ -2,19 +2,21 @@
 # Website: https://jawadahmad.me
 # Last Updated: November 14, 2025
 
-# Allow all search engines
+# Default rules for all search engines
 User-agent: *
 Allow: /
 Disallow: /admin/
 Disallow: /private/
 Disallow: /api/
 Disallow: /cgi-bin/
-Disallow: /*.json$
-Disallow: /*.xml$
+Disallow: /wp-*
+Disallow: /xmlrpc.php
+Disallow: /wp-login.php
 Disallow: /temp/
 Disallow: /cache/
+Disallow: /tmp/
 
-# Allow specific files
+# Optimize crawl paths - tell search engines what to crawl
 Allow: /sitemap.xml
 Allow: /robots.txt
 Allow: /*.css$
@@ -26,27 +28,44 @@ Allow: /*.webp$
 Allow: /*.svg$
 Allow: /*.gif$
 Allow: /*.pdf$
+Allow: /*.woff$
+Allow: /*.woff2$
 
-# Crawl delay (optional - be nice to servers)
+# Crawl delay (1 second between requests)
 Crawl-delay: 1
+
+# Request rate (if supported)
+Request-rate: 1/1s
 
 # Specific rules for Google
 User-agent: Googlebot
 Allow: /
 Disallow: /admin/
 Disallow: /private/
-Disallow: /api/
+Crawl-delay: 0.5
 
 # Specific rules for Bing
 User-agent: Bingbot
 Allow: /
 Disallow: /admin/
 Disallow: /private/
-Disallow: /api/
+Crawl-delay: 1
 
-# Block bad bots
+# Block aggressive bots
 User-agent: AhrefsBot
 Disallow: /
+
+User-agent: SemrushBot*
+Disallow: /
+
+User-agent: MJ12bot
+Disallow: /
+
+User-agent: DotBot
+Disallow: /
+
+# Sitemap location
+Sitemap: https://jawadahmad.me/sitemap.xml
 
 User-agent: SemrushBot
 Disallow: /

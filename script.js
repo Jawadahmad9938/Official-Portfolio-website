@@ -1,9 +1,15 @@
 // ===========================
+// Performance: Detect mobile early
+// ===========================
+const isMobile = window.matchMedia("(max-width: 768px)").matches;
+const isReducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+
+// ===========================
 // Newsletter Form Enhancement
 // ===========================
-document
-  .querySelector(".newsletter-form")
-  ?.addEventListener("submit", function (e) {
+const newsletterForm = document.querySelector(".newsletter-form");
+if (newsletterForm) {
+  newsletterForm.addEventListener("submit", function (e) {
     e.preventDefault();
 
     const form = this;
@@ -30,34 +36,41 @@ document
       }, 2000);
     }, 1500);
   });
+}
 
 // ===========================
-// Social Link Animation
+// Social Link Animation (debounced)
 // ===========================
-document.querySelectorAll(".social-link").forEach((link) => {
-  link.addEventListener(
-    "mouseenter",
-    () => (link.style.transform = "translateY(-5px) scale(1.05)")
-  );
-  link.addEventListener(
-    "mouseleave",
-    () => (link.style.transform = "translateY(0) scale(1)")
-  );
-});
+if (!isReducedMotion) {
+  document.querySelectorAll(".social-link").forEach((link) => {
+    link.addEventListener("mouseenter", function() {
+      this.style.transform = "translateY(-5px) scale(1.05)";
+    }, { passive: true });
+    
+    link.addEventListener("mouseleave", function() {
+      this.style.transform = "translateY(0) scale(1)";
+    }, { passive: true });
+  });
+}
 
+// Empty Three.js functions (commented out for performance)
 function initThreeJS() {
+  // Disabled: Three.js initialization removed for performance
 }
+
 function initHeroThreeJS() {
-  
+  // Disabled: Hero Three.js initialization removed for performance
 }
 
 // ===========================
-// Floating Icons
+// Floating Icons - Mobile Optimized
 // ===========================
 function initFloatingIcons() {
   const container = document.getElementById("floating-icons");
   if (!container) return;
 
+  // Reduce floating icons on mobile for better performance
+  const iconCount = isMobile ? 5 : 15;
   const icons = [
     "/img/html.svg",
     "/img/css-3.svg",
@@ -66,27 +79,29 @@ function initFloatingIcons() {
     "/img/node-js (1).svg",
   ];
 
-  for (let i = 0; i < 20; i++) {
+  for (let i = 0; i < iconCount; i++) {
     const icon = document.createElement("img");
     icon.src = icons[Math.floor(Math.random() * icons.length)];
     icon.className = "floating-icon";
     icon.style.left = `${Math.random() * 100}%`;
     icon.style.top = `${Math.random() * 100}%`;
     icon.style.animationDelay = `${Math.random() * 5}s`;
+    icon.loading = "lazy";
     container.appendChild(icon);
 
-    icon.addEventListener("click", () => {
-      icon.style.animation = "clickPulse 0.3s ease";
-      setTimeout(
-        () => (icon.style.animation = "floatIcon 10s infinite ease-in-out"),
-        300
-      );
-    });
+    // Only add click handlers on desktop
+    if (!isMobile) {
+      icon.addEventListener("click", function() {
+        this.style.animation = "none";
+        setTimeout(() => {
+          this.style.animation = "floatIcon 15s infinite ease-in-out";
+        }, 100);
+      });
+    }
   }
 }
 
 // ===== MOBILE MENU FUNCTIONALITY =====
-
 const menuButton = document.getElementById('menu-button');
 const mobileOverlay = document.getElementById('mobile-overlay');
 const mobileMenuContainer = document.getElementById('mobile-menu-container');
@@ -140,7 +155,7 @@ if (mobileOverlay) {
 
 // Close Menu on Navigation Item Click
 mobileNavItems.forEach(item => {
-  item.addEventListener('click', (e) => {
+  item.addEventListener('click', () => {
     closeMenu();
   });
 });
@@ -160,28 +175,39 @@ if (mobileMenuContainer) {
 }
 
 // ===========================
-// Theme Toggle
+// Theme Toggle with localStorage optimization
 // ===========================
 const themeToggleBtn = document.getElementById("theme-toggle-btn");
 const themeIcon = document.getElementById("theme-icon");
+const THEME_KEY = "site-theme";
 
+// Load theme preference
+function loadThemePreference() {
+  const savedTheme = localStorage.getItem(THEME_KEY);
+  const prefersDark = window.matchMedia("(prefers-color-scheme: dark)").matches;
+  
+  if (savedTheme === "light" || (!savedTheme && !prefersDark)) {
+    document.body.classList.add("light-mode");
+    themeIcon?.classList.replace("fa-moon", "fa-sun");
+  } else {
+    themeIcon?.classList.replace("fa-sun", "fa-moon");
+  }
+}
+
+// Toggle theme
 themeToggleBtn?.addEventListener("click", () => {
   document.body.classList.toggle("light-mode");
   if (document.body.classList.contains("light-mode")) {
-    localStorage.setItem("theme", "light");
+    localStorage.setItem(THEME_KEY, "light");
     themeIcon.classList.replace("fa-moon", "fa-sun");
   } else {
-    localStorage.setItem("theme", "dark");
+    localStorage.setItem(THEME_KEY, "dark");
     themeIcon.classList.replace("fa-sun", "fa-moon");
   }
 });
 
-if (localStorage.getItem("theme") === "light") {
-  document.body.classList.add("light-mode");
-  themeIcon?.classList.replace("fa-moon", "fa-sun");
-} else {
-  themeIcon?.classList.replace("fa-sun", "fa-moon");
-}
+// Load theme on page load
+loadThemePreference();
 
 // ===========================
 // DOM Ready Initializations
@@ -191,37 +217,41 @@ document.addEventListener("DOMContentLoaded", () => {
   initHeroThreeJS();
   initFloatingIcons();
 
-  // Animate service & project cards
-  document
-    .querySelectorAll(".service-card, .project-card")
-    .forEach((card, index) => {
+  // Only animate cards if motion is not reduced
+  if (!isReducedMotion) {
+    // Animate service & project cards with passive listeners
+    const cards = document.querySelectorAll(".service-card, .project-card");
+    cards.forEach((card, index) => {
       card.style.animationDelay = `${index * 0.1}s`;
       card.classList.add("animate__animated", "animate__fadeInUp");
+      
+      // 3D hover effect on desktop only
+      if (!isMobile) {
+        card.addEventListener("mouseenter", function() {
+          this.style.transform = "translateY(-10px) scale(1.05)";
+        }, { passive: true });
+        
+        card.addEventListener("mouseleave", function() {
+          this.style.transform = "translateY(0) scale(1)";
+        }, { passive: true });
+      }
     });
+  }
 
-  // 3D hover effect
-  document.querySelectorAll(".project-card").forEach((card) => {
-    card.addEventListener("mouseenter", () => {
-      card.style.transition = "none";
-      card.style.transform = "translateY(-10px) scale(1.05)";
-    });
-    card.addEventListener("mouseleave", () => {
-      card.style.transition = "all 0.5s ease";
-      card.style.transform = "translateY(0) scale(1)";
-    });
-  });
-
-  // Section reveal on scroll
+  // Section reveal on scroll with IntersectionObserver
   const revealObserver = new IntersectionObserver(
     (entries) => {
       entries.forEach((entry) => {
-        if (entry.isIntersecting) {
+        if (entry.isIntersecting && !isReducedMotion) {
           entry.target.classList.add("animate__animated", "animate__fadeInUp");
           revealObserver.unobserve(entry.target);
         }
       });
     },
-    { threshold: 0.1 }
+    { 
+      threshold: 0.1,
+      rootMargin: "0px 0px -50px 0px" // Start animation 50px before visible
+    }
   );
 
   document
@@ -230,3 +260,24 @@ document.addEventListener("DOMContentLoaded", () => {
     )
     .forEach((section) => revealObserver.observe(section));
 });
+
+// ===========================
+// Optimize Resource Loading
+// ===========================
+// Defer non-critical image loading
+if ("IntersectionObserver" in window) {
+  const imageObserver = new IntersectionObserver((entries, observer) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        const img = entry.target;
+        if (img.dataset.src) {
+          img.src = img.dataset.src;
+          img.removeAttribute("data-src");
+        }
+        observer.unobserve(img);
+      }
+    });
+  });
+
+  document.querySelectorAll("img[data-src]").forEach(img => imageObserver.observe(img));
+}

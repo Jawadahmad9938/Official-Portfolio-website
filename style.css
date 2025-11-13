@@ -1,14 +1,12 @@
 :root {
   --bg-color: #0a0a0a;
   --text-color: #f8f9fa;
-  --primary-color: #4cc9f0;
-  --secondary-color: #4895ef;
-  --accent-color: #f72585;
-  --nav-bg: rgb(26 60 110);
-  --shadow: 0 4px 6px rgb(15 244 195 / 100%);
   --primary-color: #2563eb;
   --secondary-color: #1e3a8a;
   --accent-color: #38bdf8;
+  --nav-bg: rgb(26 60 110);
+  --shadow: 0 4px 6px rgb(15 244 195 / 100%);
+  --card-bg: #1a1a1a;
 }
 
 body.light-mode {
@@ -18,10 +16,9 @@ body.light-mode {
   --secondary-color: #9333ea;
   --accent-color: #f43f5e;
   --card-bg: #ffffff;
-  --nav-bg: rgba(255, 255, 255, 0.85);
+  --nav-bg: rgba(255, 255, 255, 0.95);
   --shadow: 0 6px 12px rgba(0, 0, 0, 0.08);
 }
-
 
 * {
   margin: 0;
@@ -31,33 +28,49 @@ body.light-mode {
 
 html {
   scroll-behavior: smooth;
+  font-size: 16px;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
 }
 
 body {
-  font-family: "Open Sans", sans-serif;
+  font-family: "Inter", "Open Sans", -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
   background-color: var(--bg-color);
   color: var(--text-color);
-  transition: all 0.5s ease;
   overflow-x: hidden;
   position: relative;
+  line-height: 1.6;
 }
 
-h1,
-h2,
-h3,
-h4 {
-  font-family: "Poppins", sans-serif;
+body.light-mode {
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: "Poppins", "Inter", sans-serif;
   font-weight: 700;
   line-height: 1.2;
 }
 
 p {
   line-height: 1.6;
+  margin-bottom: 1rem;
 }
 
 a {
   text-decoration: none;
   color: inherit;
+  transition: color 0.2s ease;
+}
+
+/* Performance: Reduce animations on mobile */
+@media (prefers-reduced-motion: reduce) {
+  * {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
 }
 
 .threejs-container {
@@ -67,7 +80,7 @@ a {
   width: 100%;
   height: 100%;
   z-index: -1;
-  opacity: 0.15;
+  opacity: 0.1;
 }
 
 .hero-threejs-container {
@@ -77,7 +90,8 @@ a {
   width: 100%;
   height: 100%;
   z-index: 0;
-  opacity: 0.3;
+  opacity: 0.15;
+  will-change: opacity;
 }
 
 .floating-icons {
@@ -94,23 +108,27 @@ a {
   position: absolute;
   width: 30px;
   height: 30px;
-  opacity: 0.3;
-  transition: all 0.5s ease;
-  animation: floatIcon 10s infinite ease-in-out;
+  opacity: 0.15;
+  animation: floatIcon 15s infinite ease-in-out;
+  will-change: transform;
+  backface-visibility: hidden;
+  transform: translateZ(0);
 }
 
 .floating-icon:hover {
-  opacity: 0.7;
-  transform: scale(1.2) rotate(360deg);
+  opacity: 0.5;
+}
+
+@media (max-width: 768px) {
+  .floating-icon {
+    animation: floatIcon 20s infinite ease-in-out;
+  }
 }
 
 @keyframes floatIcon {
-
-  0%,
-  100% {
+  0%, 100% {
     transform: translateY(0) rotate(0deg);
   }
-
   50% {
     transform: translateY(-30px) rotate(180deg);
   }
@@ -121,38 +139,38 @@ a {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 1.2rem 5%;
+  padding: 1rem 3%;
   background-color: var(--nav-bg);
   position: fixed;
   width: 100%;
   top: 0;
   z-index: 1000;
-  backdrop-filter: blur(20px);
+  backdrop-filter: blur(15px);
   border-bottom: 1px solid rgba(255, 255, 255, 0.1);
-  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
 }
 
 body.light-mode .navbar {
-  border-bottom: 1px solid rgba(0, 0, 0, 0.1);
-  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
+  border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
 }
 
 .logo {
   height: 50px;
   width: auto;
-  transition: transform 0.5s ease-in-out;
+  transition: transform 0.3s ease;
   border-radius: 25px;
-  padding: 3px;
+  padding: 2px;
 }
 
 .logo:hover {
-  transform: scale(1.1) rotate(360deg);
+  transform: scale(1.05);
 }
 
 .nav-menu {
   display: flex;
   list-style: none;
-  gap: 2.5rem;
+  gap: 2rem;
   align-items: center;
 }
 
@@ -160,8 +178,9 @@ body.light-mode .navbar {
   position: relative;
   font-weight: 500;
   font-size: 0.95rem;
-  transition: all 0.3s ease;
+  transition: color 0.2s ease;
   padding: 0.5rem 0;
+  color: var(--text-color);
 }
 
 .nav-menu a::after {
@@ -193,35 +212,18 @@ body.light-mode .navbar {
   background: linear-gradient(135deg, var(--primary-color) 0%, var(--secondary-color) 100%);
   color: white;
   border: none;
-  padding: 0.7rem 1.8rem;
-  border-radius: 10px;
+  padding: 0.65rem 1.5rem;
+  border-radius: 8px;
   font-weight: 600;
   cursor: pointer;
-  transition: all 0.3s ease;
+  transition: box-shadow 0.2s ease, transform 0.2s ease;
   position: relative;
-  overflow: hidden;
   font-size: 0.9rem;
-}
-
-.nav-btn .cv-button::before {
-  content: '';
-  position: absolute;
-  top: 0;
-  left: -100%;
-  width: 100%;
-  height: 100%;
-  background: linear-gradient(135deg, var(--accent-color) 0%, var(--primary-color) 100%);
-  transition: left 0.4s ease;
-  z-index: -1;
 }
 
 .nav-btn .cv-button:hover {
   transform: translateY(-2px);
-  box-shadow: 0 8px 25px rgba(37, 99, 235, 0.3);
-}
-
-.nav-btn .cv-button:hover::before {
-  left: 0;
+  box-shadow: 0 6px 20px rgba(37, 99, 235, 0.3);
 }
 
 .nav-btn .cv-button a {
@@ -941,6 +943,43 @@ body.light-mode .mobile-nav-item:hover {
 
   100% {
     transform: scale(1);
+  }
+}
+
+/* Performance: Respect user motion preferences */
+@media (prefers-reduced-motion: reduce) {
+  @keyframes slideInLeft {
+    from {
+      opacity: 1;
+    }
+    to {
+      opacity: 1;
+    }
+  }
+
+  @keyframes fadeInUp {
+    from {
+      opacity: 1;
+    }
+    to {
+      opacity: 1;
+    }
+  }
+
+  @keyframes clickPulse {
+    0%, 50%, 100% {
+      transform: scale(1);
+    }
+  }
+
+  .intro,
+  .name,
+  .title,
+  .subheading,
+  .description,
+  .button-group,
+  .social-proof {
+    animation: none !important;
   }
 }
 

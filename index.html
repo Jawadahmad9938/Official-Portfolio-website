@@ -3,106 +3,189 @@
 
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover, shrink-to-fit=no" />
+  <meta name="theme-color" content="#2563eb">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="format-detection" content="telephone=no" />
+  
+  <!-- Preconnect for critical CDNs (do before preloads) -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" crossorigin>
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="preconnect" href="https://cdnjs.cloudflare.com" crossorigin>
+  <link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin>
+  <link rel="preconnect" href="https://i.ibb.co" crossorigin>
+  <link rel="preconnect" href="https://i.postimg.cc" crossorigin>
+  
+  <!-- DNS Prefetch for external services -->
+  <link rel="dns-prefetch" href="https://fonts.googleapis.com">
+  <link rel="dns-prefetch" href="https://fonts.gstatic.com">
+  
+  <!-- Favicon -->
+  <link rel="icon" href="https://i.ibb.co/rfstVnt3/jawad-sectionlogo.png" type="image/png" />
+  
+  <!-- Preload critical resources -->
+  <link rel="preload" href="style.css" as="style" />
+  <link rel="preload" href="script.js" as="script" />
+  <link rel="preload" as="image" href="https://i.postimg.cc/50qzPtDT/jawad-hero-img.webp" fetchpriority="high" />
+  
+  <!-- Font loading - optimized async with font-display -->
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Poppins:wght@400;600;700&display=swap" rel="stylesheet" />
+  
+  <!-- Main CSS -->
+  <link rel="stylesheet" href="style.css" />
+  
+  <!-- Font Awesome Icons - async loading -->
+  <link rel="preload" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" as="style" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" media="print" onload="this.media='all'" />
+  
+  <!-- Devicon - async loading -->
+  <link rel="preload" href="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/devicon.min.css" as="style" />
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/devicon.min.css" media="print" onload="this.media='all'" />
+  
+  <!-- Essential Meta & SEO -->
+  <title>Jawad Ahmad | Full Stack Developer - MERN & Web Solutions Expert</title>
+  <meta name="description" content="Professional full stack developer in Pakistan specializing in MERN stack. I build high-converting web solutions for businesses in Pakistan, UAE, UK, and Canada. Expert in React, Node.js, MongoDB, and responsive design.">
+  <meta name="keywords" content="web developer Pakistan, MERN stack developer, full stack developer, React developer, Node.js developer, web design, e-commerce development">
+  <meta name="author" content="Jawad Ahmad">
+  <meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1">
+  <meta name="language" content="English">
+  <meta name="revisit-after" content="7 days">
+  
+  <!-- Canonical -->
+  <link rel="canonical" href="https://jawadahmad.me/">
+  
+  <!-- Open Graph (optimized images) -->
+  <meta property="og:title" content="Jawad Ahmad | Full Stack Developer - MERN & Web Solutions">
+  <meta property="og:description" content="Professional full stack developer in Pakistan. I build high-converting websites and web applications for businesses using MERN stack. Expert in React, Node.js, MongoDB.">
+  <meta property="og:image" content="https://i.postimg.cc/50qzPtDT/jawad-hero-img.webp">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="og:image:type" content="image/webp">
+  <meta property="og:url" content="https://jawadahmad.me/">
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="Jawad Ahmad - Full Stack Developer">
+  <meta property="og:locale" content="en_US">
+  
+  <!-- Twitter Card (optimized) -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Jawad Ahmad | Full Stack Developer - MERN & Web Solutions">
+  <meta name="twitter:description" content="Professional MERN stack developer building high-converting web solutions for businesses across Pakistan, UAE, UK, and Canada.">
+  <meta name="twitter:image" content="https://i.postimg.cc/50qzPtDT/jawad-hero-img.webp">
+  <meta name="twitter:creator" content="@jawadahmad9938">
+  
+  <!-- Google Verification -->
+  <meta name="google-site-verification" content="qKESQtyOFuGC6aDczLrSDiSVjJYUPIn3g_5YadxPHjQ">
+  
+  <!-- Additional SEO Meta Tags -->
+  <meta property="article:author" content="Jawad Ahmad">
+  <meta property="article:published_time" content="2024-01-01">
+  <meta property="article:modified_time" content="2024-11-14">
 
-  <style>
-    :root {
-      --heading-font: system-ui, -apple-system, sans-serif;
-      --body-font: system-ui, -apple-system, sans-serif;
-      --accent-font: cursive;
-    }
-  </style>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
-<!-- Preload hero image -->
-<link rel="preload" as="image" href="https://i.ibb.co/673LQyg4/jawad2-removebg-preview3.png" fetchpriority="high">
-
-<!-- Single favicon (browsers will auto-scale) -->
-<link rel="icon" href="https://i.ibb.co/rfstVnt3/jawad-sectionlogo.png">
-<meta name="theme-color" content="#2563eb">
-
-    <style>
-      :root{--heading-font:"Playfair Display",serif;--body-font:"Inter",sans-serif;--accent-font:"Great Vibes",cursive;--ui-font:"Inter",sans-serif}*{margin:0;padding:0;box-sizing:border-box}body{font-family:var(--body-font);font-weight:400;line-height:1.75;letter-spacing:.3px;-webkit-font-smoothing:antialiased;overflow-x:hidden}.navbar{position:fixed;top:0;width:100%;z-index:1000;background:rgba(255,255,255,.95);backdrop-filter:blur(10px);padding:1rem 2rem;display:flex;justify-content:space-between;align-items:center}.logo{width:120px;height:auto}.home-section{min-height:100vh;display:flex;align-items:center;padding:2rem;position:relative}.hero-content{display:grid;grid-template-columns:1fr;gap:2rem;width:100%;max-width:1200px;margin:0 auto}.hero-content h1.name{font-family:var(--accent-font);font-weight:400;font-size:clamp(2.5rem,8vw,4rem);line-height:1.1;margin-bottom:1rem}.hero-content h2.title{font-family:var(--heading-font);font-weight:600;font-size:clamp(1rem,4vw,1.4rem);letter-spacing:2px;text-transform:uppercase;margin-bottom:1rem}.hero-content .subheading{font-size:clamp(1.1rem,4vw,1.3rem);margin-bottom:1rem;font-weight:500}.hero-content .description{font-size:clamp(.9rem,3vw,1.05rem);margin-bottom:2rem;opacity:.9}.right-image img{width:100%;height:auto;max-width:400px;margin:0 auto;display:block}.button-group{display:flex;flex-direction:row;gap:1.5rem;margin-bottom:2rem;flex-wrap:wrap;justify-content:flex-start}.contact-btn,.projects-btn{display:inline-flex;align-items:center;gap:.5rem;padding:.9rem 1.8rem;text-decoration:none;border-radius:8px;font-weight:600;transition:all .3s ease;text-align:center;justify-content:center;flex:1;min-width:200px;max-width:280px}.contact-btn{background:#2563eb;color:#fff;box-shadow:0 2px 8px rgba(37,99,235,.3)}.contact-btn:hover{background:#1d4ed8;box-shadow:0 4px 12px rgba(37,99,235,.4);transform:translateY(-2px)}.projects-btn{background:transparent;color:#2563eb;border:2px solid #2563eb}.projects-btn:hover{background:#2563eb;color:#fff;transform:translateY(-2px)}.hero-content{opacity:1!important;visibility:visible!important}.mobile-menu-overlay,.mobile-nav-menu-container{display:none}@media (max-width:768px){.navbar{padding:1rem}.logo{width:100px}.home-section{padding:1rem;padding-top:80px}.hero-content{text-align:center}.button-group{flex-direction:column;align-items:stretch;gap:1rem;justify-content:center}.contact-btn,.projects-btn{flex:none;width:100%;max-width:100%;min-width:auto;padding:.85rem 1.5rem;font-size:.95rem}}@media (max-width:480px){.button-group{gap:.8rem}.contact-btn,.projects-btn{padding:.8rem 1.2rem;font-size:.9rem}}@media print{.hero-threejs-container{display:none!important}}
-      </style>
-  <!-- Preconnect for all CDNs -->
-<link rel="preconnect" href="https://fonts.gstatic.com">
-<link rel="preconnect" href="https://cdnjs.cloudflare.com">
-<link rel="preconnect" href="https://cdn.jsdelivr.net">
-
-<!-- Only essential font -->
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap" rel="stylesheet" media="print" onload="this.media='all'">
-
-<!-- Main CSS -->
-<link rel="preload" href="style.css" as="style">
-<link rel="stylesheet" href="style.css">
-
-<!-- Font Awesome Icons -->
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" media="print" onload="this.media='all'">
-
-<!-- Devicon for Technology Stack Icons -->
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/devicon.min.css" media="print" onload="this.media='all'">
-<!-- Essential Meta -->
-<title>Jawad Ahmad | Full Stack Developer - MERN & Web Solutions</title>
-<meta name="description" content="Professional full stack developer in Pakistan. MERN stack expert working with clients in Pakistan, UK, Canada, UAE. Based in Multan.">
-
-<!-- Canonical -->
-<link rel="canonical" href="https://jawadahmad.me/">
-
-<!-- Open Graph (Essential Only) -->
-<meta property="og:title" content="Jawad Ahmad - Full Stack Developer">
-<meta property="og:description" content="MERN stack developer in Pakistan. Web solutions for businesses in Pakistan, UK, Canada, UAE.">
-<meta property="og:image" content="https://i.ibb.co/rfstVnt3/jawad-sectionlogo.png">
-<meta property="og:url" content="https://jawadahmad.me/">
-<meta property="og:type" content="website">
-
-<!-- Twitter Card -->
-<meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:title" content="Jawad Ahmad - Full Stack Developer">
-<meta name="twitter:description" content="MERN stack developer specializing in business web solutions across Pakistan and internationally.">
-<meta name="twitter:image" content="https://i.ibb.co/rfstVnt3/jawad-sectionlogo.png">
-
-<!-- Google Verification -->
-<meta name="google-site-verification" content="qKESQtyOFuGC6aDczLrSDiSVjJYUPIn3g_5YadxPHjQ">
-
-<!-- Combined Schema Markup -->
-<script type="application/ld+json">
-{
-  "@context": "https://schema.org",
-  "@graph": [
-    {
-      "@type": "Person",
-      "name": "Jawad Ahmad",
-      "jobTitle": "Full Stack Developer",
-      "url": "https://jawadahmad.me/",
-      "address": {
-        "@type": "PostalAddress",
-        "addressLocality": "Multan",
-        "addressRegion": "Punjab", 
-        "addressCountry": "Pakistan"
+  
+  <!-- Enhanced JSON-LD Schema Markup -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "Person",
+        "@id": "https://jawadahmad.me/#person",
+        "name": "Jawad Ahmad",
+        "jobTitle": "Full Stack Developer",
+        "description": "Professional full stack web developer specializing in MERN stack (MongoDB, Express, React, Node.js) with expertise in building high-converting web solutions for businesses.",
+        "url": "https://jawadahmad.me/",
+        "email": "jawadahmad9938@gmail.com",
+        "telephone": "+923011414134",
+        "address": {
+          "@type": "PostalAddress",
+          "streetAddress": "Multan",
+          "addressLocality": "Multan",
+          "addressRegion": "Punjab", 
+          "addressCountry": "PK"
+        },
+        "sameAs": [
+          "https://www.linkedin.com/in/jawad-ahmad-9938938484djf",
+          "https://www.facebook.com/jawad.ahmed.961811",
+          "https://github.com/Jawadahmad9938"
+        ],
+        "image": "https://i.postimg.cc/50qzPtDT/jawad-hero-img.webp"
       },
-      "sameAs": [
-        "https://www.linkedin.com/in/jawad-ahmad-9938938484djf",
-        "https://www.facebook.com/jawad.ahmed.961811",
-        "https://github.com/Jawadahmad9938"
-      ]
-    },
-    {
-      "@type": "LocalBusiness",
-      "name": "Jawad Ahmad Web Development",
-      "address": {
-        "@type": "PostalAddress",
-        "addressLocality": "Multan",
-        "addressRegion": "Punjab",
-        "addressCountry": "PK"
+      {
+        "@type": "LocalBusiness",
+        "@id": "https://jawadahmad.me/#business",
+        "name": "Jawad Ahmad Web Development",
+        "description": "Professional web development services specializing in MERN stack, e-commerce solutions, and responsive design for businesses across Pakistan, UAE, UK, and Canada.",
+        "address": {
+          "@type": "PostalAddress",
+          "streetAddress": "Multan",
+          "addressLocality": "Multan",
+          "addressRegion": "Punjab",
+          "addressCountry": "PK"
+        },
+        "telephone": "+923011414134",
+        "email": "jawadahmad9938@gmail.com",
+        "url": "https://jawadahmad.me/",
+        "areaServed": ["PK", "AE", "GB", "CA"],
+        "knowsAbout": ["MERN Stack", "React", "Node.js", "MongoDB", "Express", "Full Stack Development", "E-commerce", "Web Design", "Responsive Design"],
+        "image": "https://i.ibb.co/rfstVnt3/jawad-sectionlogo.png",
+        "sameAs": [
+          "https://www.linkedin.com/in/jawad-ahmad-9938938484djf",
+          "https://www.facebook.com/jawad.ahmed.961811",
+          "https://github.com/Jawadahmad9938"
+        ]
       },
-      "telephone": "+923011414134",
-      "email": "jawadahmad9938@gmail.com",
-      "url": "https://jawadahmad.me/",
-      "description": "Full stack web development services in Pakistan, specializing in MERN stack and responsive design."
-    }
-  ]
-}
-</script>
-<body>
+      {
+        "@type": "WebSite",
+        "@id": "https://jawadahmad.me/#website",
+        "url": "https://jawadahmad.me/",
+        "name": "Jawad Ahmad - Full Stack Developer",
+        "description": "Professional full stack developer building MERN web solutions for businesses",
+        "publisher": {
+          "@id": "https://jawadahmad.me/#person"
+        },
+        "potentialAction": {
+          "@type": "SearchAction",
+          "target": {
+            "@type": "EntryPoint",
+            "urlTemplate": "https://jawadahmad.me/?s={search_term_string}"
+          },
+          "query-input": "required name=search_term_string"
+        }
+      },
+      {
+        "@type": "BreadcrumbList",
+        "itemListElement": [
+          {
+            "@type": "ListItem",
+            "position": 1,
+            "name": "Home",
+            "item": "https://jawadahmad.me/"
+          },
+          {
+            "@type": "ListItem",
+            "position": 2,
+            "name": "About",
+            "item": "https://jawadahmad.me/#About"
+          },
+          {
+            "@type": "ListItem",
+            "position": 3,
+            "name": "Services",
+            "item": "https://jawadahmad.me/#Services"
+          },
+          {
+            "@type": "ListItem",
+            "position": 4,
+            "name": "Projects",
+            "item": "https://jawadahmad.me/#Projects"
+          }
+        ]
+      }
+    ]
+  }
+  </script>
+  
+</head>
   <!-- Floating Icons Background - Optimized -->
   <div class="floating-icons" id="floating-icons" aria-hidden="true">
   </div>

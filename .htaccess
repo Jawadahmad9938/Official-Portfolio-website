@@ -43,6 +43,7 @@ RewriteRule ^([^.]+)\.html$ /$1 [R=301,L]
 <IfModule mod_deflate.c>
     # Compress HTML, CSS, JavaScript, Text, XML and fonts
     AddOutputFilterByType DEFLATE application/javascript
+    AddOutputFilterByType DEFLATE application/json
     AddOutputFilterByType DEFLATE application/rss+xml
     AddOutputFilterByType DEFLATE application/vnd.ms-fontobject
     AddOutputFilterByType DEFLATE application/x-font
@@ -63,6 +64,9 @@ RewriteRule ^([^.]+)\.html$ /$1 [R=301,L]
     AddOutputFilterByType DEFLATE text/javascript
     AddOutputFilterByType DEFLATE text/plain
     AddOutputFilterByType DEFLATE text/xml
+    
+    # Remove Accept-Encoding from Vary header
+    SetEnvIfNoCase Request_URI \.(?:gif|jpe?g|png|webp)$ no-gzip dont-vary
 </IfModule>
 
 # ========================================
@@ -70,8 +74,9 @@ RewriteRule ^([^.]+)\.html$ /$1 [R=301,L]
 # ========================================
 <IfModule mod_expires.c>
     ExpiresActive On
+    ExpiresDefault "access plus 2 days"
     
-    # Images
+    # Images - Long cache (1 year)
     ExpiresByType image/jpeg "access plus 1 year"
     ExpiresByType image/jpg "access plus 1 year"
     ExpiresByType image/gif "access plus 1 year"
@@ -79,45 +84,69 @@ RewriteRule ^([^.]+)\.html$ /$1 [R=301,L]
     ExpiresByType image/webp "access plus 1 year"
     ExpiresByType image/svg+xml "access plus 1 year"
     ExpiresByType image/x-icon "access plus 1 year"
+    ExpiresByType image/vnd.microsoft.icon "access plus 1 year"
     
-    # Video
+    # Video - Long cache
     ExpiresByType video/mp4 "access plus 1 year"
     ExpiresByType video/mpeg "access plus 1 year"
+    ExpiresByType video/webm "access plus 1 year"
     
-    # CSS and JavaScript
+    # CSS and JavaScript - Medium cache (1 month)
     ExpiresByType text/css "access plus 1 month"
     ExpiresByType application/javascript "access plus 1 month"
     ExpiresByType text/javascript "access plus 1 month"
+    ExpiresByType application/x-javascript "access plus 1 month"
     
-    # Fonts
+    # Fonts - Very long cache
     ExpiresByType application/x-font-ttf "access plus 1 year"
+    ExpiresByType application/x-font-otf "access plus 1 year"
     ExpiresByType font/opentype "access plus 1 year"
+    ExpiresByType font/otf "access plus 1 year"
     ExpiresByType application/x-font-woff "access plus 1 year"
-    ExpiresByType application/font-woff "access plus 1 year"
-    ExpiresByType application/font-woff2 "access plus 1 year"
+    ExpiresByType application/x-font-woff2 "access plus 1 year"
+    ExpiresByType font/woff "access plus 1 year"
+    ExpiresByType font/woff2 "access plus 1 year"
     
-    # Others
-    ExpiresByType application/pdf "access plus 1 month"
-    ExpiresByType image/vnd.microsoft.icon "access plus 1 year"
+    # Documents - Shorter cache (2 weeks)
+    ExpiresByType application/pdf "access plus 2 weeks"
+    ExpiresByType text/html "access plus 2 weeks"
 </IfModule>
 
 # ========================================
-# 6. CACHE CONTROL HEADERS
+# 6. CACHE CONTROL HEADERS (Modern Approach)
 # ========================================
 <IfModule mod_headers.c>
-    # Cache static assets
-    <FilesMatch "\.(ico|pdf|flv|jpg|jpeg|png|gif|webp|svg|js|css|swf|woff|woff2|ttf|eot)$">
-        Header set Cache-Control "max-age=31536000, public"
+    # Images - Long cache with immutable
+    <FilesMatch "\.(ico|pdf|flv|jpg|jpeg|png|gif|webp|svg)$">
+        Header set Cache-Control "max-age=31536000, public, immutable"
     </FilesMatch>
     
-    # Cache HTML for 1 hour
+    # Fonts - Very long cache
+    <FilesMatch "\.(woff|woff2|ttf|eot|otf)$">
+        Header set Cache-Control "max-age=31536000, public, immutable"
+    </FilesMatch>
+    
+    # JavaScript and CSS - Revalidate
+    <FilesMatch "\.(js|css)$">
+        Header set Cache-Control "max-age=2592000, public, immutable"
+    </FilesMatch>
+    
+    # HTML - Short cache, must revalidate
     <FilesMatch "\.(html|htm)$">
-        Header set Cache-Control "max-age=3600, public, must-revalidate"
+        Header set Cache-Control "max-age=3600, public, must-revalidate, no-cache"
+        Header set Vary "Accept-Encoding, Accept, X-Requested-With"
     </FilesMatch>
     
-    # Don't cache dynamic content
+    # JSON and API responses - No cache
+    <FilesMatch "\.(json|xml)$">
+        Header set Cache-Control "no-cache, no-store, must-revalidate, private"
+        Header set Pragma "no-cache"
+        Header set Expires 0
+    </FilesMatch>
+    
+    # PHP - No cache
     <FilesMatch "\.(php|cgi|pl)$">
-        Header set Cache-Control "no-cache, no-store, must-revalidate"
+        Header set Cache-Control "no-cache, no-store, must-revalidate, private"
         Header set Pragma "no-cache"
         Header set Expires 0
     </FilesMatch>
@@ -139,8 +168,11 @@ RewriteRule ^([^.]+)\.html$ /$1 [R=301,L]
     # Referrer Policy
     Header always set Referrer-Policy "strict-origin-when-cross-origin"
     
-    # Content Security Policy (adjust as needed)
-    Header always set Content-Security-Policy "default-src 'self' https:; script-src 'self' 'unsafe-inline' 'unsafe-eval' https:; style-src 'self' 'unsafe-inline' https:; img-src 'self' data: https:; font-src 'self' data: https:;"
+    # Feature Policy
+    Header always set Permissions-Policy "geolocation=(), microphone=(), camera=()"
+    
+    # Content Security Policy (adjusted for external CDN resources)
+    Header always set Content-Security-Policy "default-src 'self' https:; script-src 'self' 'unsafe-inline' 'unsafe-eval' https://cdn.jsdelivr.net https://cdnjs.cloudflare.com https://fonts.googleapis.com; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com https://cdnjs.cloudflare.com https://cdn.jsdelivr.net; img-src 'self' data: https: blob:; font-src 'self' data: https://fonts.gstatic.com https://cdnjs.cloudflare.com https://cdn.jsdelivr.net; connect-src 'self' https:; media-src 'self' https:; object-src 'none';"
 </IfModule>
 
 # ========================================
