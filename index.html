@@ -21,11 +21,12 @@
 <meta name="theme-color" content="#2563eb">
 
     <style>
-      :root{--heading-font:"Playfair Display",serif;--body-font:"Inter",sans-serif;--accent-font:"Great Vibes",cursive;--ui-font:"Inter",sans-serif}*{margin:0;padding:0;box-sizing:border-box}body{font-family:var(--body-font);font-weight:400;line-height:1.75;letter-spacing:.3px;-webkit-font-smoothing:antialiased;overflow-x:hidden}.navbar{position:fixed;top:0;width:100%;z-index:1000;background:rgba(255,255,255,.95);backdrop-filter:blur(10px);padding:1rem 2rem;display:flex;justify-content:space-between;align-items:center}.logo{width:120px;height:auto}.home-section{min-height:100vh;display:flex;align-items:center;padding:2rem;position:relative}.hero-content{display:grid;grid-template-columns:1fr;gap:2rem;width:100%;max-width:1200px;margin:0 auto}.hero-content h1.name{font-family:var(--accent-font);font-weight:400;font-size:clamp(2.5rem,8vw,4rem);line-height:1.1;margin-bottom:1rem}.hero-content h2.title{font-family:var(--heading-font);font-weight:600;font-size:clamp(1rem,4vw,1.4rem);letter-spacing:2px;text-transform:uppercase;margin-bottom:1rem}.hero-content .subheading{font-size:clamp(1.1rem,4vw,1.3rem);margin-bottom:1rem;font-weight:500}.hero-content .description{font-size:clamp(.9rem,3vw,1.05rem);margin-bottom:2rem;opacity:.9}.right-image img{width:100%;height:auto;max-width:400px;margin:0 auto;display:block}.button-group{display:flex;flex-direction:column;gap:1rem;margin-bottom:2rem}.contact-btn,.projects-btn{display:inline-flex;align-items:center;gap:.5rem;padding:.75rem 1.5rem;text-decoration:none;border-radius:8px;font-weight:600;transition:all .3s ease;text-align:center;justify-content:center}.contact-btn{background:#2563eb;color:#fff}.projects-btn{background:transparent;color:#2563eb;border:2px solid #2563eb}.hero-content{opacity:1!important;visibility:visible!important}.mobile-menu-overlay,.mobile-nav-menu-container{display:none}@media (max-width:768px){.navbar{padding:1rem}.logo{width:100px}.home-section{padding:1rem;padding-top:80px}.hero-content{text-align:center}.button-group{flex-direction:column}}@media print{.hero-threejs-container{display:none!important}}
+      :root{--heading-font:"Playfair Display",serif;--body-font:"Inter",sans-serif;--accent-font:"Great Vibes",cursive;--ui-font:"Inter",sans-serif}*{margin:0;padding:0;box-sizing:border-box}body{font-family:var(--body-font);font-weight:400;line-height:1.75;letter-spacing:.3px;-webkit-font-smoothing:antialiased;overflow-x:hidden}.navbar{position:fixed;top:0;width:100%;z-index:1000;background:rgba(255,255,255,.95);backdrop-filter:blur(10px);padding:1rem 2rem;display:flex;justify-content:space-between;align-items:center}.logo{width:120px;height:auto}.home-section{min-height:100vh;display:flex;align-items:center;padding:2rem;position:relative}.hero-content{display:grid;grid-template-columns:1fr;gap:2rem;width:100%;max-width:1200px;margin:0 auto}.hero-content h1.name{font-family:var(--accent-font);font-weight:400;font-size:clamp(2.5rem,8vw,4rem);line-height:1.1;margin-bottom:1rem}.hero-content h2.title{font-family:var(--heading-font);font-weight:600;font-size:clamp(1rem,4vw,1.4rem);letter-spacing:2px;text-transform:uppercase;margin-bottom:1rem}.hero-content .subheading{font-size:clamp(1.1rem,4vw,1.3rem);margin-bottom:1rem;font-weight:500}.hero-content .description{font-size:clamp(.9rem,3vw,1.05rem);margin-bottom:2rem;opacity:.9}.right-image img{width:100%;height:auto;max-width:400px;margin:0 auto;display:block}.button-group{display:flex;flex-direction:row;gap:1.5rem;margin-bottom:2rem;flex-wrap:wrap;justify-content:flex-start}.contact-btn,.projects-btn{display:inline-flex;align-items:center;gap:.5rem;padding:.9rem 1.8rem;text-decoration:none;border-radius:8px;font-weight:600;transition:all .3s ease;text-align:center;justify-content:center;flex:1;min-width:200px;max-width:280px}.contact-btn{background:#2563eb;color:#fff;box-shadow:0 2px 8px rgba(37,99,235,.3)}.contact-btn:hover{background:#1d4ed8;box-shadow:0 4px 12px rgba(37,99,235,.4);transform:translateY(-2px)}.projects-btn{background:transparent;color:#2563eb;border:2px solid #2563eb}.projects-btn:hover{background:#2563eb;color:#fff;transform:translateY(-2px)}.hero-content{opacity:1!important;visibility:visible!important}.mobile-menu-overlay,.mobile-nav-menu-container{display:none}@media (max-width:768px){.navbar{padding:1rem}.logo{width:100px}.home-section{padding:1rem;padding-top:80px}.hero-content{text-align:center}.button-group{flex-direction:column;align-items:stretch;gap:1rem;justify-content:center}.contact-btn,.projects-btn{flex:none;width:100%;max-width:100%;min-width:auto;padding:.85rem 1.5rem;font-size:.95rem}}@media (max-width:480px){.button-group{gap:.8rem}.contact-btn,.projects-btn{padding:.8rem 1.2rem;font-size:.9rem}}@media print{.hero-threejs-container{display:none!important}}
       </style>
-  <!-- Single preconnect for all CDNs -->
+  <!-- Preconnect for all CDNs -->
 <link rel="preconnect" href="https://fonts.gstatic.com">
 <link rel="preconnect" href="https://cdnjs.cloudflare.com">
+<link rel="preconnect" href="https://cdn.jsdelivr.net">
 
 <!-- Only essential font -->
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap" rel="stylesheet" media="print" onload="this.media='all'">
@@ -34,8 +35,11 @@
 <link rel="preload" href="style.css" as="style">
 <link rel="stylesheet" href="style.css">
 
-<!-- Font Awesome only (remove Devicon if not critical) -->
+<!-- Font Awesome Icons -->
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" media="print" onload="this.media='all'">
+
+<!-- Devicon for Technology Stack Icons -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/devicon.min.css" media="print" onload="this.media='all'">
 <!-- Essential Meta -->
 <title>Jawad Ahmad | Full Stack Developer - MERN & Web Solutions</title>
 <meta name="description" content="Professional full stack developer in Pakistan. MERN stack expert working with clients in Pakistan, UK, Canada, UAE. Based in Multan.">
@@ -341,10 +345,7 @@
         <div class="service-card">
           <div class="service-icon">
             <div class="icon-wrapper">
-              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor">
-                <polyline points="23 6 13.5 15.5 8.5 10.5 1 17"></polyline>
-                <polyline points="17 6 23 6 23 12"></polyline>
-              </svg>
+              <i class="fas fa-code" aria-hidden="true"></i>
             </div>
           </div>
           <h3 class="service-title">Complete Business Web Solutions</h3>
@@ -514,12 +515,10 @@
             <span class="feature">Market-Specific Solutions</span>
           </div>
           <div class="tech-stack">
-            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor">
-              <polyline points="23 6 13.5 15.5 8.5 10.5 1 17"></polyline>
-              <polyline points="17 6 23 6 23 12"></polyline>
-            </svg>
+            <i class="fas fa-chart-line" title="Growth Analytics" aria-hidden="true"></i>
             <i class="fas fa-cogs" title="Business Planning" aria-hidden="true"></i>
             <i class="fas fa-road" title="Growth Roadmap" aria-hidden="true"></i>
+            <i class="fas fa-bullseye" title="Strategic Goals" aria-hidden="true"></i>
           </div>
           <div class="service-cta">
             <a href="#Contact" class="service-link">

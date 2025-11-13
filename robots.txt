@@ -1,7 +1,65 @@
+# Robots.txt for Jawad Ahmad Portfolio
+# Website: https://jawadahmad.me
+# Last Updated: November 14, 2025
+
+# Allow all search engines
 User-agent: *
 Allow: /
 Disallow: /admin/
 Disallow: /private/
 Disallow: /api/
+Disallow: /cgi-bin/
+Disallow: /*.json$
+Disallow: /*.xml$
+Disallow: /temp/
+Disallow: /cache/
 
+# Allow specific files
+Allow: /sitemap.xml
+Allow: /robots.txt
+Allow: /*.css$
+Allow: /*.js$
+Allow: /*.jpg$
+Allow: /*.jpeg$
+Allow: /*.png$
+Allow: /*.webp$
+Allow: /*.svg$
+Allow: /*.gif$
+Allow: /*.pdf$
+
+# Crawl delay (optional - be nice to servers)
+Crawl-delay: 1
+
+# Specific rules for Google
+User-agent: Googlebot
+Allow: /
+Disallow: /admin/
+Disallow: /private/
+Disallow: /api/
+
+# Specific rules for Bing
+User-agent: Bingbot
+Allow: /
+Disallow: /admin/
+Disallow: /private/
+Disallow: /api/
+
+# Block bad bots
+User-agent: AhrefsBot
+Disallow: /
+
+User-agent: SemrushBot
+Disallow: /
+
+User-agent: MJ12bot
+Disallow: /
+
+User-agent: DotBot
+Disallow: /
+
+# Sitemaps
 Sitemap: https://jawadahmad.me/sitemap.xml
+Sitemap: https://jawadahmad.me/sitemap.html
+
+# Host (preferred domain)
+Host: https://jawadahmad.me

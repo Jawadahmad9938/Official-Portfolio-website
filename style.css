@@ -677,9 +677,11 @@ body.light-mode .mobile-nav-item:hover {
 
 .button-group {
   display: flex;
+  flex-direction: row;
   gap: 1.5rem;
   animation: fadeInUp 1s ease-out 0.8s;
   animation-fill-mode: both;
+  flex-wrap: wrap;
 }
 
 .contact-btn,
@@ -697,6 +699,9 @@ body.light-mode .mobile-nav-item:hover {
   overflow: hidden;
   text-transform: uppercase;
   letter-spacing: 0.05em;
+  flex: 1;
+  min-width: 200px;
+  justify-content: center;
 }
 
 .contact-btn {
@@ -882,7 +887,17 @@ body.light-mode .mobile-nav-item:hover {
 
   .button-group {
     flex-direction: column;
-    gap: 0.8rem;
+    gap: 1rem;
+    align-items: stretch;
+  }
+  
+  .contact-btn,
+  .projects-btn {
+    flex: none;
+    width: 100%;
+    min-width: auto;
+    padding: 0.9rem 1.5rem;
+    font-size: 0.95rem;
   }
 
   .right-image img {
@@ -3252,6 +3267,13 @@ body.light-mode .form-note {
 
   .button-group {
     justify-content: center;
+    gap: 1rem;
+  }
+  
+  .contact-btn,
+  .projects-btn {
+    min-width: 180px;
+    padding: 0.85rem 1.3rem;
   }
 
   .right-image {
@@ -3274,6 +3296,14 @@ body.light-mode .form-note {
 
   .button-group {
     flex-direction: column;
+    gap: 0.8rem;
+  }
+  
+  .contact-btn,
+  .projects-btn {
+    width: 100%;
+    padding: 0.85rem 1.2rem;
+    font-size: 0.9rem;
   }
 
   .quick-contact-icons {

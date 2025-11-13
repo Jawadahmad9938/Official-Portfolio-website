@@ -22,12 +22,16 @@
     <priority>0.90</priority>
   </url>
 
-  <!-- Blog Posts -->
+  <!-- ========================================
+       TECHNICAL BLOG POSTS (Web Development)
+       ======================================== -->
+  
+  <!-- Featured Tech Blogs -->
   <url>
-    <loc>https://jawadahmad.me/blog-post.html?slug=mastering-the-mern-stack-a-comprehensive-guide-for-beginners-in-2025</loc>
-    <lastmod>2024-12-15</lastmod>
+    <loc>https://jawadahmad.me/blog/mastering-the-mern-stack-a-comprehensive-guide-for-beginners-in-2025/</loc>
+    <lastmod>2025-01-15</lastmod>
     <changefreq>monthly</changefreq>
-    <priority>0.85</priority>
+    <priority>0.95</priority>
     <image:image>
       <image:loc>https://images.unsplash.com/photo-1633356122544-f134324a6cee?w=1200</image:loc>
       <image:title>Mastering the MERN Stack: A Comprehensive Guide for Beginners in 2025</image:title>
@@ -36,10 +40,10 @@
   </url>
 
   <url>
-    <loc>https://jawadahmad.me/blog-post.html?slug=10-advanced-react-hooks-you-should-master-in-2025</loc>
-    <lastmod>2024-12-10</lastmod>
+    <loc>https://jawadahmad.me/blog/10-advanced-react-hooks-you-should-master-in-2025/</loc>
+    <lastmod>2025-01-10</lastmod>
     <changefreq>monthly</changefreq>
-    <priority>0.85</priority>
+    <priority>0.95</priority>
     <image:image>
       <image:loc>https://images.unsplash.com/photo-1633356122102-3fe601e05bd2?w=1200</image:loc>
       <image:title>10 Advanced React Hooks You Should Master in 2025</image:title>
@@ -48,10 +52,10 @@
   </url>
 
   <url>
-    <loc>https://jawadahmad.me/blog-post.html?slug=javascript-es2025-features-gamechanging-updates-for-developers</loc>
-    <lastmod>2024-12-05</lastmod>
+    <loc>https://jawadahmad.me/blog/javascript-es2025-features-gamechanging-updates-for-developers/</loc>
+    <lastmod>2025-01-05</lastmod>
     <changefreq>monthly</changefreq>
-    <priority>0.85</priority>
+    <priority>0.95</priority>
     <image:image>
       <image:loc>https://images.unsplash.com/photo-1627398242454-45a1465c2479?w=1200</image:loc>
       <image:title>JavaScript ES2025 Features: Game-Changing Updates for Developers</image:title>
@@ -60,10 +64,10 @@
   </url>
 
   <url>
-    <loc>https://jawadahmad.me/blog-post.html?slug=building-scalable-rest-apis-with-nodejs-and-express</loc>
-    <lastmod>2024-11-28</lastmod>
+    <loc>https://jawadahmad.me/blog/building-scalable-rest-apis-with-nodejs-and-express/</loc>
+    <lastmod>2024-12-28</lastmod>
     <changefreq>monthly</changefreq>
-    <priority>0.85</priority>
+    <priority>0.90</priority>
     <image:image>
       <image:loc>https://images.unsplash.com/photo-1618477247222-acbdb0e159b3?w=1200</image:loc>
       <image:title>Building Scalable REST APIs with Node.js and Express</image:title>
@@ -72,10 +76,10 @@
   </url>
 
   <url>
-    <loc>https://jawadahmad.me/blog-post.html?slug=seo-best-practices-every-web-developer-should-master-in-2025</loc>
+    <loc>https://jawadahmad.me/blog/seo-best-practices-every-web-developer-should-master-in-2025/</loc>
     <lastmod>2024-11-20</lastmod>
     <changefreq>monthly</changefreq>
-    <priority>0.85</priority>
+    <priority>0.90</priority>
     <image:image>
       <image:loc>https://images.unsplash.com/photo-1551434678-e076c223a692?w=1200</image:loc>
       <image:title>SEO Best Practices Every Web Developer Should Master in 2025</image:title>
@@ -83,37 +87,142 @@
     </image:image>
   </url>
 
-  <!-- Philosophy Section -->
+  <!-- Additional Tech Blog Posts -->
   <url>
-    <loc>https://jawadahmad.me/philosophy/philosophy</loc>
-    <lastmod>2025-10-21</lastmod>
+    <loc>https://jawadahmad.me/blog/mongodb-performance-optimization-guide-2025/</loc>
+    <lastmod>2024-11-15</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.85</priority>
+    <image:image>
+      <image:loc>https://images.unsplash.com/photo-1544383835-bda2bc66a55d?w=1200</image:loc>
+      <image:title>MongoDB Performance Optimization Guide 2025</image:title>
+      <image:caption>Advanced MongoDB optimization techniques for production applications</image:caption>
+    </image:image>
+  </url>
+
+  <url>
+    <loc>https://jawadahmad.me/blog/tailwind-css-best-practices-for-production/</loc>
+    <lastmod>2024-11-10</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.85</priority>
+    <image:image>
+      <image:loc>https://images.unsplash.com/photo-1507721999472-8ed4421c4af2?w=1200</image:loc>
+      <image:title>Tailwind CSS Best Practices for Production</image:title>
+      <image:caption>Professional Tailwind CSS techniques for scalable web applications</image:caption>
+    </image:image>
+  </url>
+
+  <url>
+    <loc>https://jawadahmad.me/blog/nextjs-14-complete-guide-for-beginners/</loc>
+    <lastmod>2024-11-05</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.85</priority>
+    <image:image>
+      <image:loc>https://images.unsplash.com/photo-1555066931-4365d14bab8c?w=1200</image:loc>
+      <image:title>Next.js 14 Complete Guide for Beginners</image:title>
+      <image:caption>Learn Next.js 14 with server components and app router</image:caption>
+    </image:image>
+  </url>
+
+  <url>
+    <loc>https://jawadahmad.me/blog/typescript-advanced-patterns-and-techniques/</loc>
+    <lastmod>2024-10-30</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.85</priority>
+    <image:image>
+      <image:loc>https://images.unsplash.com/photo-1516116216624-53e697fedbea?w=1200</image:loc>
+      <image:title>TypeScript Advanced Patterns and Techniques</image:title>
+      <image:caption>Master advanced TypeScript patterns for enterprise applications</image:caption>
+    </image:image>
+  </url>
+
+  <url>
+    <loc>https://jawadahmad.me/blog/web-security-best-practices-2025/</loc>
+    <lastmod>2024-10-25</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.85</priority>
+    <image:image>
+      <image:loc>https://images.unsplash.com/photo-1563986768609-322da13575f3?w=1200</image:loc>
+      <image:title>Web Security Best Practices 2025</image:title>
+      <image:caption>Essential web security practices for modern applications</image:caption>
+    </image:image>
+  </url>
+
+  <!-- ========================================
+       PHILOSOPHY BLOG POSTS
+       ======================================== -->
+  
+  <url>
+    <loc>https://jawadahmad.me/philosophy/philosophy-post.html?slug=nietzsche-prophet-of-power-or-enemy-of-humanity</loc>
+    <lastmod>2025-10-20</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.90</priority>
+    <image:image>
+      <image:loc>https://i.postimg.cc/1XzTChVX/Friedrich-Nietzsche.webp</image:loc>
+      <image:title>Nietzsche: Prophet of Power or Enemy of Humanity?</image:title>
+      <image:caption>A critical examination of Friedrich Nietzsche's philosophy of power and its dangerous implications</image:caption>
+    </image:image>
+  </url>
+
+  <url>
+    <loc>https://jawadahmad.me/philosophy/philosophy-post.html?slug=nietzsche-and-the-paradox-of-power</loc>
+    <lastmod>2025-10-23</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.90</priority>
+    <image:image>
+      <image:loc>https://i.postimg.cc/wBdrKssT/Friedrich-Nietzsche.webp</image:loc>
+      <image:title>Nietzsche and the Paradox of Power</image:title>
+      <image:caption>Exploring the moral contradiction in Nietzsche's glorification of power</image:caption>
+    </image:image>
+  </url>
+
+  <url>
+    <loc>https://jawadahmad.me/philosophy/philosophy-post.html?slug=beyond-the-riddle-when-truth-drinks-its-own-poison</loc>
+    <lastmod>2025-10-31</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.90</priority>
+    <image:image>
+      <image:loc>https://i.postimg.cc/VNpKn0Tz/hegel-netizsche.webp</image:loc>
+      <image:title>Beyond the Riddle — When Truth Drinks Its Own Poison</image:title>
+      <image:caption>A philosophical poem where Nietzsche and Hegel meet in the twilight of contradiction</image:caption>
+    </image:image>
+  </url>
+
+  <!-- ========================================
+       PHILOSOPHY SECTION
+       ======================================== -->
+  
+  <!-- Philosophy Homepage -->
+  <url>
+    <loc>https://jawadahmad.me/philosophy/philosophy.html</loc>
+    <lastmod>2025-10-31</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.90</priority>
   </url>
 
+  <!-- ========================================
+       ADDITIONAL PAGES
+       ======================================== -->
+  
+  <!-- HTML Sitemap -->
   <url>
-    <loc>https://jawadahmad.me/philosophy/philosophy-post.html?slug=nietzsche-prophet-of-power-or-enemy-of-humanity</loc>
-    <lastmod>2025-10-21</lastmod>
+    <loc>https://jawadahmad.me/sitemap.html</loc>
+    <lastmod>2025-11-14</lastmod>
     <changefreq>monthly</changefreq>
-    <priority>0.85</priority>
-    <image:image>
-      <image:loc>https://upload.wikimedia.org/wikipedia/commons/thumb/1/1b/Nietzsche187a.jpg/500px-Nietzsche187a.jpg</image:loc>
-      <image:title>Nietzsche: Prophet of Power or Enemy of Humanity?</image:title>
-      <image:caption>A critical essay examining Nietzsche's philosophy of power, morality, and human potential.</image:caption>
-    </image:image>
+    <priority>0.60</priority>
   </url>
 
   <!-- Legal Pages -->
   <url>
-    <loc>https://jawadahmad.me/privacy</loc>
-    <lastmod>2024-01-01</lastmod>
+    <loc>https://jawadahmad.me/privacy.html</loc>
+    <lastmod>2025-01-01</lastmod>
     <changefreq>yearly</changefreq>
     <priority>0.30</priority>
   </url>
 
   <url>
-    <loc>https://jawadahmad.me/disclaimer</loc>
-    <lastmod>2024-01-01</lastmod>
+    <loc>https://jawadahmad.me/disclaimer.html</loc>
+    <lastmod>2025-01-01</lastmod>
     <changefreq>yearly</changefreq>
     <priority>0.30</priority>
   </url>
