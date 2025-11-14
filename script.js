@@ -1,75 +1,60 @@
-// ===========================
-// Performance: Detect mobile early
-// ===========================
+// ===== PERFORMANCE & MOBILE DETECTION =====
 const isMobile = window.matchMedia("(max-width: 768px)").matches;
 const isReducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
 
-// ===========================
-// Newsletter Form Enhancement
-// ===========================
+// ===== NEWSLETTER FORM =====
 const newsletterForm = document.querySelector(".newsletter-form");
 if (newsletterForm) {
   newsletterForm.addEventListener("submit", function (e) {
     e.preventDefault();
-
     const form = this;
-    const submitBtn = form.querySelector(".newsletter-btn");
-    const originalText = submitBtn.innerHTML;
+    const btn = form.querySelector(".newsletter-btn");
+    const originalText = btn.innerHTML;
 
-    // Show loading state
-    submitBtn.innerHTML =
-      '<i class="fas fa-spinner fa-spin"></i> Subscribing...';
-    submitBtn.disabled = true;
+    btn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Subscribing...';
+    btn.disabled = true;
 
-    // Simulate form submission
     setTimeout(() => {
-      submitBtn.innerHTML = '<i class="fas fa-check"></i> Subscribed!';
-      submitBtn.style.background =
-        "linear-gradient(135deg, #10b981 0%, #059669 100%)";
+      btn.innerHTML = '<i class="fas fa-check"></i> Subscribed!';
+      btn.style.background = "linear-gradient(135deg, #10b981 0%, #059669 100%)";
       form.reset();
 
       setTimeout(() => {
-        submitBtn.innerHTML = originalText;
-        submitBtn.disabled = false;
-        submitBtn.style.background =
-          "linear-gradient(135deg, #f59e0b 0%, #d97706 100%)";
+        btn.innerHTML = originalText;
+        btn.disabled = false;
+        btn.style.background = "linear-gradient(135deg, #f59e0b 0%, #d97706 100%)";
       }, 2000);
     }, 1500);
   });
 }
 
-// ===========================
-// Social Link Animation (debounced)
-// ===========================
+// ===== SOCIAL LINKS HOVER =====
 if (!isReducedMotion) {
   document.querySelectorAll(".social-link").forEach((link) => {
-    link.addEventListener("mouseenter", function() {
+    link.addEventListener("mouseenter", function () {
       this.style.transform = "translateY(-5px) scale(1.05)";
     }, { passive: true });
-    
-    link.addEventListener("mouseleave", function() {
+
+    link.addEventListener("mouseleave", function () {
       this.style.transform = "translateY(0) scale(1)";
     }, { passive: true });
   });
 }
 
-// Empty Three.js functions (commented out for performance)
+// ===== THREE.JS INITIALIZATION =====
 function initThreeJS() {
-  // Disabled: Three.js initialization removed for performance
+  // Placeholder for Three.js background
 }
 
 function initHeroThreeJS() {
-  // Disabled: Hero Three.js initialization removed for performance
+  // Placeholder for Hero Three.js
 }
 
-// ===========================
-// Floating Icons - Mobile Optimized
-// ===========================
+// ===== FLOATING ICONS =====
 function initFloatingIcons() {
   const container = document.getElementById("floating-icons");
   if (!container) return;
 
-  // Reduce floating icons on mobile for better performance
   const iconCount = isMobile ? 5 : 15;
   const icons = [
     "/img/html.svg",
@@ -89,9 +74,8 @@ function initFloatingIcons() {
     icon.loading = "lazy";
     container.appendChild(icon);
 
-    // Only add click handlers on desktop
     if (!isMobile) {
-      icon.addEventListener("click", function() {
+      icon.addEventListener("click", function () {
         this.style.animation = "none";
         setTimeout(() => {
           this.style.animation = "floatIcon 15s infinite ease-in-out";
@@ -101,91 +85,80 @@ function initFloatingIcons() {
   }
 }
 
-// ===== MOBILE MENU FUNCTIONALITY =====
-const menuButton = document.getElementById('menu-button');
-const mobileOverlay = document.getElementById('mobile-overlay');
-const mobileMenuContainer = document.getElementById('mobile-menu-container');
-const mobileCloseBtn = document.getElementById('mobile-close');
-const mobileNavItems = document.querySelectorAll('.mobile-nav-item');
+// ===== MOBILE MENU =====
+const menuButton = document.getElementById("menu-button");
+const mobileOverlay = document.getElementById("mobile-overlay");
+const mobileMenuContainer = document.getElementById("mobile-menu-container");
+const mobileCloseBtn = document.getElementById("mobile-close");
+const mobileNavItems = document.querySelectorAll(".mobile-nav-item");
 
-// Toggle Menu Open/Close
+function closeMenu() {
+  if (menuButton) menuButton.classList.remove("active");
+  if (mobileOverlay) mobileOverlay.classList.remove("active");
+  if (mobileMenuContainer) mobileMenuContainer.classList.remove("active");
+  document.body.style.overflow = "auto";
+}
+
+function toggleMenu() {
+  if (menuButton) menuButton.classList.toggle("active");
+  if (mobileOverlay) mobileOverlay.classList.toggle("active");
+  if (mobileMenuContainer) mobileMenuContainer.classList.toggle("active");
+
+  if (mobileMenuContainer?.classList.contains("active")) {
+    document.body.style.overflow = "hidden";
+  } else {
+    document.body.style.overflow = "auto";
+  }
+}
+
 if (menuButton) {
-  menuButton.addEventListener('click', (e) => {
+  menuButton.addEventListener("click", (e) => {
     e.stopPropagation();
     toggleMenu();
   });
 }
 
-// Close Menu Function
-function closeMenu() {
-  if (menuButton) menuButton.classList.remove('active');
-  if (mobileOverlay) mobileOverlay.classList.remove('active');
-  if (mobileMenuContainer) mobileMenuContainer.classList.remove('active');
-  document.body.style.overflow = 'auto';
-}
-
-// Toggle Menu Function
-function toggleMenu() {
-  if (menuButton) menuButton.classList.toggle('active');
-  if (mobileOverlay) mobileOverlay.classList.toggle('active');
-  if (mobileMenuContainer) mobileMenuContainer.classList.toggle('active');
-  
-  if (mobileMenuContainer?.classList.contains('active')) {
-    document.body.style.overflow = 'hidden';
-  } else {
-    document.body.style.overflow = 'auto';
-  }
-}
-
-// Close Menu on Close Button Click
 if (mobileCloseBtn) {
-  mobileCloseBtn.addEventListener('click', (e) => {
+  mobileCloseBtn.addEventListener("click", (e) => {
     e.stopPropagation();
     closeMenu();
   });
 }
 
-// Close Menu on Overlay Click
 if (mobileOverlay) {
-  mobileOverlay.addEventListener('click', (e) => {
+  mobileOverlay.addEventListener("click", (e) => {
     e.stopPropagation();
     closeMenu();
   });
 }
 
-// Close Menu on Navigation Item Click
-mobileNavItems.forEach(item => {
-  item.addEventListener('click', () => {
+mobileNavItems.forEach((item) => {
+  item.addEventListener("click", () => {
     closeMenu();
   });
 });
 
-// Close Menu on Escape Key
-document.addEventListener('keydown', (e) => {
-  if (e.key === 'Escape') {
+document.addEventListener("keydown", (e) => {
+  if (e.key === "Escape") {
     closeMenu();
   }
 });
 
-// Prevent Menu from Closing when clicking inside it
 if (mobileMenuContainer) {
-  mobileMenuContainer.addEventListener('click', (e) => {
+  mobileMenuContainer.addEventListener("click", (e) => {
     e.stopPropagation();
   });
 }
 
-// ===========================
-// Theme Toggle with localStorage optimization
-// ===========================
+// ===== THEME TOGGLE =====
 const themeToggleBtn = document.getElementById("theme-toggle-btn");
 const themeIcon = document.getElementById("theme-icon");
 const THEME_KEY = "site-theme";
 
-// Load theme preference
 function loadThemePreference() {
   const savedTheme = localStorage.getItem(THEME_KEY);
   const prefersDark = window.matchMedia("(prefers-color-scheme: dark)").matches;
-  
+
   if (savedTheme === "light" || (!savedTheme && !prefersDark)) {
     document.body.classList.add("light-mode");
     themeIcon?.classList.replace("fa-moon", "fa-sun");
@@ -194,9 +167,9 @@ function loadThemePreference() {
   }
 }
 
-// Toggle theme
 themeToggleBtn?.addEventListener("click", () => {
   document.body.classList.toggle("light-mode");
+
   if (document.body.classList.contains("light-mode")) {
     localStorage.setItem(THEME_KEY, "light");
     themeIcon.classList.replace("fa-moon", "fa-sun");
@@ -206,39 +179,34 @@ themeToggleBtn?.addEventListener("click", () => {
   }
 });
 
-// Load theme on page load
 loadThemePreference();
 
-// ===========================
-// DOM Ready Initializations
-// ===========================
+// ===== DOM CONTENT LOADED =====
 document.addEventListener("DOMContentLoaded", () => {
   initThreeJS();
   initHeroThreeJS();
   initFloatingIcons();
 
-  // Only animate cards if motion is not reduced
+  // Animate cards on load
   if (!isReducedMotion) {
-    // Animate service & project cards with passive listeners
     const cards = document.querySelectorAll(".service-card, .project-card");
     cards.forEach((card, index) => {
       card.style.animationDelay = `${index * 0.1}s`;
       card.classList.add("animate__animated", "animate__fadeInUp");
-      
-      // 3D hover effect on desktop only
+
       if (!isMobile) {
-        card.addEventListener("mouseenter", function() {
+        card.addEventListener("mouseenter", function () {
           this.style.transform = "translateY(-10px) scale(1.05)";
         }, { passive: true });
-        
-        card.addEventListener("mouseleave", function() {
+
+        card.addEventListener("mouseleave", function () {
           this.style.transform = "translateY(0) scale(1)";
         }, { passive: true });
       }
     });
   }
 
-  // Section reveal on scroll with IntersectionObserver
+  // Intersection Observer for sections
   const revealObserver = new IntersectionObserver(
     (entries) => {
       entries.forEach((entry) => {
@@ -248,9 +216,9 @@ document.addEventListener("DOMContentLoaded", () => {
         }
       });
     },
-    { 
+    {
       threshold: 0.1,
-      rootMargin: "0px 0px -50px 0px" // Start animation 50px before visible
+      rootMargin: "0px 0px -50px 0px",
     }
   );
 
@@ -261,23 +229,21 @@ document.addEventListener("DOMContentLoaded", () => {
     .forEach((section) => revealObserver.observe(section));
 });
 
-// ===========================
-// Optimize Resource Loading
-// ===========================
-// Defer non-critical image loading
+// ===== LAZY LOADING IMAGES =====
 if ("IntersectionObserver" in window) {
-  const imageObserver = new IntersectionObserver((entries, observer) => {
-    entries.forEach(entry => {
-      if (entry.isIntersecting) {
-        const img = entry.target;
-        if (img.dataset.src) {
-          img.src = img.dataset.src;
-          img.removeAttribute("data-src");
+  document.querySelectorAll("img[data-src]").forEach((img) => {
+    const imgObserver = new IntersectionObserver((entries, observer) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          const image = entry.target;
+          if (image.dataset.src) {
+            image.src = image.dataset.src;
+            image.removeAttribute("data-src");
+          }
+          observer.unobserve(image);
         }
-        observer.unobserve(img);
-      }
+      });
     });
+    imgObserver.observe(img);
   });
-
-  document.querySelectorAll("img[data-src]").forEach(img => imageObserver.observe(img));
 }
