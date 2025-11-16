@@ -1101,6 +1101,141 @@
         opacity: 0.8;
       }
 
+      /* Backlinks/External References Section */
+      .backlinks-section {
+        max-width: 1200px;
+        margin: 4rem auto;
+        padding: 3rem 2rem;
+        background: var(--card-bg);
+        border: 1px solid var(--border-color);
+        border-radius: 12px;
+        box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+      }
+
+      .backlinks-title {
+        font-family: "Playfair Display", serif;
+        font-size: 1.8rem;
+        margin-bottom: 1.5rem;
+        color: var(--text-color);
+        font-weight: 700;
+        display: flex;
+        align-items: center;
+        gap: 0.8rem;
+      }
+
+      .backlinks-title i {
+        color: var(--accent-color);
+        font-size: 1.6rem;
+      }
+
+      .backlinks-description {
+        color: var(--text-color);
+        opacity: 0.85;
+        margin-bottom: 2rem;
+        line-height: 1.6;
+      }
+
+      .backlinks-container {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+        gap: 1.5rem;
+      }
+
+      .backlink-item {
+        padding: 1.5rem;
+        background: var(--bg-color);
+        border: 1px solid var(--border-color);
+        border-radius: 8px;
+        transition: all 0.3s ease;
+        display: flex;
+        flex-direction: column;
+        gap: 1rem;
+      }
+
+      .backlink-item:hover {
+        border-color: var(--accent-color);
+        box-shadow: 0 8px 20px rgba(0, 0, 0, 0.08);
+        transform: translateY(-4px);
+      }
+
+      .backlink-platform {
+        display: flex;
+        align-items: center;
+        gap: 0.8rem;
+        font-size: 0.9rem;
+        font-weight: 600;
+        text-transform: uppercase;
+        letter-spacing: 0.5px;
+        color: var(--accent-color);
+      }
+
+      .backlink-platform i {
+        font-size: 1.2rem;
+      }
+
+      .backlink-title {
+        font-size: 1.1rem;
+        font-weight: 600;
+        color: var(--text-color);
+        margin-bottom: 0.5rem;
+        display: -webkit-box;
+        -webkit-line-clamp: 2;
+        -webkit-box-orient: vertical;
+        overflow: hidden;
+      }
+
+      .backlink-description {
+        font-size: 0.9rem;
+        color: var(--text-color);
+        opacity: 0.8;
+        display: -webkit-box;
+        -webkit-line-clamp: 2;
+        -webkit-box-orient: vertical;
+        overflow: hidden;
+        margin-bottom: 0.5rem;
+      }
+
+      .backlink-meta {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        font-size: 0.85rem;
+        color: var(--text-color);
+        opacity: 0.7;
+        padding-top: 0.8rem;
+        border-top: 1px solid var(--border-color);
+      }
+
+      .backlink-trust {
+        display: flex;
+        align-items: center;
+        gap: 0.3rem;
+      }
+
+      .backlink-trust-badge {
+        color: var(--accent-color);
+        font-weight: 600;
+      }
+
+      .backlink-url {
+        color: var(--accent-color);
+        text-decoration: none;
+        font-size: 0.85rem;
+        display: flex;
+        align-items: center;
+        gap: 0.3rem;
+        transition: all 0.3s ease;
+      }
+
+      .backlink-url:hover {
+        text-decoration: underline;
+        gap: 0.5rem;
+      }
+
+      .backlink-url i {
+        font-size: 0.8rem;
+      }
+
       /* Related Essays Section */
       .related-essays {
         max-width: 1200px;
@@ -1680,6 +1815,21 @@
       </section>
     </main>
 
+    <!-- External Backlinks & References Section -->
+    <section class="backlinks-section">
+      <h2 class="backlinks-title">
+        <i class="fas fa-link"></i>
+        Featured on Respected Platforms
+      </h2>
+      <p class="backlinks-description">
+        This philosophical work has been featured and discussed on established platforms for thought leadership and intellectual discourse. These backlinks strengthen our commitment to sharing meaningful content across diverse audiences and building trust within the philosophical and publishing communities.
+      </p>
+      
+      <div class="backlinks-container" id="backlinksContainer">
+        <!-- Backlinks will be dynamically inserted here -->
+      </div>
+    </section>
+
     <!-- Newsletter Section -->
     <section class="newsletter-section">
       <div class="newsletter-container">
@@ -2008,36 +2158,83 @@
         document.title = `${article.title} | Jawad Ahmad - Philosophical Reflections`;
       }
 
-      // Render related articles
-      function renderRelatedArticles(relatedArticles) {
-        const relatedGrid = document.getElementById("related-articles");
-
-        if (!relatedArticles || relatedArticles.length === 0) {
-          relatedGrid.innerHTML =
-            '<p style="text-align: center; grid-column: 1 / -1;">No related articles found.</p>';
-          return;
+      // Backlinks data
+      const backlinksData = [
+        {
+          id: 1,
+          platform: "Substack",
+          platformIcon: "fab fa-substack",
+          title: "Nietzsche: Prophet of Power or Enemy of Humanity?",
+          description: "Deep philosophical analysis exploring Nietzsche's controversial philosophy of power, its ethical implications, and its misuse in history.",
+          url: "https://open.substack.com/pub/jawadphilosophy/p/nietzsche-prophet-of-power-or-enemy?r=3ni45e&utm_campaign=post&utm_medium=web&showWelcomeOnShare=true",
+          trustMetrics: {
+            domain: "Substack (High Authority)",
+            authority: "87",
+            relevance: "Philosophy & Critical Thought"
+          }
+        },
+        {
+          id: 2,
+          platform: "Medium",
+          platformIcon: "fab fa-medium",
+          title: "Enemy of Humanity: A Critical Examination of Friedrich Nietzsche's Philosophy of Power",
+          description: "Comprehensive examination of how Nietzsche's will to power concept has been interpreted and misinterpreted throughout history and its ethical dimensions.",
+          url: "https://medium.com/@jawadahmad9938/enemy-of-humanity-a-critical-examination-of-friedrich-nietzsches-philosophy-of-power-8c07d11a8284",
+          trustMetrics: {
+            domain: "Medium (High Authority)",
+            authority: "89",
+            relevance: "Philosophy & Human Rights"
+          }
+        },
+        {
+          id: 3,
+          platform: "Forem Community",
+          platformIcon: "fas fa-comments",
+          title: "Beyond the Riddle: When Truth Drinks Its Own Poison",
+          description: "Philosophical reflection on the paradox of truth through Nietzsche and Hegel's dialectic, exploring how truth becomes its own opposite.",
+          url: "https://open.forem.com/jawad__007/beyond-the-riddle-when-truth-drinks-its-own-poison-49o0",
+          trustMetrics: {
+            domain: "Forem (Community Authority)",
+            authority: "78",
+            relevance: "Philosophy & Intellectual Discourse"
+          }
         }
+      ];
 
-        relatedGrid.innerHTML = relatedArticles
-          .map((article) => {
-            const articleImage = article.image || article.featuredImage;
-            const articleExcerpt =
-              article.excerpt || "Read this philosophical essay...";
+      // Render backlinks
+      function renderBacklinks() {
+        const backlinksContainer = document.getElementById("backlinksContainer");
 
+        if (!backlinksContainer) return;
+
+        backlinksContainer.innerHTML = backlinksData
+          .map((backlink) => {
             return `
-                    <article class="related-card">
-                        <img src="${articleImage}" alt="${article.title}" class="related-image" />
-                        <div class="related-content">
-                            <span class="related-category">${article.category}</span>
-                            <h3 class="related-title">${article.title}</h3>
-                            <p class="related-excerpt">${articleExcerpt}</p>
-                            <div class="related-meta">
-                                <span>${article.readTime}</span>
-                                <a href="philosophy-post.html?slug=${article.slug}" class="related-btn">Read More</a>
-                            </div>
-                        </div>
-                    </article>
-                `;
+              <article class="backlink-item">
+                <div class="backlink-platform">
+                  <i class="${backlink.platformIcon}"></i>
+                  <span>${backlink.platform}</span>
+                </div>
+                
+                <h3 class="backlink-title">${backlink.title}</h3>
+                
+                <p class="backlink-description">${backlink.description}</p>
+                
+                <div class="backlink-meta">
+                  <div class="backlink-trust">
+                    <i class="fas fa-shield-alt"></i>
+                    <span class="backlink-trust-badge">${backlink.trustMetrics.domain}</span>
+                  </div>
+                  <a href="${backlink.url}" target="_blank" rel="noopener noreferrer" class="backlink-url" aria-label="Read on ${backlink.platform}">
+                    Read <i class="fas fa-external-link-alt"></i>
+                  </a>
+                </div>
+                
+                <div style="font-size: 0.85rem; color: var(--text-color); opacity: 0.7; margin-top: 0.8rem; padding-top: 0.8rem; border-top: 1px solid var(--border-color);">
+                  <div><strong>Topic Authority:</strong> ${backlink.trustMetrics.relevance}</div>
+                </div>
+              </article>
+            `;
           })
           .join("");
       }
@@ -2065,6 +2262,9 @@
             // Get and render related articles
             const relatedArticles = getRelatedArticles(article.id);
             renderRelatedArticles(relatedArticles);
+            
+            // Render backlinks
+            renderBacklinks();
           } else {
             showError("The requested article could not be found.");
           }
