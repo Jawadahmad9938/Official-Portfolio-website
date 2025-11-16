@@ -70,7 +70,7 @@ function initFloatingIcons() {
   if (!container) return;
 
   // Reduce floating icons on mobile for better performance
-  const iconCount = isMobile ? 5 : 15;
+  const iconCount = isMobile ? 10 : 25;
   const icons = [
     "/img/html.svg",
     "/img/css-3.svg",

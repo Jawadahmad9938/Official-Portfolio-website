@@ -1851,7 +1851,7 @@
 
         blogGrid.textContent = '';
         
-        filteredBlogs
+        blogGrid.innerHTML = filteredBlogs
           .map(
             (blog) => `
                 <article class="blog-card" data-category="${blog.category}">
