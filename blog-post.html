@@ -37,6 +37,9 @@
       content="Jawad Ahmad - Full Stack Developer"
     />
 
+    <!-- Security: XSS Prevention -->
+    <script src="security-utils.js" defer></script>
+
     <!-- Twitter -->
     <meta property="twitter:card" content="summary_large_image" />
     <meta
@@ -1684,44 +1687,77 @@
         const relatedGrid = document.getElementById("relatedBlogsGrid");
 
         if (relatedBlogs.length === 0) {
-          relatedGrid.innerHTML = `
-                    <div style="grid-column: 1 / -1; text-align: center; padding: 2rem;">
-                        <p>No related articles found. Check out our <a href="blogs.html" style="color: var(--primary-color);">blog homepage</a> for more content.</p>
-                    </div>
-                `;
+          relatedGrid.textContent = '';
+          const container = document.createElement('div');
+          container.style.gridColumn = '1 / -1';
+          container.style.textAlign = 'center';
+          container.style.padding = '2rem';
+          const p = document.createElement('p');
+          p.textContent = 'No related articles found. Check out our ';
+          const link = document.createElement('a');
+          link.href = 'blogs.html';
+          link.style.color = 'var(--primary-color)';
+          link.textContent = 'blog homepage';
+          p.appendChild(link);
+          p.appendChild(document.createTextNode(' for more content.'));
+          container.appendChild(p);
+          relatedGrid.appendChild(container);
           return;
         }
 
-        relatedGrid.innerHTML = relatedBlogs
-          .map(
-            (blog) => `
-                <article class="related-card">
-                    <img src="${blog.image}" alt="${
-              blog.title
-            }" class="related-image" 
-                         onerror="this.src='https://images.unsplash.com/photo-1555066931-4365d14bab8c?w=500'">
-                    <div class="related-content">
-                        <span class="related-category">${blog.category.toUpperCase()}</span>
-                        <h3 class="related-title">${blog.title}</h3>
-                        <p class="related-excerpt">${blog.excerpt}</p>
-                        <div class="related-meta">
-                            <span><i class="far fa-calendar"></i> ${
-                              blog.date
-                            }</span>
-                            <span><i class="far fa-clock"></i> ${
-                              blog.readTime
-                            }</span>
-                        </div>
-                        <a href="blog-post.html?slug=${generateSlug(
-                          blog.title
-                        )}" class="related-btn">
-                            Read More <i class="fas fa-arrow-right"></i>
-                        </a>
-                    </div>
-                </article>
-            `
-          )
-          .join("");
+        relatedGrid.textContent = '';
+        relatedBlogs.forEach((blog) => {
+          const article = document.createElement('article');
+          article.className = 'related-card';
+          
+          const img = document.createElement('img');
+          img.src = validateURL(blog.image) || 'https://images.unsplash.com/photo-1555066931-4365d14bab8c?w=500';
+          img.alt = escapeHTML(blog.title);
+          img.className = 'related-image';
+          img.onerror = function() { this.src = 'https://images.unsplash.com/photo-1555066931-4365d14bab8c?w=500'; };
+          
+          const content = document.createElement('div');
+          content.className = 'related-content';
+          
+          const category = document.createElement('span');
+          category.className = 'related-category';
+          category.textContent = escapeHTML(blog.category.toUpperCase());
+          
+          const title = document.createElement('h3');
+          title.className = 'related-title';
+          title.textContent = escapeHTML(blog.title);
+          
+          const excerpt = document.createElement('p');
+          excerpt.className = 'related-excerpt';
+          excerpt.textContent = escapeHTML(blog.excerpt);
+          
+          const meta = document.createElement('div');
+          meta.className = 'related-meta';
+          
+          const dateSpan = document.createElement('span');
+          dateSpan.innerHTML = `<i class="far fa-calendar"></i> ${escapeHTML(blog.date)}`;
+          
+          const timeSpan = document.createElement('span');
+          timeSpan.innerHTML = `<i class="far fa-clock"></i> ${escapeHTML(blog.readTime)}`;
+          
+          meta.appendChild(dateSpan);
+          meta.appendChild(timeSpan);
+          
+          const btnLink = document.createElement('a');
+          btnLink.href = 'blog-post.html?slug=' + encodeURIComponent(generateSlug(blog.title));
+          btnLink.className = 'related-btn';
+          btnLink.innerHTML = 'Read More <i class="fas fa-arrow-right"></i>';
+          
+          content.appendChild(category);
+          content.appendChild(title);
+          content.appendChild(excerpt);
+          content.appendChild(meta);
+          content.appendChild(btnLink);
+          
+          article.appendChild(img);
+          article.appendChild(content);
+          relatedGrid.appendChild(article);
+        });
       }
 
       // Blog Post Loading with Slug Support
@@ -1761,13 +1797,22 @@
           }
         } catch (error) {
           console.error("Error loading blog post:", error);
-          document.getElementById("blog-post-container").innerHTML = `
-                    <div class="error-message">
-                        <h2>Blog Post Not Found</h2>
-                        <p>The requested blog post could not be found.</p>
-                        <a href="blogs.html" class="read-more-btn">← Back to Blogs</a>
-                    </div>
-                `;
+          const container = document.getElementById("blog-post-container");
+          container.textContent = '';
+          const errorDiv = document.createElement('div');
+          errorDiv.className = 'error-message';
+          const h2 = document.createElement('h2');
+          h2.textContent = 'Blog Post Not Found';
+          const p = document.createElement('p');
+          p.textContent = 'The requested blog post could not be found.';
+          const link = document.createElement('a');
+          link.href = 'blogs.html';
+          link.className = 'read-more-btn';
+          link.textContent = '← Back to Blogs';
+          errorDiv.appendChild(h2);
+          errorDiv.appendChild(p);
+          errorDiv.appendChild(link);
+          container.appendChild(errorDiv);
         }
       }
 

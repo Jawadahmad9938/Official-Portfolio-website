@@ -39,6 +39,9 @@
       content="Jawad Ahmad - Full Stack Developer"
     />
 
+    <!-- Security: XSS Prevention -->
+    <script src="security-utils.js" defer></script>
+
     <!-- Twitter -->
     <meta property="twitter:card" content="summary_large_image" />
     <meta property="twitter:url" content="https://jawadahmad.me/blogs.html" />
@@ -1790,13 +1793,23 @@
           });
         } catch (error) {
           console.error("Error loading web development tutorials:", error);
-          document.getElementById("blogGrid").innerHTML = `
-                    <div class="no-posts">
-                        <i class="fas fa-exclamation-triangle" aria-hidden="true"></i>
-                        <p>Error loading web development tutorials. Please check if blogs-data.json file exists.</p>
-                        <p style="font-size: 0.8rem; margin-top: 0.5rem;">Error: ${error.message}</p>
-                    </div>
-                `;
+          const errorContainer = document.getElementById("blogGrid");
+          errorContainer.textContent = '';
+          const noPostsDiv = document.createElement('div');
+          noPostsDiv.className = 'no-posts';
+          const icon = document.createElement('i');
+          icon.className = 'fas fa-exclamation-triangle';
+          icon.setAttribute('aria-hidden', 'true');
+          const p1 = document.createElement('p');
+          p1.textContent = 'Error loading web development tutorials. Please check if blogs-data.json file exists.';
+          const p2 = document.createElement('p');
+          p2.style.fontSize = '0.8rem';
+          p2.style.marginTop = '0.5rem';
+          p2.textContent = 'Error: ' + escapeHTML(error.message);
+          noPostsDiv.appendChild(icon);
+          noPostsDiv.appendChild(p1);
+          noPostsDiv.appendChild(p2);
+          errorContainer.appendChild(noPostsDiv);
         }
       }
 
@@ -1822,16 +1835,23 @@
         });
 
         if (filteredBlogs.length === 0) {
-          blogGrid.innerHTML = `
-                    <div class="no-posts">
-                        <i class="fas fa-search" aria-hidden="true"></i>
-                        <p>No web development tutorials found for this category or search.</p>
-                    </div>
-                `;
+          blogGrid.textContent = '';
+          const noPostsDiv = document.createElement('div');
+          noPostsDiv.className = 'no-posts';
+          const icon = document.createElement('i');
+          icon.className = 'fas fa-search';
+          icon.setAttribute('aria-hidden', 'true');
+          const p = document.createElement('p');
+          p.textContent = 'No web development tutorials found for this category or search.';
+          noPostsDiv.appendChild(icon);
+          noPostsDiv.appendChild(p);
+          blogGrid.appendChild(noPostsDiv);
           return;
         }
 
-        blogGrid.innerHTML = filteredBlogs
+        blogGrid.textContent = '';
+        
+        filteredBlogs
           .map(
             (blog) => `
                 <article class="blog-card" data-category="${blog.category}">
