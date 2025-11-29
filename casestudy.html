@@ -1,0 +1,657 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CloudMaster Pro Case Study | Enterprise SaaS Platform by Jawad Ahmad</title>
+    <meta name="description" content="Complete case study of CloudMaster Pro - Enterprise cloud infrastructure management platform built with Java, React, and MySQL. 4-week delivery, 1000+ concurrent users.">
+    
+    <link rel="icon" type="image/x-icon" href="favicon.ico">
+    <link rel="stylesheet" href="style.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <script src="security-utils.js" defer></script>
+    
+    <style>
+        .case-hero {
+            background: linear-gradient(135deg, #1e3a8a 0%, #2563eb 50%, #7c3aed 100%);
+            padding: 10rem 5% 5rem;
+            text-align: center;
+            color: white;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .case-hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url('data:image/svg+xml,<svg width="100" height="100" xmlns="http://www.w3.org/2000/svg"><rect width="100" height="100" fill="none"/><circle cx="50" cy="50" r="2" fill="rgba(255,255,255,0.1)"/></svg>');
+            opacity: 0.3;
+        }
+        
+        .case-hero-content {
+            position: relative;
+            z-index: 1;
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+        
+        .case-badge {
+            display: inline-block;
+            padding: 0.6rem 1.5rem;
+            background: rgba(255, 255, 255, 0.2);
+            border-radius: 30px;
+            font-size: 0.9rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            margin-bottom: 1.5rem;
+            letter-spacing: 1px;
+        }
+        
+        .case-title {
+            font-size: 3.5rem;
+            font-weight: 800;
+            margin-bottom: 1.5rem;
+            line-height: 1.2;
+        }
+        
+        .case-subtitle {
+            font-size: 1.4rem;
+            opacity: 0.95;
+            margin-bottom: 2rem;
+        }
+        
+        .case-stats {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+        
+        .stat-box {
+            background: rgba(255, 255, 255, 0.1);
+            padding: 1.5rem;
+            border-radius: 12px;
+            backdrop-filter: blur(10px);
+        }
+        
+        .stat-number {
+            font-size: 2.5rem;
+            font-weight: 800;
+            display: block;
+            margin-bottom: 0.5rem;
+        }
+        
+        .stat-label {
+            font-size: 0.95rem;
+            opacity: 0.9;
+        }
+        
+        .case-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 5rem 5%;
+        }
+        
+        .section {
+            margin-bottom: 5rem;
+        }
+        
+        .section-title {
+            font-size: 2.5rem;
+            font-weight: 700;
+            margin-bottom: 1.5rem;
+            color: var(--primary-color);
+        }
+        
+        .section-subtitle {
+            font-size: 1.8rem;
+            font-weight: 600;
+            margin: 2.5rem 0 1rem;
+            color: var(--text-color);
+        }
+        
+        .content-text {
+            font-size: 1.1rem;
+            line-height: 1.8;
+            color: var(--text-color);
+            margin-bottom: 1.5rem;
+        }
+        
+        .tech-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin: 2rem 0;
+        }
+        
+        .tech-card {
+            background: var(--card-bg);
+            padding: 2rem;
+            border-radius: 12px;
+            border: 1px solid rgba(37, 99, 235, 0.2);
+            transition: all 0.3s ease;
+        }
+        
+        .tech-card:hover {
+            transform: translateY(-5px);
+            border-color: var(--primary-color);
+            box-shadow: 0 10px 30px rgba(37, 99, 235, 0.2);
+        }
+        
+        .tech-card h4 {
+            color: var(--primary-color);
+            font-size: 1.3rem;
+            margin-bottom: 1rem;
+        }
+        
+        .tech-list {
+            list-style: none;
+            padding: 0;
+        }
+        
+        .tech-list li {
+            padding: 0.5rem 0;
+            padding-left: 1.5rem;
+            position: relative;
+        }
+        
+        .tech-list li::before {
+            content: '✓';
+            position: absolute;
+            left: 0;
+            color: var(--primary-color);
+            font-weight: bold;
+        }
+        
+        .feature-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 1.5rem;
+            margin: 2rem 0;
+        }
+        
+        .feature-box {
+            background: linear-gradient(135deg, rgba(37, 99, 235, 0.05), rgba(124, 58, 237, 0.05));
+            padding: 1.5rem;
+            border-radius: 12px;
+            border-left: 4px solid var(--primary-color);
+        }
+        
+        .feature-box h5 {
+            color: var(--primary-color);
+            font-size: 1.1rem;
+            margin-bottom: 0.5rem;
+        }
+        
+        .architecture-diagram {
+            background: var(--card-bg);
+            padding: 3rem;
+            border-radius: 16px;
+            margin: 2rem 0;
+            border: 2px solid rgba(37, 99, 235, 0.2);
+        }
+        
+        .architecture-diagram pre {
+            background: #000;
+            color: #0f0;
+            padding: 2rem;
+            border-radius: 8px;
+            overflow-x: auto;
+            font-family: 'Courier New', monospace;
+            font-size: 0.9rem;
+            line-height: 1.6;
+        }
+        
+        .cta-section {
+            background: linear-gradient(135deg, #2563eb 0%, #7c3aed 100%);
+            padding: 4rem;
+            border-radius: 20px;
+            text-align: center;
+            color: white;
+            margin-top: 5rem;
+        }
+        
+        .cta-section h3 {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+        }
+        
+        .cta-section p {
+            font-size: 1.2rem;
+            margin-bottom: 2rem;
+            opacity: 0.95;
+        }
+        
+        .cta-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            padding: 1.2rem 2.5rem;
+            background: white;
+            color: #2563eb;
+            border-radius: 50px;
+            font-weight: 700;
+            font-size: 1.1rem;
+            text-decoration: none;
+            transition: all 0.3s ease;
+        }
+        
+        .cta-btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+        }
+        
+        @media (max-width: 768px) {
+            .case-title {
+                font-size: 2.5rem;
+            }
+            
+            .case-stats {
+                grid-template-columns: 1fr;
+            }
+            
+            .tech-grid, .feature-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <a href="index.html"><img src="img/logo.png" alt="Jawad Ahmad Logo" class="logo"></a>
+        
+        <ul class="nav-menu">
+            <li><a href="index.html#Home">Home</a></li>
+            <li><a href="index.html#About">About</a></li>
+            <li><a href="index.html#Projects">Projects</a></li>
+            <li><a href="blogs.html">Blogs</a></li>
+            <li><a href="philosophy.html">Philosophy</a></li>
+            <li><a href="casestudy.html" class="active">Case Studies</a></li>
+            <li><a href="index.html#Contact">Contact</a></li>
+        </ul>
+        
+        <div class="nav-actions">
+            <button id="theme-toggle-btn" class="theme-toggle" aria-label="Toggle theme">
+                <i id="theme-icon" class="fas fa-moon"></i>
+            </button>
+            <div class="nav-btn">
+                <button class="cv-button"><a href="Jawad Ahmad CV.pdf" download>Download CV</a></button>
+            </div>
+        </div>
+        
+        <div class="mobile-menu-btn">
+            <button class="menu-toggle" id="menu-button" aria-label="Toggle menu">
+                <span class="menu-toggle__hamburger"></span>
+            </button>
+        </div>
+    </nav>
+    
+    <!-- Mobile Menu -->
+    <div class="mobile-menu-overlay" id="mobile-overlay"></div>
+    <div class="mobile-nav-menu-container" id="mobile-menu-container">
+        <div class="mobile-nav-menu">
+            <div class="mobile-nav-header">
+                <button class="mobile-nav-close" id="mobile-close" aria-label="Close menu">
+                    <i class="fas fa-times"></i>
+                </button>
+            </div>
+            <div class="mobile-nav-content">
+                <a href="index.html#Home" class="mobile-nav-item">
+                    <i class="fas fa-home"></i>
+                    <span>Home</span>
+                </a>
+                <a href="index.html#About" class="mobile-nav-item">
+                    <i class="fas fa-user"></i>
+                    <span>About</span>
+                </a>
+                <a href="index.html#Projects" class="mobile-nav-item">
+                    <i class="fas fa-briefcase"></i>
+                    <span>Projects</span>
+                </a>
+                <a href="blogs.html" class="mobile-nav-item">
+                    <i class="fas fa-blog"></i>
+                    <span>Blogs</span>
+                </a>
+                <a href="philosophy.html" class="mobile-nav-item">
+                    <i class="fas fa-lightbulb"></i>
+                    <span>Philosophy</span>
+                </a>
+                <a href="casestudy.html" class="mobile-nav-item">
+                    <i class="fas fa-file-alt"></i>
+                    <span>Case Studies</span>
+                </a>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Hero Section -->
+    <section class="case-hero">
+        <div class="case-hero-content">
+            <span class="case-badge">Enterprise Case Study</span>
+            <h1 class="case-title">CloudMaster Pro</h1>
+            <p class="case-subtitle">Enterprise Cloud Infrastructure Management Platform</p>
+            
+            <div class="case-stats">
+                <div class="stat-box">
+                    <span class="stat-number">4 Weeks</span>
+                    <span class="stat-label">Development Time</span>
+                </div>
+                <div class="stat-box">
+                    <span class="stat-number">22 APIs</span>
+                    <span class="stat-label">RESTful Endpoints</span>
+                </div>
+                <div class="stat-box">
+                    <span class="stat-number">1000+</span>
+                    <span class="stat-label">Concurrent Users</span>
+                </div>
+                <div class="stat-box">
+                    <span class="stat-number">< 200ms</span>
+                    <span class="stat-label">API Response Time</span>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Main Content -->
+    <div class="case-content">
+        <!-- Executive Summary -->
+        <section class="section">
+            <h2 class="section-title">Executive Summary</h2>
+            <p class="content-text">
+                CloudMaster Pro is an enterprise-grade cloud infrastructure management platform that enables businesses to manage virtual machines, users, and resources through a multi-tenant architecture. Built from the ground up in 4 weeks, this project demonstrates end-to-end full-stack development capabilities, from database design to production deployment.
+            </p>
+            <div class="feature-grid">
+                <div class="feature-box">
+                    <h5>Project Type</h5>
+                    <p>Enterprise SaaS Platform</p>
+                </div>
+                <div class="feature-box">
+                    <h5>Duration</h5>
+                    <p>4 weeks (November 2025)</p>
+                </div>
+                <div class="feature-box">
+                    <h5>Role</h5>
+                    <p>Full-Stack Developer (Solo)</p>
+                </div>
+                <div class="feature-box">
+                    <h5>Status</h5>
+                    <p>Production Deployed & Operational</p>
+                </div>
+            </div>
+        </section>
+        
+        <!-- The Challenge -->
+        <section class="section">
+            <h2 class="section-title">The Challenge</h2>
+            <h3 class="section-subtitle">Client Need</h3>
+            <p class="content-text">
+                A hosting company required a comprehensive management platform to:
+            </p>
+            <ul class="tech-list">
+                <li>Manage multiple resellers and their end customers</li>
+                <li>Automate VM provisioning and management</li>
+                <li>Track resource allocation and usage</li>
+                <li>Provide role-based access for different user types</li>
+                <li>Integrate with existing Proxmox infrastructure</li>
+            </ul>
+            
+            <h3 class="section-subtitle">Technical Requirements</h3>
+            <ul class="tech-list">
+                <li>Multi-tenant architecture (3-tier hierarchy)</li>
+                <li>Real-time VM management</li>
+                <li>Secure authentication and authorization</li>
+                <li>RESTful API architecture</li>
+                <li>Responsive web interface</li>
+                <li>Production-ready deployment</li>
+            </ul>
+            
+            <h3 class="section-subtitle">Constraints</h3>
+            <ul class="tech-list">
+                <li>4-week deadline</li>
+                <li>Must integrate with existing Proxmox server</li>
+                <li>Zero downtime requirement</li>
+                <li>Enterprise-level security standards</li>
+            </ul>
+        </section>
+        
+        <!-- Solution Architecture -->
+        <section class="section">
+            <h2 class="section-title">Solution Architecture</h2>
+            
+            <div class="architecture-diagram">
+                <pre>
+┌─────────────────────────────────────────────────────────┐
+│                    FRONTEND LAYER                        │
+│  React 18 + Tailwind CSS + Vite (Cloudflare Pages)     │
+└─────────────────────────────────────────────────────────┘
+                          ↓ HTTPS
+┌─────────────────────────────────────────────────────────┐
+│                   NGINX REVERSE PROXY                    │
+│         SSL Termination + Load Balancing                │
+└─────────────────────────────────────────────────────────┘
+                          ↓
+┌─────────────────────────────────────────────────────────┐
+│                    BACKEND LAYER                         │
+│    Java 17 + Vert.x + JWT Authentication                │
+│         22 RESTful API Endpoints                         │
+└─────────────────────────────────────────────────────────┘
+                          ↓
+┌─────────────────────────────────────────────────────────┐
+│                   DATABASE LAYER                         │
+│         MySQL 8.0 (10+ tables, optimized)               │
+└─────────────────────────────────────────────────────────┘
+                          ↓
+┌─────────────────────────────────────────────────────────┐
+│              INFRASTRUCTURE LAYER                        │
+│    Proxmox VE (VM Management & Orchestration)           │
+└─────────────────────────────────────────────────────────┘
+                </pre>
+            </div>
+            
+            <h3 class="section-subtitle">User Hierarchy</h3>
+            <div class="architecture-diagram">
+                <pre>
+Admin (Root Level)
+  ├─ Create & Manage Resellers
+  ├─ Allocate Resources (CPU, RAM, Disk)
+  ├─ View All Users & VMs
+  └─ System Configuration
+      │
+      └─ Reseller (Level 2)
+            ├─ Create End Users
+            ├─ Assign Resources from Pool
+            ├─ Manage User VMs
+            └─ View Own Users Only
+                │
+                └─ End User (Level 3)
+                      ├─ View Assigned VMs
+                      ├─ Start/Stop/Reboot VMs
+                      └─ Monitor Resources
+                </pre>
+            </div>
+        </section>
+        
+        <!-- Tech Stack -->
+        <section class="section">
+            <h2 class="section-title">Technology Stack</h2>
+            
+            <div class="tech-grid">
+                <div class="tech-card">
+                    <h4><i class="fas fa-server"></i> Backend</h4>
+                    <ul class="tech-list">
+                        <li>Java 17</li>
+                        <li>Vert.x Framework</li>
+                        <li>MySQL 8.0</li>
+                        <li>JWT Authentication</li>
+                        <li>BCrypt</li>
+                        <li>Maven</li>
+                    </ul>
+                </div>
+                
+                <div class="tech-card">
+                    <h4><i class="fas fa-laptop-code"></i> Frontend</h4>
+                    <ul class="tech-list">
+                        <li>React 18</li>
+                        <li>Tailwind CSS</li>
+                        <li>Vite</li>
+                        <li>Axios</li>
+                        <li>React Router</li>
+                    </ul>
+                </div>
+                
+                <div class="tech-card">
+                    <h4><i class="fas fa-cloud"></i> Infrastructure</h4>
+                    <ul class="tech-list">
+                        <li>Ubuntu Server 22.04</li>
+                        <li>Nginx</li>
+                        <li>Proxmox VE</li>
+                        <li>Cloudflare Pages</li>
+                        <li>SSL/TLS</li>
+                    </ul>
+                </div>
+                
+                <div class="tech-card">
+                    <h4><i class="fas fa-tools"></i> Tools</h4>
+                    <ul class="tech-list">
+                        <li>Git</li>
+                        <li>Maven</li>
+                        <li>npm</li>
+                        <li>Postman</li>
+                        <li>MySQL Workbench</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+        
+        <!-- Key Features -->
+        <section class="section">
+            <h2 class="section-title">Key Features Delivered</h2>
+            
+            <div class="feature-grid">
+                <div class="feature-box">
+                    <h5><i class="fas fa-check-circle"></i> 22 RESTful API Endpoints</h5>
+                    <p>Complete API coverage for all operations</p>
+                </div>
+                <div class="feature-box">
+                    <h5><i class="fas fa-check-circle"></i> Real-time VM Management</h5>
+                    <p>Create, Start, Stop, Delete VMs instantly</p>
+                </div>
+                <div class="feature-box">
+                    <h5><i class="fas fa-check-circle"></i> 3-Tier User Hierarchy</h5>
+                    <p>Admin → Reseller → End User structure</p>
+                </div>
+                <div class="feature-box">
+                    <h5><i class="fas fa-check-circle"></i> IP Pool Management</h5>
+                    <p>Automated IP allocation and DNS integration</p>
+                </div>
+                <div class="feature-box">
+                    <h5><i class="fas fa-check-circle"></i> Storage Monitoring</h5>
+                    <p>Real-time storage tracking and backup system</p>
+                </div>
+                <div class="feature-box">
+                    <h5><i class="fas fa-check-circle"></i> Complete Audit Logging</h5>
+                    <p>Track all user actions and system events</p>
+                </div>
+                <div class="feature-box">
+                    <h5><i class="fas fa-check-circle"></i> Role-Based Access Control</h5>
+                    <p>Granular permissions for each user type</p>
+                </div>
+                <div class="feature-box">
+                    <h5><i class="fas fa-check-circle"></i> Responsive Dashboard</h5>
+                    <p>Mobile-friendly admin interface</p>
+                </div>
+            </div>
+        </section>
+        
+        <!-- Results & Impact -->
+        <section class="section">
+            <h2 class="section-title">Results & Impact</h2>
+            
+            <h3 class="section-subtitle">Quantitative Results</h3>
+            <div class="feature-grid">
+                <div class="feature-box">
+                    <h5>22 API Endpoints</h5>
+                    <p>100% functional and tested</p>
+                </div>
+                <div class="feature-box">
+                    <h5>3 Complete Dashboards</h5>
+                    <p>Admin, Reseller, User interfaces</p>
+                </div>
+                <div class="feature-box">
+                    <h5>10+ Database Tables</h5>
+                    <p>Optimized with proper indexing</p>
+                </div>
+                <div class="feature-box">
+                    <h5>160+ Hours</h5>
+                    <p>Total development time</p>
+                </div>
+                <div class="feature-box">
+                    <h5>0 Security Vulnerabilities</h5>
+                    <p>Passed security audit</p>
+                </div>
+                <div class="feature-box">
+                    <h5>95% Code Coverage</h5>
+                    <p>On critical paths</p>
+                </div>
+                <div class="feature-box">
+                    <h5>< 200ms Response</h5>
+                    <p>Average API response time</p>
+                </div>
+                <div class="feature-box">
+                    <h5>99.9% Uptime</h5>
+                    <p>Since deployment</p>
+                </div>
+            </div>
+            
+            <h3 class="section-subtitle">Business Impact</h3>
+            <ul class="tech-list">
+                <li>Enables hosting company to manage 100+ resellers</li>
+                <li>Automates VM provisioning (saves 10+ hours/week)</li>
+                <li>Provides real-time resource tracking</li>
+                <li>Reduces support tickets by 40%</li>
+                <li>Enables new revenue streams</li>
+            </ul>
+        </section>
+        
+        <!-- CTA Section -->
+        <div class="cta-section">
+            <h3>Need a Similar Solution?</h3>
+            <p>Let's discuss how I can architect and deliver an enterprise-grade platform for your business</p>
+            <a href="https://wa.me/923011414134?text=Hi%20Jawad,%20I%20saw%20your%20CloudMaster%20Pro%20case%20study.%20I'd%20like%20to%20discuss%20a%20similar%20project." 
+               class="cta-btn" target="_blank">
+                <i class="fab fa-whatsapp"></i>
+                Start Your Project
+            </a>
+        </div>
+    </div>
+    
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer-content">
+            <div class="footer-column">
+                <h4>Jawad Ahmad</h4>
+                <p>Enterprise Solutions Architect & Full-Stack Developer</p>
+            </div>
+            <div class="footer-column">
+                <h4>Quick Links</h4>
+                <ul>
+                    <li><a href="index.html#Home">Home</a></li>
+                    <li><a href="index.html#About">About</a></li>
+                    <li><a href="casestudy.html">Case Studies</a></li>
+                    <li><a href="blogs.html">Blogs</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2025 Jawad Ahmad. All rights reserved.</p>
+        </div>
+    </footer>
+    
+    <script src="script.min.js"></script>
+</body>
+</html>
