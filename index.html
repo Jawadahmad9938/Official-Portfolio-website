@@ -427,119 +427,414 @@
 </div>
 
 <!-- What I Build Section -->
-<section class="what-i-build-section" style="padding: 5rem 5%; background: var(--card-bg); margin: 2rem 0;">
-  <div class="container" style="max-width: 1200px; margin: 0 auto;">
-    <div class="section-header" style="text-align: center; margin-bottom: 3rem;">
-      <p style="color: var(--primary-color); font-weight: 600; text-transform: uppercase; letter-spacing: 1px; margin-bottom: 1rem;">What I Build</p>
-      <h2 style="font-size: 2.5rem; font-weight: 700; margin-bottom: 1.5rem; color: var(--text-color);">Specialized Business Solutions</h2>
-      <p style="font-size: 1.1rem; color: var(--text-secondary); max-width: 600px; margin: 0 auto;">
+<section class="what-i-build-section">
+  <div class="what-i-build-container">
+    <div class="what-i-build-header">
+      <p class="what-i-build-subtitle">What I Build</p>
+      <h2 class="what-i-build-title">Specialized Business Solutions</h2>
+      <p class="what-i-build-description">
         I focus on building specific types of business-critical software that solve real operational challenges and drive measurable results.
       </p>
     </div>
 
-    <div class="specializations-grid" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(350px, 1fr)); gap: 2rem;">
+    <div class="specializations-grid">
       
       <!-- Excel Replacement Systems -->
-      <div class="specialization-card" style="background: var(--bg-color); padding: 2rem; border-radius: 12px; border: 1px solid rgba(37, 99, 235, 0.2); transition: all 0.3s ease; cursor: pointer;" onmouseover="this.style.transform='translateY(-5px)'; this.style.boxShadow='0 10px 30px rgba(37, 99, 235, 0.15)'" onmouseout="this.style.transform='translateY(0)'; this.style.boxShadow='none'">
-        <div class="spec-icon" style="margin-bottom: 1.5rem;">
-          <i class="fas fa-file-excel" style="font-size: 3rem; color: #217346;" aria-hidden="true"></i>
+      <div class="specialization-card excel-card">
+        <div class="spec-icon">
+          <i class="fas fa-file-excel" aria-hidden="true"></i>
         </div>
-        <h3 style="color: var(--primary-color); font-size: 1.5rem; margin-bottom: 1rem;">Excel Replacement Systems</h3>
-        <p style="color: var(--text-secondary); margin-bottom: 1.5rem; line-height: 1.6;">
+        <h3 class="spec-title">Excel Replacement Systems</h3>
+        <p class="spec-description">
           Transform complex Excel workflows into production-ready web applications. Multi-tenant SaaS platforms with role-based access, automated calculations, and audit trails.
         </p>
-        <div class="spec-features" style="margin-bottom: 1.5rem;">
-          <div style="display: flex; align-items: center; margin-bottom: 0.5rem;">
-            <i class="fas fa-check" style="color: #10b981; margin-right: 0.5rem;" aria-hidden="true"></i>
-            <span style="color: var(--text-color); font-size: 0.9rem;">Complex financial calculations</span>
+        <div class="spec-features">
+          <div class="feature-item">
+            <i class="fas fa-check" aria-hidden="true"></i>
+            <span>Complex financial calculations</span>
           </div>
-          <div style="display: flex; align-items: center; margin-bottom: 0.5rem;">
-            <i class="fas fa-check" style="color: #10b981; margin-right: 0.5rem;" aria-hidden="true"></i>
-            <span style="color: var(--text-color); font-size: 0.9rem;">Multi-company data isolation</span>
+          <div class="feature-item">
+            <i class="fas fa-check" aria-hidden="true"></i>
+            <span>Multi-company data isolation</span>
           </div>
-          <div style="display: flex; align-items: center;">
-            <i class="fas fa-check" style="color: #10b981; margin-right: 0.5rem;" aria-hidden="true"></i>
-            <span style="color: var(--text-color); font-size: 0.9rem;">Real-time reporting & analytics</span>
+          <div class="feature-item">
+            <i class="fas fa-check" aria-hidden="true"></i>
+            <span>Real-time reporting & analytics</span>
           </div>
         </div>
-        <div class="spec-example" style="background: rgba(16, 185, 129, 0.1); padding: 1rem; border-radius: 8px; border-left: 3px solid #10b981;">
-          <strong style="color: var(--text-color);">Recent Example:</strong>
-          <span style="color: var(--text-secondary); font-size: 0.9rem;">Sales & Finance SaaS for USA client - replaced complex Excel workflows with automated multi-tenant platform</span>
+        <div class="spec-example excel-example">
+          <strong>Recent Example:</strong>
+          <span>Sales & Finance SaaS for USA client - replaced complex Excel workflows with automated multi-tenant platform</span>
         </div>
       </div>
 
       <!-- Production SaaS Platforms -->
-      <div class="specialization-card" style="background: var(--bg-color); padding: 2rem; border-radius: 12px; border: 1px solid rgba(37, 99, 235, 0.2); transition: all 0.3s ease; cursor: pointer;" onmouseover="this.style.transform='translateY(-5px)'; this.style.boxShadow='0 10px 30px rgba(37, 99, 235, 0.15)'" onmouseout="this.style.transform='translateY(0)'; this.style.boxShadow='none'">
-        <div class="spec-icon" style="margin-bottom: 1.5rem;">
-          <i class="fas fa-cloud" style="font-size: 3rem; color: var(--primary-color);" aria-hidden="true"></i>
+      <div class="specialization-card saas-card">
+        <div class="spec-icon">
+          <i class="fas fa-cloud" aria-hidden="true"></i>
         </div>
-        <h3 style="color: var(--primary-color); font-size: 1.5rem; margin-bottom: 1rem;">Production SaaS Platforms</h3>
-        <p style="color: var(--text-secondary); margin-bottom: 1.5rem; line-height: 1.6;">
+        <h3 class="spec-title">Production SaaS Platforms</h3>
+        <p class="spec-description">
           End-to-end ownership of business-critical SaaS platforms handling real customer operations, billing, and revenue. Built for scale and stability.
         </p>
-        <div class="spec-features" style="margin-bottom: 1.5rem;">
-          <div style="display: flex; align-items: center; margin-bottom: 0.5rem;">
-            <i class="fas fa-check" style="color: #10b981; margin-right: 0.5rem;" aria-hidden="true"></i>
-            <span style="color: var(--text-color); font-size: 0.9rem;">1000+ concurrent users</span>
+        <div class="spec-features">
+          <div class="feature-item">
+            <i class="fas fa-check" aria-hidden="true"></i>
+            <span>1000+ concurrent users</span>
           </div>
-          <div style="display: flex; align-items: center; margin-bottom: 0.5rem;">
-            <i class="fas fa-check" style="color: #10b981; margin-right: 0.5rem;" aria-hidden="true"></i>
-            <span style="color: var(--text-color); font-size: 0.9rem;">99.9% uptime in production</span>
+          <div class="feature-item">
+            <i class="fas fa-check" aria-hidden="true"></i>
+            <span>99.9% uptime in production</span>
           </div>
-          <div style="display: flex; align-items: center;">
-            <i class="fas fa-check" style="color: #10b981; margin-right: 0.5rem;" aria-hidden="true"></i>
-            <span style="color: var(--text-color); font-size: 0.9rem;">Real revenue & customer data</span>
+          <div class="feature-item">
+            <i class="fas fa-check" aria-hidden="true"></i>
+            <span>Real revenue & customer data</span>
           </div>
         </div>
-        <div class="spec-example" style="background: rgba(37, 99, 235, 0.1); padding: 1rem; border-radius: 8px; border-left: 3px solid var(--primary-color);">
-          <strong style="color: var(--text-color);">Recent Examples:</strong>
-          <span style="color: var(--text-secondary); font-size: 0.9rem;">CloudMaster Pro & PFCloud - production platforms serving real hosting businesses</span>
+        <div class="spec-example saas-example">
+          <strong>Recent Examples:</strong>
+          <span>CloudMaster Pro & PFCloud - production platforms serving real hosting businesses</span>
         </div>
       </div>
 
       <!-- Business Management Systems -->
-      <div class="specialization-card" style="background: var(--bg-color); padding: 2rem; border-radius: 12px; border: 1px solid rgba(37, 99, 235, 0.2); transition: all 0.3s ease; cursor: pointer;" onmouseover="this.style.transform='translateY(-5px)'; this.style.boxShadow='0 10px 30px rgba(124, 58, 237, 0.15)'" onmouseout="this.style.transform='translateY(0)'; this.style.boxShadow='none'">
-        <div class="spec-icon" style="margin-bottom: 1.5rem;">
-          <i class="fas fa-cogs" style="font-size: 3rem; color: #7c3aed;" aria-hidden="true"></i>
+      <div class="specialization-card management-card">
+        <div class="spec-icon">
+          <i class="fas fa-cogs" aria-hidden="true"></i>
         </div>
-        <h3 style="color: #7c3aed; font-size: 1.5rem; margin-bottom: 1rem;">Business Management Systems</h3>
-        <p style="color: var(--text-secondary); margin-bottom: 1.5rem; line-height: 1.6;">
+        <h3 class="spec-title">Business Management Systems</h3>
+        <p class="spec-description">
           Complete business operation platforms handling customer management, billing, support, and reporting. Built to replace manual processes and drive efficiency.
         </p>
-        <div class="spec-features" style="margin-bottom: 1.5rem;">
-          <div style="display: flex; align-items: center; margin-bottom: 0.5rem;">
-            <i class="fas fa-check" style="color: #10b981; margin-right: 0.5rem;" aria-hidden="true"></i>
-            <span style="color: var(--text-color); font-size: 0.9rem;">Customer & vendor management</span>
+        <div class="spec-features">
+          <div class="feature-item">
+            <i class="fas fa-check" aria-hidden="true"></i>
+            <span>Customer & vendor management</span>
           </div>
-          <div style="display: flex; align-items: center; margin-bottom: 0.5rem;">
-            <i class="fas fa-check" style="color: #10b981; margin-right: 0.5rem;" aria-hidden="true"></i>
-            <span style="color: var(--text-color); font-size: 0.9rem;">Automated billing & invoicing</span>
+          <div class="feature-item">
+            <i class="fas fa-check" aria-hidden="true"></i>
+            <span>Automated billing & invoicing</span>
           </div>
-          <div style="display: flex; align-items: center;">
-            <i class="fas fa-check" style="color: #10b981; margin-right: 0.5rem;" aria-hidden="true"></i>
-            <span style="color: var(--text-color); font-size: 0.9rem;">Support ticket systems</span>
+          <div class="feature-item">
+            <i class="fas fa-check" aria-hidden="true"></i>
+            <span>Support ticket systems</span>
           </div>
         </div>
-        <div class="spec-example" style="background: rgba(124, 58, 237, 0.1); padding: 1rem; border-radius: 8px; border-left: 3px solid #7c3aed;">
-          <strong style="color: var(--text-color);">Focus Areas:</strong>
-          <span style="color: var(--text-secondary); font-size: 0.9rem;">Hosting companies, SaaS businesses, and service providers needing operational automation</span>
+        <div class="spec-example management-example">
+          <strong>Focus Areas:</strong>
+          <span>Hosting companies, SaaS businesses, and service providers needing operational automation</span>
         </div>
       </div>
 
     </div>
 
-    <div class="specialization-cta" style="text-align: center; margin-top: 3rem; padding: 2rem; background: linear-gradient(135deg, rgba(37, 99, 235, 0.05), rgba(124, 58, 237, 0.05)); border-radius: 12px;">
-      <h3 style="color: var(--text-color); margin-bottom: 1rem;">Need One of These Systems?</h3>
-      <p style="color: var(--text-secondary); margin-bottom: 1.5rem;">
+    <div class="specialization-cta">
+      <h3>Need One of These Systems?</h3>
+      <p>
         I specialize in these specific types of business-critical software. Let's discuss how I can build or enhance your operational systems.
       </p>
-      <a href="#Contact" style="display: inline-flex; align-items: center; gap: 0.5rem; padding: 1rem 2rem; background: var(--primary-color); color: white; border-radius: 50px; text-decoration: none; font-weight: 600; transition: all 0.3s ease;">
+      <a href="#Contact" class="cta-button">
         <i class="fas fa-comments" aria-hidden="true"></i>
         Discuss Your System Needs
       </a>
     </div>
   </div>
 </section>
+
+<style>
+/* What I Build Section Styles */
+.what-i-build-section {
+  padding: 5rem 5%;
+  background: var(--card-bg);
+  margin: 2rem 0;
+}
+
+.what-i-build-container {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.what-i-build-header {
+  text-align: center;
+  margin-bottom: 3rem;
+}
+
+.what-i-build-subtitle {
+  color: var(--primary-color);
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  margin-bottom: 1rem;
+  font-size: 0.9rem;
+}
+
+.what-i-build-title {
+  font-size: 2.5rem;
+  font-weight: 700;
+  margin-bottom: 1.5rem;
+  color: var(--text-color);
+}
+
+.what-i-build-description {
+  font-size: 1.1rem;
+  color: var(--text-secondary);
+  max-width: 600px;
+  margin: 0 auto;
+  line-height: 1.6;
+}
+
+.specializations-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+  gap: 2rem;
+  margin-bottom: 3rem;
+}
+
+.specialization-card {
+  background: var(--bg-color);
+  padding: 2rem;
+  border-radius: 12px;
+  border: 1px solid rgba(37, 99, 235, 0.2);
+  transition: all 0.3s ease;
+  cursor: pointer;
+  position: relative;
+}
+
+.specialization-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 30px rgba(37, 99, 235, 0.15);
+}
+
+.spec-icon {
+  margin-bottom: 1.5rem;
+}
+
+.spec-icon i {
+  font-size: 3rem;
+}
+
+.excel-card .spec-icon i {
+  color: #217346;
+}
+
+.saas-card .spec-icon i {
+  color: var(--primary-color);
+}
+
+.management-card .spec-icon i {
+  color: #7c3aed;
+}
+
+.spec-title {
+  font-size: 1.5rem;
+  margin-bottom: 1rem;
+  color: var(--primary-color);
+}
+
+.management-card .spec-title {
+  color: #7c3aed;
+}
+
+.spec-description {
+  color: var(--text-secondary);
+  margin-bottom: 1.5rem;
+  line-height: 1.6;
+}
+
+.spec-features {
+  margin-bottom: 1.5rem;
+}
+
+.feature-item {
+  display: flex;
+  align-items: center;
+  margin-bottom: 0.5rem;
+}
+
+.feature-item i {
+  color: #10b981;
+  margin-right: 0.5rem;
+  font-size: 0.9rem;
+}
+
+.feature-item span {
+  color: var(--text-color);
+  font-size: 0.9rem;
+}
+
+.spec-example {
+  padding: 1rem;
+  border-radius: 8px;
+  border-left: 3px solid;
+}
+
+.excel-example {
+  background: rgba(16, 185, 129, 0.1);
+  border-left-color: #10b981;
+}
+
+.saas-example {
+  background: rgba(37, 99, 235, 0.1);
+  border-left-color: var(--primary-color);
+}
+
+.management-example {
+  background: rgba(124, 58, 237, 0.1);
+  border-left-color: #7c3aed;
+}
+
+.spec-example strong {
+  color: var(--text-color);
+}
+
+.spec-example span {
+  color: var(--text-secondary);
+  font-size: 0.9rem;
+}
+
+.specialization-cta {
+  text-align: center;
+  padding: 2rem;
+  background: linear-gradient(135deg, rgba(37, 99, 235, 0.05), rgba(124, 58, 237, 0.05));
+  border-radius: 12px;
+}
+
+.specialization-cta h3 {
+  color: var(--text-color);
+  margin-bottom: 1rem;
+  font-size: 1.5rem;
+}
+
+.specialization-cta p {
+  color: var(--text-secondary);
+  margin-bottom: 1.5rem;
+  line-height: 1.6;
+}
+
+.cta-button {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 1rem 2rem;
+  background: var(--primary-color);
+  color: white;
+  border-radius: 50px;
+  text-decoration: none;
+  font-weight: 600;
+  transition: all 0.3s ease;
+}
+
+.cta-button:hover {
+  background: #1d4ed8;
+  transform: translateY(-2px);
+}
+
+/* Mobile Responsive Styles */
+@media (max-width: 768px) {
+  .what-i-build-section {
+    padding: 3rem 4%;
+    margin: 1rem 0;
+  }
+
+  .what-i-build-header {
+    margin-bottom: 2rem;
+  }
+
+  .what-i-build-title {
+    font-size: 2rem;
+  }
+
+  .what-i-build-description {
+    font-size: 1rem;
+  }
+
+  .specializations-grid {
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+    margin-bottom: 2rem;
+  }
+
+  .specialization-card {
+    padding: 1.5rem;
+  }
+
+  .spec-icon i {
+    font-size: 2.5rem;
+  }
+
+  .spec-title {
+    font-size: 1.3rem;
+  }
+
+  .spec-description {
+    font-size: 0.95rem;
+  }
+
+  .feature-item span {
+    font-size: 0.85rem;
+  }
+
+  .spec-example {
+    padding: 0.8rem;
+  }
+
+  .spec-example span {
+    font-size: 0.85rem;
+  }
+
+  .specialization-cta {
+    padding: 1.5rem;
+  }
+
+  .specialization-cta h3 {
+    font-size: 1.3rem;
+  }
+
+  .specialization-cta p {
+    font-size: 0.95rem;
+  }
+
+  .cta-button {
+    padding: 0.8rem 1.5rem;
+    font-size: 0.9rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .what-i-build-section {
+    padding: 2rem 3%;
+  }
+
+  .what-i-build-title {
+    font-size: 1.8rem;
+  }
+
+  .specializations-grid {
+    gap: 1rem;
+  }
+
+  .specialization-card {
+    padding: 1.2rem;
+  }
+
+  .spec-icon i {
+    font-size: 2rem;
+  }
+
+  .spec-title {
+    font-size: 1.2rem;
+  }
+
+  .specialization-cta {
+    padding: 1.2rem;
+  }
+
+  .cta-button {
+    padding: 0.7rem 1.2rem;
+    font-size: 0.85rem;
+  }
+}
+</style>
 
 <!-- Services Section -->
 <section class="services-section" id="Services">
