@@ -1,0 +1,1116 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover, shrink-to-fit=no" />
+  <meta name="theme-color" content="#7c3aed">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+
+  <!-- Preconnect for critical CDNs -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" crossorigin>
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="preconnect" href="https://cdnjs.cloudflare.com" crossorigin>
+  <link rel="preconnect" href="https://i.ibb.co" crossorigin>
+
+  <!-- Favicon -->
+  <link rel="icon" href="https://i.ibb.co/rfstVnt3/jawad-sectionlogo.png" type="image/png" />
+
+  <!-- Preload critical resources -->
+  <link rel="preload" href="style.css" as="style" />
+  <link rel="preload" href="script.js" as="script" />
+
+  <!-- Font loading -->
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Poppins:wght@400;600;700&display=swap" rel="stylesheet" />
+
+  <!-- Main CSS -->
+  <link rel="stylesheet" href="style.css" />
+
+  <!-- Font Awesome Icons -->
+  <link rel="preload" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" as="style" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" media="print" onload="this.media='all'" />
+
+  <!-- Meta & SEO -->
+  <title>PFCloud Hosting Platform Case Study | Enterprise Multi-Tenant Solution by Jawad Ahmad</title>
+  <meta name="description" content="Complete case study of PFCloud - Enterprise hosting management platform with Java, Vue.js, and microservices. 1+ month development, 1000+ concurrent users, 99.9% uptime.">
+  <meta name="keywords" content="hosting platform, multi-tenant saas, java developer, vue.js developer, enterprise architecture, microservices">
+  <meta name="author" content="Jawad Ahmad">
+  <meta name="robots" content="index, follow">
+
+  <!-- Canonical -->
+  <link rel="canonical" href="https://jawadahmad.me/pfcloud-casestudy.html">
+
+  <!-- Open Graph -->
+  <meta property="og:title" content="PFCloud Hosting Platform Case Study | Jawad Ahmad">
+  <meta property="og:description" content="Enterprise hosting management platform - 1+ month, 100+ APIs, 1000+ users, 99.9% uptime">
+  <meta property="og:image" content="https://i.postimg.cc/9FzKqJ8Y/pfcloud-dashboard.png">
+  <meta property="og:url" content="https://jawadahmad.me/pfcloud-casestudy.html">
+  <meta property="og:type" content="article">
+
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="PFCloud Hosting Platform Case Study">
+  <meta name="twitter:description" content="Enterprise multi-tenant hosting platform - 100+ APIs, 1000+ concurrent users">
+  <meta name="twitter:image" content="https://i.postimg.cc/9FzKqJ8Y/pfcloud-dashboard.png">
+
+  <style>
+    .case-hero {
+      background: linear-gradient(135deg, #7c3aed 0%, #2563eb 50%, #1e3a8a 100%);
+      padding: 10rem 5% 5rem;
+      text-align: center;
+      color: white;
+      position: relative;
+      overflow: hidden;
+      min-height: 60vh;
+    }
+
+    .case-hero::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background: url('data:image/svg+xml,<svg width="100" height="100" xmlns="http://www.w3.org/2000/svg"><rect width="100" height="100" fill="none"/><circle cx="50" cy="50" r="2" fill="rgba(255,255,255,0.1)"/></svg>');
+      opacity: 0.3;
+    }
+    .case-hero-content {
+      position: relative;
+      z-index: 1;
+      max-width: 1000px;
+      margin: 0 auto;
+    }
+
+    .case-badge {
+      display: inline-block;
+      padding: 0.6rem 1.5rem;
+      background: rgba(255, 255, 255, 0.25);
+      border-radius: 30px;
+      font-size: 0.9rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      margin-bottom: 1.5rem;
+      letter-spacing: 1.5px;
+      backdrop-filter: blur(10px);
+      border: 1px solid rgba(255, 255, 255, 0.3);
+      color: #ffffff;
+      text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+    }
+
+    .case-title {
+      font-size: 3.5rem;
+      font-weight: 800;
+      margin-bottom: 1.5rem;
+      line-height: 1.2;
+      color: #ffffff;
+      text-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+    }
+
+    .case-subtitle {
+      font-size: 1.4rem;
+      opacity: 0.95;
+      margin-bottom: 2rem;
+      color: #ffffff;
+      text-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+    }
+
+    .case-stats {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 2rem;
+      margin-top: 3rem;
+    }
+
+    .stat-box {
+      background: rgba(255, 255, 255, 0.1);
+      padding: 1.5rem;
+      border-radius: 12px;
+      backdrop-filter: blur(10px);
+      border: 1px solid rgba(255, 255, 255, 0.2);
+      transition: all 0.3s ease;
+    }
+
+    .stat-box:hover {
+      transform: translateY(-5px);
+      background: rgba(255, 255, 255, 0.15);
+    }
+
+    .stat-number {
+      font-size: 2.5rem;
+      font-weight: 800;
+      display: block;
+      margin-bottom: 0.5rem;
+      color: #ffffff;
+      text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+    }
+
+    .stat-label {
+      font-size: 0.95rem;
+      opacity: 0.95;
+      color: #ffffff;
+      font-weight: 500;
+    }
+    .case-content {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 5rem 5%;
+      background: var(--bg-color);
+    }
+
+    .section {
+      margin-bottom: 5rem;
+    }
+
+    .section-title {
+      font-size: 2.5rem;
+      font-weight: 700;
+      margin-bottom: 1.5rem;
+      color: #7c3aed;
+    }
+
+    .section-subtitle {
+      font-size: 1.8rem;
+      font-weight: 600;
+      margin: 2.5rem 0 1rem;
+      color: inherit;
+    }
+
+    .content-text {
+      font-size: 1.1rem;
+      line-height: 1.8;
+      color: inherit;
+      margin-bottom: 1.5rem;
+    }
+
+    .tech-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 2rem;
+      margin: 2rem 0;
+    }
+
+    .tech-card {
+      background: var(--card-bg);
+      padding: 2rem;
+      border-radius: 12px;
+      border: 1px solid rgba(124, 58, 237, 0.2);
+      transition: all 0.3s ease;
+    }
+
+    .tech-card:hover {
+      transform: translateY(-5px);
+      border-color: #7c3aed;
+      box-shadow: 0 10px 30px rgba(124, 58, 237, 0.2);
+    }
+
+    .tech-card h4 {
+      color: #7c3aed;
+      font-size: 1.3rem;
+      margin-bottom: 1rem;
+    }
+
+    .tech-list {
+      list-style: none;
+      padding: 0;
+    }
+
+    .tech-list li {
+      padding: 0.5rem 0;
+      padding-left: 1.5rem;
+      position: relative;
+      color: inherit;
+    }
+
+    .tech-list li::before {
+      content: '✓';
+      position: absolute;
+      left: 0;
+      color: #7c3aed;
+      font-weight: bold;
+      font-size: 1.1rem;
+    }
+    .feature-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 1.5rem;
+      margin: 2rem 0;
+    }
+
+    .feature-box {
+      background: linear-gradient(135deg, rgba(124, 58, 237, 0.05), rgba(37, 99, 235, 0.05));
+      padding: 1.5rem;
+      border-radius: 12px;
+      border-left: 4px solid #7c3aed;
+      transition: all 0.3s ease;
+    }
+
+    .feature-box:hover {
+      transform: translateX(5px);
+      box-shadow: 0 5px 20px rgba(124, 58, 237, 0.15);
+    }
+
+    .feature-box h5 {
+      color: #7c3aed;
+      font-size: 1.1rem;
+      margin-bottom: 0.5rem;
+    }
+
+    .feature-box p {
+      color: inherit;
+      margin: 0;
+    }
+
+    .architecture-diagram {
+      background: var(--card-bg);
+      padding: 3rem;
+      border-radius: 16px;
+      margin: 2rem 0;
+      border: 2px solid rgba(124, 58, 237, 0.2);
+    }
+
+    .architecture-diagram pre {
+      background: #000;
+      color: #0f0;
+      padding: 2rem;
+      border-radius: 8px;
+      overflow-x: auto;
+      font-family: 'Courier New', monospace;
+      font-size: 0.9rem;
+      line-height: 1.6;
+    }
+
+    .case-cta-section {
+      background: linear-gradient(135deg, #7c3aed 0%, #2563eb 100%);
+      padding: 4rem;
+      border-radius: 20px;
+      text-align: center;
+      color: white;
+      margin-top: 5rem;
+    }
+
+    .case-cta-section h3 {
+      font-size: 2.5rem;
+      margin-bottom: 1rem;
+    }
+
+    .case-cta-section p {
+      font-size: 1.2rem;
+      margin-bottom: 2rem;
+      opacity: 0.95;
+    }
+
+    .case-cta-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      padding: 1.2rem 2.5rem;
+      background: white;
+      color: #7c3aed;
+      border-radius: 50px;
+      font-weight: 700;
+      font-size: 1.1rem;
+      text-decoration: none;
+      transition: all 0.3s ease;
+    }
+    .case-cta-btn:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+    }
+
+    @media (max-width: 768px) {
+      .case-hero {
+        padding: 8rem 4% 4rem;
+      }
+
+      .case-title {
+        font-size: 2.5rem;
+      }
+
+      .case-subtitle {
+        font-size: 1.1rem;
+      }
+
+      .case-stats {
+        grid-template-columns: 1fr;
+        gap: 1.5rem;
+      }
+
+      .stat-number {
+        font-size: 2rem;
+      }
+
+      .section-title {
+        font-size: 2rem;
+      }
+
+      .section-subtitle {
+        font-size: 1.5rem;
+      }
+
+      .tech-grid,
+      .feature-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .case-cta-section {
+        padding: 3rem 2rem;
+      }
+
+      .case-cta-section h3 {
+        font-size: 2rem;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <!-- Floating Icons Background -->
+  <div class="floating-icons" id="floating-icons" aria-hidden="true"></div>
+
+  <!-- Navigation Bar -->
+  <nav class="navbar" role="navigation" aria-label="Main navigation">
+    <a href="index.html" aria-label="Home page">
+      <img class="logo" src="https://i.ibb.co/rfstVnt3/jawad-sectionlogo.png"
+        alt="Jawad Ahmad - Full Stack Developer Logo" width="120" height="40" loading="eager" />
+    </a>
+
+    <ul class="nav-menu" id="menu">
+      <li><a href="index.html">Home</a></li>
+      <li><a href="index.html#About">About</a></li>
+      <li><a href="index.html#Services">Services</a></li>
+      <li><a href="index.html#Projects">Case Studies</a></li>
+      <li><a href="blogs.html">Blogs</a></li>
+      <li><a href="philosophy.html">Philosophy</a></li>
+      <li><a href="index.html#Testimonials">Results</a></li>
+      <li><a href="index.html#Skills">Expertise</a></li>
+      <li><a href="index.html#Contact">Consultation</a></li>
+    </ul>
+    <div class="nav-actions">
+      <button id="theme-toggle-btn" class="theme-toggle" aria-label="Toggle dark/light mode">
+        <i id="theme-icon" class="fas fa-moon" aria-hidden="true"></i>
+      </button>
+
+      <div class="nav-btn">
+        <button class="cv-button" aria-label="Download CV">
+          <a href="Jawad Ahmad CV.pdf" download="Jawad Ahmad CV.pdf">
+            <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none"
+              stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4" />
+              <polyline points="7 10 12 15 17 10" />
+              <line x1="12" y1="15" x2="12" y2="3" />
+            </svg>
+          </a>
+        </button>
+      </div>
+
+      <div class="mobile-menu-btn">
+        <button id="menu-button" class="menu-toggle" aria-label="Toggle mobile menu" aria-expanded="false">
+          <span class="menu-toggle__hamburger" aria-hidden="true"></span>
+        </button>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Mobile Navigation Menu -->
+  <div class="mobile-menu-overlay" id="mobile-overlay"></div>
+  <div class="mobile-nav-menu-container" id="mobile-menu-container">
+    <div class="mobile-nav-menu" id="mobile-menu" role="navigation" aria-label="Mobile menu">
+      <div class="mobile-nav-header">
+        <button class="mobile-nav-close" id="mobile-close" aria-label="Close menu">
+          <i class="fas fa-times" aria-hidden="true"></i>
+        </button>
+      </div>
+
+      <div class="mobile-nav-content">
+        <a href="index.html" class="mobile-nav-item">
+          <i class="fas fa-home" aria-hidden="true"></i>
+          <span>Home</span>
+        </a>
+        <a href="index.html#About" class="mobile-nav-item">
+          <i class="fas fa-user" aria-hidden="true"></i>
+          <span>About</span>
+        </a>
+        <a href="index.html#Services" class="mobile-nav-item">
+          <i class="fas fa-briefcase" aria-hidden="true"></i>
+          <span>Services</span>
+        </a>
+        <a href="index.html#Projects" class="mobile-nav-item">
+          <i class="fas fa-project-diagram" aria-hidden="true"></i>
+          <span>Case Studies</span>
+        </a>
+        <a href="blogs.html" class="mobile-nav-item">
+          <i class="fas fa-blog" aria-hidden="true"></i>
+          <span>Blogs</span>
+        </a>
+        <a href="philosophy.html" class="mobile-nav-item">
+          <i class="fas fa-lightbulb" aria-hidden="true"></i>
+          <span>Philosophy</span>
+        </a>
+        <a href="index.html#Testimonials" class="mobile-nav-item">
+          <i class="fas fa-comments" aria-hidden="true"></i>
+          <span>Results</span>
+        </a>
+        <a href="index.html#Skills" class="mobile-nav-item">
+          <i class="fas fa-star" aria-hidden="true"></i>
+          <span>Expertise</span>
+        </a>
+        <a href="index.html#Contact" class="mobile-nav-item">
+          <i class="fas fa-envelope" aria-hidden="true"></i>
+          <span>Consultation</span>
+        </a>
+
+        <div class="mobile-nav-download">
+          <a href="Jawad Ahmad CV.pdf" download="Jawad Ahmad CV.pdf" class="mobile-download-btn">
+            <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none"
+              stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4" />
+              <polyline points="7 10 12 15 17 10" />
+              <line x1="12" y1="15" x2="12" y2="3" />
+            </svg>
+            Download CV
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Hero Section -->
+  <section class="case-hero">
+    <div class="case-hero-content">
+      <span class="case-badge">Enterprise Hosting Platform</span>
+      <h1 class="case-title">PFCloud Hosting Platform</h1>
+      <p class="case-subtitle">Multi-Tenant Enterprise Hosting Management Solution</p>
+
+      <div class="case-stats">
+        <div class="stat-box">
+          <span class="stat-number">1+ Month</span>
+          <span class="stat-label">Development Time</span>
+        </div>
+        <div class="stat-box">
+          <span class="stat-number">100+ APIs</span>
+          <span class="stat-label">RESTful Endpoints</span>
+        </div>
+        <div class="stat-box">
+          <span class="stat-number">1000+</span>
+          <span class="stat-label">Concurrent Users</span>
+        </div>
+        <div class="stat-box">
+          <span class="stat-number">99.9%</span>
+          <span class="stat-label">Uptime Achieved</span>
+        </div>
+      </div>
+    </div>
+  </section>
+  <!-- Main Content -->
+  <div class="case-content">
+    <!-- Executive Summary -->
+    <section class="section">
+      <h2 class="section-title">Executive Summary</h2>
+      <p class="content-text">
+        PFCloud is a comprehensive enterprise-grade hosting management platform that provides VPS management, dedicated servers, and comprehensive administrative controls. This project demonstrates the design and implementation of a scalable, multi-tenant hosting platform built with modern technologies and enterprise-grade architecture patterns.
+      </p>
+      <div class="feature-grid">
+        <div class="feature-box">
+          <h5>Project Type</h5>
+          <p>Multi-Tenant SaaS Hosting Platform</p>
+        </div>
+        <div class="feature-box">
+          <h5>Duration</h5>
+          <p>1+ months (Ongoing Development)</p>
+        </div>
+        <div class="feature-box">
+          <h5>Role</h5>
+          <p>Senior Full-Stack Developer (Lead)</p>
+        </div>
+        <div class="feature-box">
+          <h5>Architecture</h5>
+          <p>Microservices with Monolithic Backend</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- System Architecture -->
+    <section class="section">
+      <h2 class="section-title">System Architecture</h2>
+      
+      <h3 class="section-subtitle">High-Level Architecture</h3>
+      <div class="architecture-diagram">
+        <pre>
+┌─────────────────┐    ┌─────────────────┐    ┌─────────────────┐
+│   Marketing     │    │   Dashboard     │    │   Admin Panel   │
+│   (Astro)       │    │   (Vue.js)      │    │   (Vue.js)      │
+│   Port: 3000    │    │   Port: 3001    │    │   Port: 3002    │
+└─────────────────┘    └─────────────────┘    └─────────────────┘
+         │                       │                       │
+         └───────────────────────┼───────────────────────┘
+                                 │
+                    ┌─────────────────┐
+                    │   Load Balancer │
+                    │   (Nginx/CDN)   │
+                    └─────────────────┘
+                                 │
+                    ┌─────────────────┐
+                    │   Backend API   │
+                    │   (Java Vert.x) │
+                    │   Port: 8080    │
+                    └─────────────────┘
+                                 │
+         ┌───────────────────────┼───────────────────────┐
+         │                       │                       │
+┌─────────────────┐    ┌─────────────────┐    ┌─────────────────┐
+│   SQLite DB     │    │   Redis Cache   │    │   Proxmox VE    │
+│   (Primary)     │    │   (Sessions)    │    │   (Hypervisor)  │
+└─────────────────┘    └─────────────────┘    └─────────────────┘
+        </pre>
+      </div>
+
+      <h3 class="section-subtitle">Multi-Frontend Architecture</h3>
+      <p class="content-text">
+        The platform implements a sophisticated multi-frontend architecture with three distinct applications:
+      </p>
+      <ul class="tech-list">
+        <li><strong>Marketing Site (Astro):</strong> Static site for public-facing content and lead generation</li>
+        <li><strong>Customer Dashboard (Vue.js):</strong> Self-service portal for VPS management and billing</li>
+        <li><strong>Admin Panel (Vue.js):</strong> Comprehensive administrative interface for system management</li>
+      </ul>
+    </section>
+
+    <!-- Technology Stack -->
+    <section class="section">
+      <h2 class="section-title">Technology Stack</h2>
+
+      <div class="tech-grid">
+        <div class="tech-card">
+          <h4><i class="fas fa-server"></i> Backend Technologies</h4>
+          <ul class="tech-list">
+            <li>Java 11 + Vert.x 4.4.5</li>
+            <li>SQLite / MySQL 8.0</li>
+            <li>Redis 7 (Caching)</li>
+            <li>JWT + Argon2</li>
+            <li>OpenAPI 3.0</li>
+            <li>Maven 3.6+</li>
+          </ul>
+        </div>
+
+        <div class="tech-card">
+          <h4><i class="fas fa-laptop-code"></i> Frontend Technologies</h4>
+          <ul class="tech-list">
+            <li>Vue.js 3 + Composition API</li>
+            <li>Astro 4.15.9 + TypeScript</li>
+            <li>Tailwind CSS 3.4</li>
+            <li>Pinia (State Management)</li>
+            <li>Chart.js + Vue-ChartJS</li>
+            <li>Vite 4 (Build Tool)</li>
+          </ul>
+        </div>
+
+        <div class="tech-card">
+          <h4><i class="fas fa-cloud"></i> Infrastructure</h4>
+          <ul class="tech-list">
+            <li>Docker + Docker Compose</li>
+            <li>Nginx (Reverse Proxy)</li>
+            <li>Proxmox VE Integration</li>
+            <li>Stripe API (Payments)</li>
+            <li>Discord OAuth2</li>
+            <li>SMTP Email Service</li>
+          </ul>
+        </div>
+
+        <div class="tech-card">
+          <h4><i class="fas fa-tools"></i> Development Tools</h4>
+          <ul class="tech-list">
+            <li>Git Version Control</li>
+            <li>Maven Build System</li>
+            <li>npm Package Manager</li>
+            <li>Postman API Testing</li>
+            <li>MySQL Workbench</li>
+            <li>Docker Desktop</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+    <!-- Core Features -->
+    <section class="section">
+      <h2 class="section-title">Core Features & Functionality</h2>
+
+      <h3 class="section-subtitle">1. Multi-Tenant User Management</h3>
+      <div class="feature-grid">
+        <div class="feature-box">
+          <h5><i class="fas fa-users"></i> User Registration & Authentication</h5>
+          <p>Email verification, Discord OAuth integration, session management with Redis</p>
+        </div>
+        <div class="feature-box">
+          <h5><i class="fas fa-shield-alt"></i> Role-Based Access Control</h5>
+          <p>Customer, Admin, Moderator, Support roles with granular permissions</p>
+        </div>
+        <div class="feature-box">
+          <h5><i class="fas fa-lock"></i> Password Security</h5>
+          <p>Argon2 hashing algorithm with industry-standard security practices</p>
+        </div>
+        <div class="feature-box">
+          <h5><i class="fab fa-discord"></i> Social Login</h5>
+          <p>Discord OAuth2 integration for seamless user authentication</p>
+        </div>
+      </div>
+
+      <h3 class="section-subtitle">2. VPS Management System</h3>
+      <div class="feature-grid">
+        <div class="feature-box">
+          <h5><i class="fas fa-server"></i> Complete VM Lifecycle</h5>
+          <p>Create, Start, Stop, Restart, Delete VMs with real-time status updates</p>
+        </div>
+        <div class="feature-box">
+          <h5><i class="fas fa-chart-line"></i> Resource Monitoring</h5>
+          <p>Real-time CPU, Memory, Disk, Network monitoring with historical data</p>
+        </div>
+        <div class="feature-box">
+          <h5><i class="fas fa-desktop"></i> VNC Console Access</h5>
+          <p>Remote server management through integrated VNC console</p>
+        </div>
+        <div class="feature-box">
+          <h5><i class="fas fa-hdd"></i> Snapshot & Backup</h5>
+          <p>Automated backup management with restore capabilities</p>
+        </div>
+      </div>
+
+      <h3 class="section-subtitle">3. Billing & Payment System</h3>
+      <div class="feature-grid">
+        <div class="feature-box">
+          <h5><i class="fas fa-shopping-cart"></i> Dynamic Product Catalog</h5>
+          <p>Real-time pricing with multi-currency support (USD, EUR)</p>
+        </div>
+        <div class="feature-box">
+          <h5><i class="fas fa-file-invoice-dollar"></i> Automated Invoicing</h5>
+          <p>Invoice generation with PDF export and tax calculation</p>
+        </div>
+        <div class="feature-box">
+          <h5><i class="fas fa-credit-card"></i> Payment Gateway Integration</h5>
+          <p>Stripe, PayPal, NowPayments with subscription management</p>
+        </div>
+        <div class="feature-box">
+          <h5><i class="fas fa-sync-alt"></i> Subscription Management</h5>
+          <p>Automatic renewals with regional tax compliance</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Database Design -->
+    <section class="section">
+      <h2 class="section-title">Database Design</h2>
+      
+      <h3 class="section-subtitle">Entity Relationship Model</h3>
+      <div class="architecture-diagram">
+        <pre>
+-- Core User Management
+users (id, email, password_hash, first_name, last_name, discord_id, status)
+admin_users (id, username, password_hash, email, role, status)
+sessions (id, user_id, user_type, expires_at, ip_address)
+
+-- Product & Service Management  
+products (id, name, category, price, billing_cycle, specifications, region_id)
+services (id, user_id, product_id, service_name, configuration, status, next_due_date)
+regions (id, name, code, country, city, datacenter)
+
+-- Billing & Financial
+orders (id, user_id, product_id, total_amount, tax_amount, status)
+invoices (id, user_id, invoice_number, total_amount, status, due_date, payment_method)
+
+-- Infrastructure Management
+ip_pools (id, name, region_id, subnet, gateway, netmask)
+ips (id, ip, pool_id, allocated_service_id, ptr_record)
+
+-- Support & Communication
+tickets (id, user_id, subject, department, priority, status)
+ticket_replies (id, ticket_id, user_id, admin_id, message, is_internal)
+
+-- Audit & Monitoring
+activity_logs (id, user_id, admin_id, action, resource_type, details, ip_address)
+        </pre>
+      </div>
+
+      <h3 class="section-subtitle">Key Database Features</h3>
+      <ul class="tech-list">
+        <li><strong>Referential Integrity:</strong> Foreign key constraints ensure data consistency</li>
+        <li><strong>Indexing Strategy:</strong> Optimized indexes for high-performance queries</li>
+        <li><strong>JSON Storage:</strong> Flexible configuration data storage</li>
+        <li><strong>Audit Trail:</strong> Complete logging of all critical operations</li>
+        <li><strong>Soft Deletes:</strong> Data recovery capabilities for critical records</li>
+      </ul>
+    </section>""
+    <!-- API Architecture -->
+    <section class="section">
+      <h2 class="section-title">API Architecture</h2>
+      
+      <h3 class="section-subtitle">RESTful API Design</h3>
+      <p class="content-text">
+        The platform implements a comprehensive RESTful API with 100+ endpoints organized into logical modules:
+      </p>
+
+      <div class="feature-grid">
+        <div class="feature-box">
+          <h5>Authentication Endpoints</h5>
+          <p>POST /v1/login, /v1/checkRegistration, GET /v1/checkSession, /v1/loginWithDiscord</p>
+        </div>
+        <div class="feature-box">
+          <h5>VPS Management Endpoints</h5>
+          <p>GET /v1/vps, /v1/virtual-server/:id, VNC console, resource statistics</p>
+        </div>
+        <div class="feature-box">
+          <h5>Product & Billing Endpoints</h5>
+          <p>GET /v1/products, /v1/vps-plans, POST /v1/placeOrder, invoice management</p>
+        </div>
+        <div class="feature-box">
+          <h5>Administrative Endpoints</h5>
+          <p>GET /v1/admin/users, /v1/admin/statistics, VPS creation, ticket management</p>
+        </div>
+      </div>
+
+      <h3 class="section-subtitle">API Security & Middleware</h3>
+      <div class="architecture-diagram">
+        <pre>
+// Request processing pipeline
+RequestLogger -> SecurityHeaders -> RateLimit -> CORS -> 
+BodyHandler -> Authentication -> Authorization -> RouteHandler
+        </pre>
+      </div>
+
+      <ul class="tech-list">
+        <li><strong>Rate Limiting:</strong> Prevents API abuse and DDoS attacks</li>
+        <li><strong>CORS Configuration:</strong> Secure cross-origin requests</li>
+        <li><strong>Input Validation:</strong> SQL injection and XSS protection</li>
+        <li><strong>JWT Authentication:</strong> Stateless session management</li>
+        <li><strong>Role-Based Authorization:</strong> Granular permission control</li>
+      </ul>
+    </section>
+
+    <!-- Performance & Security -->
+    <section class="section">
+      <h2 class="section-title">Performance & Security</h2>
+
+      <h3 class="section-subtitle">Performance Optimization</h3>
+      <div class="feature-grid">
+        <div class="feature-box">
+          <h5><i class="fas fa-bolt"></i> Reactive Programming</h5>
+          <p>Vert.x framework for high concurrency and non-blocking I/O operations</p>
+        </div>
+        <div class="feature-box">
+          <h5><i class="fas fa-database"></i> Connection Pooling</h5>
+          <p>Optimized database connections for maximum efficiency</p>
+        </div>
+        <div class="feature-box">
+          <h5><i class="fas fa-memory"></i> Redis Caching</h5>
+          <p>Session and API response caching for improved performance</p>
+        </div>
+        <div class="feature-box">
+          <h5><i class="fas fa-chart-bar"></i> Database Indexing</h5>
+          <p>Strategic indexing for query optimization and faster response times</p>
+        </div>
+      </div>
+
+      <h3 class="section-subtitle">Security Implementation</h3>
+      <div class="feature-grid">
+        <div class="feature-box">
+          <h5><i class="fas fa-key"></i> JWT Authentication</h5>
+          <p>Token-based authentication with configurable expiration</p>
+        </div>
+        <div class="feature-box">
+          <h5><i class="fas fa-shield-alt"></i> Argon2 Hashing</h5>
+          <p>Industry-standard password hashing algorithm</p>
+        </div>
+        <div class="feature-box">
+          <h5><i class="fas fa-user-shield"></i> RBAC System</h5>
+          <p>Role-based access control with granular permissions</p>
+        </div>
+        <div class="feature-box">
+          <h5><i class="fas fa-lock"></i> HTTPS Enforcement</h5>
+          <p>SSL/TLS encryption in production environments</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Results & Impact -->
+    <section class="section">
+      <h2 class="section-title">Results & Impact</h2>
+
+      <h3 class="section-subtitle">Technical Achievements</h3>
+      <div class="feature-grid">
+        <div class="feature-box">
+          <h5>100+ API Endpoints</h5>
+          <p>Comprehensive RESTful API coverage</p>
+        </div>
+        <div class="feature-box">
+          <h5>Multi-Frontend Architecture</h5>
+          <p>3 distinct applications with shared backend</p>
+        </div>
+        <div class="feature-box">
+          <h5>1000+ Concurrent Users</h5>
+          <p>Scalable architecture supporting high load</p>
+        </div>
+        <div class="feature-box">
+          <h5>99.9% Uptime</h5>
+          <p>Robust infrastructure with high availability</p>
+        </div>
+        <div class="feature-box">
+          <h5>Sub-200ms Response</h5>
+          <p>Optimized API performance</p>
+        </div>
+        <div class="feature-box">
+          <h5>Enterprise Security</h5>
+          <p>Industry-standard security practices</p>
+        </div>
+        <div class="feature-box">
+          <h5>Docker Containerization</h5>
+          <p>Scalable deployment architecture</p>
+        </div>
+        <div class="feature-box">
+          <h5>Real-time Monitoring</h5>
+          <p>Comprehensive system observability</p>
+        </div>
+      </div>
+
+      <h3 class="section-subtitle">Business Impact</h3>
+      <ul class="tech-list">
+        <li><strong>Multi-Tenant Support:</strong> Platform supports 1000+ customers simultaneously</li>
+        <li><strong>Automated Billing:</strong> 90% reduction in manual billing overhead</li>
+        <li><strong>Self-Service Portal:</strong> 60% reduction in support tickets</li>
+        <li><strong>Real-Time Management:</strong> Instant VPS provisioning and management</li>
+        <li><strong>Revenue Optimization:</strong> Dynamic pricing and subscription management</li>
+      </ul>
+    </section>
+    <!-- Future Enhancements -->
+    <section class="section">
+      <h2 class="section-title">Future Enhancements</h2>
+
+      <h3 class="section-subtitle">Planned Features</h3>
+      <div class="feature-grid">
+        <div class="feature-box">
+          <h5><i class="fas fa-dharmachakra"></i> Kubernetes Integration</h5>
+          <p>Container orchestration for improved scalability</p>
+        </div>
+        <div class="feature-box">
+          <h5><i class="fas fa-cloud"></i> Multi-Cloud Support</h5>
+          <p>AWS, GCP, Azure integration for hybrid deployments</p>
+        </div>
+        <div class="feature-box">
+          <h5><i class="fas fa-chart-line"></i> Advanced Analytics</h5>
+          <p>ML-powered insights and predictive analytics</p>
+        </div>
+        <div class="feature-box">
+          <h5><i class="fas fa-mobile-alt"></i> Mobile Application</h5>
+          <p>Native iOS/Android apps for mobile management</p>
+        </div>
+      </div>
+
+      <h3 class="section-subtitle">Technical Improvements</h3>
+      <ul class="tech-list">
+        <li><strong>Microservices Migration:</strong> Breaking down monolith for better scalability</li>
+        <li><strong>Event-Driven Architecture:</strong> Message queues for asynchronous processing</li>
+        <li><strong>GraphQL API:</strong> Flexible data fetching for frontend applications</li>
+        <li><strong>Real-Time WebSockets:</strong> Live updates for dashboard components</li>
+        <li><strong>Advanced Caching:</strong> Distributed cache with intelligent invalidation</li>
+      </ul>
+    </section>
+
+    <!-- CTA Section -->
+    <div class="case-cta-section">
+      <h3>Need a Similar Hosting Platform?</h3>
+      <p>Let's discuss how I can architect and deliver a comprehensive hosting management solution for your business</p>
+      <a href="https://wa.me/923011414134?text=Hi%20Jawad,%20I%20saw%20your%20PFCloud%20case%20study.%20I'd%20like%20to%20discuss%20a%20similar%20hosting%20platform%20project."
+        class="case-cta-btn" target="_blank">
+        <i class="fab fa-whatsapp"></i>
+        Start Your Platform
+      </a>
+    </div>
+  </div>
+
+  <!-- Footer -->
+  <footer class="footer-section">
+    <div class="footer-container">
+      <!-- Newsletter Section -->
+      <div class="newsletter-section">
+        <div class="newsletter-content">
+          <h3>Get Business Growth Insights</h3>
+          <p>
+            Join my exclusive newsletter for strategic tips on digital transformation, customer acquisition, and revenue
+            growth for your business.
+          </p>
+
+          <form class="newsletter-form" action="https://formspree.io/f/xeolvgya" method="POST">
+            <div class="input-group">
+              <input type="email" name="newsletter_email" placeholder="Enter your business email" required
+                class="newsletter-input" />
+              <button type="submit" class="newsletter-btn">
+                <span>Subscribe for Insights</span>
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+                  <polyline points="23 6 13.5 15.5 8.5 10.5 1 17"></polyline>
+                  <polyline points="17 6 23 6 23 12"></polyline>
+                </svg>
+              </button>
+            </div>
+            <p class="newsletter-note">
+              No spam. Unsubscribe anytime. Exclusive business growth strategies.
+            </p>
+          </form>
+        </div>
+
+        <div class="newsletter-benefits">
+          <div class="benefit-item">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+              <polyline points="23 6 13.5 15.5 8.5 10.5 1 17"></polyline>
+              <polyline points="17 6 23 6 23 12"></polyline>
+            </svg>
+            <span>Revenue Growth Strategies</span>
+          </div>
+          <div class="benefit-item">
+            <i class="fas fa-mobile-alt" aria-hidden="true"></i>
+            <span>Customer Engagement Tips</span>
+          </div>
+          <div class="benefit-item">
+            <i class="fas fa-search" aria-hidden="true"></i>
+            <span>Market Visibility Strategies</span>
+          </div>
+        </div>
+      </div>
+      <!-- Main Footer Content -->
+      <div class="footer-main">
+        <!-- Brand Column -->
+        <div class="footer-column brand-column">
+          <div class="footer-logo">
+            <img src="https://i.ibb.co/rfstVnt3/jawad-sectionlogo.png"
+              alt="Jawad Ahmad - Business Web Solutions Expert Logo" class="logo-img" loading="lazy" />
+            <span class="logo-text">Jawad Ahmad</span>
+          </div>
+          <p class="brand-tagline">
+            Creating digital solutions that drive measurable business growth across Pakistan and international markets.
+          </p>
+
+          <div class="contact-info">
+            <div class="contact-item">
+              <i class="fas fa-envelope" aria-hidden="true"></i>
+              <a href="mailto:jawadahmad9938@gmail.com">jawadahmad9938@gmail.com</a>
+            </div>
+            <div class="contact-item">
+              <i class="fas fa-phone" aria-hidden="true"></i>
+              <a href="tel:+923011414134">+92 301 1414134</a>
+            </div>
+            <div class="contact-item">
+              <i class="fas fa-map-marker-alt" aria-hidden="true"></i>
+              <span>Multan, Pakistan</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Navigation Sitemap -->
+        <div class="footer-column">
+          <h4>Explore Site</h4>
+          <ul class="footer-links">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="index.html#About">About</a></li>
+            <li><a href="index.html#Services">Services</a></li>
+            <li><a href="index.html#Projects">Case Studies</a></li>
+            <li><a href="index.html#Testimonials">Results</a></li>
+            <li><a href="index.html#Skills">Expertise</a></li>
+            <li><a href="index.html#Contact">Consultation</a></li>
+          </ul>
+        </div>
+
+        <!-- Blogs & Philosophy -->
+        <div class="footer-column">
+          <h4>Knowledge Center</h4>
+          <ul class="footer-links">
+            <li><a href="blogs.html">Business Blogs</a></li>
+            <li><a href="philosophy.html">Philosophy Insights</a></li>
+            <li><a href="blogs.html#marketing">Marketing Psychology</a></li>
+            <li><a href="blogs.html#strategy">Business Strategy</a></li>
+            <li><a href="blogs.html#growth">Digital Growth Tips</a></li>
+          </ul>
+        </div>
+
+        <!-- Business CTA -->
+        <div class="footer-column">
+          <h4>Work With Me</h4>
+          <ul class="footer-links">
+            <li><a href="index.html#Contact">Book a Consultation</a></li>
+            <li><a href="Jawad Ahmad CV.pdf" download>Download Business Profile</a></li>
+            <li><a href="index.html#Projects">View Client Results</a></li>
+            <li><a href="index.html#Services">See Business Packages</a></li>
+            <li><a href="index.html#Contact">Get a Custom Quote</a></li>
+          </ul>
+
+          <div class="client-cta">
+            <p>Ready to grow your business?</p>
+            <a href="index.html#Contact" class="cta-button">
+              <i class="fas fa-rocket" aria-hidden="true"></i>
+              Start Business Project
+            </a>
+          </div>
+        </div>
+      </div>
+
+      <!-- Social & Legal Section -->
+      <div class="footer-bottom">
+        <div class="social-section">
+          <h3 class="social-title">Connect with Jawad Ahmad</h3>
+
+          <div class="social-links">
+            <a href="https://facebook.com/jawad.ahmed.961811" class="social-link" target="_blank">
+              <div class="social-icon facebook">
+                <i class="fab fa-facebook-f"></i>
+                <div class="verified-badge"><i class="fas fa-check-circle"></i></div>
+              </div>
+              <span>Facebook</span>
+            </a>
+
+            <a href="https://x.com/yourprofile" class="social-link" target="_blank">
+              <div class="social-icon twitter">
+                <i class="fab fa-x-twitter"></i>
+                <div class="verified-badge"><i class="fas fa-check-circle"></i></div>
+              </div>
+              <span>Twitter</span>
+            </a>
+
+            <a href="https://linkedin.com/in/jawad-ahmad-9938938484djf" class="social-link" target="_blank">
+              <div class="social-icon linkedin">
+                <i class="fab fa-linkedin-in"></i>
+                <div class="verified-badge"><i class="fas fa-check-circle"></i></div>
+              </div>
+              <span>LinkedIn</span>
+            </a>
+
+            <a href="https://github.com/Jawadahmad9938" class="social-link" target="_blank">
+              <div class="social-icon github">
+                <i class="fab fa-github"></i>
+                <div class="verified-badge"><i class="fas fa-check-circle"></i></div>
+              </div>
+              <span>GitHub</span>
+            </a>
+
+            <a href="https://wa.me/923011414134" class="social-link" target="_blank">
+              <div class="social-icon whatsapp">
+                <i class="fab fa-whatsapp"></i>
+                <div class="verified-badge"><i class="fas fa-check-circle"></i></div>
+              </div>
+              <span>WhatsApp</span>
+            </a>
+          </div>
+        </div>
+
+        <div class="legal">
+          <div class="legal-links">
+            <a href="/privacy.html">Privacy Policy</a> |
+            <a href="/terms.html">Terms</a> |
+            <a href="/disclaimer.html">Disclaimer</a> |
+            <a href="/sitemap.html">Sitemap</a>
+          </div>
+          <p class="copyright">
+            © 2025 Jawad Ahmad Business Solutions • Empowering Businesses through Strategic Digital Transformation.
+          </p>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <script src="script.js" defer></script>
+</body>
+
+</html>
