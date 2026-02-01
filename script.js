@@ -63,39 +63,107 @@ function initHeroThreeJS() {
 }
 
 // ===========================
-// Floating Icons - Mobile Optimized
+// Floating Icons - Enhanced with More Technologies
 // ===========================
 function initFloatingIcons() {
   const container = document.getElementById("floating-icons");
   if (!container) return;
 
-  // Reduce floating icons on mobile for better performance
-  const iconCount = isMobile ? 10 : 25;
+  // Increase floating icons count for better visual effect
+  const iconCount = isMobile ? 20 : 40;
+  
+  // All technologies you're expert in
   const icons = [
+    // Core Web Technologies
     "/img/html.svg",
-    "/img/css-3.svg",
+    "/img/css-3.svg", 
     "/img/javascript.svg",
     "/img/tailwind.svg",
-    "/img/node-js (1).svg",
+    
+    // Frontend Frameworks & Libraries
+    "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/react/react-original.svg",
+    "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/nextjs/nextjs-original.svg",
+    "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/vuejs/vuejs-original.svg",
+    
+    // Backend Technologies
+    "/img/node-js.svg",
+    "/img/express.svg",
+    "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/java/java-original.svg",
+    
+    // Databases
+    "/img/mongodb.svg",
+    "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/postgresql/postgresql-original.svg",
+    "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/mysql/mysql-original.svg",
+    "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/redis/redis-original.svg",
+    
+    // Modern Technologies
+    "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/typescript/typescript-original.svg",
+    "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/supabase/supabase-original.svg",
+    
+    // DevOps & Tools
+    "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/docker/docker-original.svg",
+    "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/nginx/nginx-original.svg",
+    "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/git/git-original.svg",
+    
+    // Cloud & Deployment
+    "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/vercel/vercel-original.svg",
+    "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/npm/npm-original-wordmark.svg",
+    
+    // Additional Technologies
+    "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/php/php-original.svg",
+    "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/python/python-original.svg",
+    "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/figma/figma-original.svg",
+    
+    // Excel & Business Tools (using Font Awesome classes as data attributes)
+    "excel-icon", // Special case for Excel
+    "chart-icon", // For analytics
+    "database-icon", // For data management
   ];
 
   for (let i = 0; i < iconCount; i++) {
-    const icon = document.createElement("img");
-    icon.src = icons[Math.floor(Math.random() * icons.length)];
-    icon.className = "floating-icon";
-    icon.style.left = `${Math.random() * 100}%`;
-    icon.style.top = `${Math.random() * 100}%`;
-    icon.style.animationDelay = `${Math.random() * 5}s`;
-    icon.loading = "lazy";
-    container.appendChild(icon);
+    const iconElement = document.createElement("div");
+    const selectedIcon = icons[Math.floor(Math.random() * icons.length)];
+    
+    // Handle special Font Awesome icons
+    if (selectedIcon === "excel-icon") {
+      iconElement.innerHTML = '<i class="fas fa-file-excel" style="font-size: 32px; color: #217346;"></i>';
+      iconElement.className = "floating-icon fa-icon";
+    } else if (selectedIcon === "chart-icon") {
+      iconElement.innerHTML = '<i class="fas fa-chart-line" style="font-size: 32px; color: #10b981;"></i>';
+      iconElement.className = "floating-icon fa-icon";
+    } else if (selectedIcon === "database-icon") {
+      iconElement.innerHTML = '<i class="fas fa-database" style="font-size: 32px; color: #2563eb;"></i>';
+      iconElement.className = "floating-icon fa-icon";
+    } else {
+      // Regular image icons
+      const img = document.createElement("img");
+      img.src = selectedIcon;
+      img.alt = "Technology Icon";
+      img.loading = "lazy";
+      img.style.width = "40px";
+      img.style.height = "40px";
+      img.style.objectFit = "contain";
+      iconElement.appendChild(img);
+      iconElement.className = "floating-icon";
+    }
+    
+    // Random positioning and animation
+    iconElement.style.left = `${Math.random() * 100}%`;
+    iconElement.style.top = `${Math.random() * 100}%`;
+    iconElement.style.animationDelay = `${Math.random() * 10}s`;
+    iconElement.style.animationDuration = `${15 + Math.random() * 10}s`; // Vary speed
+    
+    container.appendChild(iconElement);
 
     // Only add click handlers on desktop
     if (!isMobile) {
-      icon.addEventListener("click", function() {
+      iconElement.addEventListener("click", function() {
         this.style.animation = "none";
+        this.style.transform = "scale(1.5) rotate(360deg)";
         setTimeout(() => {
-          this.style.animation = "floatIcon 15s infinite ease-in-out";
-        }, 100);
+          this.style.animation = `floatIcon ${15 + Math.random() * 10}s infinite ease-in-out`;
+          this.style.transform = "scale(1) rotate(0deg)";
+        }, 500);
       });
     }
   }
