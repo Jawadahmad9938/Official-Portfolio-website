@@ -31,9 +31,9 @@
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" media="print" onload="this.media='all'" />
 
   <!-- Meta & SEO -->
-  <title>Enterprise Sales & Finance SaaS Case Study | Multi-Tenant Platform by Jawad Ahmad</title>
-  <meta name="description" content="Complete case study of Enterprise Sales & Finance SaaS - Production multi-tenant platform replacing Excel workflows for USA-based client. Role-based access, financial accuracy, and audit-ready reporting.">
-  <meta name="keywords" content="sales tracking saas, finance platform, excel replacement, multi-tenant, react developer, next.js developer, postgresql, supabase">
+  <title>Enterprise Sales & Finance SaaS + iOS App Case Study | Jawad Ahmad</title>
+  <meta name="description" content="5-month end-to-end build: Multi-tenant Enterprise Sales & Finance SaaS platform + iOS app (App Store) for USA client. Replaced Excel workflows with real-time financial tracking, role-based access, and audit-ready reporting. React, Next.js, Supabase, PostgreSQL, React Native, Expo.">
+  <meta name="keywords" content="sales tracking saas, finance platform, excel replacement, multi-tenant, react developer, next.js developer, postgresql, supabase, react native, expo, ios app developer, apple app store">
   <meta name="author" content="Jawad Ahmad">
   <meta name="robots" content="index, follow">
 
@@ -55,8 +55,8 @@
 
   <style>
     .case-hero {
-      background: linear-gradient(135deg, #10b981 0%, #059669 50%, #047857 100%);
-      padding: 10rem 5% 5rem;
+      background: linear-gradient(135deg, #0f172a 0%, #1e293b 60%, #0f172a 100%);
+      padding: 8rem 5% 5rem;
       text-align: center;
       color: white;
       position: relative;
@@ -71,8 +71,8 @@
       left: 0;
       right: 0;
       bottom: 0;
-      background: url('data:image/svg+xml,<svg width="100" height="100" xmlns="http://www.w3.org/2000/svg"><rect width="100" height="100" fill="none"/><circle cx="50" cy="50" r="2" fill="rgba(255,255,255,0.1)"/></svg>');
-      opacity: 0.3;
+      background: radial-gradient(ellipse at 50% 0%, rgba(37, 99, 235, 0.18) 0%, transparent 70%);
+      pointer-events: none;
     }
 
     .case-hero-content {
@@ -117,39 +117,43 @@
 
     .case-stats {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-      gap: 2rem;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1.25rem;
       margin-top: 3rem;
     }
 
-    .stat-box {
-      background: rgba(255, 255, 255, 0.1);
-      padding: 1.5rem;
+    .case-hero .stat-box {
+      background: rgba(255, 255, 255, 0.12);
+      padding: 1.5rem 1rem;
       border-radius: 12px;
-      backdrop-filter: blur(10px);
-      border: 1px solid rgba(255, 255, 255, 0.2);
-      transition: all 0.3s ease;
+      border: 1px solid rgba(255, 255, 255, 0.3);
+      transition: transform 0.3s ease;
+      text-align: center;
     }
 
-    .stat-box:hover {
-      transform: translateY(-5px);
-      background: rgba(255, 255, 255, 0.15);
+    .case-hero .stat-box:hover {
+      transform: translateY(-4px);
+      background: rgba(255, 255, 255, 0.18);
     }
 
-    .stat-number {
-      font-size: 2.5rem;
+    .case-hero .stat-number {
+      font-size: 1.9rem;
       font-weight: 800;
       display: block;
-      margin-bottom: 0.5rem;
-      color: #ffffff;
-      text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+      margin-bottom: 0.4rem;
+      color: #ffffff !important;
+      background: none !important;
+      -webkit-text-fill-color: #ffffff !important;
+      -webkit-background-clip: unset !important;
+      background-clip: unset !important;
+      text-shadow: none;
     }
 
-    .stat-label {
-      font-size: 0.95rem;
-      opacity: 0.95;
-      color: #ffffff;
+    .case-hero .stat-label {
+      font-size: 0.85rem;
+      color: rgba(255, 255, 255, 0.85) !important;
       font-weight: 500;
+      line-height: 1.3;
     }
 
     .case-content {
@@ -163,10 +167,10 @@
     }
 
     .section-title {
-      font-size: 2.5rem;
+      font-size: 2.2rem;
       font-weight: 700;
       margin-bottom: 1.5rem;
-      color: #10b981;
+      color: #60a5fa;
     }
 
     .section-subtitle {
@@ -192,21 +196,21 @@
 
     .tech-card {
       background: var(--card-bg);
-      padding: 2rem;
+      padding: 1.5rem;
       border-radius: 12px;
-      border: 1px solid rgba(16, 185, 129, 0.2);
+      border: 1px solid rgba(37, 99, 235, 0.2);
       transition: all 0.3s ease;
     }
 
     .tech-card:hover {
-      transform: translateY(-5px);
-      border-color: var(--primary-color);
-      box-shadow: 0 10px 30px rgba(16, 185, 129, 0.2);
+      transform: translateY(-4px);
+      border-color: #2563eb;
+      box-shadow: 0 8px 24px rgba(37, 99, 235, 0.15);
     }
 
     .tech-card h4 {
-      color: #10b981;
-      font-size: 1.3rem;
+      color: #60a5fa;
+      font-size: 1.1rem;
       margin-bottom: 1rem;
     }
 
@@ -226,48 +230,49 @@
       content: '✓';
       position: absolute;
       left: 0;
-      color: #10b981;
+      color: #60a5fa;
       font-weight: bold;
-      font-size: 1.1rem;
+      font-size: 1rem;
     }
 
     .feature-grid {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-      gap: 1.5rem;
-      margin: 2rem 0;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 1.25rem;
+      margin: 1.5rem 0;
     }
 
     .feature-box {
-      background: linear-gradient(135deg, rgba(16, 185, 129, 0.05), rgba(5, 150, 105, 0.05));
-      padding: 1.5rem;
-      border-radius: 12px;
-      border-left: 4px solid #10b981;
-      transition: all 0.3s ease;
+      background: rgba(37, 99, 235, 0.06);
+      padding: 1.25rem;
+      border-radius: 10px;
+      border-left: 3px solid #2563eb;
+      transition: all 0.25s ease;
     }
 
     .feature-box:hover {
-      transform: translateX(5px);
-      box-shadow: 0 5px 20px rgba(16, 185, 129, 0.15);
+      transform: translateX(4px);
+      box-shadow: 0 4px 16px rgba(37, 99, 235, 0.12);
     }
 
     .feature-box h5 {
-      color: #10b981;
-      font-size: 1.1rem;
-      margin-bottom: 0.5rem;
+      color: #60a5fa;
+      font-size: 1rem;
+      margin-bottom: 0.4rem;
     }
 
     .feature-box p {
       color: var(--text-color);
       margin: 0;
+      font-size: 0.92rem;
     }
 
     .architecture-diagram {
       background: var(--card-bg);
-      padding: 3rem;
-      border-radius: 16px;
-      margin: 2rem 0;
-      border: 2px solid rgba(16, 185, 129, 0.2);
+      padding: 2rem;
+      border-radius: 12px;
+      margin: 1.5rem 0;
+      border: 1px solid rgba(37, 99, 235, 0.2);
     }
 
     .architecture-diagram pre {
@@ -282,72 +287,72 @@
     }
 
     .case-cta-section {
-      background: linear-gradient(135deg, #10b981 0%, #059669 100%);
+      background: linear-gradient(135deg, #1e40af 0%, #1e293b 100%);
       padding: 4rem;
       border-radius: 20px;
       text-align: center;
       color: white;
       margin-top: 5rem;
+      border: 1px solid rgba(96, 165, 250, 0.2);
     }
 
     .case-cta-section h3 {
-      font-size: 2.5rem;
+      font-size: 2.2rem;
       margin-bottom: 1rem;
     }
 
     .case-cta-section p {
-      font-size: 1.2rem;
+      font-size: 1.1rem;
       margin-bottom: 2rem;
-      opacity: 0.95;
+      opacity: 0.9;
     }
 
     .case-cta-btn {
       display: inline-flex;
       align-items: center;
       gap: 0.5rem;
-      padding: 1.2rem 2.5rem;
-      background: white;
-      color: #10b981;
+      padding: 1rem 2.5rem;
+      background: #2563eb;
+      color: white;
       border-radius: 50px;
       font-weight: 700;
-      font-size: 1.1rem;
+      font-size: 1rem;
       text-decoration: none;
       transition: all 0.3s ease;
+      box-shadow: 0 4px 20px rgba(37, 99, 235, 0.4);
     }
 
     .case-cta-btn:hover {
       transform: translateY(-3px);
-      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+      box-shadow: 0 8px 30px rgba(37, 99, 235, 0.5);
+      background: #1d4ed8;
     }
 
     @media (max-width: 768px) {
       .case-hero {
-        padding: 8rem 4% 4rem;
+        padding: 6rem 4% 3.5rem;
       }
 
       .case-title {
-        font-size: 2.5rem;
+        font-size: 2rem;
       }
 
       .case-subtitle {
-        font-size: 1.1rem;
+        font-size: 1rem;
       }
 
       .case-stats {
-        grid-template-columns: 1fr;
-        gap: 1.5rem;
-      }
-
-      .stat-number {
-        font-size: 2rem;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 1rem;
+        margin-top: 2rem;
       }
 
       .section-title {
-        font-size: 2rem;
+        font-size: 1.8rem;
       }
 
       .section-subtitle {
-        font-size: 1.5rem;
+        font-size: 1.3rem;
       }
 
       .tech-grid,
@@ -356,11 +361,26 @@
       }
 
       .case-cta-section {
-        padding: 3rem 2rem;
+        padding: 2.5rem 1.5rem;
       }
 
       .case-cta-section h3 {
-        font-size: 2rem;
+        font-size: 1.8rem;
+      }
+    }
+
+    @media (max-width: 480px) {
+      .case-stats {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 0.75rem;
+      }
+
+      .stat-number {
+        font-size: 1.25rem;
+      }
+
+      .case-title {
+        font-size: 1.75rem;
       }
     }
   </style>
@@ -384,9 +404,8 @@
       <li><a href="index.html#Projects">Case Studies</a></li>
       <li><a href="blogs.html">Blogs</a></li>
       <li><a href="philosophy.html">Philosophy</a></li>
-      <li><a href="index.html#Testimonials">Results</a></li>
       <li><a href="index.html#Skills">Expertise</a></li>
-      <li><a href="index.html#Contact">Consultation</a></li>
+      <li><a href="index.html#Contact" class="nav-cta-link">Let's Talk</a></li>
     </ul>
 
     <div class="nav-actions">
@@ -397,7 +416,7 @@
       <div class="nav-btn">
         <button class="cv-button" aria-label="Download CV">
           <a href="Jawad Ahmad CV.pdf" download="Jawad Ahmad CV.pdf">
-            <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none"
+            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none"
               stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
               <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4" />
               <polyline points="7 10 12 15 17 10" />
@@ -420,60 +439,25 @@
   <div class="mobile-nav-menu-container" id="mobile-menu-container">
     <div class="mobile-nav-menu" id="mobile-menu" role="navigation" aria-label="Mobile menu">
       <div class="mobile-nav-header">
+        <span class="mobile-nav-header-logo">Menu</span>
         <button class="mobile-nav-close" id="mobile-close" aria-label="Close menu">
           <i class="fas fa-times" aria-hidden="true"></i>
         </button>
       </div>
 
       <div class="mobile-nav-content">
-        <a href="index.html" class="mobile-nav-item">
-          <i class="fas fa-home" aria-hidden="true"></i>
-          <span>Home</span>
-        </a>
-        <a href="index.html#About" class="mobile-nav-item">
-          <i class="fas fa-user" aria-hidden="true"></i>
-          <span>About</span>
-        </a>
-        <a href="index.html#Services" class="mobile-nav-item">
-          <i class="fas fa-briefcase" aria-hidden="true"></i>
-          <span>Services</span>
-        </a>
-        <a href="index.html#Projects" class="mobile-nav-item">
-          <i class="fas fa-project-diagram" aria-hidden="true"></i>
-          <span>Case Studies</span>
-        </a>
-        <a href="blogs.html" class="mobile-nav-item">
-          <i class="fas fa-blog" aria-hidden="true"></i>
-          <span>Blogs</span>
-        </a>
-        <a href="philosophy.html" class="mobile-nav-item">
-          <i class="fas fa-lightbulb" aria-hidden="true"></i>
-          <span>Philosophy</span>
-        </a>
-        <a href="index.html#Testimonials" class="mobile-nav-item">
-          <i class="fas fa-comments" aria-hidden="true"></i>
-          <span>Results</span>
-        </a>
-        <a href="index.html#Skills" class="mobile-nav-item">
-          <i class="fas fa-star" aria-hidden="true"></i>
-          <span>Expertise</span>
-        </a>
-        <a href="index.html#Contact" class="mobile-nav-item">
-          <i class="fas fa-envelope" aria-hidden="true"></i>
-          <span>Consultation</span>
-        </a>
+        <a href="index.html" class="mobile-nav-item">Home</a>
+        <a href="index.html#About" class="mobile-nav-item">About</a>
+        <a href="index.html#Services" class="mobile-nav-item">Services</a>
+        <a href="index.html#Projects" class="mobile-nav-item">Case Studies</a>
+        <a href="blogs.html" class="mobile-nav-item">Blogs</a>
+        <a href="philosophy.html" class="mobile-nav-item">Philosophy</a>
+        <a href="index.html#Skills" class="mobile-nav-item">Expertise</a>
+      </div>
 
-        <div class="mobile-nav-download">
-          <a href="Jawad Ahmad CV.pdf" download="Jawad Ahmad CV.pdf" class="mobile-download-btn">
-            <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none"
-              stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-              <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4" />
-              <polyline points="7 10 12 15 17 10" />
-              <line x1="12" y1="15" x2="12" y2="3" />
-            </svg>
-            Download CV
-          </a>
-        </div>
+      <div class="mobile-nav-actions-row">
+        <a href="index.html#Contact" class="mobile-cta-btn">Let's Talk</a>
+        <a href="Jawad Ahmad CV.pdf" download="Jawad Ahmad CV.pdf" class="mobile-download-btn">CV</a>
       </div>
     </div>
   </div>
@@ -481,26 +465,34 @@
   <!-- Hero Section -->
   <section class="case-hero">
     <div class="case-hero-content">
-      <span class="case-badge">Production SaaS Platform</span>
+      <span class="case-badge">Production SaaS + iOS App</span>
       <h1 class="case-title">Enterprise Sales & Finance SaaS</h1>
-      <p class="case-subtitle">Multi-Tenant Platform Replacing Excel Workflows for USA-Based Client</p>
+      <p class="case-subtitle">Multi-Tenant Platform + iOS App. Built End-to-End for USA Client in 5 Months.</p>
 
       <div class="case-stats">
         <div class="stat-box">
-          <span class="stat-number">2+ Months</span>
-          <span class="stat-label">Development Time</span>
+          <span class="stat-number">5 Months</span>
+          <span class="stat-label">Web + iOS Delivered</span>
         </div>
         <div class="stat-box">
-          <span class="stat-number">Multi-Tenant</span>
-          <span class="stat-label">Architecture</span>
+          <span class="stat-number">3 Roles</span>
+          <span class="stat-label">Admin, Manager, Sales</span>
         </div>
         <div class="stat-box">
-          <span class="stat-number">Production</span>
-          <span class="stat-label">Currently Live</span>
+          <span class="stat-number">App Store</span>
+          <span class="stat-label">iOS App Published</span>
         </div>
         <div class="stat-box">
-          <span class="stat-number">Excel</span>
-          <span class="stat-label">Replacement</span>
+          <span class="stat-number">Offline</span>
+          <span class="stat-label">Sales Reporting Mode</span>
+        </div>
+        <div class="stat-box">
+          <span class="stat-number">CSV</span>
+          <span class="stat-label">Import & Export</span>
+        </div>
+        <div class="stat-box">
+          <span class="stat-number">Zero</span>
+          <span class="stat-label">Critical Bugs in Production</span>
         </div>
       </div>
     </div>
@@ -510,98 +502,95 @@
   <div class="case-content">
     <!-- Executive Summary -->
     <section class="section">
-      <h2 class="section-title">Executive Summary</h2>
+      <h2 class="section-title">What I Built</h2>
       <p class="content-text">
-        Enterprise Sales & Finance SaaS is a production multi-tenant platform that replaced complex Excel workflows for a USA-based business. I took complete end-to-end ownership of this system - from initial requirements gathering to production deployment and ongoing maintenance. The platform handles real business operations including sales rep tracking, vendor management, commission calculations, holdbacks, payouts, and financial reporting across multiple companies with strict role-based access controls.
+        A USA-based client was drowning in Excel. Commissions calculated wrong, financial data exposed to everyone, no way to track team performance, and sales reps losing data in areas with poor connectivity. I built the full solution from scratch: a multi-tenant SaaS platform with role-based access, real-time financial tracking, offline sales reporting, CSV import/export, and a companion iOS app published on the Apple App Store. Delivered in 5 months, solo, and running in production without issues.
       </p>
       <div class="feature-grid">
         <div class="feature-box">
           <h5>My Role</h5>
-          <p>Full-Stack Product Engineer (Complete End-to-End Ownership)</p>
+          <p>Solo Product Engineer, full ownership from architecture to App Store submission</p>
         </div>
         <div class="feature-box">
-          <h5>Duration</h5>
-          <p>2+ months development + ongoing production maintenance</p>
+          <h5>Timeline</h5>
+          <p>5 months covering platform, iOS app, security hardening, and ongoing maintenance</p>
         </div>
         <div class="feature-box">
-          <h5>Business Context</h5>
-          <p>USA-based business replacing Excel workflows</p>
+          <h5>Client</h5>
+          <p>USA-based business (confidential, link pending client approval)</p>
         </div>
         <div class="feature-box">
-          <h5>Current Status</h5>
-          <p>Live in production, handling real business operations</p>
+          <h5>Status</h5>
+          <p>Live in production with iOS app active on the App Store</p>
         </div>
       </div>
     </section>
 
     <!-- The Challenge -->
     <section class="section">
-      <h2 class="section-title">The Business Problem</h2>
-      <h3 class="section-subtitle">Why This System Exists</h3>
+      <h2 class="section-title">The Real Problems</h2>
       <p class="content-text">
-        A USA-based business was struggling with complex Excel workflows that couldn't scale with their growing operations. They needed a production-ready platform that could handle real business operations without manual intervention:
+        This wasn't just an Excel replacement. The client had a growing sales operation with multiple companies, managers, and field reps with zero infrastructure to support it. Every problem was costing them money.
       </p>
       <ul class="tech-list">
-        <li>Complex Excel spreadsheets for tracking sales reps, vendors, and commissions</li>
-        <li>Manual calculation of holdbacks, payouts, and financial reporting</li>
-        <li>No role-based access control - everyone could see everything</li>
-        <li>Error-prone manual data entry and formula management</li>
-        <li>No audit trail for financial transactions and changes</li>
-        <li>Inability to handle multiple companies in a single system</li>
-        <li>Time-consuming monthly reporting and reconciliation processes</li>
+        <li>No role-based access. Admins, managers, and sales reps all saw the same data</li>
+        <li>Commission and holdback calculations done manually, errors every month</li>
+        <li>No audit trail. Financial changes happened with no record of who did what</li>
+        <li>Multiple companies sharing the same spreadsheets with zero data isolation</li>
+        <li>No performance visibility. Managers had no way to track team or individual stats</li>
+        <li>Sales reps in low-connectivity areas lost data when the network dropped</li>
+        <li>No way to bulk import or export data. Every entry was manual</li>
+        <li>Critical financial data leakage risk with open Excel files shared over email</li>
       </ul>
 
-      <h3 class="section-subtitle">My Ownership & Responsibilities</h3>
-      <p class="content-text">
-        I was responsible for complete end-to-end product ownership, including:
-      </p>
+      <h3 class="section-subtitle">What I Owned</h3>
       <ul class="tech-list">
-        <li><strong>Requirements Analysis:</strong> Understanding complex business workflows and Excel replacement needs</li>
-        <li><strong>System Architecture:</strong> Designing multi-tenant SaaS architecture with role-based access</li>
-        <li><strong>Frontend Development:</strong> React/Next.js application with responsive design and intuitive UX</li>
-        <li><strong>Backend Development:</strong> Supabase integration with PostgreSQL database design</li>
-        <li><strong>Authentication System:</strong> Secure account claiming flows and role-based permissions</li>
-        <li><strong>Financial Logic:</strong> Complex commission calculations, holdbacks, and payout algorithms</li>
-        <li><strong>Reporting System:</strong> Real-time dashboards and audit-ready financial reports</li>
-        <li><strong>Production Deployment:</strong> Live system handling real business operations</li>
-        <li><strong>Ongoing Maintenance:</strong> Bug fixes, feature enhancements, and system stability</li>
+        <li><strong>Role-Based Access:</strong> Three distinct roles (Admin, Manager, Sales Rep) each with scoped permissions and views</li>
+        <li><strong>Architecture:</strong> Multi-tenant SaaS with complete data isolation per company at the database level</li>
+        <li><strong>Frontend:</strong> React and Next.js with role-aware UI, clean navigation, and reduced user friction</li>
+        <li><strong>Backend:</strong> Supabase and PostgreSQL with RLS policies, triggers, and optimized query design</li>
+        <li><strong>Financial Logic:</strong> Commission, holdback, and payout calculation engines with full audit trails</li>
+        <li><strong>Performance Dashboards:</strong> Individual rep stats, manager team views, and company-wide reporting</li>
+        <li><strong>Offline Sales Reporting:</strong> Sales reps log sales offline on the iOS app, system syncs automatically when back online</li>
+        <li><strong>CSV Import and Export:</strong> Bulk data operations for admins and accounting teams</li>
+        <li><strong>iOS App:</strong> React Native and Expo, submitted and approved on the Apple App Store</li>
+        <li><strong>Security Hardening:</strong> Fixed critical data leakage, tightened RLS policies, secured account claiming flows</li>
+        <li><strong>Database Optimization:</strong> Redesigned query architecture to cut load times significantly</li>
       </ul>
     </section>
 
     <!-- Solution Architecture -->
     <section class="section">
-      <h2 class="section-title">Real Problems I Solved</h2>
+      <h2 class="section-title">How I Solved It</h2>
 
-      <h3 class="section-subtitle">Excel Workflow Replacement</h3>
+      <h3 class="section-subtitle">Role-Based Access Control</h3>
       <p class="content-text">
-        <strong>Problem:</strong> Business was using complex Excel spreadsheets with intricate formulas for tracking sales reps, vendors, commissions, holdbacks, and payouts. Manual processes were error-prone and couldn't scale.
-      </p>
-      <p class="content-text">
-        <strong>My Solution:</strong> Built a complete web-based replacement with automated calculations, real-time updates, and audit trails. Replicated all Excel functionality while adding role-based access, multi-company support, and automated reporting. System now handles all calculations automatically with zero manual intervention.
+        Built three distinct user roles with completely different views and permissions. Admins manage companies, users, and financial settings. Managers see their team's performance, individual rep stats, and company-level reports. Sales reps only see their own data and can log sales from anywhere. No role can access what it shouldn't. This is enforced at the database level with PostgreSQL Row Level Security.
       </p>
 
-      <h3 class="section-subtitle">Multi-Tenant Architecture Challenge</h3>
+      <h3 class="section-subtitle">Offline Sales Reporting</h3>
       <p class="content-text">
-        <strong>Problem:</strong> Business needed to manage multiple companies within a single system while maintaining complete data isolation and different permission structures for each company.
-      </p>
-      <p class="content-text">
-        <strong>My Solution:</strong> Designed and implemented a robust multi-tenant architecture using PostgreSQL with proper data isolation. Each company operates independently with its own users, data, and permissions while sharing the same codebase and infrastructure.
+        Field sales reps often work in areas with poor or no internet. I built offline-first functionality into the iOS app so reps can log sales without a connection. The moment they're back online, the app automatically syncs all pending records to the server. No data lost, no manual re-entry. This was a game-changer for the client's field team.
       </p>
 
-      <h3 class="section-subtitle">Complex Financial Calculations</h3>
+      <h3 class="section-subtitle">Performance and Reporting Dashboards</h3>
       <p class="content-text">
-        <strong>Problem:</strong> The system needed to handle complex commission structures, holdback calculations, payout schedules, and financial reporting with complete accuracy and auditability.
-      </p>
-      <p class="content-text">
-        <strong>My Solution:</strong> Implemented sophisticated financial calculation engines with proper rounding, decimal precision, and audit trails. All calculations are logged and traceable, providing complete transparency for financial operations and compliance requirements.
+        Managers now have real visibility. Individual rep performance, team totals, company-wide financial summaries, and period comparisons all in real time. Reports can be exported as CSV for accounting and compliance. The client went from zero visibility to full operational intelligence.
       </p>
 
-      <h3 class="section-subtitle">Account Claiming & Security</h3>
+      <h3 class="section-subtitle">CSV Import and Export</h3>
       <p class="content-text">
-        <strong>Problem:</strong> Business needed a secure way for existing users to claim their accounts when transitioning from Excel to the new system, while maintaining proper access controls.
+        Admins and accounting teams can bulk import historical data and export any report as a CSV file. This eliminated hours of manual data entry during migration and gives the finance team the flexibility to work with data in their own tools when needed.
       </p>
+
+      <h3 class="section-subtitle">Security and Data Leakage Fixes</h3>
       <p class="content-text">
-        <strong>My Solution:</strong> Developed a secure account claiming flow that allows users to verify their identity and claim pre-created accounts. Implemented role-based permissions ensuring Admin, Accounting, and Sales users only see appropriate data and functions.
+        The original Excel setup had critical exposure risks. Financial data was shared over email with no access control. I fixed this by enforcing RLS at every database query, securing the account claiming flow, patching data leakage points found during security audits, and ensuring each company's data is completely invisible to other tenants.
+      </p>
+
+      <h3 class="section-subtitle">Database Architecture Improvements</h3>
+      <p class="content-text">
+        The initial database design had performance bottlenecks under real load. I redesigned the query architecture, added proper indexing, optimized the financial calculation tables, and introduced database views for reporting queries. Response times dropped significantly and the system now handles concurrent users without degradation.
       </p>
     </section>
 
@@ -635,6 +624,18 @@
         </div>
 
         <div class="tech-card">
+          <h4><i class="fab fa-apple"></i> iOS Mobile App</h4>
+          <ul class="tech-list">
+            <li>React Native</li>
+            <li>Expo (SDK)</li>
+            <li>TypeScript</li>
+            <li>Expo Router (Navigation)</li>
+            <li>Supabase JS Client</li>
+            <li>Published on Apple App Store</li>
+          </ul>
+        </div>
+
+        <div class="tech-card">
           <h4><i class="fas fa-shield-alt"></i> Authentication & Security</h4>
           <ul class="tech-list">
             <li>Supabase Auth</li>
@@ -643,18 +644,6 @@
             <li>Multi-Tenant Security</li>
             <li>Account Claiming Flow</li>
             <li>Audit Logging</li>
-          </ul>
-        </div>
-
-        <div class="tech-card">
-          <h4><i class="fas fa-tools"></i> Development Tools</h4>
-          <ul class="tech-list">
-            <li>Git Version Control</li>
-            <li>npm Package Manager</li>
-            <li>ESLint + Prettier</li>
-            <li>Vercel Deployment</li>
-            <li>Supabase CLI</li>
-            <li>TypeScript Compiler</li>
           </ul>
         </div>
       </div>
@@ -707,111 +696,113 @@
 
     <!-- Key Features -->
     <section class="section">
-      <h2 class="section-title">Key Features Delivered</h2>
+      <h2 class="section-title">Features Delivered</h2>
 
       <div class="feature-grid">
         <div class="feature-box">
-          <h5><i class="fas fa-check-circle"></i> Multi-Tenant Architecture</h5>
-          <p>Complete data isolation between companies</p>
+          <h5>Role-Based Access Control</h5>
+          <p>Admin, Manager, and Sales Rep roles with scoped permissions enforced at the database level</p>
         </div>
         <div class="feature-box">
-          <h5><i class="fas fa-check-circle"></i> Role-Based Access Control</h5>
-          <p>Admin, Accounting, and Sales user roles</p>
+          <h5>Offline Sales Reporting</h5>
+          <p>Sales reps log sales without internet. App syncs all records automatically when back online</p>
         </div>
         <div class="feature-box">
-          <h5><i class="fas fa-check-circle"></i> Excel Workflow Replacement</h5>
-          <p>Complete replacement of complex spreadsheets</p>
+          <h5>Performance Dashboards</h5>
+          <p>Individual rep stats, manager team views, and company-wide financial summaries in real time</p>
         </div>
         <div class="feature-box">
-          <h5><i class="fas fa-check-circle"></i> Automated Calculations</h5>
-          <p>Commission, holdback, and payout automation</p>
+          <h5>CSV Import and Export</h5>
+          <p>Bulk data operations for admins and accounting teams, no manual entry required</p>
         </div>
         <div class="feature-box">
-          <h5><i class="fas fa-check-circle"></i> Real-Time Financial Tracking</h5>
-          <p>Live updates and instant calculation results</p>
+          <h5>Multi-Tenant Architecture</h5>
+          <p>Multiple companies on one platform with complete data isolation between each tenant</p>
         </div>
         <div class="feature-box">
-          <h5><i class="fas fa-check-circle"></i> Secure Account Claiming</h5>
-          <p>Safe transition from Excel to web platform</p>
+          <h5>Automated Financial Calculations</h5>
+          <p>Commission, holdback, and payout engines with zero manual intervention</p>
         </div>
         <div class="feature-box">
-          <h5><i class="fas fa-check-circle"></i> Audit-Ready Reporting</h5>
-          <p>Complete audit trails and compliance reports</p>
+          <h5>Security and Data Leakage Fixes</h5>
+          <p>Critical vulnerabilities patched, RLS policies tightened, account claiming secured</p>
         </div>
         <div class="feature-box">
-          <h5><i class="fas fa-check-circle"></i> Responsive Design</h5>
-          <p>Mobile-friendly interface for all user types</p>
+          <h5>Database Architecture Overhaul</h5>
+          <p>Redesigned query structure, added indexing, and optimized reporting views for speed</p>
+        </div>
+        <div class="feature-box">
+          <h5>Audit-Ready Reporting</h5>
+          <p>Every financial transaction logged with full audit trail, exportable for compliance</p>
+        </div>
+        <div class="feature-box">
+          <h5>iOS App on App Store</h5>
+          <p>React Native and Expo app submitted, reviewed, and approved by Apple</p>
+        </div>
+        <div class="feature-box">
+          <h5>Secure Account Claiming</h5>
+          <p>Users verify identity and claim pre-created accounts during onboarding</p>
+        </div>
+        <div class="feature-box">
+          <h5>Real-Time Financial Tracking</h5>
+          <p>Live updates across all dashboards with instant calculation results</p>
         </div>
       </div>
     </section>
 
     <!-- Results & Impact -->
     <section class="section">
-      <h2 class="section-title">Business Impact & Results</h2>
+      <h2 class="section-title">Business Impact</h2>
 
-      <h3 class="section-subtitle">Immediate Business Results</h3>
       <div class="feature-grid">
         <div class="feature-box">
-          <h5>Excel Replacement</h5>
-          <p>100% replacement of complex spreadsheet workflows</p>
+          <h5>Excel Fully Replaced</h5>
+          <p>Every spreadsheet workflow moved to the platform. No more manual formulas, version conflicts, or emailed files</p>
         </div>
         <div class="feature-box">
-          <h5>Error Reduction</h5>
-          <p>Eliminated manual calculation errors and data entry mistakes</p>
+          <h5>Field Reps Work Anywhere</h5>
+          <p>Offline sales reporting means reps in low-connectivity areas never lose a sale record again</p>
         </div>
         <div class="feature-box">
-          <h5>Time Savings</h5>
-          <p>90% reduction in monthly reporting and reconciliation time</p>
+          <h5>Managers Have Real Visibility</h5>
+          <p>Team performance, individual rep stats, and company financials visible in one dashboard</p>
         </div>
         <div class="feature-box">
-          <h5>Financial Accuracy</h5>
-          <p>Automated calculations ensure 100% accuracy in payouts</p>
+          <h5>Financial Data Secured</h5>
+          <p>Critical data leakage risks eliminated. Each role sees only what it's authorized to see</p>
         </div>
         <div class="feature-box">
-          <h5>Multi-Company Support</h5>
-          <p>Single platform managing multiple business entities</p>
+          <h5>90% Faster Reporting</h5>
+          <p>Monthly reconciliation that took hours now runs automatically in real time</p>
         </div>
         <div class="feature-box">
-          <h5>Role-Based Security</h5>
-          <p>Proper access controls replacing open Excel files</p>
+          <h5>Zero Calculation Errors</h5>
+          <p>Automated commission and payout engines replaced error-prone manual spreadsheet math</p>
         </div>
         <div class="feature-box">
-          <h5>Audit Compliance</h5>
-          <p>Complete audit trails for all financial transactions</p>
+          <h5>Bulk Data Operations</h5>
+          <p>CSV import and export cut migration time and give the finance team flexibility with their data</p>
         </div>
         <div class="feature-box">
-          <h5>Real-Time Insights</h5>
-          <p>Instant reporting replacing manual spreadsheet updates</p>
+          <h5>System Runs Faster</h5>
+          <p>Database architecture overhaul reduced load times significantly under real concurrent usage</p>
         </div>
       </div>
 
       <h3 class="section-subtitle">Technical Achievements</h3>
       <ul class="tech-list">
-        <li><strong>Production Stability:</strong> Zero critical issues since launch</li>
-        <li><strong>Performance:</strong> Sub-second response times for all calculations</li>
-        <li><strong>Security:</strong> Robust multi-tenant security with zero data breaches</li>
-        <li><strong>Scalability:</strong> Architecture ready for additional companies and users</li>
-        <li><strong>Maintainability:</strong> Clean TypeScript codebase enabling rapid feature additions</li>
-        <li><strong>User Experience:</strong> Intuitive interface requiring minimal training</li>
+        <li><strong>Zero critical bugs</strong> since production launch</li>
+        <li><strong>Sub-second response times</strong> for all financial calculations after database optimization</li>
+        <li><strong>Critical security vulnerabilities patched</strong> with no data breaches</li>
+        <li><strong>Offline sync architecture</strong> built into the iOS app for field sales teams</li>
+        <li><strong>Scalable multi-tenant design</strong> ready to onboard additional companies without rearchitecting</li>
+        <li><strong>Clean TypeScript codebase</strong> enabling rapid feature additions without regressions</li>
       </ul>
 
       <h3 class="section-subtitle">Client Feedback</h3>
       <p class="content-text">
-        <em>"Appreciate you — keep doing good work."</em> — USA-based SaaS Founder
+        <em>"Appreciate you, keep doing good work."</em> — USA-based SaaS Founder
       </p>
-      <p class="content-text">
-        This feedback demonstrates the client's satisfaction with both the technical delivery and the ongoing professional relationship. The platform has become an essential part of their business operations.
-      </p>
-
-      <h3 class="section-subtitle">How I Work</h3>
-      <p class="content-text">This project demonstrates my approach to building production systems:</p>
-      <ul class="tech-list">
-        <li><strong>Ask clarifying questions early</strong> to understand complex business workflows</li>
-        <li><strong>Ship in small, testable iterations</strong> to validate functionality incrementally</li>
-        <li><strong>Prioritize data accuracy and security</strong> for financial applications</li>
-        <li><strong>Communicate clearly during development</strong> to ensure requirements alignment</li>
-        <li><strong>Take ownership of the entire product</strong> from conception to production maintenance</li>
-      </ul>
     </section>
 
     <!-- CTA Section -->

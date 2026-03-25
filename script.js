@@ -69,8 +69,11 @@ function initFloatingIcons() {
   const container = document.getElementById("floating-icons");
   if (!container) return;
 
-  // Increase floating icons count for better visual effect
-  const iconCount = isMobile ? 20 : 40;
+  // Disable on mobile for performance
+  if (isMobile) return;
+
+  // Reduce icon count for better performance
+  const iconCount = 25;
   
   // All technologies you're expert in
   const icons = [
@@ -175,6 +178,18 @@ const mobileOverlay = document.getElementById('mobile-overlay');
 const mobileMenuContainer = document.getElementById('mobile-menu-container');
 const mobileCloseBtn = document.getElementById('mobile-close');
 const mobileNavItems = document.querySelectorAll('.mobile-nav-item');
+
+// ===== NAVBAR SCROLL EFFECT =====
+const navbar = document.querySelector('.navbar');
+if (navbar) {
+  window.addEventListener('scroll', () => {
+    if (window.scrollY > 50) {
+      navbar.classList.add('scrolled');
+    } else {
+      navbar.classList.remove('scrolled');
+    }
+  }, { passive: true });
+}
 
 // Toggle Menu Open/Close
 if (menuButton) {
