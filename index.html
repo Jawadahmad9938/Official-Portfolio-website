@@ -395,7 +395,7 @@
       <ul class="hero-bullets animate__animated animate__fadeInUp"
         style="list-style: none; padding: 0; margin-bottom: 2rem;">
         <li style="margin-bottom: 0.8rem; display: flex; align-items: flex-start; gap: 0.8rem;">
-          <i class="fas fa-check-circle" style="color: var(--primary-color); margin-top: 0.2rem;"></i>
+          <i class="fas fa-check-circle" style="color: var(--primary-color); margin-top: 0.2rem;" aria-hidden="true"></i>
           <span><strong>USA SaaS Delivery:</strong> Replaced complex manual Excel workflows with a multi-tenant platform
             for an international client.</span>
         </li>
@@ -439,7 +439,7 @@
     </div>
     <div class="right-image">
       <img src="https://i.postimg.cc/50qzPtDT/jawad-hero-img.webp" alt="Jawad Ahmad - Product Engineer" width="400"
-        height="500" loading="eager" decoding="sync" fetchpriority="high"
+        height="500" loading="eager" decoding="async" fetchpriority="high"
         style="width: 100%; max-width: 400px; height: auto;" />
     </div>
   </div>
@@ -449,7 +449,7 @@
   <div class="about-left">
     <p class="about-title">ABOUT ME</p>
     <div class="about-text">
-      <h1>Polyglot Engineering for Real-World Problems</h1>
+      <h2 style="font-size: 2.5rem; margin-bottom: 1.5rem;">Polyglot Engineering for Real-World Problems</h2>
       <p class="about-description">
         I focus on solving business problems that generic dev teams often miss. While others build exactly what you ask
         for, I build what your business needs to grow.
@@ -466,17 +466,17 @@
       <h2 style="color: var(--primary-color); margin-bottom: 1.5rem;">Why Founders Work With Me</h2>
       <ul style="list-style: none; padding: 0;">
         <li style="padding: 0.6rem 0; padding-left: 2rem; position: relative; margin-bottom: 0.5rem;">
-          <span style="position: absolute; left: 0; color: #10b981; font-weight: bold; font-size: 1.2rem;">✓</span>
+          <span style="position: absolute; left: 0; color: #10b981; font-weight: bold; font-size: 1.2rem;" aria-hidden="true">✓</span>
           <strong>Actual Ownership:</strong> I don't just "take tickets." I take full responsibility for the stability
           and success of your software.
         </li>
         <li style="padding: 0.6rem 0; padding-left: 2rem; position: relative; margin-bottom: 0.5rem;">
-          <span style="position: absolute; left: 0; color: #10b981; font-weight: bold; font-size: 1.2rem;">✓</span>
+          <span style="position: absolute; left: 0; color: #10b981; font-weight: bold; font-size: 1.2rem;" aria-hidden="true">✓</span>
           <strong>Built for Scale:</strong> Your system is designed for growth from day one using modern tools like
           Next.js and Supabase.
         </li>
         <li style="padding: 0.6rem 0; padding-left: 2rem; position: relative; margin-bottom: 0.5rem;">
-          <span style="position: absolute; left: 0; color: #10b981; font-weight: bold; font-size: 1.2rem;">✓</span>
+          <span style="position: absolute; left: 0; color: #10b981; font-weight: bold; font-size: 1.2rem;" aria-hidden="true">✓</span>
           <strong>Process Automation:</strong> I rescue you from spreadsheet chaos by building workflows that save you
           time and eliminate errors.
         </li>
@@ -1935,7 +1935,7 @@
       container.appendChild(renderer.domElement);
 
       // Particles
-      const count = 120;
+      const count = 80;
       const geometry = new THREE.BufferGeometry();
       const positions = new Float32Array(count * 3);
       for (let i = 0; i < count * 3; i++) {
