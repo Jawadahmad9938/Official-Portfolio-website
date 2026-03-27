@@ -955,15 +955,15 @@ body.light-mode .mobile-download-btn:hover {
 
 .contact-btn {
   background: linear-gradient(135deg, var(--accent-color) 0%, #0ea5e9 100%);
-  color: #fff;
+  color: #5f4e4e;
   border: none;
-  box-shadow: 0 6px 20px rgba(56, 189, 248, 0.4), 0 2px 6px rgba(56, 189, 248, 0.2);
+  box-shadow: 0 6px 20px rgba(0, 0, 128, 0.5), 0 2px 6px rgba(0, 0, 128, 0.3);
 }
 
 .contact-btn:hover {
-  background: linear-gradient(135deg, #0ea5e9 0%, #0284c7 100%);
+  background: linear-gradient(135deg, #07628b 0%, #022739 100%);
   transform: translateY(-3px) scale(1.03);
-  box-shadow: 0 10px 28px rgba(56, 189, 248, 0.55), 0 4px 10px rgba(0, 0, 0, 0.25);
+  box-shadow: 0 10px 28px rgba(0, 0, 128, 0.6), 0 4px 10px rgba(0, 0, 128, 0.4);
 }
 
 .projects-btn {
@@ -3748,6 +3748,7 @@ body.light-mode .form-note {
 }
 
 @media (max-width: 768px) {
+
   .nav-menu,
   .nav-btn {
     display: none;
@@ -4264,4 +4265,4 @@ body.light-mode .form-note {
     padding: 0.7rem 1.2rem;
     font-size: 0.85rem;
   }
-}
+}

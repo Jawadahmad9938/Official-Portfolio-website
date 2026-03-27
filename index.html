@@ -17,8 +17,9 @@
   <link rel="dns-prefetch" href="https://i.postimg.cc">
   <link rel="dns-prefetch" href="https://pagead2.googlesyndication.com">
 
-  <!-- Favicon -->
+  <!-- User Requested Favicon -->
   <link rel="icon" href="https://i.postimg.cc/50qzPtDT/jawad-hero-img.webp" type="image/webp" />
+  <link rel="apple-touch-icon" href="https://i.postimg.cc/50qzPtDT/jawad-hero-img.webp" />
 
   <!-- Critical CSS Inlined -->
   <style>
@@ -101,11 +102,7 @@
       margin-bottom: 0.5rem;
     }
 
-    .title {
-      font-size: 1.5rem;
-      color: var(--accent-color);
-      margin-bottom: 1rem;
-    }
+    .title { font-size: 1.5rem; color: #ffffff; margin-bottom: 1rem; }
 
     @media (max-width: 768px) {
       .name {
@@ -124,11 +121,12 @@
   </style>
 
   <!-- Preload & Async Load Main CSS -->
-  <link rel="preload" href="style.css" as="style" />
-  <link rel="stylesheet" href="style.css" media="print" onload="this.media='all'" />
-  <noscript>
-    <link rel="stylesheet" href="style.css">
-  </noscript>
+  <link rel="preload" href="style.min.css" as="style" />
+  <link rel="stylesheet" href="style.min.css" media="print" onload="this.media='all'" />
+  <noscript><link rel="stylesheet" href="style.min.css"></noscript>
+  <style>
+    :root { --accent-color: #ffffff; }
+  </style>
 
   <!-- Google Fonts - Optimized Load -->
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&family=Poppins:wght@600;700&display=swap"
@@ -298,8 +296,7 @@
 <nav class="navbar" role="navigation" aria-label="Main navigation">
   <!-- Logo -->
   <a href="index.html" aria-label="Home page">
-    <img class="logo" src="https://i.postimg.cc/50qzPtDT/jawad-hero-img.webp"
-      alt="Jawad Ahmad - Full Stack Developer Logo" width="44" height="44" loading="eager" />
+    <img class="logo" src="https://i.postimg.cc/50qzPtDT/jawad-hero-img.webp" alt="Jawad Ahmad Profile" width="44" height="44" loading="eager" />
   </a>
 
   <!-- Desktop Navigation Menu -->
@@ -380,7 +377,7 @@
   <div class="hero-content">
     <div class="left-content">
       <h1 class="name animate__animated animate__fadeInUp">Jawad Ahmad</h1>
-      <h2 class="title animate__animated animate__fadeInUp">
+      <h2 class="title animate__animated animate__fadeInUp" style="color: #ffffff;">
         Full Stack Product Engineer
       </h2>
       <p class="subheading animate__animated animate__fadeInUp">
@@ -1776,9 +1773,7 @@
       <!-- Brand Column -->
       <div class="footer-column brand-column">
         <div class="footer-logo">
-          <img src="https://i.postimg.cc/50qzPtDT/jawad-hero-img.webp"
-            alt="Jawad Ahmad - Business Web Solutions Expert Logo" class="logo-img" width="50" height="50"
-            loading="lazy" />
+           <img src="https://i.postimg.cc/50qzPtDT/jawad-hero-img.webp" alt="Logo" class="logo-img" width="50" height="50" loading="lazy" />
           <span class="logo-text">Jawad Ahmad</span>
         </div>
         <p class="brand-tagline">
@@ -1912,7 +1907,7 @@
     </div>
   </div>
 </footer>
-<script src="script.js" defer></script>
+<script src="script.min.js" defer></script>
 
 <!-- Three.js Hero Particle Effect -->
 <script>

@@ -69,7 +69,7 @@ function initFloatingIcons() {
   const container = document.getElementById("floating-icons");
   if (!container) return;
 
-  // Reduced for better desktop performance (TBT)
+  // Reduced for performance on mobile (exactly 5 icons as requested)
   const iconCount = isMobile ? 5 : 15;
   
   // All technologies you're expert in
