@@ -1,6 +1,16 @@
 // ===========================
 // Performance: Detect mobile early
 // ===========================
+// Performance & UX: Handle Preloader
+window.addEventListener("load", () => {
+    const preloader = document.getElementById("preloader");
+    if (preloader) {
+        preloader.classList.add("fade-out");
+        // Remove from DOM after transition to save resources
+        setTimeout(() => preloader.remove(), 500);
+    }
+});
+
 const isMobile = window.matchMedia("(max-width: 768px)").matches;
 const isReducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
 

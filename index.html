@@ -125,6 +125,15 @@
   <link rel="stylesheet" href="style.min.css" media="print" onload="this.media='all'" />
   <noscript><link rel="stylesheet" href="style.min.css"></noscript>
   <style>
+    /* Preloader Styles */
+    #preloader { position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: #0f172a; display: flex; justify-content: center; align-items: center; z-index: 9999; transition: opacity 0.4s ease, visibility 0.4s; }
+    #preloader.fade-out { opacity: 0; visibility: hidden; }
+    .loader-spinner { width: 45px; height: 45px; border: 4px solid rgba(56, 189, 248, 0.1); border-top-color: #38bdf8; border-radius: 50%; animation: spin 0.8s linear infinite; }
+    @keyframes spin { to { transform: rotate(360deg); } }
+    
+    /* Critical Hero Fixes to avoid FOUC */
+    .hero-bullets { display: block !important; visibility: visible !important; }
+    .hero-bullets li { display: flex !important; }
     :root { --accent-color: #ffffff; }
   </style>
 
@@ -288,6 +297,11 @@
   </script>
 
 </head>
+<!-- Preloader Overlay -->
+<div id="preloader" role="status" aria-label="Loading site components...">
+  <div class="loader-spinner"></div>
+</div>
+
 <!-- Floating Icons Background - Optimized -->
 <div class="floating-icons" id="floating-icons" aria-hidden="true">
 </div>
@@ -396,13 +410,13 @@
           <span><strong>USA SaaS Delivery:</strong> Replaced complex manual Excel workflows with a multi-tenant platform
             for an international client.</span>
         </li>
-        <li style="margin-bottom: 0.8rem; display: flex; align-items: flex-start; gap: 0.8rem;">
-          <i class="fas fa-check-circle" style="color: var(--primary-color); margin-top: 0.2rem;"></i>
+         <li style="margin-bottom: 0.8rem; display: flex; align-items: flex-start; gap: 0.8rem;">
+          <i class="fas fa-check-circle" style="color: var(--primary-color); margin-top: 0.2rem;" aria-hidden="true"></i>
           <span><strong>Modern Product Stack:</strong> Specialized in <strong>Next.js, TypeScript, PostgreSQL, and
               Supabase</strong> for scalable web and mobile software.</span>
         </li>
         <li style="margin-bottom: 0.8rem; display: flex; align-items: flex-start; gap: 0.8rem;">
-          <i class="fas fa-check-circle" style="color: var(--primary-color); margin-top: 0.2rem;"></i>
+          <i class="fas fa-check-circle" style="color: var(--primary-color); margin-top: 0.2rem;" aria-hidden="true"></i>
           <span><span><strong>Production Tested:</strong> Proven track record of building financial systems and
               role-based platforms that run without critical bugs.</span></span>
         </li>
