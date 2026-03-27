@@ -1,18 +1,14 @@
-// ===========================
-// Performance: Detect mobile early
-// ===========================
-// Performance & UX: Handle Preloader
-window.addEventListener("load", () => {
-    const preloader = document.getElementById("preloader");
-    if (preloader) {
-        preloader.classList.add("fade-out");
-        // Remove from DOM after transition to save resources
-        setTimeout(() => preloader.remove(), 500);
-    }
-});
-
 const isMobile = window.matchMedia("(max-width: 768px)").matches;
 const isReducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+
+// ===========================
+// Performance: Delay Non-Critical Work
+// ===========================
+function startNonCritical() {
+    initThreeJS();
+    initHeroThreeJS();
+    initFloatingIcons();
+}
 
 // ===========================
 // Newsletter Form Enhancement
@@ -357,9 +353,11 @@ document.addEventListener("DOMContentLoaded", () => {
   };
 
   if ("requestIdleCallback" in window) {
-    window.requestIdleCallback(initNonCritical);
+    window.requestIdleCallback(() => {
+      setTimeout(initNonCritical, 3000);
+    });
   } else {
-    setTimeout(initNonCritical, 1000);
+    setTimeout(initNonCritical, 3500);
   }
 
   // Section reveal on scroll with IntersectionObserver
