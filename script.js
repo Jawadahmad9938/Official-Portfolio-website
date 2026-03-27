@@ -69,11 +69,8 @@ function initFloatingIcons() {
   const container = document.getElementById("floating-icons");
   if (!container) return;
 
-  // Disable on mobile for performance
-  if (isMobile) return;
-
-  // Reduce icon count for better performance
-  const iconCount = 25;
+  // For mobile, we only show specific high-impact icons
+  const iconCount = isMobile ? 5 : 25;
   
   // All technologies you're expert in
   const icons = [
@@ -123,9 +120,23 @@ function initFloatingIcons() {
     "database-icon", // For data management
   ];
 
+  // Specific icons to show on mobile to grab attention
+  const mobileTechPaths = [
+    "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/supabase/supabase-original.svg",
+    "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/nextjs/nextjs-original.svg",
+    "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/typescript/typescript-original.svg",
+    "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/postgresql/postgresql-original.svg",
+    "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/react/react-original.svg",
+    "excel-icon"
+  ];
+
   for (let i = 0; i < iconCount; i++) {
     const iconElement = document.createElement("div");
-    const selectedIcon = icons[Math.floor(Math.random() * icons.length)];
+    
+    // On mobile, pick from the priority list, otherwise pick random from full list
+    const selectedIcon = isMobile 
+      ? mobileTechPaths[i % mobileTechPaths.length] 
+      : icons[Math.floor(Math.random() * icons.length)];
     
     // Handle special Font Awesome icons
     if (selectedIcon === "excel-icon") {
@@ -296,29 +307,49 @@ loadThemePreference();
 // DOM Ready Initializations
 // ===========================
 document.addEventListener("DOMContentLoaded", () => {
-  initThreeJS();
-  initHeroThreeJS();
-  initFloatingIcons();
+  // 1. Critical stuff first (Mobile Menu, Theme)
+  // (They are already initialized at top-level or via listeners)
 
-  // Only animate cards if motion is not reduced
-  if (!isReducedMotion) {
-    // Animate service & project cards with passive listeners
-    const cards = document.querySelectorAll(".service-card, .project-card");
-    cards.forEach((card, index) => {
-      card.style.animationDelay = `${index * 0.1}s`;
-      card.classList.add("animate__animated", "animate__fadeInUp");
-      
-      // 3D hover effect on desktop only
-      if (!isMobile) {
-        card.addEventListener("mouseenter", function() {
-          this.style.transform = "translateY(-10px) scale(1.05)";
-        }, { passive: true });
+  // 2. Delay non-critical stuff until idle or slightly later
+  const initNonCritical = () => {
+    initThreeJS();
+    initHeroThreeJS();
+    initFloatingIcons();
+    
+    // Animate cards only when they enter the viewport
+    if (!isReducedMotion) {
+      const cardObserver = new IntersectionObserver((entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            const card = entry.target;
+            card.classList.add("animate__animated", "animate__fadeInUp");
+            cardObserver.unobserve(card);
+          }
+        });
+      }, { threshold: 0.1 });
+
+      document.querySelectorAll(".service-card, .project-card").forEach((card, index) => {
+        card.style.animationDelay = "0.1s"; // Consistent small delay
+        cardObserver.observe(card);
         
-        card.addEventListener("mouseleave", function() {
-          this.style.transform = "translateY(0) scale(1)";
-        }, { passive: true });
-      }
-    });
+        // 3D hover effect on desktop only
+        if (!isMobile) {
+          card.addEventListener("mouseenter", function() {
+            this.style.transform = "translateY(-10px) scale(1.02)";
+          }, { passive: true });
+          
+          card.addEventListener("mouseleave", function() {
+            this.style.transform = "translateY(0) scale(1)";
+          }, { passive: true });
+        }
+      });
+    }
+  };
+
+  if ("requestIdleCallback" in window) {
+    window.requestIdleCallback(initNonCritical);
+  } else {
+    setTimeout(initNonCritical, 1000);
   }
 
   // Section reveal on scroll with IntersectionObserver
@@ -333,13 +364,13 @@ document.addEventListener("DOMContentLoaded", () => {
     },
     { 
       threshold: 0.1,
-      rootMargin: "0px 0px -50px 0px" // Start animation 50px before visible
+      rootMargin: "0px 0px -50px 0px"
     }
   );
 
   document
     .querySelectorAll(
-      ".about-section, .services-section, .projects-section, .clients-section, .skills-section, .testimonials-section, .contact-section"
+      ".about-section, .services-section, .projects-section, .clients-section, .skills-section, .testimonials-section, .contact-section, .what-i-build-section"
     )
     .forEach((section) => revealObserver.observe(section));
 });
@@ -360,7 +391,8 @@ if ("IntersectionObserver" in window) {
         observer.unobserve(img);
       }
     });
-  });
+  }, { rootMargin: "200px" }); // Start loading 200px before items appear
 
   document.querySelectorAll("img[data-src]").forEach(img => imageObserver.observe(img));
 }
+

@@ -8,45 +8,138 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <meta name="format-detection" content="telephone=no" />
   <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-4788405112911161"
-     crossorigin="anonymous"></script>
+    crossorigin="anonymous"></script>
 
-  <!-- Preconnect for critical CDNs (do before preloads) -->
-  <link rel="preconnect" href="https://fonts.googleapis.com" crossorigin>
+  <!-- Preconnect for critical CDNs -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link rel="preconnect" href="https://cdnjs.cloudflare.com" crossorigin>
-  <link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin>
-  <link rel="preconnect" href="https://i.ibb.co" crossorigin>
-  <link rel="preconnect" href="https://i.postimg.cc" crossorigin>
-
-  <!-- DNS Prefetch for external services -->
-  <link rel="dns-prefetch" href="https://fonts.googleapis.com">
-  <link rel="dns-prefetch" href="https://fonts.gstatic.com">
+  <link rel="preconnect" href="https://cdnjs.cloudflare.com">
+  <link rel="dns-prefetch" href="https://i.postimg.cc">
+  <link rel="dns-prefetch" href="https://pagead2.googlesyndication.com">
 
   <!-- Favicon -->
-  <link rel="icon" href="https://i.ibb.co/rfstVnt3/jawad-sectionlogo.png" type="image/png" />
+  <link rel="icon" href="https://i.postimg.cc/50qzPtDT/jawad-hero-img.webp" type="image/webp" />
 
-  <!-- Preload critical resources -->
+  <!-- Critical CSS Inlined -->
+  <style>
+    /* CRITICAL CSS - INLINE IN HEAD FOR FASTER FIRST PAINT */
+    :root {
+      --bg-color: #0a0a0a;
+      --text-color: #f8f9fa;
+      --primary-color: #2563eb;
+      --accent-color: #38bdf8;
+      --nav-bg: rgb(26 60 110);
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: "Inter", sans-serif;
+      background-color: var(--bg-color);
+      color: var(--text-color);
+      overflow-x: hidden;
+      line-height: 1.6;
+    }
+
+    .navbar {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 0.85rem 3%;
+      background-color: var(--nav-bg);
+      position: fixed;
+      width: 100%;
+      top: 0;
+      z-index: 1000;
+      backdrop-filter: blur(20px);
+      -webkit-backdrop-filter: blur(20px);
+    }
+
+    .logo {
+      height: 44px;
+      width: 44px;
+      border-radius: 50%;
+      object-fit: cover;
+      border: 2px solid var(--primary-color);
+      box-shadow: 0 0 10px rgba(37, 99, 235, 0.4);
+    }
+
+    .home-section {
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      padding: 2rem;
+      position: relative;
+    }
+
+    .hero-content {
+      display: flex;
+      flex-wrap: wrap;
+      width: 100%;
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+
+    .left-content {
+      flex: 1;
+      min-width: 300px;
+    }
+
+    .right-image {
+      flex: 0.8;
+      display: flex;
+      justify-content: center;
+    }
+
+    .name {
+      font-size: 3.5rem;
+      font-weight: 700;
+      margin-bottom: 0.5rem;
+    }
+
+    .title {
+      font-size: 1.5rem;
+      color: var(--accent-color);
+      margin-bottom: 1rem;
+    }
+
+    @media (max-width: 768px) {
+      .name {
+        font-size: 2.5rem;
+      }
+
+      .hero-content {
+        flex-direction: column;
+        text-align: center;
+      }
+
+      .right-image {
+        margin-top: 2rem;
+      }
+    }
+  </style>
+
+  <!-- Preload & Async Load Main CSS -->
   <link rel="preload" href="style.css" as="style" />
-  <link rel="preload" href="script.js" as="script" />
-  <link rel="preload" as="image" href="https://i.postimg.cc/50qzPtDT/jawad-hero-img.webp" fetchpriority="high" />
+  <link rel="stylesheet" href="style.css" media="print" onload="this.media='all'" />
+  <noscript>
+    <link rel="stylesheet" href="style.css">
+  </noscript>
 
-  <!-- Font loading - optimized async with font-display -->
-  <link
-    href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Poppins:wght@400;600;700&display=swap"
+  <!-- Google Fonts - Optimized Load -->
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&family=Poppins:wght@600;700&display=swap"
     rel="stylesheet" />
 
-  <!-- Main CSS -->
-  <link rel="stylesheet" href="style.css" />
-
-  <!-- Font Awesome Icons - async loading -->
-  <link rel="preload" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" as="style" />
+  <!-- Async loading for icons -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" media="print"
     onload="this.media='all'" />
-
-  <!-- Devicon - async loading -->
-  <link rel="preload" href="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/devicon.min.css" as="style" />
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/devicon.min.css" media="print"
     onload="this.media='all'" />
+
 
   <!-- Essential Meta & SEO -->
   <title>Jawad Ahmad | Full Stack Product Engineer | SaaS and Mobile Builder</title>
@@ -138,7 +231,7 @@
         "url": "https://jawadahmad.me/",
         "areaServed": ["PK", "US", "AE", "GB", "CA"],
         "knowsAbout": ["SaaS Development", "Business Automation", "Custom CRM", "Next.js", "Supabase", "React Native", "Expo", "iOS Apps", "TypeScript", "Node.js", "Java", "SQL", "PostgreSQL", "Revenue Growth"],
-        "image": "https://i.ibb.co/rfstVnt3/jawad-sectionlogo.png",
+        "image": "https://i.postimg.cc/50qzPtDT/jawad-hero-img.webp",
         "sameAs": [
           "https://www.linkedin.com/in/jawad-ahmad-9938938484djf",
           "https://www.facebook.com/jawad.ahmed.961811",
@@ -205,9 +298,8 @@
 <nav class="navbar" role="navigation" aria-label="Main navigation">
   <!-- Logo -->
   <a href="index.html" aria-label="Home page">
-    <img class="logo" src="https://i.ibb.co/rfstVnt3/jawad-sectionlogo.png"
-      alt="Jawad Ahmad - Full Stack Developer Logo - Business Web Solutions Expert" width="120" height="40"
-      loading="eager" />
+    <img class="logo" src="https://i.postimg.cc/50qzPtDT/jawad-hero-img.webp"
+      alt="Jawad Ahmad - Full Stack Developer Logo" width="44" height="44" loading="eager" />
   </a>
 
   <!-- Desktop Navigation Menu -->
@@ -295,21 +387,27 @@
         Engineering Growth by Replacing Manual Chaos with Scalable Systems.
       </p>
       <p class="description animate__animated animate__fadeInUp">
-        I build the systems that founders use to scale. Most developers just write code; I take full responsibility for the entire product, from the first line of code to the final launch. Over the last few months, I've replaced manual spreadsheets with automated SaaS platforms and shipped iOS apps that are live in production right now.
+        I build the systems that founders use to scale. Most developers just write code; I take full responsibility for
+        the entire product, from the first line of code to the final launch. Over the last few months, I've replaced
+        manual spreadsheets with automated SaaS platforms and shipped iOS apps that are live in production right now.
       </p>
-      
-      <ul class="hero-bullets animate__animated animate__fadeInUp" style="list-style: none; padding: 0; margin-bottom: 2rem;">
+
+      <ul class="hero-bullets animate__animated animate__fadeInUp"
+        style="list-style: none; padding: 0; margin-bottom: 2rem;">
         <li style="margin-bottom: 0.8rem; display: flex; align-items: flex-start; gap: 0.8rem;">
           <i class="fas fa-check-circle" style="color: var(--primary-color); margin-top: 0.2rem;"></i>
-          <span><strong>USA SaaS Delivery:</strong> Replaced complex manual Excel workflows with a multi-tenant platform for an international client.</span>
+          <span><strong>USA SaaS Delivery:</strong> Replaced complex manual Excel workflows with a multi-tenant platform
+            for an international client.</span>
         </li>
         <li style="margin-bottom: 0.8rem; display: flex; align-items: flex-start; gap: 0.8rem;">
           <i class="fas fa-check-circle" style="color: var(--primary-color); margin-top: 0.2rem;"></i>
-          <span><strong>Modern Product Stack:</strong> Specialized in <strong>Next.js, TypeScript, PostgreSQL, and Supabase</strong> for scalable web and mobile software.</span>
+          <span><strong>Modern Product Stack:</strong> Specialized in <strong>Next.js, TypeScript, PostgreSQL, and
+              Supabase</strong> for scalable web and mobile software.</span>
         </li>
         <li style="margin-bottom: 0.8rem; display: flex; align-items: flex-start; gap: 0.8rem;">
           <i class="fas fa-check-circle" style="color: var(--primary-color); margin-top: 0.2rem;"></i>
-          <span><span><strong>Production Tested:</strong> Proven track record of building financial systems and role-based platforms that run without critical bugs.</span></span>
+          <span><span><strong>Production Tested:</strong> Proven track record of building financial systems and
+              role-based platforms that run without critical bugs.</span></span>
         </li>
       </ul>
 
@@ -334,13 +432,15 @@
           View Proof of Work
         </a>
       </div>
-      <p class="social-proof animate__animated animate__fadeInUp" style="font-size: 0.9rem; margin-top: 1.5rem; opacity: 0.8;">
-        Live USA Clients · App Store Published · Next.js & Supabase Expert · Polyglot Engineering 
+      <p class="social-proof animate__animated animate__fadeInUp"
+        style="font-size: 0.9rem; margin-top: 1.5rem; opacity: 0.8;">
+        Live USA Clients · App Store Published · Next.js & Supabase Expert · Polyglot Engineering
       </p>
     </div>
     <div class="right-image">
-      <img src="https://i.postimg.cc/50qzPtDT/jawad-hero-img.webp" alt="Jawad Ahmad - Product Engineer" width="400" height="500"
-        loading="eager" decoding="sync" fetchpriority="high" style="width: 100%; max-width: 400px; height: auto;" />
+      <img src="https://i.postimg.cc/50qzPtDT/jawad-hero-img.webp" alt="Jawad Ahmad - Product Engineer" width="400"
+        height="500" loading="eager" decoding="sync" fetchpriority="high"
+        style="width: 100%; max-width: 400px; height: auto;" />
     </div>
   </div>
 </section>
@@ -351,48 +451,56 @@
     <div class="about-text">
       <h1>Polyglot Engineering for Real-World Problems</h1>
       <p class="about-description">
-        I focus on solving business problems that generic dev teams often miss. While others build exactly what you ask for, I build what your business needs to grow. 
+        I focus on solving business problems that generic dev teams often miss. While others build exactly what you ask
+        for, I build what your business needs to grow.
         <br><br>
-        Using <strong>Next.js, TypeScript, PostgreSQL, and Supabase</strong>, I manage the entire product development cycle. Whether it's complex backend logic in Java or Node.js or a fast, modern frontend, I make sure the result is secure, stable, and ready to handle your users.
+        Using <strong>Next.js, TypeScript, PostgreSQL, and Supabase</strong>, I manage the entire product development
+        cycle. Whether it's complex backend logic in Java or Node.js or a fast, modern frontend, I make sure the result
+        is secure, stable, and ready to handle your users.
       </p>
     </div>
   </div>
   <div class="about-right">
-    <div style="background: var(--nav-bg); padding: 2rem; border-radius: 12px; border: 1px solid rgba(37, 99, 235, 0.2);">
+    <div
+      style="background: var(--nav-bg); padding: 2rem; border-radius: 12px; border: 1px solid rgba(37, 99, 235, 0.2);">
       <h2 style="color: var(--primary-color); margin-bottom: 1.5rem;">Why Founders Work With Me</h2>
       <ul style="list-style: none; padding: 0;">
         <li style="padding: 0.6rem 0; padding-left: 2rem; position: relative; margin-bottom: 0.5rem;">
           <span style="position: absolute; left: 0; color: #10b981; font-weight: bold; font-size: 1.2rem;">✓</span>
-          <strong>Actual Ownership:</strong> I don't just "take tickets." I take full responsibility for the stability and success of your software.
+          <strong>Actual Ownership:</strong> I don't just "take tickets." I take full responsibility for the stability
+          and success of your software.
         </li>
         <li style="padding: 0.6rem 0; padding-left: 2rem; position: relative; margin-bottom: 0.5rem;">
           <span style="position: absolute; left: 0; color: #10b981; font-weight: bold; font-size: 1.2rem;">✓</span>
-          <strong>Built for Scale:</strong> Your system is designed for growth from day one using modern tools like Next.js and Supabase.
+          <strong>Built for Scale:</strong> Your system is designed for growth from day one using modern tools like
+          Next.js and Supabase.
         </li>
         <li style="padding: 0.6rem 0; padding-left: 2rem; position: relative; margin-bottom: 0.5rem;">
           <span style="position: absolute; left: 0; color: #10b981; font-weight: bold; font-size: 1.2rem;">✓</span>
-          <strong>Process Automation:</strong> I rescue you from spreadsheet chaos by building workflows that save you time and eliminate errors.
+          <strong>Process Automation:</strong> I rescue you from spreadsheet chaos by building workflows that save you
+          time and eliminate errors.
         </li>
         <li style="padding: 0.6rem 0; padding-left: 2rem; position: relative; margin-bottom: 0.5rem;">
           <span style="position: absolute; left: 0; color: #10b981; font-weight: bold; font-size: 1.2rem;">✓</span>
-          <strong>100% Transparency:</strong> Directly communicate with the person building your product. No middlemen, no confusion.
+          <strong>100% Transparency:</strong> Directly communicate with the person building your product. No middlemen,
+          no confusion.
         </li>
       </ul>
     </div>
     <div class="social-buttons" style="margin-top: 2rem;">
       <a href="https://www.facebook.com/jawad.ahmed.961811" target="_blank"
         aria-label="Visit Jawad Ahmad's Facebook profile">
-        <img src="img/facebook-logo-1-2.png" alt="Facebook Logo" width="20"
-          height="20" loading="lazy" decoding="async" />
+        <img src="img/facebook-logo-1-2.png" alt="Facebook Logo" width="40" height="40" loading="lazy"
+          decoding="async" />
       </a>
       <a href="https://x.com/yourprofile" target="_blank" aria-label="Visit Jawad Ahmad's X (Twitter) profile">
-        <img src="img/free-twitter-logo-icon-2429-thumb.png" alt="X (Twitter) Logo"
-          width="20" height="20" loading="lazy" decoding="async" />
+        <img src="img/free-twitter-logo-icon-2429-thumb.png" alt="X (Twitter) Logo" width="40" height="40"
+          loading="lazy" decoding="async" />
       </a>
       <a href="https://www.linkedin.com/in/jawad-ahmad-9938938484djf" target="_blank"
         aria-label="Visit Jawad Ahmad's LinkedIn profile">
-        <img src="img/linkedin-icon-logo-png-transparent.png" alt="LinkedIn Logo"
-          width="20" height="20" loading="lazy" decoding="async" />
+        <img src="img/linkedin-icon-logo-png-transparent.png" alt="LinkedIn Logo" width="40" height="40" loading="lazy"
+          decoding="async" />
       </a>
     </div>
   </div>
@@ -405,12 +513,13 @@
       <p class="what-i-build-subtitle">The Result of My Work</p>
       <h2 class="what-i-build-title">Engineering Business Outcomes</h2>
       <p class="what-i-build-description">
-        I don't just write code. I build the digital backbone that your business runs on. My focus is on systems that eliminate manual bottlenecks and directly impact your bottom line.
+        I don't just write code. I build the digital backbone that your business runs on. My focus is on systems that
+        eliminate manual bottlenecks and directly impact your bottom line.
       </p>
     </div>
 
     <div class="specializations-grid">
-      
+
       <!-- Manual Work Replacement Systems -->
       <div class="specialization-card excel-card">
         <div class="spec-icon">
@@ -418,7 +527,8 @@
         </div>
         <h3 class="spec-title">Manual Work to Automation</h3>
         <p class="spec-description">
-          Free yourself from manual tasks and broken spreadsheets. I build automated systems and custom CRMs that handle financial math, role permissions, and reporting as your business scales.
+          Free yourself from manual tasks and broken spreadsheets. I build automated systems and custom CRMs that handle
+          financial math, role permissions, and reporting as your business scales.
         </p>
         <div class="spec-features">
           <div class="feature-item">
@@ -436,7 +546,8 @@
         </div>
         <div class="spec-example excel-example">
           <strong>Key Result:</strong>
-          <span>Replacing manual legacy systems with cloud-based SaaS, leading to measurable business and revenue growth.</span>
+          <span>Replacing manual legacy systems with cloud-based SaaS, leading to measurable business and revenue
+            growth.</span>
         </div>
       </div>
 
@@ -447,7 +558,8 @@
         </div>
         <h3 class="spec-title">Production SaaS Platforms</h3>
         <p class="spec-description">
-          Full responsibility for your business-critical SaaS. I build platforms that handle customer operations, billing, and revenue with a focus on stability.
+          Full responsibility for your business-critical SaaS. I build platforms that handle customer operations,
+          billing, and revenue with a focus on stability.
         </p>
         <div class="spec-features">
           <div class="feature-item">
@@ -476,7 +588,8 @@
         </div>
         <h3 class="spec-title">Business Management Systems</h3>
         <p class="spec-description">
-          Complete business operation platforms handling customer management, billing, support, and reporting. Built to replace manual processes and drive efficiency.
+          Complete business operation platforms handling customer management, billing, support, and reporting. Built to
+          replace manual processes and drive efficiency.
         </p>
         <div class="spec-features">
           <div class="feature-item">
@@ -503,7 +616,8 @@
     <div class="specialization-cta">
       <h3>Need a System Built for Real Load?</h3>
       <p>
-        I specialize in these high-stakes, business-critical environments. If your current manual setup is holding back your growth, let's build the system that takes you to the next level.
+        I specialize in these high-stakes, business-critical environments. If your current manual setup is holding back
+        your growth, let's build the system that takes you to the next level.
       </p>
       <a href="#Contact" class="cta-button">
         <i class="fas fa-rocket" aria-hidden="true"></i>
@@ -513,300 +627,7 @@
   </div>
 </section>
 
-<style>
-/* What I Build Section Styles */
-.what-i-build-section {
-  padding: 5rem 5%;
-  /* background: var(--card-bg); */
-  margin: 2rem 0;
-}
 
-.what-i-build-container {
-  max-width: 1200px;
-  margin: 0 auto;
-}
-
-.what-i-build-header {
-  text-align: center;
-  margin-bottom: 3rem;
-}
-
-.what-i-build-subtitle {
-  color: var(--primary-color);
-  font-weight: 600;
-  text-transform: uppercase;
-  letter-spacing: 1px;
-  margin-bottom: 1rem;
-  font-size: 0.9rem;
-}
-
-.what-i-build-title {
-  font-size: 2.5rem;
-  font-weight: 700;
-  margin-bottom: 1.5rem;
-  color: var(--text-color);
-}
-
-.what-i-build-description {
-  font-size: 1.1rem;
-  color: var(--text-secondary);
-  max-width: 600px;
-  margin: 0 auto;
-  line-height: 1.6;
-}
-
-.specializations-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
-  gap: 2rem;
-  margin-bottom: 3rem;
-}
-
-.specialization-card {
-  background: var(--bg-color);
-  padding: 2rem;
-  border-radius: 12px;
-  border: 1px solid rgba(37, 99, 235, 0.2);
-  transition: all 0.3s ease;
-  cursor: pointer;
-  position: relative;
-}
-
-.specialization-card:hover {
-  transform: translateY(-5px);
-  box-shadow: 0 10px 30px rgba(37, 99, 235, 0.15);
-}
-
-.spec-icon {
-  margin-bottom: 1.5rem;
-}
-
-.spec-icon i {
-  font-size: 3rem;
-}
-
-.excel-card .spec-icon i {
-  color: #217346;
-}
-
-.saas-card .spec-icon i {
-  color: var(--primary-color);
-}
-
-.management-card .spec-icon i {
-  color: #7c3aed;
-}
-
-.spec-title {
-  font-size: 1.5rem;
-  margin-bottom: 1rem;
-  color: var(--primary-color);
-}
-
-.management-card .spec-title {
-  color: #7c3aed;
-}
-
-.spec-description {
-  color: var(--text-secondary);
-  margin-bottom: 1.5rem;
-  line-height: 1.6;
-}
-
-.spec-features {
-  margin-bottom: 1.5rem;
-}
-
-.feature-item {
-  display: flex;
-  align-items: center;
-  margin-bottom: 0.5rem;
-}
-
-.feature-item i {
-  color: #10b981;
-  margin-right: 0.5rem;
-  font-size: 0.9rem;
-}
-
-.feature-item span {
-  color: var(--text-color);
-  font-size: 0.9rem;
-}
-
-.spec-example {
-  padding: 1rem;
-  border-radius: 8px;
-  border-left: 3px solid;
-}
-
-.excel-example {
-  background: rgba(16, 185, 129, 0.1);
-  border-left-color: #10b981;
-}
-
-.saas-example {
-  background: rgba(37, 99, 235, 0.1);
-  border-left-color: var(--primary-color);
-}
-
-.management-example {
-  background: rgba(124, 58, 237, 0.1);
-  border-left-color: #7c3aed;
-}
-
-.spec-example strong {
-  color: var(--text-color);
-}
-
-.spec-example span {
-  color: var(--text-secondary);
-  font-size: 0.9rem;
-}
-
-.specialization-cta {
-  text-align: center;
-  padding: 2rem;
-  background: linear-gradient(135deg, rgba(37, 99, 235, 0.05), rgba(124, 58, 237, 0.05));
-  border-radius: 12px;
-}
-
-.specialization-cta h3 {
-  color: var(--text-color);
-  margin-bottom: 1rem;
-  font-size: 1.5rem;
-}
-
-.specialization-cta p {
-  color: var(--text-secondary);
-  margin-bottom: 1.5rem;
-  line-height: 1.6;
-}
-
-.cta-button {
-  display: inline-flex;
-  align-items: center;
-  gap: 0.5rem;
-  padding: 1rem 2rem;
-  background: var(--primary-color);
-  color: white;
-  border-radius: 50px;
-  text-decoration: none;
-  font-weight: 600;
-  transition: all 0.3s ease;
-}
-
-.cta-button:hover {
-  background: #1d4ed8;
-  transform: translateY(-2px);
-}
-
-/* Mobile Responsive Styles */
-@media (max-width: 768px) {
-  .what-i-build-section {
-    padding: 3rem 4%;
-    margin: 1rem 0;
-  }
-
-  .what-i-build-header {
-    margin-bottom: 2rem;
-  }
-
-  .what-i-build-title {
-    font-size: 2rem;
-  }
-
-  .what-i-build-description {
-    font-size: 1rem;
-  }
-
-  .specializations-grid {
-    grid-template-columns: 1fr;
-    gap: 1.5rem;
-    margin-bottom: 2rem;
-  }
-
-  .specialization-card {
-    padding: 1.5rem;
-  }
-
-  .spec-icon i {
-    font-size: 2.5rem;
-  }
-
-  .spec-title {
-    font-size: 1.3rem;
-  }
-
-  .spec-description {
-    font-size: 0.95rem;
-  }
-
-  .feature-item span {
-    font-size: 0.85rem;
-  }
-
-  .spec-example {
-    padding: 0.8rem;
-  }
-
-  .spec-example span {
-    font-size: 0.85rem;
-  }
-
-  .specialization-cta {
-    padding: 1.5rem;
-  }
-
-  .specialization-cta h3 {
-    font-size: 1.3rem;
-  }
-
-  .specialization-cta p {
-    font-size: 0.95rem;
-  }
-
-  .cta-button {
-    padding: 0.8rem 1.5rem;
-    font-size: 0.9rem;
-  }
-}
-
-@media (max-width: 480px) {
-  .what-i-build-section {
-    padding: 2rem 3%;
-  }
-
-  .what-i-build-title {
-    font-size: 1.8rem;
-  }
-
-  .specializations-grid {
-    gap: 1rem;
-  }
-
-  .specialization-card {
-    padding: 1.2rem;
-  }
-
-  .spec-icon i {
-    font-size: 2rem;
-  }
-
-  .spec-title {
-    font-size: 1.2rem;
-  }
-
-  .specialization-cta {
-    padding: 1.2rem;
-  }
-
-  .cta-button {
-    padding: 0.7rem 1.2rem;
-    font-size: 0.85rem;
-  }
-}
-</style>
 
 <!-- Services Section -->
 <section class="services-section" id="Services">
@@ -833,7 +654,8 @@
         </div>
         <h3 class="service-title">Complete SaaS Engineering</h3>
         <p class="service-description">
-          Full responsibility for your product from idea to launch. I use Next.js, TypeScript, and Supabase to create architectures that scale with you.
+          Full responsibility for your product from idea to launch. I use Next.js, TypeScript, and Supabase to create
+          architectures that scale with you.
         </p>
         <div class="service-features">
           <span class="feature">Multi-Tenant Architecture</span>
@@ -926,7 +748,8 @@
         </div>
         <h3 class="service-title">Manual Chaos to Automation</h3>
         <p class="service-description">
-          I swap error-prone spreadsheets for automated workflows. Using the right tools for the job—from Node.js to Java—I make your processes fast and accurate.
+          I swap error-prone spreadsheets for automated workflows. Using the right tools for the job—from Node.js to
+          Java—I make your processes fast and accurate.
         </p>
         <div class="service-features">
           <span class="feature">Real-time Financial Tracking</span>
@@ -1030,34 +853,42 @@
   <p class="projects-subtitle">Production Systems Portfolio</p>
   <h2 class="projects-title">Business-Critical Software I Own & Maintain</h2>
   <p class="projects-description">
-    Real production systems handling live business operations - from customer billing and VPS management to multi-tenant SaaS platforms serving 1000+ concurrent users. Each system demonstrates end-to-end ownership, stability under pressure, and measurable business impact.
+    Real production systems handling live business operations - from customer billing and VPS management to multi-tenant
+    SaaS platforms serving 1000+ concurrent users. Each system demonstrates end-to-end ownership, stability under
+    pressure, and measurable business impact.
   </p>
 
   <div class="projects-container">
 
     <!-- Featured Project - Sales & Finance SaaS -->
-    <div class="project-card featured-card" style="border: 2px solid #10b981; background: linear-gradient(135deg, rgba(16, 185, 129, 0.05), rgba(5, 150, 105, 0.05)); position: relative;">
-      
+    <div class="project-card featured-card"
+      style="border: 2px solid #10b981; background: linear-gradient(135deg, rgba(16, 185, 129, 0.05), rgba(5, 150, 105, 0.05)); position: relative;">
+
       <!-- Featured Badge -->
       <div class="featured-badge" style="background: linear-gradient(135deg, #10b981, #059669);">
         CURRENT
       </div>
 
-      <img src="https://i.postimg.cc/XvjLsP7Z/Chat-GPT-Image-Feb-1-2026-05-49-36-PM.png"
-        class="project-image" width="600" height="400" loading="lazy" decoding="async"
+      <img src="https://i.postimg.cc/XvjLsP7Z/Chat-GPT-Image-Feb-1-2026-05-49-36-PM.png" class="project-image"
+        width="600" height="400" loading="lazy" decoding="async"
         alt="Enterprise Sales & Finance Tracking SaaS Platform" />
 
       <h3 class="project-name">Enterprise Sales & Finance SaaS (USA Client)</h3>
 
       <p class="project-details">
         <span class="detail-heading problem">Business Problem:</span>
-        USA-based business needed to replace complex Excel workflows for tracking sales reps, vendors, commissions, holdbacks, and payouts across multiple companies with role-based access and financial accuracy.<br />
+        USA-based business needed to replace complex Excel workflows for tracking sales reps, vendors, commissions,
+        holdbacks, and payouts across multiple companies with role-based access and financial accuracy.<br />
 
         <span class="detail-heading solution">My Ownership:</span>
-        End-to-end product ownership over 5 months. Built role-based access for Admin, Manager, and Sales Rep roles. Designed multi-tenant PostgreSQL architecture, fixed critical security vulnerabilities and data leakage, built offline sales reporting for field reps, added CSV import and export, created team and individual performance dashboards, and shipped a companion iOS app approved on the Apple App Store.<br />
+        End-to-end product ownership over 5 months. Built role-based access for Admin, Manager, and Sales Rep roles.
+        Designed multi-tenant PostgreSQL architecture, fixed critical security vulnerabilities and data leakage, built
+        offline sales reporting for field reps, added CSV import and export, created team and individual performance
+        dashboards, and shipped a companion iOS app approved on the Apple App Store.<br />
 
         <span class="detail-heading impact">Business Impact:</span>
-        Live in production with zero critical bugs. Field reps report sales offline and sync automatically. Managers have full team visibility. Financial data secured. Excel fully replaced.
+        Live in production with zero critical bugs. Field reps report sales offline and sync automatically. Managers
+        have full team visibility. Financial data secured. Excel fully replaced.
       </p>
 
       <div class="tech-stack">
@@ -1070,16 +901,20 @@
       </div>
 
       <div style="display:flex; gap:0.5rem; flex-wrap:wrap; margin-bottom:0.5rem;">
-        <span style="display:inline-flex;align-items:center;gap:0.35rem;background:rgba(16,185,129,0.12);color:#10b981;padding:0.3rem 0.75rem;border-radius:20px;font-size:0.8rem;font-weight:600;">
+        <span
+          style="display:inline-flex;align-items:center;gap:0.35rem;background:rgba(16,185,129,0.12);color:#10b981;padding:0.3rem 0.75rem;border-radius:20px;font-size:0.8rem;font-weight:600;">
           <i class="fab fa-apple"></i> iOS App on App Store
         </span>
-        <span style="display:inline-flex;align-items:center;gap:0.35rem;background:rgba(37,99,235,0.1);color:#60a5fa;padding:0.3rem 0.75rem;border-radius:20px;font-size:0.8rem;font-weight:600;">
+        <span
+          style="display:inline-flex;align-items:center;gap:0.35rem;background:rgba(37,99,235,0.1);color:#60a5fa;padding:0.3rem 0.75rem;border-radius:20px;font-size:0.8rem;font-weight:600;">
           Offline Sync
         </span>
-        <span style="display:inline-flex;align-items:center;gap:0.35rem;background:rgba(124,58,237,0.1);color:#a78bfa;padding:0.3rem 0.75rem;border-radius:20px;font-size:0.8rem;font-weight:600;">
+        <span
+          style="display:inline-flex;align-items:center;gap:0.35rem;background:rgba(124,58,237,0.1);color:#a78bfa;padding:0.3rem 0.75rem;border-radius:20px;font-size:0.8rem;font-weight:600;">
           Role-Based Access
         </span>
-        <span style="display:inline-flex;align-items:center;gap:0.35rem;background:rgba(16,185,129,0.1);color:#34d399;padding:0.3rem 0.75rem;border-radius:20px;font-size:0.8rem;font-weight:600;">
+        <span
+          style="display:inline-flex;align-items:center;gap:0.35rem;background:rgba(16,185,129,0.1);color:#34d399;padding:0.3rem 0.75rem;border-radius:20px;font-size:0.8rem;font-weight:600;">
           <i class="fas fa-circle" style="font-size:0.5rem;"></i> Live in Production
         </span>
       </div>
@@ -1088,28 +923,33 @@
     </div>
 
     <!-- Featured Project - CloudMaster Pro -->
-    <div class="project-card featured-card" style="border: 2px solid #2563eb; background: linear-gradient(135deg, rgba(37, 99, 235, 0.05), rgba(124, 58, 237, 0.05)); position: relative;">
-      
+    <div class="project-card featured-card"
+      style="border: 2px solid #2563eb; background: linear-gradient(135deg, rgba(37, 99, 235, 0.05), rgba(124, 58, 237, 0.05)); position: relative;">
+
       <!-- Featured Badge -->
       <div class="featured-badge">
         FEATURED
       </div>
 
-      <img src="https://i.postimg.cc/J0KQ7xXV/Screenshot-2025-11-29-140039.png"
-        class="project-image" width="600" height="400" loading="lazy" decoding="async"
+      <img src="https://i.postimg.cc/J0KQ7xXV/Screenshot-2025-11-29-140039.png" class="project-image" width="600"
+        height="400" loading="lazy" decoding="async"
         alt="CloudMaster Pro - Enterprise Cloud Infrastructure Management Platform" />
 
       <h3 class="project-name">CloudMaster Pro - Production SaaS Platform</h3>
 
       <p class="project-details">
         <span class="detail-heading problem">Business Problem:</span>
-        Hosting company needed a production-ready multi-tenant platform to manage real customer operations, billing, and VPS provisioning without manual intervention.<br />
+        Hosting company needed a production-ready multi-tenant platform to manage real customer operations, billing, and
+        VPS provisioning without manual intervention.<br />
 
         <span class="detail-heading solution">My Ownership:</span>
-        End-to-end development and production ownership: Java backend with 22 APIs, React frontend, database design, authentication flows, role-based permissions, real-time VM management, and production debugging. Handled live issues and performance optimization under real user load.<br />
+        End-to-end development and production ownership: Java backend with 22 APIs, React frontend, database design,
+        authentication flows, role-based permissions, real-time VM management, and production debugging. Handled live
+        issues and performance optimization under real user load.<br />
 
         <span class="detail-heading impact">Business Impact:</span>
-        4-week delivery to production • 1000+ real users • Zero downtime incidents • Automated 90% of manual operations • Reduced support tickets by 60% • System handles real revenue and customer data.
+        4-week delivery to production • 1000+ real users • Zero downtime incidents • Automated 90% of manual operations
+        • Reduced support tickets by 60% • System handles real revenue and customer data.
       </p>
 
       <div class="tech-stack">
@@ -1125,28 +965,33 @@
     </div>
 
     <!-- Featured Project - PFCloud Hosting Platform -->
-    <div class="project-card featured-card" style="border: 2px solid #7c3aed; background: linear-gradient(135deg, rgba(124, 58, 237, 0.05), rgba(37, 99, 235, 0.05)); position: relative;">
-      
+    <div class="project-card featured-card"
+      style="border: 2px solid #7c3aed; background: linear-gradient(135deg, rgba(124, 58, 237, 0.05), rgba(37, 99, 235, 0.05)); position: relative;">
+
       <!-- Featured Badge -->
       <div class="featured-badge" style="background: linear-gradient(135deg, #7c3aed, #2563eb);">
         ENTERPRISE
       </div>
 
-      <img src="https://i.postimg.cc/Hs9X7KSf/9e43775a-d846-4a1f-b2ff-3532907af671.png"
-        class="project-image" width="600" height="400" loading="lazy" decoding="async"
+      <img src="https://i.postimg.cc/Hs9X7KSf/9e43775a-d846-4a1f-b2ff-3532907af671.png" class="project-image"
+        width="600" height="400" loading="lazy" decoding="async"
         alt="PFCloud - Enterprise Hosting Management Platform" />
 
       <h3 class="project-name">PFCloud - Production Hosting Platform</h3>
 
       <p class="project-details">
         <span class="detail-heading problem">Business Problem:</span>
-        Enterprise hosting provider required a complete business management platform handling real customer billing, VPS provisioning, support tickets, and financial reporting with zero manual intervention.<br />
+        Enterprise hosting provider required a complete business management platform handling real customer billing, VPS
+        provisioning, support tickets, and financial reporting with zero manual intervention.<br />
 
         <span class="detail-heading solution">My Ownership:</span>
-        Full-stack ownership of multi-frontend architecture: Java + Vert.x reactive backend, Vue.js customer portal, admin dashboard, automated billing system, Proxmox integration, payment processing, and production incident resolution. Responsible for system stability and business continuity.<br />
+        Full-stack ownership of multi-frontend architecture: Java + Vert.x reactive backend, Vue.js customer portal,
+        admin dashboard, automated billing system, Proxmox integration, payment processing, and production incident
+        resolution. Responsible for system stability and business continuity.<br />
 
         <span class="detail-heading impact">Business Impact:</span>
-        1+ month to production • 100+ API endpoints • 1000+ concurrent users • 99.9% uptime • 90% reduction in manual billing • 60% fewer support tickets • Handles real customer payments and operations.
+        1+ month to production • 100+ API endpoints • 1000+ concurrent users • 99.9% uptime • 90% reduction in manual
+        billing • 60% fewer support tickets • Handles real customer payments and operations.
       </p>
 
       <div class="tech-stack">
@@ -1165,8 +1010,8 @@
 
     <!-- Project 1 - LMS -->
     <div class="project-card">
-      <img src="https://i.postimg.cc/W1d4ryRY/lms-pic.png" class="project-image"
-        width="600" height="400" loading="lazy" decoding="async" alt="LMS EduTool Platform" />
+      <img src="https://i.postimg.cc/W1d4ryRY/lms-pic.png" class="project-image" width="600" height="400" loading="lazy"
+        decoding="async" alt="LMS EduTool Platform" />
 
       <h3 class="project-name">LMS EduTool – Revenue-Generating Learning Platform</h3>
 
@@ -1196,8 +1041,8 @@
 
     <!-- Project 2 - GoatNova -->
     <div class="project-card">
-      <img src="https://i.postimg.cc/yxcs8MwJ/goatnova.jpg" class="project-image"
-        width="600" height="400" loading="lazy" decoding="async" alt="GoatNova Digital Agency" />
+      <img src="https://i.postimg.cc/yxcs8MwJ/goatnova.jpg" class="project-image" width="600" height="400"
+        loading="lazy" decoding="async" alt="GoatNova Digital Agency" />
 
       <h3 class="project-name">GoatNova – Digital Agency Revenue Platform</h3>
 
@@ -1220,15 +1065,16 @@
       </div>
 
       <a href="https://goatnova.online/" target="_blank" class="project-link">See Live Solution</a>
-      <a href="https://github.com/Jawadahmad9938/goatnova-project" target="_blank" class="project-link">Business Case</a>
+      <a href="https://github.com/Jawadahmad9938/goatnova-project" target="_blank" class="project-link">Business
+        Case</a>
     </div>
 
 
 
     <!-- Project 3 - Shopstockk -->
     <div class="project-card">
-      <img src="https://i.postimg.cc/RVbjf9np/shopstock.webp" class="project-image"
-        width="600" height="400" loading="lazy" decoding="async" alt="Shopstockk E-commerce" />
+      <img src="https://i.postimg.cc/RVbjf9np/shopstock.webp" class="project-image" width="600" height="400"
+        loading="lazy" decoding="async" alt="Shopstockk E-commerce" />
 
       <h3 class="project-name">Shopstockk – Complete E-commerce Solution</h3>
 
@@ -1254,14 +1100,15 @@
       </div>
 
       <a href="https://shopstockk.netlify.app" target="_blank" class="project-link">See Live Solution</a>
-      <a href="https://github.com/Jawadahmad9938/ecommerce-mern-stack-semester-project" target="_blank" class="project-link">Business Case</a>
+      <a href="https://github.com/Jawadahmad9938/ecommerce-mern-stack-semester-project" target="_blank"
+        class="project-link">Business Case</a>
     </div>
 
 
     <!-- Project 4 - 800batterie -->
     <div class="project-card">
-      <img src="https://i.ibb.co/67bYdr1T/800batteries.jpg" class="project-image"
-        width="600" height="400" loading="lazy" decoding="async" alt="800batterie Business Website" />
+      <img src="https://i.ibb.co/67bYdr1T/800batteries.jpg" class="project-image" width="600" height="400"
+        loading="lazy" decoding="async" alt="800batterie Business Website" />
 
       <h3 class="project-name">800batterie – Professional Business Presence</h3>
 
@@ -1284,14 +1131,14 @@
       </div>
 
       <a href="https://800batterie.com" target="_blank" class="project-link">See Live Solution</a>
-      <a href="https://github.com/Jawadahmad9938/automobile-site-for-client" target="_blank" class="project-link">Business Case</a>
+      <a href="https://github.com/Jawadahmad9938/automobile-site-for-client" target="_blank"
+        class="project-link">Business Case</a>
     </div>
 
     <!-- Project 5 - Movieefliixx -->
     <div class="project-card">
-      <img src="https://i.ibb.co/8LCC8m3P/movies.jpg"
-        class="project-image" width="600" height="400" loading="lazy" decoding="async"
-        alt="Movieefliixx Customer Engagement Platform" />
+      <img src="https://i.ibb.co/8LCC8m3P/movies.jpg" class="project-image" width="600" height="400" loading="lazy"
+        decoding="async" alt="Movieefliixx Customer Engagement Platform" />
       <h3 class="project-name">
         Movieefliixx – Customer Engagement Solution
       </h3>
@@ -1316,9 +1163,8 @@
 
     <!-- Project 6 - HSKhaan -->
     <div class="project-card">
-      <img src="https://i.ibb.co/6Jqk7bq4/Capture.jpg" 
-        class="project-image" width="600" height="400" loading="lazy" decoding="async"
-        alt="HSKhaan Professional Branding" />
+      <img src="https://i.ibb.co/6Jqk7bq4/Capture.jpg" class="project-image" width="600" height="400" loading="lazy"
+        decoding="async" alt="HSKhaan Professional Branding" />
       <h3 class="project-name">
         HSKhaan – Professional Brand Establishment
       </h3>
@@ -1338,7 +1184,8 @@
         <i class="devicon-javascript-plain colored"></i>
       </div>
       <a href="https://hskhaan.netlify.app/" target="_blank" class="project-link">See Live Solution</a>
-      <a href="https://github.com/Jawadahmad9938/educationWebsite" target="_blank" class="project-link">Business Case</a>
+      <a href="https://github.com/Jawadahmad9938/educationWebsite" target="_blank" class="project-link">Business
+        Case</a>
     </div>
 
   </div>
@@ -1387,10 +1234,13 @@
           <p class="resume-institution">Independent Business Consultant</p>
           <p class="resume-duration">2023 – Present</p>
           <p class="resume-cgpa">
-            Recent Work: USA-based Sales & Finance SaaS (2+ months), CloudMaster Pro (4 weeks), PFCloud Platform (1+ month)
+            Recent Work: USA-based Sales & Finance SaaS (2+ months), CloudMaster Pro (4 weeks), PFCloud Platform (1+
+            month)
           </p>
           <p class="resume-info">
-            Specializing in end-to-end ownership of production systems that real businesses depend on. Recent focus on Excel replacement systems, multi-tenant SaaS platforms, and business management solutions. Currently maintaining production systems serving 1000+ users across USA, UAE, and UK markets with 99.9% uptime.
+            Specializing in end-to-end ownership of production systems that real businesses depend on. Recent focus on
+            Excel replacement systems, multi-tenant SaaS platforms, and business management solutions. Currently
+            maintaining production systems serving 1000+ users across USA, UAE, and UK markets with 99.9% uptime.
           </p>
         </div>
       </div>
@@ -1453,7 +1303,8 @@
       </div>
 
       <div class="skill-box">
-        <i class="devicon-supabase-plain colored" style="font-size: 3rem; margin-bottom: 1rem; color: #3ecf8e;" aria-hidden="true"></i>
+        <i class="devicon-supabase-plain colored" style="font-size: 3rem; margin-bottom: 1rem; color: #3ecf8e;"
+          aria-hidden="true"></i>
         <p class="skill-name">Supabase</p>
         <div class="progress-bar">
           <div class="progress" style="width: 95%"></div>
@@ -1462,7 +1313,8 @@
       </div>
 
       <div class="skill-box">
-        <i class="devicon-postgresql-plain colored" style="font-size: 3rem; margin-bottom: 1rem;" aria-hidden="true"></i>
+        <i class="devicon-postgresql-plain colored" style="font-size: 3rem; margin-bottom: 1rem;"
+          aria-hidden="true"></i>
         <p class="skill-name">PostgreSQL</p>
         <div class="progress-bar">
           <div class="progress" style="width: 95%"></div>
@@ -1509,7 +1361,8 @@
       </div>
 
       <div class="skill-box">
-        <i class="devicon-typescript-plain colored" style="font-size: 3rem; margin-bottom: 1rem;" aria-hidden="true"></i>
+        <i class="devicon-typescript-plain colored" style="font-size: 3rem; margin-bottom: 1rem;"
+          aria-hidden="true"></i>
         <p class="skill-name">TypeScript</p>
         <div class="progress-bar">
           <div class="progress" style="width: 92%"></div>
@@ -1527,7 +1380,8 @@
       </div>
 
       <div class="skill-box">
-        <i class="fas fa-network-wired" style="font-size: 3rem; margin-bottom: 1rem; color: #2563eb;" aria-hidden="true"></i>
+        <i class="fas fa-network-wired" style="font-size: 3rem; margin-bottom: 1rem; color: #2563eb;"
+          aria-hidden="true"></i>
         <p class="skill-name">API Architecture</p>
         <div class="progress-bar">
           <div class="progress" style="width: 95%"></div>
@@ -1564,7 +1418,8 @@
       <p class="testimonials-subtitle">Actual Business Results</p>
       <h2 class="testimonials-title">Partnerships That Scale Businesses</h2>
       <p class="testimonials-description">
-        I don't just deliver projects; I build long-term value. Here is how I've helped founders achieve their growth objectives through strategic digital transformation.
+        I don't just deliver projects; I build long-term value. Here is how I've helped founders achieve their growth
+        objectives through strategic digital transformation.
       </p>
     </div>
 
@@ -1573,12 +1428,14 @@
       <!-- Testimonial 1 (UAE Client) -->
       <div class="testimonial-card">
         <div class="testimonial-header">
-          <img src="https://800batterie.com/img/imggg.png" alt="800batterie.com Logo" class="client-logo" loading="lazy" />
+          <img src="https://800batterie.com/img/imggg.png" alt="800batterie.com Logo" class="client-logo"
+            loading="lazy" />
         </div>
         <div class="testimonial-content">
           <i class="fas fa-quote-left quote-icon" aria-hidden="true"></i>
           <p class="testimonial-text">
-            "Jawad didn't just build us a site; he automated our entire battery booking process. Our team now handles twice the volume without the manual errors we used to have with spreadsheets."
+            "Jawad didn't just build us a site; he automated our entire battery booking process. Our team now handles
+            twice the volume without the manual errors we used to have with spreadsheets."
           </p>
           <div class="business-results">
             <div class="result-item">
@@ -1604,12 +1461,14 @@
       <!-- Testimonial 2 (Ecommerce) -->
       <div class="testimonial-card">
         <div class="testimonial-header">
-          <img src="https://i.postimg.cc/RVbjf9np/shopstock.webp" alt="ShopStock Logo" class="client-logo" loading="lazy" />
+          <img src="https://i.postimg.cc/RVbjf9np/shopstock.webp" alt="ShopStock Logo" class="client-logo"
+            loading="lazy" />
         </div>
         <div class="testimonial-content">
           <i class="fas fa-quote-left quote-icon" aria-hidden="true"></i>
           <p class="testimonial-text">
-            "We were struggling to sync our inventory scale. Jawad engineered a solution that literally doubled our daily payout capacity. He's one of the few engineers who actually understands business ROI."
+            "We were struggling to sync our inventory scale. Jawad engineered a solution that literally doubled our
+            daily payout capacity. He's one of the few engineers who actually understands business ROI."
           </p>
           <div class="business-results">
             <div class="result-item">
@@ -1623,7 +1482,8 @@
           </div>
         </div>
         <div class="testimonial-author">
-          <img src="https://i.pravatar.cc/150?u=ali" alt="Ali Khan" class="author-avatar" loading="lazy" />
+          <img src="https://i.pravatar.cc/150?u=ali" alt="Ali Khan" class="author-avatar" width="58" height="58"
+            loading="lazy" />
           <div class="author-info">
             <div class="author-name">Ali Khan</div>
             <div class="author-company">ShopStock Retail</div>
@@ -1635,12 +1495,14 @@
       <!-- Testimonial 3 (Agency) -->
       <div class="testimonial-card">
         <div class="testimonial-header">
-          <img src="https://goatnova.online/leftside%20logo.png" alt="GoatNova Logo" class="client-logo" loading="lazy" />
+          <img src="https://goatnova.online/leftside%20logo.png" alt="GoatNova Logo" class="client-logo"
+            loading="lazy" />
         </div>
         <div class="testimonial-content">
           <i class="fas fa-quote-left quote-icon" aria-hidden="true"></i>
           <p class="testimonial-text">
-            "The multi-tenant architecture Jawad built for our agency allowed us to launch 5 separate client portals in a single month. His ownership of the project from A to Z made my job as a director so much easier."
+            "The multi-tenant architecture Jawad built for our agency allowed us to launch 5 separate client portals in
+            a single month. His ownership of the project from A to Z made my job as a director so much easier."
           </p>
           <div class="business-results">
             <div class="result-item">
@@ -1654,7 +1516,8 @@
           </div>
         </div>
         <div class="testimonial-author">
-          <img src="https://i.pravatar.cc/150?u=zohaib" alt="Zohaib Sumbal" class="author-avatar" loading="lazy" />
+          <img src="https://i.pravatar.cc/150?u=zohaib" alt="Zohaib Sumbal" class="author-avatar" width="58" height="58"
+            loading="lazy" />
           <div class="author-info">
             <div class="author-name">Zohaib Sumbal</div>
             <div class="author-company">GoatNova Agency</div>
@@ -1666,12 +1529,14 @@
       <!-- Testimonial 4 (USA Project) -->
       <div class="testimonial-card">
         <div class="testimonial-header">
-           <div class="client-logo-placeholder"><i class="fas fa-building" style="font-size: 2rem; color: #60a5fa;"></i></div>
+          <div class="client-logo-placeholder"><i class="fas fa-building" style="font-size: 2rem; color: #60a5fa;"></i>
+          </div>
         </div>
         <div class="testimonial-content">
           <i class="fas fa-quote-left quote-icon" aria-hidden="true"></i>
           <p class="testimonial-text">
-            "Bridging our field sales with a companion iOS app was the missing piece for our company. Jawad's ability to ship a stable SaaS and an App Store-ready product in 5 months was impressive."
+            "Bridging our field sales with a companion iOS app was the missing piece for our company. Jawad's ability to
+            ship a stable SaaS and an App Store-ready product in 5 months was impressive."
           </p>
           <div class="business-results">
             <div class="result-item">
@@ -1685,7 +1550,8 @@
           </div>
         </div>
         <div class="testimonial-author">
-          <img src="https://i.pravatar.cc/150?u=mike" alt="Michael" class="author-avatar" loading="lazy" />
+          <img src="https://i.pravatar.cc/150?u=mike" alt="Michael" class="author-avatar" width="58" height="58"
+            loading="lazy" />
           <div class="author-info">
             <div class="author-name">Michael R.</div>
             <div class="author-company">SalesLogic Solutions</div>
@@ -1697,12 +1563,14 @@
       <!-- Testimonial 5 (Canada Infrastructure) -->
       <div class="testimonial-card">
         <div class="testimonial-header">
-           <div class="client-logo-placeholder"><i class="fas fa-code-branch" style="font-size: 2rem; color: #60a5fa;"></i></div>
+          <div class="client-logo-placeholder"><i class="fas fa-code-branch"
+              style="font-size: 2rem; color: #60a5fa;"></i></div>
         </div>
         <div class="testimonial-content">
           <i class="fas fa-quote-left quote-icon" aria-hidden="true"></i>
           <p class="testimonial-text">
-            "Rare to find a polyglot who can pivot between Java backends and React frontends so seamlessly. He cleaned up our architecture and solved bottlenecks we'd been fighting for months."
+            "Rare to find a polyglot who can pivot between Java backends and React frontends so seamlessly. He cleaned
+            up our architecture and solved bottlenecks we'd been fighting for months."
           </p>
           <div class="business-results">
             <div class="result-item">
@@ -1716,7 +1584,8 @@
           </div>
         </div>
         <div class="testimonial-author">
-          <img src="https://i.pravatar.cc/150?u=james" alt="James" class="author-avatar" loading="lazy" />
+          <img src="https://i.pravatar.cc/150?u=james" alt="James" class="author-avatar" width="58" height="58"
+            loading="lazy" />
           <div class="author-info">
             <div class="author-name">James Wilson</div>
             <div class="author-company">CloudStack Systems</div>
@@ -1755,8 +1624,10 @@
           Let's discuss how we can replace your current bottlenecks with a system built for revenue.
         </p>
         <div class="cta-buttons">
-          <a href="#Contact" class="btn btn-primary"><i class="fas fa-rocket" aria-hidden="true"></i> Start Growth Discussion</a>
-          <a href="#Projects" class="btn btn-secondary"><i class="fas fa-eye" aria-hidden="true"></i> Explore My Work</a>
+          <a href="#Contact" class="btn btn-primary"><i class="fas fa-rocket" aria-hidden="true"></i> Start Growth
+            Discussion</a>
+          <a href="#Projects" class="btn btn-secondary"><i class="fas fa-eye" aria-hidden="true"></i> Explore My
+            Work</a>
         </div>
       </div>
     </div>
@@ -1765,11 +1636,11 @@
 
 <div class="quick-contact-icons">
   <a href="tel:+923011414134" class="quick-contact-icon" aria-label="Call Jawad Ahmad for Business Consultation">
-    <img src="img/mobileicon.png" alt="Mobile Phone Icon - Call Jawad Ahmad" loading="lazy" />
+    <img src="img/mobileicon.png" alt="Call Jawad Ahmad" width="28" height="28" loading="lazy" />
   </a>
   <a href="https://wa.me/923011414134" target="_blank" class="quick-contact-icon"
     aria-label="Message Jawad Ahmad on WhatsApp">
-    <img src="img/whatsapp.png" alt="WhatsApp Icon - Message Jawad Ahmad" loading="lazy" />
+    <img src="img/whatsapp.png" alt="Message Jawad Ahmad" width="28" height="28" loading="lazy" />
   </a>
 </div>
 
@@ -1780,7 +1651,8 @@
       <p class="contact-subtitle">Start the Conversation</p>
       <h2 class="contact-title">Let's Engineer Your Growth</h2>
       <p class="contact-description">
-        Schedule your complimentary consultation to discuss your vision. I'll show you how we can turn your manual processes into a high-performance digital asset.
+        Schedule your complimentary consultation to discuss your vision. I'll show you how we can turn your manual
+        processes into a high-performance digital asset.
       </p>
     </div>
 
@@ -1858,7 +1730,8 @@
       <div class="newsletter-content">
         <h3>Founder & Growth Insights</h3>
         <p>
-          Join a community of founders getting strategic insights on product development, automation, and scaling digital systems.
+          Join a community of founders getting strategic insights on product development, automation, and scaling
+          digital systems.
         </p>
 
         <form class="newsletter-form" action="https://formspree.io/f/xeolvgya" method="POST">
@@ -1903,12 +1776,14 @@
       <!-- Brand Column -->
       <div class="footer-column brand-column">
         <div class="footer-logo">
-          <img src="https://i.ibb.co/rfstVnt3/jawad-sectionlogo.png"
-            alt="Jawad Ahmad - Business Web Solutions Expert Logo" class="logo-img" loading="lazy" />
+          <img src="https://i.postimg.cc/50qzPtDT/jawad-hero-img.webp"
+            alt="Jawad Ahmad - Business Web Solutions Expert Logo" class="logo-img" width="50" height="50"
+            loading="lazy" />
           <span class="logo-text">Jawad Ahmad</span>
         </div>
         <p class="brand-tagline">
-          Partnership and high-performance engineering for founders who need systems that actually scale and drive revenue.
+          Partnership and high-performance engineering for founders who need systems that actually scale and drive
+          revenue.
         </p>
 
         <div class="contact-info">
@@ -2030,7 +1905,8 @@
           <a href="sitemap.html">Sitemap</a>
         </div>
         <p class="copyright">
-          © 2026 Jawad Ahmad Business Solutions. Empowering Founders through Strategic Digital Transformation and Automation.
+          © 2026 Jawad Ahmad Business Solutions. Empowering Founders through Strategic Digital Transformation and
+          Automation.
         </p>
       </div>
     </div>
@@ -2040,63 +1916,64 @@
 
 <!-- Three.js Hero Particle Effect -->
 <script>
-(function() {
-  // Only run on desktop and if motion is not reduced
-  if (window.matchMedia("(max-width: 768px)").matches) return;
-  if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
+  (function () {
+    // Only run on desktop and if motion is not reduced
+    if (window.matchMedia("(max-width: 768px)").matches) return;
+    if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
 
-  const script = document.createElement('script');
-  script.src = 'https://cdn.jsdelivr.net/npm/three@0.160.0/build/three.min.js';
-  script.onload = function() {
-    const container = document.getElementById('hero-threejs-container');
-    if (!container) return;
+    const script = document.createElement('script');
+    script.src = 'https://cdn.jsdelivr.net/npm/three@0.160.0/build/three.min.js';
+    script.onload = function () {
+      const container = document.getElementById('hero-threejs-container');
+      if (!container) return;
 
-    const scene = new THREE.Scene();
-    const camera = new THREE.PerspectiveCamera(75, container.clientWidth / container.clientHeight, 0.1, 1000);
-    const renderer = new THREE.WebGLRenderer({ alpha: true, antialias: false });
-    renderer.setSize(container.clientWidth, container.clientHeight);
-    renderer.setPixelRatio(Math.min(window.devicePixelRatio, 1.5));
-    container.appendChild(renderer.domElement);
-
-    // Particles
-    const count = 120;
-    const geometry = new THREE.BufferGeometry();
-    const positions = new Float32Array(count * 3);
-    for (let i = 0; i < count * 3; i++) {
-      positions[i] = (Math.random() - 0.5) * 20;
-    }
-    geometry.setAttribute('position', new THREE.BufferAttribute(positions, 3));
-
-    const material = new THREE.PointsMaterial({
-      color: 0x38bdf8,
-      size: 0.08,
-      transparent: true,
-      opacity: 0.55
-    });
-
-    const particles = new THREE.Points(geometry, material);
-    scene.add(particles);
-    camera.position.z = 8;
-
-    let animId;
-    function animate() {
-      animId = requestAnimationFrame(animate);
-      particles.rotation.y += 0.0008;
-      particles.rotation.x += 0.0003;
-      renderer.render(scene, camera);
-    }
-    animate();
-
-    // Resize handler
-    window.addEventListener('resize', function() {
-      if (!container.clientWidth) return;
-      camera.aspect = container.clientWidth / container.clientHeight;
-      camera.updateProjectionMatrix();
+      const scene = new THREE.Scene();
+      const camera = new THREE.PerspectiveCamera(75, container.clientWidth / container.clientHeight, 0.1, 1000);
+      const renderer = new THREE.WebGLRenderer({ alpha: true, antialias: false });
       renderer.setSize(container.clientWidth, container.clientHeight);
-    }, { passive: true });
-  };
-  document.body.appendChild(script);
-})();
+      renderer.setPixelRatio(Math.min(window.devicePixelRatio, 1.5));
+      container.appendChild(renderer.domElement);
+
+      // Particles
+      const count = 120;
+      const geometry = new THREE.BufferGeometry();
+      const positions = new Float32Array(count * 3);
+      for (let i = 0; i < count * 3; i++) {
+        positions[i] = (Math.random() - 0.5) * 20;
+      }
+      geometry.setAttribute('position', new THREE.BufferAttribute(positions, 3));
+
+      const material = new THREE.PointsMaterial({
+        color: 0x38bdf8,
+        size: 0.08,
+        transparent: true,
+        opacity: 0.55
+      });
+
+      const particles = new THREE.Points(geometry, material);
+      scene.add(particles);
+      camera.position.z = 8;
+
+      let animId;
+      function animate() {
+        animId = requestAnimationFrame(animate);
+        particles.rotation.y += 0.0008;
+        particles.rotation.x += 0.0003;
+        renderer.render(scene, camera);
+      }
+      animate();
+
+      // Resize handler
+      window.addEventListener('resize', function () {
+        if (!container.clientWidth) return;
+        camera.aspect = container.clientWidth / container.clientHeight;
+        camera.updateProjectionMatrix();
+        renderer.setSize(container.clientWidth, container.clientHeight);
+      }, { passive: true });
+    };
+    document.body.appendChild(script);
+  })();
 </script>
 </body>
+
 </html>
