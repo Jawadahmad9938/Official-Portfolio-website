@@ -354,10 +354,10 @@ document.addEventListener("DOMContentLoaded", () => {
 
   if ("requestIdleCallback" in window) {
     window.requestIdleCallback(() => {
-      setTimeout(initNonCritical, 3000);
+      setTimeout(initNonCritical, 5000);
     });
   } else {
-    setTimeout(initNonCritical, 3500);
+    setTimeout(initNonCritical, 5500);
   }
 
   // Section reveal on scroll with IntersectionObserver
