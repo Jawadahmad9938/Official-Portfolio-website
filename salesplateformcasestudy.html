@@ -1,0 +1,1634 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+  <meta name="theme-color" content="#0f172a">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" crossorigin>
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="preconnect" href="https://cdnjs.cloudflare.com" crossorigin>
+
+  <link rel="icon" href="https://i.ibb.co/rfstVnt3/jawad-sectionlogo.png" type="image/png" />
+  <link rel="preload" href="style.css" as="style" />
+
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Space+Grotesk:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="style.css" />
+  <link rel="preload" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" as="style" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" media="print" onload="this.media='all'" />
+
+  <title>Custom Sales Tracking CRM Case Study | ISP Commission Platform by Jawad Ahmad</title>
+  <meta name="description" content="How I built a custom sales tracking CRM for a USA-based ISP company from scratch in 6 months — iOS app on the App Store, AI-powered OCR, supporting 1,000+ user accounts, and full commission automation. Case study by Jawad Ahmad, Founding Engineer.">
+  <meta name="keywords" content="custom crm developer, isp sales tracking software, commission tracking crm, next.js react native crm, supabase developer, ios app store crm, technical lead enterprise software, field sales rep app, payroll automation software">
+  <meta name="author" content="Jawad Ahmad">
+  <meta name="robots" content="index, follow">
+  <link rel="canonical" href="https://jawadahmad.me/salesplateformcasestudy.html">
+
+  <meta property="og:title" content="Custom Sales Tracking CRM Case Study | Built by One Developer in 6 Months">
+  <meta property="og:description" content="Custom ISP commission tracking platform built for a USA founder — supporting 1,000+ user accounts, iOS App Store, AI-powered OCR, and live payroll automation. Full case study by Jawad Ahmad.">
+  <meta property="og:url" content="https://jawadahmad.me/salesplateformcasestudy.html">
+  <meta property="og:type" content="article">
+
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Custom Sales Tracking CRM Case Study | Jawad Ahmad">
+  <meta name="twitter:description" content="ISP commission tracking CRM — supporting 1,000+ user accounts, iOS App, AI OCR, full payroll engine. Built in 6 months with full-stack ownership." />
+
+  <style>
+    :root {
+      --ink: #0f172a;
+      --ink-soft: #334155;
+      --ink-muted: #64748b;
+      --surface: #ffffff;
+      --surface-raised: #f8fafc;
+      --surface-card: #f1f5f9;
+      --accent: #6366f1;
+      --accent-dark: #4338ca;
+      --accent-glow: rgba(99, 102, 241, 0.15);
+      --green: #10b981;
+      --amber: #f59e0b;
+      --red: #ef4444;
+      --border: #e2e8f0;
+      --border-strong: #cbd5e1;
+      --mono: 'JetBrains Mono', monospace;
+      --sans: 'Inter', system-ui, sans-serif;
+      --display: 'Space Grotesk', sans-serif;
+    }
+
+    @media (prefers-color-scheme: dark) {
+      :root {
+        --ink: #f1f5f9;
+        --ink-soft: #cbd5e1;
+        --ink-muted: #94a3b8;
+        --surface: #0f172a;
+        --surface-raised: #1e293b;
+        --surface-card: #1e293b;
+        --border: #1e293b;
+        --border-strong: #334155;
+        --accent-glow: rgba(99, 102, 241, 0.2);
+      }
+    }
+
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: var(--sans);
+      background: var(--surface);
+      color: var(--ink);
+      line-height: 1.7;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    /* ─── HERO ─── */
+    .cs-hero {
+      position: relative;
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      overflow: hidden;
+      padding: 7rem 5% 5rem;
+    }
+
+    .cs-hero__grid {
+      position: absolute;
+      inset: 0;
+      background-image:
+        linear-gradient(rgba(99,102,241,0.06) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(99,102,241,0.06) 1px, transparent 1px);
+      background-size: 60px 60px;
+      pointer-events: none;
+    }
+
+    .cs-hero__glow {
+      position: absolute;
+      width: 700px;
+      height: 700px;
+      background: radial-gradient(circle, rgba(99,102,241,0.25) 0%, transparent 70%);
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -60%);
+      pointer-events: none;
+    }
+
+    .cs-hero__inner {
+      position: relative;
+      z-index: 1;
+      max-width: 900px;
+      text-align: center;
+    }
+
+    .cs-hero__eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      font-family: var(--mono);
+      font-size: 0.75rem;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: #a5b4fc;
+      background: rgba(99,102,241,0.1);
+      border: 1px solid rgba(99,102,241,0.25);
+      border-radius: 999px;
+      padding: 0.4rem 1rem;
+      margin-bottom: 2rem;
+    }
+
+    .cs-hero__eyebrow::before {
+      content: '';
+      display: block;
+      width: 6px;
+      height: 6px;
+      border-radius: 50%;
+      background: #6366f1;
+      animation: pulse 2s ease-in-out infinite;
+    }
+
+    @keyframes pulse {
+      0%, 100% { opacity: 1; transform: scale(1); }
+      50% { opacity: 0.5; transform: scale(0.8); }
+    }
+
+    .cs-hero__title {
+      font-family: var(--display);
+      font-size: clamp(2.8rem, 7vw, 5.5rem);
+      font-weight: 700;
+      line-height: 1.1;
+      color: #f8fafc;
+      margin-bottom: 1.5rem;
+      letter-spacing: -0.02em;
+    }
+
+    .cs-hero__title span {
+      background: linear-gradient(135deg, #818cf8 0%, #6366f1 50%, #4f46e5 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+
+    .cs-hero__sub {
+      font-size: 1.2rem;
+      color: #94a3b8;
+      max-width: 620px;
+      margin: 0 auto 3.5rem;
+      line-height: 1.8;
+    }
+
+    .cs-hero__metrics {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 1px;
+      background: rgba(255,255,255,0.06);
+      border: 1px solid rgba(255,255,255,0.08);
+      border-radius: 16px;
+      overflow: hidden;
+      max-width: 720px;
+      margin: 0 auto;
+    }
+
+    .metric {
+      padding: 1.75rem 1.5rem;
+      background: rgba(15,23,42,0.8);
+      text-align: center;
+    }
+
+    .metric__num {
+      display: block;
+      font-family: var(--display);
+      font-size: 2.2rem;
+      font-weight: 700;
+      color: #f8fafc;
+      letter-spacing: -0.03em;
+      line-height: 1;
+      margin-bottom: 0.4rem;
+    }
+
+    .metric__num--accent { color: #818cf8; }
+    .metric__num--green { color: #34d399; }
+    .metric__num--amber { color: #fbbf24; }
+
+    .metric__label {
+      font-size: 0.75rem;
+      color: #64748b;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      font-weight: 500;
+    }
+
+    /* ─── LAYOUT ─── */
+    .cs-body {
+      max-width: 900px;
+      margin: 0 auto;
+      padding: 6rem 5%;
+    }
+
+    .cs-section { margin-bottom: 6rem; }
+
+    .cs-section__label {
+      font-family: var(--mono);
+      font-size: 0.7rem;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: var(--accent);
+      margin-bottom: 0.75rem;
+    }
+
+    .cs-section__title {
+      font-family: var(--display);
+      font-size: clamp(1.8rem, 4vw, 2.6rem);
+      font-weight: 700;
+      letter-spacing: -0.02em;
+      color: var(--ink);
+      margin-bottom: 1.5rem;
+      line-height: 1.2;
+    }
+
+    .cs-section__title--sm {
+      font-size: 1.3rem;
+      font-weight: 600;
+      margin-top: 3rem;
+      margin-bottom: 1rem;
+      color: var(--ink);
+    }
+
+    .cs-text {
+      font-size: 1.05rem;
+      color: var(--ink-soft);
+      line-height: 1.85;
+      margin-bottom: 1.25rem;
+    }
+
+    /* ─── OPENING STORY ─── */
+    .cs-story {
+      font-size: 1.15rem;
+      color: var(--ink-soft);
+      line-height: 2;
+      border-left: 3px solid var(--accent);
+      padding-left: 2rem;
+      margin: 2rem 0;
+    }
+
+    /* ─── CALLOUT / QUOTE ─── */
+    .cs-callout {
+      background: var(--accent-glow);
+      border: 1px solid rgba(99,102,241,0.2);
+      border-radius: 12px;
+      padding: 2rem 2.5rem;
+      margin: 2.5rem 0;
+    }
+
+    .cs-callout__text {
+      font-family: var(--display);
+      font-size: 1.3rem;
+      font-weight: 600;
+      color: var(--ink);
+      line-height: 1.6;
+    }
+
+    .cs-callout__attr {
+      font-size: 0.85rem;
+      color: var(--ink-muted);
+      margin-top: 0.75rem;
+    }
+
+    /* ─── COMPARISON TABLE ─── */
+    .cs-compare {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1.5rem;
+      margin: 2rem 0;
+    }
+
+    .cs-compare__card {
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 1.75rem;
+      background: var(--surface-raised);
+    }
+
+    .cs-compare__card--bad { border-color: rgba(239,68,68,0.2); }
+    .cs-compare__card--good { border-color: rgba(16,185,129,0.3); }
+
+    .cs-compare__head {
+      font-family: var(--mono);
+      font-size: 0.7rem;
+      text-transform: uppercase;
+      letter-spacing: 0.12em;
+      margin-bottom: 1rem;
+      font-weight: 600;
+    }
+
+    .cs-compare__head--bad { color: var(--red); }
+    .cs-compare__head--good { color: var(--green); }
+
+    .cs-compare__list {
+      list-style: none;
+    }
+
+    .cs-compare__list li {
+      font-size: 0.95rem;
+      color: var(--ink-soft);
+      padding: 0.4rem 0;
+      padding-left: 1.4rem;
+      position: relative;
+      line-height: 1.5;
+    }
+
+    .cs-compare__list--bad li::before { content: '✗'; position: absolute; left: 0; color: var(--red); }
+    .cs-compare__list--good li::before { content: '✓'; position: absolute; left: 0; color: var(--green); }
+
+    /* ─── TIMELINE ─── */
+    .cs-timeline {
+      position: relative;
+      margin: 2.5rem 0;
+    }
+
+    .cs-timeline::before {
+      content: '';
+      position: absolute;
+      left: 20px;
+      top: 0;
+      bottom: 0;
+      width: 2px;
+      background: var(--border);
+    }
+
+    .cs-timeline__item {
+      position: relative;
+      padding-left: 3.5rem;
+      margin-bottom: 2.5rem;
+    }
+
+    .cs-timeline__dot {
+      position: absolute;
+      left: 12px;
+      top: 4px;
+      width: 18px;
+      height: 18px;
+      border-radius: 50%;
+      background: var(--accent);
+      border: 3px solid var(--surface);
+      box-shadow: 0 0 0 2px var(--accent);
+    }
+
+    .cs-timeline__month {
+      font-family: var(--mono);
+      font-size: 0.72rem;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      color: var(--accent);
+      font-weight: 600;
+      margin-bottom: 0.35rem;
+    }
+
+    .cs-timeline__title {
+      font-family: var(--display);
+      font-size: 1.05rem;
+      font-weight: 600;
+      color: var(--ink);
+      margin-bottom: 0.5rem;
+    }
+
+    .cs-timeline__body {
+      font-size: 0.95rem;
+      color: var(--ink-soft);
+      line-height: 1.7;
+    }
+
+    /* ─── TECH GRID ─── */
+    .cs-tech-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+      gap: 1rem;
+      margin: 2rem 0;
+    }
+
+    .cs-tech-card {
+      background: var(--surface-raised);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 1.5rem;
+      transition: border-color 0.2s, transform 0.2s;
+    }
+
+    .cs-tech-card:hover {
+      border-color: var(--accent);
+      transform: translateY(-2px);
+    }
+
+    .cs-tech-card__icon {
+      font-size: 1.5rem;
+      margin-bottom: 0.75rem;
+    }
+
+    .cs-tech-card__title {
+      font-weight: 600;
+      font-size: 0.95rem;
+      color: var(--ink);
+      margin-bottom: 0.4rem;
+    }
+
+    .cs-tech-card__body {
+      font-size: 0.875rem;
+      color: var(--ink-muted);
+      line-height: 1.6;
+    }
+
+    /* ─── FEATURE PILLS / TAGS ─── */
+    .cs-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.5rem;
+      margin: 1.5rem 0;
+    }
+
+    .cs-tag {
+      font-family: var(--mono);
+      font-size: 0.75rem;
+      padding: 0.3rem 0.75rem;
+      border-radius: 999px;
+      background: var(--surface-card);
+      border: 1px solid var(--border);
+      color: var(--ink-soft);
+    }
+
+    /* ─── FEATURE ROWS ─── */
+    .cs-features {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+      gap: 1rem;
+      margin: 2rem 0;
+    }
+
+    .cs-feature {
+      background: var(--surface-raised);
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      padding: 1.25rem 1.5rem;
+      transition: border-color 0.2s;
+    }
+
+    .cs-feature:hover { border-color: var(--accent); }
+
+    .cs-feature__title {
+      font-weight: 600;
+      font-size: 0.9rem;
+      color: var(--ink);
+      margin-bottom: 0.35rem;
+    }
+
+    .cs-feature__body {
+      font-size: 0.85rem;
+      color: var(--ink-muted);
+      line-height: 1.6;
+    }
+
+    /* ─── NUMBER HIGHLIGHT ─── */
+    .cs-stat-row {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1.5rem;
+      margin: 2rem 0;
+    }
+
+    .cs-stat-box {
+      text-align: center;
+      padding: 2rem 1rem;
+      background: var(--surface-raised);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+    }
+
+    .cs-stat-box__num {
+      font-family: var(--display);
+      font-size: 2.5rem;
+      font-weight: 700;
+      color: var(--accent);
+      line-height: 1;
+      display: block;
+      margin-bottom: 0.5rem;
+    }
+
+    .cs-stat-box__label {
+      font-size: 0.85rem;
+      color: var(--ink-muted);
+    }
+
+    /* ─── CODE BLOCK ─── */
+    .cs-code {
+      background: #0f172a;
+      border: 1px solid #1e293b;
+      border-radius: 10px;
+      padding: 1.75rem;
+      overflow-x: auto;
+      margin: 2rem 0;
+    }
+
+    .cs-code pre {
+      font-family: var(--mono);
+      font-size: 0.82rem;
+      color: #94a3b8;
+      line-height: 1.8;
+      margin: 0;
+    }
+
+    .cs-code pre .kw { color: #818cf8; }
+    .cs-code pre .str { color: #34d399; }
+    .cs-code pre .cm { color: #475569; font-style: italic; }
+
+    /* ─── DIVIDER ─── */
+    .cs-divider {
+      border: none;
+      border-top: 1px solid var(--border);
+      margin: 4rem 0;
+    }
+
+    /* ─── CTA ─── */
+    .cs-cta {
+      background: linear-gradient(135deg, #312e81 0%, #1e1b4b 100%);
+      border-radius: 20px;
+      padding: 4rem;
+      text-align: center;
+      margin-top: 6rem;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .cs-cta::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background-image:
+        linear-gradient(rgba(99,102,241,0.08) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(99,102,241,0.08) 1px, transparent 1px);
+      background-size: 40px 40px;
+    }
+
+    .cs-cta__inner { position: relative; z-index: 1; }
+
+    .cs-cta__title {
+      font-family: var(--display);
+      font-size: 2.2rem;
+      font-weight: 700;
+      color: #f8fafc;
+      margin-bottom: 1rem;
+    }
+
+    .cs-cta__sub {
+      font-size: 1.1rem;
+      color: #94a3b8;
+      margin-bottom: 2.5rem;
+      max-width: 500px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    .cs-cta__btns {
+      display: flex;
+      gap: 1rem;
+      justify-content: center;
+      flex-wrap: wrap;
+    }
+
+    .cs-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      padding: 0.9rem 2rem;
+      border-radius: 999px;
+      font-weight: 600;
+      font-size: 0.95rem;
+      text-decoration: none;
+      transition: all 0.2s;
+      cursor: pointer;
+    }
+
+    .cs-btn--primary {
+      background: #6366f1;
+      color: white;
+    }
+
+    .cs-btn--primary:hover {
+      background: #4f46e5;
+      transform: translateY(-2px);
+    }
+
+    .cs-btn--outline {
+      background: transparent;
+      color: #f8fafc;
+      border: 1px solid rgba(255,255,255,0.2);
+    }
+
+    .cs-btn--outline:hover {
+      background: rgba(255,255,255,0.08);
+      transform: translateY(-2px);
+    }
+
+    /* ─── WARNING BANNER ─── */
+    .cs-banner {
+      background: rgba(245,158,11,0.08);
+      border: 1px solid rgba(245,158,11,0.2);
+      border-radius: 10px;
+      padding: 1.25rem 1.5rem;
+      margin: 2rem 0;
+      display: flex;
+      gap: 1rem;
+      align-items: flex-start;
+    }
+
+    .cs-banner__icon { color: var(--amber); font-size: 1.1rem; margin-top: 2px; flex-shrink: 0; }
+    .cs-banner__text { font-size: 0.95rem; color: var(--ink-soft); line-height: 1.7; }
+
+    /* ─── ARCHITECTURE ─── */
+    .cs-arch {
+      background: var(--surface-raised);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 2rem;
+      margin: 2rem 0;
+      overflow-x: auto;
+    }
+
+    .cs-arch pre {
+      font-family: var(--mono);
+      font-size: 0.78rem;
+      color: var(--ink-soft);
+      line-height: 1.9;
+    }
+
+    /* ─── RESPONSIVE ─── */
+    @media (max-width: 768px) {
+      .cs-hero__metrics { grid-template-columns: 1fr 1fr; }
+      .cs-compare { grid-template-columns: 1fr; }
+      .cs-stat-row { grid-template-columns: 1fr; }
+      .cs-cta { padding: 3rem 1.5rem; }
+      .cs-cta__title { font-size: 1.7rem; }
+      .cs-story { padding-left: 1.25rem; }
+    }
+
+    @media (max-width: 480px) {
+      .cs-hero__metrics { grid-template-columns: 1fr; }
+      .cs-hero { padding: 5rem 4% 4rem; }
+    }
+
+    /* ─── PR COUNT ─── */
+    .cs-pr-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+      gap: 1px;
+      background: var(--border);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      overflow: hidden;
+      margin: 2rem 0;
+    }
+
+    .cs-pr-item {
+      background: var(--surface-raised);
+      padding: 1.25rem 1.5rem;
+    }
+
+    .cs-pr-item__num {
+      font-family: var(--mono);
+      font-size: 1.5rem;
+      font-weight: 700;
+      color: var(--accent);
+    }
+
+    .cs-pr-item__label { font-size: 0.85rem; color: var(--ink-muted); }
+
+    /* ─── PROBLEM/SOLUTION PAIRS ─── */
+    .cs-ps { margin: 2.5rem 0; }
+
+    .cs-ps__item {
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      overflow: hidden;
+      margin-bottom: 1.25rem;
+    }
+
+    .cs-ps__problem {
+      background: rgba(239,68,68,0.04);
+      border-bottom: 1px solid var(--border);
+      padding: 1.25rem 1.5rem;
+    }
+
+    .cs-ps__solution {
+      background: rgba(16,185,129,0.04);
+      padding: 1.25rem 1.5rem;
+    }
+
+    .cs-ps__head {
+      font-family: var(--mono);
+      font-size: 0.65rem;
+      text-transform: uppercase;
+      letter-spacing: 0.12em;
+      font-weight: 600;
+      margin-bottom: 0.4rem;
+    }
+
+    .cs-ps__head--p { color: var(--red); }
+    .cs-ps__head--s { color: var(--green); }
+
+    .cs-ps__body { font-size: 0.95rem; color: var(--ink-soft); line-height: 1.7; }
+  </style>
+</head>
+
+<body>
+  <!-- Floating Icons Background -->
+  <div class="floating-icons" id="floating-icons" aria-hidden="true"></div>
+
+  <!-- Navigation Bar -->
+  <nav class="navbar" role="navigation" aria-label="Main navigation">
+    <a href="index.html" aria-label="Home page">
+      <img class="logo" src="https://i.ibb.co/rfstVnt3/jawad-sectionlogo.png"
+        alt="Jawad Ahmad - Full Stack Developer Logo" width="120" height="40" loading="eager" />
+    </a>
+
+    <ul class="nav-menu" id="menu">
+      <li><a href="index.html">Home</a></li>
+      <li><a href="index.html#About">About</a></li>
+      <li><a href="index.html#Services">Services</a></li>
+      <li><a href="index.html#Projects">Case Studies</a></li>
+      <li><a href="blogs.html">Blogs</a></li>
+      <li><a href="philosophy.html">Philosophy</a></li>
+      <li><a href="index.html#Testimonials">Results</a></li>
+      <li><a href="index.html#Skills">Expertise</a></li>
+      <li><a href="index.html#Contact">Consultation</a></li>
+    </ul>
+
+    <div class="nav-actions">
+      <button id="theme-toggle-btn" class="theme-toggle" aria-label="Toggle dark/light mode">
+        <i id="theme-icon" class="fas fa-moon" aria-hidden="true"></i>
+      </button>
+
+      <div class="nav-btn">
+        <button class="cv-button" aria-label="Download CV">
+          <a href="Jawad Ahmad CV.pdf" download="Jawad Ahmad CV.pdf">
+            <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none"
+              stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4" />
+              <polyline points="7 10 12 15 17 10" />
+              <line x1="12" y1="15" x2="12" y2="3" />
+            </svg>
+          </a>
+        </button>
+      </div>
+
+      <div class="mobile-menu-btn">
+        <button id="menu-button" class="menu-toggle" aria-label="Toggle mobile menu" aria-expanded="false">
+          <span class="menu-toggle__hamburger" aria-hidden="true"></span>
+        </button>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Mobile Navigation Menu -->
+  <div class="mobile-menu-overlay" id="mobile-overlay"></div>
+  <div class="mobile-nav-menu-container" id="mobile-menu-container">
+    <div class="mobile-nav-menu" id="mobile-menu" role="navigation" aria-label="Mobile menu">
+      <div class="mobile-nav-header">
+        <button class="mobile-nav-close" id="mobile-close" aria-label="Close menu">
+          <i class="fas fa-times" aria-hidden="true"></i>
+        </button>
+      </div>
+      <div class="mobile-nav-content">
+        <a href="index.html" class="mobile-nav-item">
+          <i class="fas fa-home" aria-hidden="true"></i>
+          <span>Home</span>
+        </a>
+        <a href="index.html#About" class="mobile-nav-item">
+          <i class="fas fa-user" aria-hidden="true"></i>
+          <span>About</span>
+        </a>
+        <a href="index.html#Services" class="mobile-nav-item">
+          <i class="fas fa-briefcase" aria-hidden="true"></i>
+          <span>Services</span>
+        </a>
+        <a href="index.html#Projects" class="mobile-nav-item">
+          <i class="fas fa-project-diagram" aria-hidden="true"></i>
+          <span>Case Studies</span>
+        </a>
+        <a href="blogs.html" class="mobile-nav-item">
+          <i class="fas fa-blog" aria-hidden="true"></i>
+          <span>Blogs</span>
+        </a>
+        <a href="philosophy.html" class="mobile-nav-item">
+          <i class="fas fa-lightbulb" aria-hidden="true"></i>
+          <span>Philosophy</span>
+        </a>
+        <a href="index.html#Testimonials" class="mobile-nav-item">
+          <i class="fas fa-comments" aria-hidden="true"></i>
+          <span>Results</span>
+        </a>
+        <a href="index.html#Skills" class="mobile-nav-item">
+          <i class="fas fa-star" aria-hidden="true"></i>
+          <span>Expertise</span>
+        </a>
+        <a href="index.html#Contact" class="mobile-nav-item">
+          <i class="fas fa-envelope" aria-hidden="true"></i>
+          <span>Consultation</span>
+        </a>
+
+        <div class="mobile-nav-download">
+          <a href="Jawad Ahmad CV.pdf" download="Jawad Ahmad CV.pdf" class="mobile-download-btn">
+            <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none"
+              stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4" />
+              <polyline points="7 10 12 15 17 10" />
+              <line x1="12" y1="15" x2="12" y2="3" />
+            </svg>
+            Download CV
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- HERO -->
+  <section class="cs-hero">
+    <div class="cs-hero__grid"></div>
+    <div class="cs-hero__glow"></div>
+    <div class="cs-hero__inner">
+      <div class="cs-hero__eyebrow">Enterprise SaaS · ISP Sales CRM · Founding Engineer</div>
+      <h1 class="cs-hero__title">
+        Building a Custom SaaS Platform<br>
+        <span>From Zero to Production</span><br>
+        In 6 Months.
+      </h1>
+      <p class="cs-hero__sub">
+        A custom sales tracking CRM built for ISP field sales teams — iOS app, AI-powered OCR, real-time payroll automation, and supporting 1,000+ user accounts. Full-stack development, deployment, and production support.
+      </p>
+      <div class="cs-hero__metrics">
+        <div class="metric">
+          <span class="metric__num metric__num--accent">1,000+</span>
+          <span class="metric__label">User Accounts Supported</span>
+        </div>
+        <div class="metric">
+          <span class="metric__num metric__num--green">99+</span>
+          <span class="metric__label">Pull Requests Shipped</span>
+        </div>
+        <div class="metric">
+          <span class="metric__num metric__num--amber">6</span>
+          <span class="metric__label">Months to Launch</span>
+        </div>
+        <div class="metric">
+          <span class="metric__num">2</span>
+          <span class="metric__label">Apps (Web + iOS)</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- BODY -->
+  <main class="cs-body">
+
+    <!-- THE STARTING POINT -->
+    <section class="cs-section">
+      <div class="cs-section__label">Chapter 01 — Origin</div>
+      <h2 class="cs-section__title">December 2025. A blank repo and a list of requirements.</h2>
+
+      <p class="cs-story">
+        A USA-based founder was running an ISP sales operation — dozens of field reps selling internet services across multiple vendors, each with their own CSV exports, commission structures, and payscale quirks. Tracking commissions was a spreadsheet nightmare. Paying reps was slow, error-prone, and manual.
+      </p>
+
+      <p class="cs-text">
+        He needed a custom CRM built for this exact world. Not Salesforce. Not a generic tracker. Something purpose-built for the ISP sales commission lifecycle — from a rep reporting a sale on their phone to an admin processing payroll on the web.
+      </p>
+
+      <p class="cs-text">
+        He found me. I was a final-semester CS student in Pakistan with no professional production experience, no published apps, and $0 in freelance history. What I had was deep curiosity, a bias for shipping, and the ability to learn faster than most.
+      </p>
+
+      <div class="cs-callout">
+        <div class="cs-callout__text">"What existed in December 2025: three basic tabs. No real functionality. No mobile app. No users."</div>
+        <div class="cs-callout__attr">— State of the codebase on day one</div>
+      </div>
+
+      <p class="cs-text">
+        We started with a focused arrangement — daily meetings, aggressive scope, and a bias for shipping. I said yes to all of it.
+      </p>
+    </section>
+
+    <hr class="cs-divider">
+
+    <!-- THE PROBLEM SPACE -->
+    <section class="cs-section">
+      <div class="cs-section__label">Chapter 02 — The Problem</div>
+      <h2 class="cs-section__title">ISP commission tracking is surprisingly complex.</h2>
+
+      <p class="cs-text">
+        At first glance, it sounds simple: rep sells service → vendor pays company → company pays rep. But the real world is messier.
+      </p>
+
+      <div class="cs-compare">
+        <div class="cs-compare__card cs-compare__card--bad">
+          <div class="cs-compare__head cs-compare__head--bad">Before Custom CRM</div>
+          <ul class="cs-compare__list cs-compare__list--bad">
+            <li>Commission calculations done manually in Excel</li>
+            <li>Reps emailed in to report sales, no standard format</li>
+            <li>Vendors sent inconsistent CSV exports with missing columns</li>
+            <li>No way to track holdbacks or partial pay multipliers</li>
+            <li>Managers couldn't see their team's pending payroll</li>
+            <li>Duplicate customers, missing reps, silently failed imports</li>
+            <li>No mobile access for field sales reps</li>
+            <li>Zero audit trail for who changed what</li>
+          </ul>
+        </div>
+        <div class="cs-compare__card cs-compare__card--good">
+          <div class="cs-compare__head cs-compare__head--good">After Custom CRM</div>
+          <ul class="cs-compare__list cs-compare__list--good">
+            <li>Automated commission calculation from vendor CSV imports</li>
+            <li>Reps report sales on iOS app with OCR receipt scanning</li>
+            <li>Smart import pipeline with alias matching and validation</li>
+            <li>Holdback, pay multiplier, and partial commission support</li>
+            <li>Manager dashboard with pre-payroll review and team stats</li>
+            <li>Composite-key duplicate detection with review workflow</li>
+            <li>Native iOS app with offline capability and push notifications</li>
+            <li>Full activity log and role-based access across 4 dashboards</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <hr class="cs-divider">
+
+    <!-- THE BUILD — TIMELINE -->
+    <section class="cs-section">
+      <div class="cs-section__label">Chapter 03 — The Build</div>
+      <h2 class="cs-section__title">Six months of shipping. Week by week.</h2>
+
+      <p class="cs-text">
+        This was not a slow, methodical build. It was a startup sprint — daily meetings, same-day PRs, features going live while users were actively logging in. Here's the arc of how this custom CRM platform came to exist.
+      </p>
+
+      <div class="cs-timeline">
+
+        <div class="cs-timeline__item">
+          <div class="cs-timeline__dot"></div>
+          <div class="cs-timeline__month">December 2025</div>
+          <div class="cs-timeline__title">Foundation & Architecture</div>
+          <div class="cs-timeline__body">
+            Established the data model: multi-tenant architecture with Supabase, row-level security policies, role-based access (Admin, Accounting, Manager, Rep), vendor and product systems. First working dashboards. First real deployments to Vercel. Understanding the business domain deeply before writing any feature code.
+          </div>
+        </div>
+
+        <div class="cs-timeline__item">
+          <div class="cs-timeline__dot"></div>
+          <div class="cs-timeline__month">January – February 2026</div>
+          <div class="cs-timeline__title">Customer & Order Management</div>
+          <div class="cs-timeline__body">
+            Built the core import pipeline — CSV ingestion from multiple vendors, alias matching system, duplicate detection using composite keys. Customer pages with pagination, filters, and date ranges. Rep management with GHL (GoHighLevel) integration for automated rep creation. Security hardening with RLS policies across all tables.
+          </div>
+        </div>
+
+        <div class="cs-timeline__item">
+          <div class="cs-timeline__dot"></div>
+          <div class="cs-timeline__month">March 2026</div>
+          <div class="cs-timeline__title">Accounting & Payroll Engine</div>
+          <div class="cs-timeline__body">
+            The most complex module. Payscale creation (per-rep, per-vendor, per-product), ledger system, holdback tracking, invoice and remittance management, "Approve to Pay" workflow, "Process Orders" payroll run, check stubs with PDF generation, and pay multiplier support for partial commission payments (e.g. 50% or 70% of standard rate).
+          </div>
+        </div>
+
+        <div class="cs-timeline__item">
+          <div class="cs-timeline__dot"></div>
+          <div class="cs-timeline__month">April 2026</div>
+          <div class="cs-timeline__title">iOS App Launch 🎉</div>
+          <div class="cs-timeline__body">
+            After three App Store rejections, the app went live on the <strong>Apple App Store</strong>. The app shipped with: rep-reported sales with GPT-4 Vision OCR scanning, offline capability, push notifications for payroll events, document uploads, force-update mechanism, and role-based navigation.
+          </div>
+        </div>
+
+        <div class="cs-timeline__item">
+          <div class="cs-timeline__dot"></div>
+          <div class="cs-timeline__month">May 2026</div>
+          <div class="cs-timeline__title">Team Management & Manager Hierarchy</div>
+          <div class="cs-timeline__body">
+            Introduced the Manager role layer — team overview, team stats by rep and vendor, team check stubs with group-by-date and group-by-rep views, team payscale management (managers can set payscales for their reps but not edit their own), pre-payroll review (read-only view of all unpaid ledgers and unprocessed orders), commission transfer, deduction, and bonus forms.
+          </div>
+        </div>
+
+        <div class="cs-timeline__item">
+          <div class="cs-timeline__dot"></div>
+          <div class="cs-timeline__month">June 2026</div>
+          <div class="cs-timeline__title">Leaderboard, Performance Tracking & Launch</div>
+          <div class="cs-timeline__body">
+            Leaderboard with regional grouping, rep rankings, and gold/silver/bronze icons. Pull-through rate tracking (installs vs. sales). Last login tracking (web and mobile separately). User-guided import error handling with column validation indicators, required field enforcement, and downloadable import templates. App Store update v1.1.5. Official launch to the first major enterprise client.
+          </div>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <hr class="cs-divider">
+
+    <!-- TECH STACK -->
+    <section class="cs-section">
+      <div class="cs-section__label">Chapter 04 — Technology</div>
+      <h2 class="cs-section__title">The stack that made it possible.</h2>
+
+      <p class="cs-text">
+        Every technology choice was driven by one constraint: one developer, fast iteration, production stability. No compromise on either shipping speed or system quality.
+      </p>
+
+      <div class="cs-tech-grid">
+        <div class="cs-tech-card">
+          <div class="cs-tech-card__icon">⚛️</div>
+          <div class="cs-tech-card__title">Next.js 14 (App Router)</div>
+          <div class="cs-tech-card__body">Server components, ISR, API routes. Full-stack in one repo with zero backend servers to manage.</div>
+        </div>
+        <div class="cs-tech-card">
+          <div class="cs-tech-card__icon">📱</div>
+          <div class="cs-tech-card__title">React Native + Expo</div>
+          <div class="cs-tech-card__body">Cross-platform iOS app with offline sync, push notifications, and App Store publishing pipeline.</div>
+        </div>
+        <div class="cs-tech-card">
+          <div class="cs-tech-card__icon">🗄️</div>
+          <div class="cs-tech-card__title">Supabase + PostgreSQL</div>
+          <div class="cs-tech-card__body">Multi-tenant database with Row Level Security, Edge Functions for background jobs, Realtime subscriptions.</div>
+        </div>
+        <div class="cs-tech-card">
+          <div class="cs-tech-card__icon">🤖</div>
+          <div class="cs-tech-card__title">GPT-4 Vision API</div>
+          <div class="cs-tech-card__body">AI-powered OCR for receipt scanning in the mobile app — extracts sale data automatically from photos.</div>
+        </div>
+        <div class="cs-tech-card">
+          <div class="cs-tech-card__icon">🎨</div>
+          <div class="cs-tech-card__title">TailwindCSS + shadcn/ui</div>
+          <div class="cs-tech-card__body">Consistent design system across web and app. Mobile-first responsive layouts for all 4 dashboards.</div>
+        </div>
+        <div class="cs-tech-card">
+          <div class="cs-tech-card__icon">🚀</div>
+          <div class="cs-tech-card__title">Vercel + GitHub Actions</div>
+          <div class="cs-tech-card__body">Continuous deployment with preview URLs per PR. Production deploys on merge — typically within 2 minutes.</div>
+        </div>
+      </div>
+
+      <div class="cs-tags">
+        <span class="cs-tag">TypeScript</span>
+        <span class="cs-tag">PostgreSQL RLS</span>
+        <span class="cs-tag">Supabase Edge Functions</span>
+        <span class="cs-tag">Expo EAS Build</span>
+        <span class="cs-tag">TestFlight</span>
+        <span class="cs-tag">App Store Connect</span>
+        <span class="cs-tag">Stripe</span>
+        <span class="cs-tag">GoHighLevel API</span>
+        <span class="cs-tag">PDF Generation</span>
+        <span class="cs-tag">CSV Import Pipeline</span>
+        <span class="cs-tag">Push Notifications (APNs)</span>
+        <span class="cs-tag">Background Queue Processing</span>
+      </div>
+    </section>
+
+    <hr class="cs-divider">
+
+    <!-- HARDEST PROBLEMS -->
+    <section class="cs-section">
+      <div class="cs-section__label">Chapter 05 — Hard Problems</div>
+      <h2 class="cs-section__title">The bugs that taught me the most.</h2>
+
+      <p class="cs-text">
+        Production problems are different from interview problems. They have history, politics, bad data, and consequences. These are the ones I'm most proud of solving.
+      </p>
+
+      <div class="cs-ps">
+
+        <div class="cs-ps__item">
+          <div class="cs-ps__problem">
+            <div class="cs-ps__head cs-ps__head--p">Problem</div>
+            <div class="cs-ps__body"><strong>The Alias Key Mismatch.</strong> Rep names in vendor CSV files never matched rep names in our database. A rep named "J. Doe" in one vendor's file was "John Doe" in another. The alias system existed but was keyed on the wrong foreign key — the UUID instead of the sales_id string — so nothing matched and all imports showed "missing reps."</div>
+          </div>
+          <div class="cs-ps__solution">
+            <div class="cs-ps__head cs-ps__head--s">Solution</div>
+            <div class="cs-ps__body">Built an intermediate resolution step through salesAccountMap, added a two-pass alias lookup (exact match then fuzzy), and introduced the Manage Alias button on the import page so the operations team could add vendor-specific alias names without touching the database directly.</div>
+          </div>
+        </div>
+
+        <div class="cs-ps__item">
+          <div class="cs-ps__problem">
+            <div class="cs-ps__head cs-ps__head--p">Problem</div>
+            <div class="cs-ps__body"><strong>Supabase RLS — Service Role vs Anon Key.</strong> Server-side API routes used the service role key (bypasses RLS) while the mobile app used the anon key (enforces RLS). A feature that worked perfectly on the web silently returned empty data on mobile. Took hours of debugging to identify the policy gap.</div>
+          </div>
+          <div class="cs-ps__solution">
+            <div class="cs-ps__head cs-ps__head--s">Solution</div>
+            <div class="cs-ps__body">Audited every RLS policy against both key contexts. Created test accounts at each permission level and wrote a checklist for testing new features from both server-side and client-side perspectives before shipping.</div>
+          </div>
+        </div>
+
+        <div class="cs-ps__item">
+          <div class="cs-ps__problem">
+            <div class="cs-ps__head cs-ps__head--p">Problem</div>
+            <div class="cs-ps__body"><strong>Invisible Desktop Elements on Mobile.</strong> A zero-opacity div was covering the entire touchable area on mobile screens — a Tailwind breakpoint issue where a desktop-only element wasn't hidden on mobile, just invisible. Users couldn't tap anything on the affected pages. No error in the console.</div>
+          </div>
+          <div class="cs-ps__solution">
+            <div class="cs-ps__head cs-ps__head--s">Solution</div>
+            <div class="cs-ps__body">Used browser DevTools pointer inspection to find the invisible layer. Added systematic mobile testing to every PR: test on actual device, not just browser resize. Created a responsive testing checklist for all new pages.</div>
+          </div>
+        </div>
+
+        <div class="cs-ps__item">
+          <div class="cs-ps__problem">
+            <div class="cs-ps__head cs-ps__head--p">Problem</div>
+            <div class="cs-ps__body"><strong>Vercel Timeout on Large CSV Imports.</strong> A Sparklight import with 5,000+ rows would hit Vercel's 10-second function limit mid-processing, leaving data in a half-imported, silent-failure state. Users saw "import complete" but only 30% of rows had processed.</div>
+          </div>
+          <div class="cs-ps__solution">
+            <div class="cs-ps__head cs-ps__head--s">Solution</div>
+            <div class="cs-ps__body">Moved to chunked processing — 500 rows per chunk via a queue-based background system using Supabase Edge Functions. Added a result file (Result_{filename}.csv) that shows the import status of every row. Tested up to 10K rows successfully.</div>
+          </div>
+        </div>
+
+        <div class="cs-ps__item">
+          <div class="cs-ps__problem">
+            <div class="cs-ps__head cs-ps__head--p">Problem</div>
+            <div class="cs-ps__body"><strong>Pending Pay Data Discrepancy.</strong> The manager's Pending Pay screen in the app showed 36 records. The web showed 49. The discrepancy was systematic — not random. The app was missing 35% of actual pending records.</div>
+          </div>
+          <div class="cs-ps__solution">
+            <div class="cs-ps__head cs-ps__head--s">Solution</div>
+            <div class="cs-ps__body">Root cause: app fetched orders via order_to_rep joins only, missing orders where the rep match came from the Vendor_SalesRep column fallback. Fixed with a two-pass order lookup (exact join → name-based fallback), added three-signal approval filter, null-status ledger inclusion, and pay multiplier table integration. All metrics now match between web and app.</div>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <hr class="cs-divider">
+
+    <!-- ARCHITECTURE HIGHLIGHT -->
+    <section class="cs-section">
+      <div class="cs-section__label">Chapter 06 — Architecture</div>
+      <h2 class="cs-section__title">The Pending Pay screen — a technical deep dive.</h2>
+
+      <p class="cs-text">
+        The Pending Pay module is the most architecturally complex feature in this platform. It merges two entirely different types of "money owed to reps" into a single unified view. Here's how the data flows:
+      </p>
+
+      <div class="cs-arch">
+        <pre>
+Manager opens Pending Pay
+        │
+        ├── Step 1: Auth check (manager = true)
+        ├── Step 2: Fetch team reps where payroll = true
+        ├── Step 3: Build alias map (alias table → sales_id fallback → company-wide)
+        │
+        ├── Step 4: Fetch Ledger Entries
+        │     └── ledgers WHERE paid_date IS NULL
+        │           AND (status = 'Posted' OR status IS NULL)   ← critical: null = old records
+        │           AND sales_id IN (payrollRepIds)
+        │
+        ├── Step 5: Fetch Active Payscales for team reps
+        │
+        ├── Step 6: Fetch payscale_logs → resolve who created each payscale
+        │     └── manager_view payscales → show manager as trigger
+        │     └── admin_only payscales → show admin creator as trigger
+        │
+        ├── Step 7: Fetch Approved Unprocessed Orders
+        │     └── Order WHERE vendor IN (payscale vendor IDs)
+        │           AND (approved_topay = true
+        │                OR approved_to_pay_date IS NOT NULL
+        │                OR approved_topay_at IS NOT NULL)       ← 3-signal filter
+        │           AND pay_processed IS NULL
+        │
+        ├── Step 8: Build orderRepMap
+        │     └── Pass 1: order_to_rep joins
+        │     └── Pass 2: Vendor_SalesRep column name match     ← the missing fallback
+        │
+        ├── Step 9: Fetch pay_multiplier table
+        │     └── amount = base_payscale_amount × multiplier
+        │
+        └── Merge → buildEntries() → groupByRep() / groupByVendor()
+              └── Render: 3-level accordion (Rep → Vendor → Product → Customer)
+        </pre>
+      </div>
+
+      <p class="cs-text">
+        The key insight that took longest to find: the web app used a <code>Vendor_SalesRep</code> column as a secondary fallback for rep matching when no <code>order_to_rep</code> record existed. The mobile app didn't implement this fallback, silently dropping those orders from the view.
+      </p>
+
+      <div class="cs-banner">
+        <span class="cs-banner__icon"><i class="fas fa-lightbulb"></i></span>
+        <div class="cs-banner__text">
+          <strong>Lesson:</strong> In production systems, the edge case <em>is</em> the case. Test data always matched perfectly — the bug only appeared on real production data that had gone through legacy import paths. Always test with production-representative data.
+        </div>
+      </div>
+    </section>
+
+    <hr class="cs-divider">
+
+    <!-- WHAT I OWNED -->
+    <section class="cs-section">
+      <div class="cs-section__label">Chapter 07 — Scope</div>
+      <h2 class="cs-section__title">Full-stack ownership across all systems.</h2>
+
+      <div class="cs-features">
+        <div class="cs-feature">
+          <div class="cs-feature__title">🖥️ Web Platform</div>
+          <div class="cs-feature__body">Full Next.js application. 4 role-based dashboards. 99+ GitHub PRs merged. Feature development, bug fixes, and performance optimization.</div>
+        </div>
+        <div class="cs-feature">
+          <div class="cs-feature__title">📱 iOS App</div>
+          <div class="cs-feature__body">React Native/Expo app shipped to App Store. Full pipeline from development to production releases.</div>
+        </div>
+        <div class="cs-feature">
+          <div class="cs-feature__title">🤖 AI Integration</div>
+          <div class="cs-feature__body">GPT-4 Vision API for OCR receipt scanning. Prompting, error handling, form auto-fill, and mobile camera integration.</div>
+        </div>
+        <div class="cs-feature">
+          <div class="cs-feature__title">📦 Import Pipeline</div>
+          <div class="cs-feature__body">Multi-vendor CSV ingestion, alias matching, composite-key duplicate detection, chunked background processing, result file export.</div>
+        </div>
+        <div class="cs-feature">
+          <div class="cs-feature__title">💰 Payroll Engine</div>
+          <div class="cs-feature__body">Payscale system, holdbacks, pay multipliers, ledger entries, invoices, remittances, check stubs (PDF), pre-payroll manager review.</div>
+        </div>
+        <div class="cs-feature">
+          <div class="cs-feature__title">👥 Team Hierarchy</div>
+          <div class="cs-feature__body">Manager → Rep hierarchy with team stats, team check stubs, team payscale management, commission transfer/deduction/bonus forms.</div>
+        </div>
+        <div class="cs-feature">
+          <div class="cs-feature__title">🔒 Security</div>
+          <div class="cs-feature__body">Row Level Security across all tables, multi-tenant data isolation, role-based permissions, accounting-only edit locks, GHL API key rotation.</div>
+        </div>
+        <div class="cs-feature">
+          <div class="cs-feature__title">📞 Customer Support</div>
+          <div class="cs-feature__body">Direct support to operations team. Rapid issue diagnosis and fixes ensuring minimal downtime for users.</div>
+        </div>
+      </div>
+
+      <div class="cs-pr-grid">
+        <div class="cs-pr-item">
+          <div class="cs-pr-item__num">99+</div>
+          <div class="cs-pr-item__label">Pull Requests Merged</div>
+        </div>
+        <div class="cs-pr-item">
+          <div class="cs-pr-item__num">1,000+</div>
+          <div class="cs-pr-item__label">User Accounts Supported</div>
+        </div>
+        <div class="cs-pr-item">
+          <div class="cs-pr-item__num">10K+</div>
+          <div class="cs-pr-item__label">CSV Rows / Import (1.5 min)</div>
+        </div>
+        <div class="cs-pr-item">
+          <div class="cs-pr-item__num">&lt;24h</div>
+          <div class="cs-pr-item__label">App Store Approval Speed</div>
+        </div>
+        <div class="cs-pr-item">
+          <div class="cs-pr-item__num">4</div>
+          <div class="cs-pr-item__label">Role-Based Dashboards</div>
+        </div>
+        <div class="cs-pr-item">
+          <div class="cs-pr-item__num">2+</div>
+          <div class="cs-pr-item__label">Enterprise Clients Onboarded</div>
+        </div>
+      </div>
+    </section>
+
+    <hr class="cs-divider">
+
+    <!-- WHAT I LEARNED -->
+    <section class="cs-section">
+      <div class="cs-section__label">Chapter 08 — Lessons</div>
+      <h2 class="cs-section__title">What six months of daily production work actually teaches you.</h2>
+
+      <p class="cs-text">You can read every blog post about distributed systems and multi-tenancy. Nothing replaces the feeling of a production bug at 2 AM with a real user waiting. Here is what I actually internalized:</p>
+
+      <h3 class="cs-section__title--sm">1. Ship, then protect.</h3>
+      <p class="cs-text">The fastest way to understand what matters is to watch real users break things. The import pipeline had three complete rewrites because actual production data was nothing like our test data. The spec was wrong. The users were right.</p>
+
+      <h3 class="cs-section__title--sm">2. The edge case is the case.</h3>
+      <p class="cs-text">Placeholder phone numbers (value: "0"), null ledger statuses from legacy entries, orders matched via Vendor_SalesRep instead of order_to_rep — every major bug was something that "shouldn't happen" but did. Defensive data handling is not optional in production.</p>
+
+      <h3 class="cs-section__title--sm">3. The database is the source of truth. Trust it.</h3>
+      <p class="cs-text">A rule that became mine early on: "When it comes to ledgers, match what is in the database. Always." Don't programmatically change the sign of a value. Don't assume format. Read what's there and display it faithfully.</p>
+
+      <h3 class="cs-section__title--sm">4. User-guided errors beat silent failures.</h3>
+      <p class="cs-text">The biggest quality-of-life improvement was adding column validation indicators, required field markers, and downloadable import templates. The operations team stopped messaging at 2 AM about failed imports. Users fixing their own data beats developers debugging their data every time.</p>
+
+      <h3 class="cs-section__title--sm">5. Think, then agree, then build.</h3>
+      <p class="cs-text">A principle I internalized on this project: "Let's think and talk then agree then make changes." I learned to slow down before complex features, confirm understanding explicitly, and build once rather than build, revert, rebuild.</p>
+    </section>
+
+    <hr class="cs-divider">
+
+    <!-- COMPETITIVE CONTEXT -->
+    <section class="cs-section">
+      <div class="cs-section__label">Chapter 09 — Market Position</div>
+      <h2 class="cs-section__title">Competing with a 2-year head start.</h2>
+
+      <p class="cs-text">
+        During development, a competitor CRM was identified in the same ISP sales space — operational since 2023, priced at $33–$100/month per account.
+      </p>
+
+      <div class="cs-callout">
+        <div class="cs-callout__text">"This is competition to our platform." — USA Founder, after six months of development</div>
+        <div class="cs-callout__attr">He framed it as the competitor catching up — not the other way around. That framing matters.</div>
+      </div>
+
+      <p class="cs-text">
+        The competitor had a two-year head start and an established team. This platform was built by one developer in six months with full-stack ownership. The differences emerge in how we serve this specific market:
+      </p>
+
+      <div class="cs-features">
+        <div class="cs-feature">
+          <div class="cs-feature__title">Multi-company per rep</div>
+          <div class="cs-feature__body">A single sales rep can be linked to multiple ISP vendors with one login — a core differentiator. The competitor requires separate accounts per company.</div>
+        </div>
+        <div class="cs-feature">
+          <div class="cs-feature__title">Commission depth</div>
+          <div class="cs-feature__body">Holdback, pay multiplier, manager bonuses/deductions, connected ledgers, payscale inheritance — built for the actual complexity of ISP commission structures.</div>
+        </div>
+        <div class="cs-feature">
+          <div class="cs-feature__title">Native mobile app</div>
+          <div class="cs-feature__body">AI-powered OCR, offline mode, push notifications — a field rep experience built for reps who are literally in the field.</div>
+        </div>
+        <div class="cs-feature">
+          <div class="cs-feature__title">Custom to your workflow</div>
+          <div class="cs-feature__body">When enterprise clients needed new features, they shipped within days instead of quarters — directly benefiting from close collaboration with the engineer who built the system.</div>
+        </div>
+      </div>
+    </section>
+
+    <hr class="cs-divider">
+
+    <!-- BUSINESS IMPACT -->
+    <section class="cs-section">
+      <div class="cs-section__label">Chapter 10 — Business Impact</div>
+      <h2 class="cs-section__title">Moving from engineering outputs to business outcomes.</h2>
+
+      <p class="cs-text">
+        The real value of this platform isn't measured in lines of code or pull requests — it's measured in operational impact.
+      </p>
+
+      <div class="cs-features">
+        <div class="cs-feature">
+          <div class="cs-feature__title">Operational Efficiency</div>
+          <div class="cs-feature__body">Reduced manual payroll workload and centralized vendor reporting, eliminating spreadsheet dependency across teams.</div>
+        </div>
+        <div class="cs-feature">
+          <div class="cs-feature__title">Data Accuracy</div>
+          <div class="cs-feature__body">Standardized sales submission process with built-in validation, reducing commission calculation errors to near-zero.</div>
+        </div>
+        <div class="cs-feature">
+          <div class="cs-feature__title">Manager Visibility</div>
+          <div class="cs-feature__body">Real-time team performance tracking and pre-payroll review capabilities for better decision-making.</div>
+        </div>
+        <div class="cs-feature">
+          <div class="cs-feature__title">Enterprise Readiness</div>
+          <div class="cs-feature__body">Full auditability, role-based access control, and compliance-grade security across all financial operations.</div>
+        </div>
+      </div>
+    </section>
+
+    <hr class="cs-divider">
+
+    <!-- CLOSING REFLECTION -->
+    <section class="cs-section">
+      <div class="cs-section__label">Chapter 11 — Reflection</div>
+      <h2 class="cs-section__title">The journey from student to production engineer.</h2>
+
+      <p class="cs-story">
+        While the founder drove the business vision, domain expertise, and client relationships, I owned the full-stack development, system architecture, deployment pipeline, and day-to-day evolution of the platform. We moved at startup speed because enterprise clients were waiting and reps needed to be paid accurately.
+      </p>
+
+      <p class="cs-text">
+        This meant designing the database schema, building role-based dashboards, publishing the iOS app, integrating AI systems, and debugging production issues at any hour. It meant shipping 99+ pull requests while supporting real users in a real business.
+      </p>
+
+      <p class="cs-text">
+        I started this project as a final-semester student with no production experience. I'm finishing it with the kind of hands-on SaaS engineering knowledge that typically takes three to five years to accumulate. Not because I'm exceptional — but because I said yes to hard problems, shipped before I felt ready, and learned from every production bug rather than treating them as failures.
+      </p>
+
+      <div class="cs-stat-row">
+        <div class="cs-stat-box">
+          <span class="cs-stat-box__num">6</span>
+          <span class="cs-stat-box__label">Months to Production</span>
+        </div>
+        <div class="cs-stat-box">
+          <span class="cs-stat-box__num">99+</span>
+          <span class="cs-stat-box__label">Features Shipped</span>
+        </div>
+        <div class="cs-stat-box">
+          <span class="cs-stat-box__num">Full-Stack</span>
+          <span class="cs-stat-box__label">End-to-End Ownership</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- CTA -->
+    <div class="cs-cta">
+      <div class="cs-cta__inner">
+        <h2 class="cs-cta__title">Need someone who can build your entire technical stack?</h2>
+        <p class="cs-cta__sub">I work best with founders who value speed, ownership, and long-term collaboration. Let's talk.</p>
+        <div class="cs-cta__btns">
+          <a href="https://wa.me/923011414134?text=Hi%20Jawad,%20I%20saw%20your%20Sales%20Tracking%20CRM%20case%20study%20and%20want%20to%20discuss%20a%20project."
+            class="cs-btn cs-btn--primary" target="_blank">
+            <i class="fab fa-whatsapp"></i> Let's Talk
+          </a>
+          <a href="mailto:jawadahmad9938@gmail.com" class="cs-btn cs-btn--outline">
+            <i class="fas fa-envelope"></i> Send Email
+          </a>
+          <a href="index.html#Projects" class="cs-btn cs-btn--outline">
+            <i class="fas fa-arrow-left"></i> All Case Studies
+          </a>
+        </div>
+      </div>
+    </div>
+
+  </main>
+
+  <!-- FOOTER -->
+  <footer class="footer-section">
+    <div class="footer-container">
+      <!-- Newsletter Section -->
+      <div class="newsletter-section">
+        <div class="newsletter-content">
+          <h3>Get Business Growth Insights</h3>
+          <p>
+            Join my exclusive newsletter for strategic tips on digital transformation, customer acquisition, and revenue
+            growth for your business.
+          </p>
+
+          <form class="newsletter-form" action="https://formspree.io/f/xeolvgya" method="POST">
+            <div class="input-group">
+              <input type="email" name="newsletter_email" placeholder="Enter your business email" required
+                class="newsletter-input" />
+              <button type="submit" class="newsletter-btn">
+                <span>Subscribe for Insights</span>
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+                  <polyline points="23 6 13.5 15.5 8.5 10.5 1 17"></polyline>
+                  <polyline points="17 6 23 6 23 12"></polyline>
+                </svg>
+              </button>
+            </div>
+            <p class="newsletter-note">
+              No spam. Unsubscribe anytime. Exclusive business growth strategies.
+            </p>
+          </form>
+        </div>
+
+        <div class="newsletter-benefits">
+          <div class="benefit-item">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+              <polyline points="23 6 13.5 15.5 8.5 10.5 1 17"></polyline>
+              <polyline points="17 6 23 6 23 12"></polyline>
+            </svg>
+            <span>Revenue Growth Strategies</span>
+          </div>
+          <div class="benefit-item">
+            <i class="fas fa-mobile-alt" aria-hidden="true"></i>
+            <span>Customer Engagement Tips</span>
+          </div>
+          <div class="benefit-item">
+            <i class="fas fa-search" aria-hidden="true"></i>
+            <span>Market Visibility Strategies</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Main Footer Content -->
+      <div class="footer-main">
+        <!-- Brand Column -->
+        <div class="footer-column brand-column">
+          <div class="footer-logo">
+            <img src="https://i.ibb.co/rfstVnt3/jawad-sectionlogo.png"
+              alt="Jawad Ahmad - Business Web Solutions Expert Logo" class="logo-img" loading="lazy" />
+            <span class="logo-text">Jawad Ahmad</span>
+          </div>
+          <p class="brand-tagline">
+            Creating digital solutions that drive measurable business growth across Pakistan and international markets.
+          </p>
+
+          <div class="contact-info">
+            <div class="contact-item">
+              <i class="fas fa-envelope" aria-hidden="true"></i>
+              <a href="mailto:jawadahmad9938@gmail.com">jawadahmad9938@gmail.com</a>
+            </div>
+            <div class="contact-item">
+              <i class="fas fa-phone" aria-hidden="true"></i>
+              <a href="tel:+923011414134">+92 301 1414134</a>
+            </div>
+            <div class="contact-item">
+              <i class="fas fa-map-marker-alt" aria-hidden="true"></i>
+              <span>Multan, Pakistan</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Navigation Sitemap -->
+        <div class="footer-column">
+          <h4>Explore Site</h4>
+          <ul class="footer-links">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="index.html#About">About</a></li>
+            <li><a href="index.html#Services">Services</a></li>
+            <li><a href="index.html#Projects">Case Studies</a></li>
+            <li><a href="index.html#Testimonials">Results</a></li>
+            <li><a href="index.html#Skills">Expertise</a></li>
+            <li><a href="index.html#Contact">Consultation</a></li>
+          </ul>
+        </div>
+
+        <!-- Blogs & Philosophy -->
+        <div class="footer-column">
+          <h4>Knowledge Center</h4>
+          <ul class="footer-links">
+            <li><a href="blogs.html">Business Blogs</a></li>
+            <li><a href="philosophy.html">Philosophy Insights</a></li>
+            <li><a href="blogs.html#marketing">Marketing Psychology</a></li>
+            <li><a href="blogs.html#strategy">Business Strategy</a></li>
+            <li><a href="blogs.html#growth">Digital Growth Tips</a></li>
+          </ul>
+        </div>
+
+        <!-- Business CTA -->
+        <div class="footer-column">
+          <h4>Work With Me</h4>
+          <ul class="footer-links">
+            <li><a href="index.html#Contact">Book a Consultation</a></li>
+            <li><a href="Jawad Ahmad CV.pdf" download>Download Business Profile</a></li>
+            <li><a href="index.html#Projects">View Client Results</a></li>
+            <li><a href="index.html#Services">See Business Packages</a></li>
+            <li><a href="index.html#Contact">Get a Custom Quote</a></li>
+          </ul>
+
+          <div class="client-cta">
+            <p>Ready to grow your business?</p>
+            <a href="index.html#Contact" class="cta-button">
+              <i class="fas fa-rocket" aria-hidden="true"></i>
+              Start Business Project
+            </a>
+          </div>
+        </div>
+      </div>
+
+      <!-- Social & Legal Section -->
+      <div class="footer-bottom">
+        <div class="social-section">
+          <h3 class="social-title">Connect with Jawad Ahmad</h3>
+
+          <div class="social-links">
+            <a href="https://facebook.com/jawad.ahmed.961811" class="social-link" target="_blank">
+              <div class="social-icon facebook">
+                <i class="fab fa-facebook-f"></i>
+                <div class="verified-badge"><i class="fas fa-check-circle"></i></div>
+              </div>
+              <span>Facebook</span>
+            </a>
+
+            <a href="https://x.com/yourprofile" class="social-link" target="_blank">
+              <div class="social-icon twitter">
+                <i class="fab fa-x-twitter"></i>
+                <div class="verified-badge"><i class="fas fa-check-circle"></i></div>
+              </div>
+              <span>Twitter</span>
+            </a>
+
+            <a href="https://linkedin.com/in/jawad-ahmad-9938938484djf" class="social-link" target="_blank">
+              <div class="social-icon linkedin">
+                <i class="fab fa-linkedin-in"></i>
+                <div class="verified-badge"><i class="fas fa-check-circle"></i></div>
+              </div>
+              <span>LinkedIn</span>
+            </a>
+
+            <a href="https://github.com/Jawadahmad9938" class="social-link" target="_blank">
+              <div class="social-icon github">
+                <i class="fab fa-github"></i>
+                <div class="verified-badge"><i class="fas fa-check-circle"></i></div>
+              </div>
+              <span>GitHub</span>
+            </a>
+
+            <a href="https://wa.me/923011414134" class="social-link" target="_blank">
+              <div class="social-icon whatsapp">
+                <i class="fab fa-whatsapp"></i>
+                <div class="verified-badge"><i class="fas fa-check-circle"></i></div>
+              </div>
+              <span>WhatsApp</span>
+            </a>
+          </div>
+        </div>
+
+        <div class="legal">
+          <div class="legal-links">
+            <a href="/privacy.html">Privacy Policy</a> |
+            <a href="/terms.html">Terms</a> |
+            <a href="/disclaimer.html">Disclaimer</a> |
+            <a href="/sitemap.html">Sitemap</a>
+          </div>
+          <p class="copyright">
+            © 2025 Jawad Ahmad Business Solutions • Empowering Businesses through Strategic Digital Transformation.
+          </p>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <script src="script.js" defer></script>
+
+</body>
+</html>
