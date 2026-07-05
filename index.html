@@ -1982,6 +1982,15 @@
       color: #4dd0e1;
     }
 
+    /* ── LIGHT MODE: make project card text pure black ── */
+    body.light-mode .project-card { color: #000 !important; }
+    body.light-mode .project-name { color: #000 !important; }
+    body.light-mode .project-details { color: #000 !important; }
+    body.light-mode .project-details * { color: #000 !important; }
+    body.light-mode .detail-heading.problem { color: #c00 !important; }
+    body.light-mode .detail-heading.solution { color: #a16207 !important; }
+    body.light-mode .detail-heading.impact { color: #0369a1 !important; }
+
     .project-link {
       display: inline-block;
       padding: 0.5rem 1rem;
@@ -3596,6 +3605,11 @@
       color: #fff;
     }
 
+    /* ── LIGHT MODE: social link labels ── */
+    body.light-mode .social-link span { color: #333 !important; }
+    body.light-mode .social-link:hover span { color: #2563eb !important; }
+    body.light-mode .social-title { color: #000 !important; }
+
     .legal {
       margin-top: 25px;
     }
@@ -3672,6 +3686,24 @@
       font-weight: 500;
       font-size: 0.9rem;
     }
+
+    /* ── LIGHT MODE: footer text pure black ── */
+    body.light-mode .footer-section { background: #f0f2f5 !important; color: #000 !important; }
+    body.light-mode .footer-column h4 { color: #000 !important; }
+    body.light-mode .brand-tagline { color: #333 !important; }
+    body.light-mode .footer-links a { color: #222 !important; }
+    body.light-mode .footer-links a:hover { color: #2563eb !important; }
+    body.light-mode .social-title { color: #000 !important; }
+    body.light-mode .legal-links { color: #333 !important; }
+    body.light-mode .legal-links a { color: #333 !important; }
+    body.light-mode .legal-links a:hover { color: #2563eb !important; }
+    body.light-mode .copyright { color: #444 !important; }
+    body.light-mode .copyright p { color: #444 !important; }
+    body.light-mode .footer-bottom { border-top-color: #ccc !important; }
+    body.light-mode .contact-item a,
+    body.light-mode .contact-item span { color: #222 !important; }
+    body.light-mode .contact-item i { color: #2563eb !important; }
+    body.light-mode .logo-text { color: #000 !important; }
 
     @media (max-width:768px) {
       .newsletter-section {
@@ -5286,11 +5318,11 @@
           width="600" height="400" loading="lazy" decoding="async"
           alt="QanoonBridge — Multi-Tenant Legal-Tech Platform connecting Pakistani citizens with verified lawyers" />
 
-        <h3 class="project-name">QanoonBridge — Multi-Tenant Legal-Tech Platform</h3>
+        <h3 class="project-name">QanoonBridge Multi-Tenant Legal-Tech Platform</h3>
 
         <p class="project-details">
           <span class="detail-heading problem">Business Problem:</span>
-          Pakistani citizens in smaller cities lack structured access to verified legal help. Legal aid NGOs have no scalable system to route cases to the right lawyer — nearby, verified, and available — or to aggregate regional patterns for batch court filings.<br />
+          Pakistani citizens in smaller cities lack structured access to verified legal help. Legal aid NGOs have no scalable system to route cases to the right lawyer nearby, verified, and available or to aggregate regional patterns for batch court filings.<br />
 
           <span class="detail-heading solution">My Ownership:</span>
           Designed and built end-to-end as a final year graduation project: multi-tenant PostgreSQL schema, 4 role-based dashboards (Citizen, Lawyer, Admin, Super Admin), a custom geofenced lawyer-matching engine (city → district → province fallback), database-backed RBAC middleware, structured case lifecycle state machine, and tenant isolation tested across every query path.<br />
@@ -5558,7 +5590,7 @@
               MNS University of Agriculture, Multan
             </p>
             <p class="resume-duration">2022 – 2026</p>
-            <p class="resume-cgpa">Business Excellence: 3.64/4.0</p>
+            <p class="resume-cgpa">Business Excellence: 3.57/4.0</p>
             <p class="resume-info">
               Comprehensive education focused on creating business-driven
               technology solutions. Special emphasis on practical applications
@@ -6223,7 +6255,7 @@
             <span>Facebook</span>
           </a>
 
-          <a href="https://x.com/yourprofile" class="social-link" target="_blank" rel="noopener noreferrer">
+          <a href="https://x.com/Jawad_9938" class="social-link" target="_blank" rel="noopener noreferrer">
             <div class="social-icon twitter">
               <i class="fab fa-x-twitter"></i>
               <div class="verified-badge"><i class="fas fa-check-circle"></i></div>

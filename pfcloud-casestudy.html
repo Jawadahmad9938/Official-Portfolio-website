@@ -317,6 +317,123 @@
       box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
     }
 
+    /* ─── CROSS-LINK TEASER ─── */
+    .cs-crosslink {
+      background: rgba(124, 58, 237, 0.05);
+      border: 1px solid rgba(124, 58, 237, 0.2);
+      border-radius: 16px;
+      padding: 2.5rem 3rem;
+      margin: 4rem 0;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .cs-crosslink::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 4px;
+      height: 100%;
+      background: #7c3aed;
+      border-radius: 4px 0 0 4px;
+    }
+
+    .cs-crosslink__eyebrow {
+      font-family: monospace;
+      font-size: 0.68rem;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: #7c3aed;
+      margin-bottom: 0.6rem;
+    }
+
+    .cs-crosslink__title {
+      font-size: 1.15rem;
+      font-weight: 600;
+      color: inherit;
+      margin-bottom: 0.5rem;
+      line-height: 1.35;
+    }
+
+    .cs-crosslink__body {
+      font-size: 0.95rem;
+      color: inherit;
+      opacity: 0.8;
+      line-height: 1.7;
+      margin-bottom: 1.25rem;
+    }
+
+    .cs-crosslink__link {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.45rem;
+      font-weight: 600;
+      font-size: 0.9rem;
+      color: #7c3aed;
+      text-decoration: none;
+      transition: gap 0.2s;
+    }
+
+    .cs-crosslink__link:hover { gap: 0.7rem; }
+
+    .cs-explore-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 1.25rem;
+      margin: 2rem 0;
+    }
+
+    .cs-explore-card {
+      background: var(--card-bg);
+      border: 1px solid rgba(124, 58, 237, 0.15);
+      border-radius: 14px;
+      padding: 1.75rem;
+      text-decoration: none;
+      transition: border-color 0.2s, transform 0.2s, box-shadow 0.2s;
+      display: block;
+      color: inherit;
+    }
+
+    .cs-explore-card:hover {
+      border-color: #7c3aed;
+      transform: translateY(-3px);
+      box-shadow: 0 8px 24px rgba(124, 58, 237, 0.12);
+    }
+
+    .cs-explore-card__tag {
+      font-family: monospace;
+      font-size: 0.65rem;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: #7c3aed;
+      margin-bottom: 0.6rem;
+      display: block;
+    }
+
+    .cs-explore-card__title {
+      font-size: 1.05rem;
+      font-weight: 600;
+      margin-bottom: 0.5rem;
+      line-height: 1.3;
+    }
+
+    .cs-explore-card__body {
+      font-size: 0.85rem;
+      opacity: 0.7;
+      line-height: 1.6;
+      margin-bottom: 1rem;
+    }
+
+    .cs-explore-card__cta {
+      font-size: 0.85rem;
+      font-weight: 600;
+      color: #7c3aed;
+      display: flex;
+      align-items: center;
+      gap: 0.4rem;
+    }
+
     @media (max-width: 768px) {
       .case-hero {
         padding: 8rem 4% 4rem;
@@ -670,6 +787,16 @@
       </ul>
     </section>
 
+    <!-- MID-CONTENT CROSS-LINK -->
+    <div class="cs-crosslink">
+      <div class="cs-crosslink__eyebrow">Working on complex SaaS systems?</div>
+      <h3 class="cs-crosslink__title">I also built a full ISP sales commission platform from scratch — 6 months, one developer, iOS App Store, 1,000+ users, and a payroll engine handling real money.</h3>
+      <p class="cs-crosslink__body">PFCloud handles infrastructure operations. The ISP CRM handles commissions, holdbacks, AI-powered OCR receipt scanning, and a multi-vendor import pipeline. Different product, same engineering ownership mindset.</p>
+      <a href="salesplateformcasestudy.html" class="cs-crosslink__link">
+        Read the ISP Sales Platform Case Study →
+      </a>
+    </div>
+
     <!-- Database Design -->
     <section class="section">
       <h2 class="section-title">Database Design</h2>
@@ -896,6 +1023,28 @@ BodyHandler -> Authentication -> Authorization -> RouteHandler
         <li><strong>Real-Time WebSockets:</strong> Live updates for dashboard components</li>
         <li><strong>Advanced Caching:</strong> Distributed cache with intelligent invalidation</li>
       </ul>
+    </section>
+
+    <!-- Explore More Case Studies -->
+    <section class="section">
+      <h2 class="section-title" style="color: #7c3aed;">Other Systems I've Built</h2>
+      <p class="content-text">Each project is a different domain, the same depth of ownership.</p>
+
+      <div class="cs-explore-grid">
+        <a href="salesplateformcasestudy.html" class="cs-explore-card">
+          <span class="cs-explore-card__tag">Enterprise SaaS · ISP Sales CRM · USA Client</span>
+          <div class="cs-explore-card__title">How I Built an Entire ISP Sales Platform for Their Daily Operations</div>
+          <div class="cs-explore-card__body">Custom commission tracking CRM — 1,000+ user accounts, iOS App Store, AI-powered OCR, full payroll automation. Founding engineer, 6 months to launch.</div>
+          <span class="cs-explore-card__cta">Read the case study →</span>
+        </a>
+
+        <a href="qanoonbridgecasestudy.html" class="cs-explore-card">
+          <span class="cs-explore-card__tag">Final Year Project · Legal-Tech · Multi-Tenant SaaS</span>
+          <div class="cs-explore-card__title">QanoonBridge: Connecting Pakistani Citizens with Verified Lawyers</div>
+          <div class="cs-explore-card__body">4-role RBAC dashboards, geofenced lawyer matching, tenant-isolated PostgreSQL, and a permission engine backed by database rows — built end-to-end.</div>
+          <span class="cs-explore-card__cta">Read the case study →</span>
+        </a>
+      </div>
     </section>
 
     <!-- CTA Section -->

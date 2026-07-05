@@ -284,12 +284,13 @@ const THEME_KEY = "site-theme";
 // Load theme preference
 function loadThemePreference() {
   const savedTheme = localStorage.getItem(THEME_KEY);
-  const prefersDark = window.matchMedia("(prefers-color-scheme: dark)").matches;
   
-  if (savedTheme === "light" || (!savedTheme && !prefersDark)) {
+  // Default is DARK. Only apply light-mode if user explicitly chose light.
+  if (savedTheme === "light") {
     document.body.classList.add("light-mode");
     themeIcon?.classList.replace("fa-moon", "fa-sun");
   } else {
+    document.body.classList.remove("light-mode");
     themeIcon?.classList.replace("fa-sun", "fa-moon");
   }
 }

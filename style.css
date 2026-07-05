@@ -4266,3 +4266,13 @@ body.light-mode .form-note {
     font-size: 0.85rem;
   }
 }
+
+
+/* ── Light mode: project cards on index.html ── */
+body.light-mode .project-card { color: #111 !important; }
+body.light-mode .project-name { color: #111 !important; }
+body.light-mode .project-details { color: #111 !important; }
+body.light-mode .project-details * { color: #111 !important; }
+body.light-mode .detail-heading.problem { color: #cc0000 !important; }
+body.light-mode .detail-heading.solution { color: #b45309 !important; }
+body.light-mode .detail-heading.impact { color: #0369a1 !important; }

@@ -37,6 +37,28 @@
 
   <style>
     :root {
+      /* ── DEFAULT = DARK ── */
+      --ink: #f1f5f9;
+      --ink-soft: #cbd5e1;
+      --ink-muted: #94a3b8;
+      --surface: #0f172a;
+      --surface-raised: #1e293b;
+      --surface-card: #1e293b;
+      --accent: #818cf8;
+      --accent-dark: #4338ca;
+      --accent-glow: rgba(99, 102, 241, 0.2);
+      --green: #34d399;
+      --amber: #fbbf24;
+      --red: #f87171;
+      --border: #1e293b;
+      --border-strong: #334155;
+      --mono: 'JetBrains Mono', monospace;
+      --sans: 'Inter', system-ui, sans-serif;
+      --display: 'Space Grotesk', sans-serif;
+    }
+
+    /* ── LIGHT MODE OVERRIDES ── */
+    body.light-mode {
       --ink: #0f172a;
       --ink-soft: #334155;
       --ink-muted: #64748b;
@@ -51,23 +73,6 @@
       --red: #ef4444;
       --border: #e2e8f0;
       --border-strong: #cbd5e1;
-      --mono: 'JetBrains Mono', monospace;
-      --sans: 'Inter', system-ui, sans-serif;
-      --display: 'Space Grotesk', sans-serif;
-    }
-
-    @media (prefers-color-scheme: dark) {
-      :root {
-        --ink: #f1f5f9;
-        --ink-soft: #cbd5e1;
-        --ink-muted: #94a3b8;
-        --surface: #0f172a;
-        --surface-raised: #1e293b;
-        --surface-card: #1e293b;
-        --border: #1e293b;
-        --border-strong: #334155;
-        --accent-glow: rgba(99, 102, 241, 0.2);
-      }
     }
 
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
@@ -674,6 +679,124 @@
       .cs-hero { padding: 5rem 4% 4rem; }
     }
 
+    /* ─── CROSS-LINK TEASER ─── */
+    .cs-crosslink {
+      background: var(--surface-raised);
+      border: 1px solid var(--border);
+      border-radius: 16px;
+      padding: 2.5rem 3rem;
+      margin: 4rem 0;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .cs-crosslink::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 4px;
+      height: 100%;
+      background: var(--accent);
+      border-radius: 4px 0 0 4px;
+    }
+
+    .cs-crosslink__eyebrow {
+      font-family: var(--mono);
+      font-size: 0.68rem;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--accent);
+      margin-bottom: 0.6rem;
+    }
+
+    .cs-crosslink__title {
+      font-family: var(--display);
+      font-size: 1.2rem;
+      font-weight: 600;
+      color: var(--ink);
+      margin-bottom: 0.5rem;
+      line-height: 1.35;
+    }
+
+    .cs-crosslink__body {
+      font-size: 0.95rem;
+      color: var(--ink-soft);
+      line-height: 1.7;
+      margin-bottom: 1.25rem;
+    }
+
+    .cs-crosslink__link {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.45rem;
+      font-weight: 600;
+      font-size: 0.9rem;
+      color: var(--accent);
+      text-decoration: none;
+      transition: gap 0.2s;
+    }
+
+    .cs-crosslink__link:hover { gap: 0.7rem; }
+
+    .cs-explore-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 1.25rem;
+      margin: 2rem 0;
+    }
+
+    .cs-explore-card {
+      background: var(--surface-raised);
+      border: 1px solid var(--border);
+      border-radius: 14px;
+      padding: 1.75rem;
+      text-decoration: none;
+      transition: border-color 0.2s, transform 0.2s, box-shadow 0.2s;
+      display: block;
+    }
+
+    .cs-explore-card:hover {
+      border-color: var(--accent);
+      transform: translateY(-3px);
+      box-shadow: 0 8px 24px rgba(99,102,241,0.12);
+    }
+
+    .cs-explore-card__tag {
+      font-family: var(--mono);
+      font-size: 0.65rem;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--accent);
+      margin-bottom: 0.6rem;
+      display: block;
+    }
+
+    .cs-explore-card__title {
+      font-family: var(--display);
+      font-size: 1.05rem;
+      font-weight: 600;
+      color: var(--ink);
+      margin-bottom: 0.5rem;
+      line-height: 1.3;
+    }
+
+    .cs-explore-card__body {
+      font-size: 0.85rem;
+      color: var(--ink-muted);
+      line-height: 1.6;
+      margin-bottom: 1rem;
+    }
+
+    .cs-explore-card__cta {
+      font-size: 0.85rem;
+      font-weight: 600;
+      color: var(--accent);
+      display: flex;
+      align-items: center;
+      gap: 0.4rem;
+    }
+
     /* ─── PR COUNT ─── */
     .cs-pr-grid {
       display: grid;
@@ -1038,32 +1161,32 @@
 
       <div class="cs-tech-grid">
         <div class="cs-tech-card">
-          <div class="cs-tech-card__icon">⚛️</div>
+          <div class="cs-tech-card__icon"></div>
           <div class="cs-tech-card__title">Next.js 14 (App Router)</div>
           <div class="cs-tech-card__body">Server components, ISR, API routes. Full-stack in one repo with zero backend servers to manage.</div>
         </div>
         <div class="cs-tech-card">
-          <div class="cs-tech-card__icon">📱</div>
+          <div class="cs-tech-card__icon"></div>
           <div class="cs-tech-card__title">React Native + Expo</div>
           <div class="cs-tech-card__body">Cross-platform iOS app with offline sync, push notifications, and App Store publishing pipeline.</div>
         </div>
         <div class="cs-tech-card">
-          <div class="cs-tech-card__icon">🗄️</div>
+          <div class="cs-tech-card__icon"></div>
           <div class="cs-tech-card__title">Supabase + PostgreSQL</div>
           <div class="cs-tech-card__body">Multi-tenant database with Row Level Security, Edge Functions for background jobs, Realtime subscriptions.</div>
         </div>
         <div class="cs-tech-card">
-          <div class="cs-tech-card__icon">🤖</div>
+          <div class="cs-tech-card__icon"></div>
           <div class="cs-tech-card__title">GPT-4 Vision API</div>
           <div class="cs-tech-card__body">AI-powered OCR for receipt scanning in the mobile app — extracts sale data automatically from photos.</div>
         </div>
         <div class="cs-tech-card">
-          <div class="cs-tech-card__icon">🎨</div>
+          <div class="cs-tech-card__icon"></div>
           <div class="cs-tech-card__title">TailwindCSS + shadcn/ui</div>
           <div class="cs-tech-card__body">Consistent design system across web and app. Mobile-first responsive layouts for all 4 dashboards.</div>
         </div>
         <div class="cs-tech-card">
-          <div class="cs-tech-card__icon">🚀</div>
+          <div class="cs-tech-card__icon"></div>
           <div class="cs-tech-card__title">Vercel + GitHub Actions</div>
           <div class="cs-tech-card__body">Continuous deployment with preview URLs per PR. Production deploys on merge — typically within 2 minutes.</div>
         </div>
@@ -1219,6 +1342,16 @@ Manager opens Pending Pay
 
     <hr class="cs-divider">
 
+    <!-- MID-CONTENT CROSS-LINK -->
+    <div class="cs-crosslink">
+      <div class="cs-crosslink__eyebrow">Interested in legal-tech and multi-tenant systems?</div>
+      <h3 class="cs-crosslink__title">I also designed QanoonBridge — a multi-tenant legal-aid SaaS platform connecting Pakistani citizens with verified lawyers through geofenced matching and RBAC dashboards.</h3>
+      <p class="cs-crosslink__body">Different domain, same engineering depth. Think tenant-isolated PostgreSQL, a permission system stored entirely as database rows, and a three-tier geographic fallback engine — built as my final year graduation project.</p>
+      <a href="qanoonbridgecasestudy.html" class="cs-crosslink__link">
+        Read the QanoonBridge Case Study →
+      </a>
+    </div>
+
     <!-- WHAT I OWNED -->
     <section class="cs-section">
       <div class="cs-section__label">Chapter 07 — Scope</div>
@@ -1226,35 +1359,35 @@ Manager opens Pending Pay
 
       <div class="cs-features">
         <div class="cs-feature">
-          <div class="cs-feature__title">🖥️ Web Platform</div>
+          <div class="cs-feature__title"> Web Platform</div>
           <div class="cs-feature__body">Full Next.js application. 4 role-based dashboards. 99+ GitHub PRs merged. Feature development, bug fixes, and performance optimization.</div>
         </div>
         <div class="cs-feature">
-          <div class="cs-feature__title">📱 iOS App</div>
+          <div class="cs-feature__title"> iOS App</div>
           <div class="cs-feature__body">React Native/Expo app shipped to App Store. Full pipeline from development to production releases.</div>
         </div>
         <div class="cs-feature">
-          <div class="cs-feature__title">🤖 AI Integration</div>
+          <div class="cs-feature__title"> AI Integration</div>
           <div class="cs-feature__body">GPT-4 Vision API for OCR receipt scanning. Prompting, error handling, form auto-fill, and mobile camera integration.</div>
         </div>
         <div class="cs-feature">
-          <div class="cs-feature__title">📦 Import Pipeline</div>
+          <div class="cs-feature__title"> Import Pipeline</div>
           <div class="cs-feature__body">Multi-vendor CSV ingestion, alias matching, composite-key duplicate detection, chunked background processing, result file export.</div>
         </div>
         <div class="cs-feature">
-          <div class="cs-feature__title">💰 Payroll Engine</div>
+          <div class="cs-feature__title"> Payroll Engine</div>
           <div class="cs-feature__body">Payscale system, holdbacks, pay multipliers, ledger entries, invoices, remittances, check stubs (PDF), pre-payroll manager review.</div>
         </div>
         <div class="cs-feature">
-          <div class="cs-feature__title">👥 Team Hierarchy</div>
+          <div class="cs-feature__title"> Team Hierarchy</div>
           <div class="cs-feature__body">Manager → Rep hierarchy with team stats, team check stubs, team payscale management, commission transfer/deduction/bonus forms.</div>
         </div>
         <div class="cs-feature">
-          <div class="cs-feature__title">🔒 Security</div>
+          <div class="cs-feature__title"> Security</div>
           <div class="cs-feature__body">Row Level Security across all tables, multi-tenant data isolation, role-based permissions, accounting-only edit locks, GHL API key rotation.</div>
         </div>
         <div class="cs-feature">
-          <div class="cs-feature__title">📞 Customer Support</div>
+          <div class="cs-feature__title"> Customer Support</div>
           <div class="cs-feature__body">Direct support to operations team. Rapid issue diagnosis and fixes ensuring minimal downtime for users.</div>
         </div>
       </div>
@@ -1415,6 +1548,29 @@ Manager opens Pending Pay
           <span class="cs-stat-box__num">Full-Stack</span>
           <span class="cs-stat-box__label">End-to-End Ownership</span>
         </div>
+      </div>
+    </section>
+
+    <!-- EXPLORE MORE CASE STUDIES -->
+    <section class="cs-section">
+      <div class="cs-section__label">More Work</div>
+      <h2 class="cs-section__title">Other systems I've built.</h2>
+      <p class="cs-text">Each project pushed me into different engineering territory. Here's what else I've shipped — all production, all end-to-end.</p>
+
+      <div class="cs-explore-grid">
+        <a href="qanoonbridgecasestudy.html" class="cs-explore-card">
+          <span class="cs-explore-card__tag">Final Year Project · Legal-Tech · Multi-Tenant SaaS</span>
+          <div class="cs-explore-card__title">QanoonBridge: Connecting Pakistani Citizens with Verified Lawyers</div>
+          <div class="cs-explore-card__body">4-role RBAC dashboards, geofenced lawyer matching, tenant-isolated PostgreSQL, and a permission system backed entirely by database rows — built end-to-end as my graduation project.</div>
+          <span class="cs-explore-card__cta">Read the case study →</span>
+        </a>
+
+        <a href="pfcloud-casestudy.html" class="cs-explore-card">
+          <span class="cs-explore-card__tag">Production Hosting · Multi-Tenant · 1000+ Users</span>
+          <div class="cs-explore-card__title">PFCloud: A Multi-Frontend Hosting Platform Serving Real Customers</div>
+          <div class="cs-explore-card__body">Java Vert.x backend, 100+ APIs, Vue.js dashboards, Stripe billing, Proxmox VPS provisioning — built for a live hosting business at 99.9% uptime.</div>
+          <span class="cs-explore-card__cta">Read the case study →</span>
+        </a>
       </div>
     </section>
 
