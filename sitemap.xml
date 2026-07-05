@@ -22,6 +22,19 @@
     <priority>0.95</priority>
   </url>
 
+  <!-- QanoonBridge Legal-Tech Platform Case Study -->
+  <url>
+    <loc>https://jawadahmad.me/qanoonbridgecasestudy.html</loc>
+    <lastmod>2026-07-01</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.95</priority>
+    <image:image>
+      <image:loc>https://jawadahmad.me/img/Tenant Analytics &amp; Lawyer Verification.png</image:loc>
+      <image:title>QanoonBridge — Multi-Tenant Legal-Tech Platform for Pakistan</image:title>
+      <image:caption>4-role legal-tech SaaS with geofenced lawyer matching, RBAC dashboards, and structured case lifecycle built by Jawad Ahmad</image:caption>
+    </image:image>
+  </url>
+
   <!-- Blogs Index -->
   <url>
     <loc>https://jawadahmad.me/blogs</loc>

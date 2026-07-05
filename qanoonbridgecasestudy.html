@@ -1,0 +1,1633 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+  <meta name="theme-color" content="#0b3d2e">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" crossorigin>
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="preconnect" href="https://cdnjs.cloudflare.com" crossorigin>
+
+  <link rel="icon" href="https://i.ibb.co/rfstVnt3/jawad-sectionlogo.png" type="image/png" />
+  <link rel="preload" href="style.css" as="style" />
+
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Fraunces:opsz,wght@9..144,500;9..144,600;9..144,700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="style.css" />
+  <link rel="preload" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" as="style" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" media="print" onload="this.media='all'" />
+
+  <title>QanoonBridge Case Study | Multi-Tenant Legal-Tech Platform for Pakistan by Jawad Ahmad</title>
+  <meta name="description" content="Case study: How I designed and built QanoonBridge — a multi-tenant legal-tech SaaS platform connecting Pakistani citizens with verified lawyers using geofenced matching, RBAC, and structured case lifecycles. Final year project by Jawad Ahmad. Live at qanoon-bridge.vercel.app.">
+  <meta name="keywords" content="QanoonBridge, legal tech Pakistan, multi-tenant legal platform, RBAC dashboard, geofencing lawyer matching, legal aid Pakistan, final year project, react node postgresql, lawyer case management system, citizen lawyer platform, legal SaaS Pakistan, Jawad Ahmad, full stack developer Pakistan">
+  <meta name="author" content="Jawad Ahmad">
+  <meta name="robots" content="index, follow">
+  <link rel="canonical" href="https://jawadahmad.me/qanoonbridgecasestudy.html">
+
+  <!-- Open Graph -->
+  <meta property="og:title" content="QanoonBridge Case Study | Multi-Tenant Legal-Tech Platform for Pakistan">
+  <meta property="og:description" content="A four-role legal-tech SaaS with geofenced lawyer matching, tenant-isolated data, and a structured case lifecycle — built end-to-end as a final year graduation project. Case study by Jawad Ahmad.">
+  <meta property="og:url" content="https://jawadahmad.me/qanoonbridgecasestudy.html">
+  <meta property="og:type" content="article">
+  <meta property="og:image" content="https://i.postimg.cc/50qzPtDT/jawad-hero-img.webp">
+  <meta property="og:site_name" content="Jawad Ahmad — Full Stack Developer">
+  <meta property="article:author" content="Jawad Ahmad">
+  <meta property="article:tag" content="Legal Tech, Multi-Tenant SaaS, RBAC, Pakistan">
+
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="QanoonBridge Case Study | Multi-Tenant Legal Platform — Jawad Ahmad">
+  <meta name="twitter:description" content="Multi-tenant legal-tech platform for Pakistan — RBAC, geofenced lawyer matching, 4-role dashboards, structured case lifecycle. Designed and built end-to-end.">
+  <meta name="twitter:image" content="https://i.postimg.cc/50qzPtDT/jawad-hero-img.webp">
+  <meta name="twitter:creator" content="@jawadahmad">
+
+  <!-- Schema.org structured data -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Article",
+    "headline": "QanoonBridge — Multi-Tenant Legal-Tech Platform Case Study",
+    "description": "How Jawad Ahmad designed and built QanoonBridge: a multi-tenant legal aid SaaS platform connecting Pakistani citizens with verified, geofenced-matched lawyers through RBAC dashboards and structured case lifecycles.",
+    "author": {
+      "@type": "Person",
+      "name": "Jawad Ahmad",
+      "url": "https://jawadahmad.me"
+    },
+    "url": "https://jawadahmad.me/qanoonbridgecasestudy.html",
+    "mainEntityOfPage": "https://jawadahmad.me/qanoonbridgecasestudy.html",
+    "keywords": "legal tech Pakistan, multi-tenant SaaS, RBAC, geofencing, lawyer matching, final year project",
+    "publisher": {
+      "@type": "Person",
+      "name": "Jawad Ahmad",
+      "url": "https://jawadahmad.me"
+    }
+  }
+  </script>
+
+  <style>
+    :root {
+      --ink: #0b2e22;
+      --ink-soft: #2f4a3f;
+      --ink-muted: #5c7469;
+      --surface: #ffffff;
+      --surface-raised: #f4f9f6;
+      --surface-card: #eaf3ee;
+      --accent: #0f766e;
+      --accent-dark: #0b3d2e;
+      --accent-bright: #14b892;
+      --accent-glow: rgba(15, 118, 110, 0.12);
+      --gold: #b45309;
+      --red: #b91c1c;
+      --border: #dfe9e3;
+      --border-strong: #c3d6cc;
+      --mono: 'JetBrains Mono', monospace;
+      --sans: 'Inter', system-ui, sans-serif;
+      --display: 'Fraunces', serif;
+    }
+
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: var(--sans);
+      background: var(--surface);
+      color: var(--ink);
+      line-height: 1.7;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    /* ─── HERO ─── */
+    .cs-hero {
+      position: relative;
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      overflow: hidden;
+      padding: 7rem 5% 5rem;
+      background:
+        radial-gradient(1100px 700px at 15% 20%, rgba(20,184,146,0.18), transparent 60%),
+        linear-gradient(160deg, #0b3d2e 0%, #0a2e22 55%, #071f18 100%);
+    }
+
+    .cs-hero__grid {
+      position: absolute;
+      inset: 0;
+      background-image:
+        linear-gradient(rgba(255,255,255,0.05) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(255,255,255,0.05) 1px, transparent 1px);
+      background-size: 56px 56px;
+      pointer-events: none;
+      mask-image: radial-gradient(circle at 50% 40%, black, transparent 75%);
+    }
+
+    .cs-hero__inner {
+      position: relative;
+      z-index: 1;
+      max-width: 920px;
+      text-align: center;
+    }
+
+    .cs-hero__eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      font-family: var(--mono);
+      font-size: 0.72rem;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: #86e6c8;
+      background: rgba(20,184,146,0.1);
+      border: 1px solid rgba(20,184,146,0.3);
+      border-radius: 999px;
+      padding: 0.4rem 1rem;
+      margin-bottom: 2rem;
+    }
+
+    .cs-hero__eyebrow::before {
+      content: '';
+      display: block;
+      width: 6px;
+      height: 6px;
+      border-radius: 50%;
+      background: #14b892;
+      animation: pulse 2s ease-in-out infinite;
+    }
+
+    @keyframes pulse {
+      0%, 100% { opacity: 1; transform: scale(1); }
+      50% { opacity: 0.5; transform: scale(0.8); }
+    }
+
+    .cs-hero__title {
+      font-family: var(--display);
+      font-optical-sizing: auto;
+      font-size: clamp(2.6rem, 6.6vw, 5.2rem);
+      font-weight: 600;
+      line-height: 1.08;
+      color: #f3faf6;
+      margin-bottom: 1.5rem;
+      letter-spacing: -0.01em;
+    }
+
+    .cs-hero__title span {
+      font-style: italic;
+      background: linear-gradient(135deg, #6ee7c9 0%, #14b892 50%, #0f766e 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+
+    .cs-hero__sub {
+      font-size: 1.15rem;
+      color: #b7d3c6;
+      max-width: 640px;
+      margin: 0 auto 3.5rem;
+      line-height: 1.8;
+    }
+
+    .cs-hero__metrics {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 1px;
+      background: rgba(255,255,255,0.08);
+      border: 1px solid rgba(255,255,255,0.1);
+      border-radius: 16px;
+      overflow: hidden;
+      max-width: 740px;
+      margin: 0 auto;
+    }
+
+    .metric {
+      padding: 1.75rem 1.5rem;
+      background: rgba(7,31,24,0.55);
+      text-align: center;
+    }
+
+    .metric__num {
+      display: block;
+      font-family: var(--display);
+      font-size: 2.1rem;
+      font-weight: 600;
+      color: #f3faf6;
+      letter-spacing: -0.02em;
+      line-height: 1;
+      margin-bottom: 0.4rem;
+    }
+
+    .metric__num--accent { color: #6ee7c9; }
+    .metric__num--gold { color: #f2c078; }
+
+    .metric__label {
+      font-size: 0.73rem;
+      color: #7fa294;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      font-weight: 500;
+    }
+
+    /* ─── LAYOUT ─── */
+    .cs-body {
+      max-width: 900px;
+      margin: 0 auto;
+      padding: 6rem 5%;
+    }
+
+    .cs-section { margin-bottom: 6rem; }
+
+    .cs-section__label {
+      font-family: var(--mono);
+      font-size: 0.7rem;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: var(--accent);
+      margin-bottom: 0.75rem;
+    }
+
+    .cs-section__title {
+      font-family: var(--display);
+      font-size: clamp(1.7rem, 3.8vw, 2.5rem);
+      font-weight: 600;
+      letter-spacing: -0.01em;
+      color: var(--ink);
+      margin-bottom: 1.5rem;
+      line-height: 1.25;
+    }
+
+    .cs-section__title--sm {
+      font-size: 1.25rem;
+      font-weight: 600;
+      margin-top: 3rem;
+      margin-bottom: 1rem;
+      color: var(--ink);
+      font-family: var(--display);
+    }
+
+    .cs-text {
+      font-size: 1.05rem;
+      color: var(--ink-soft);
+      line-height: 1.85;
+      margin-bottom: 1.25rem;
+    }
+
+    /* ─── OPENING STORY ─── */
+    .cs-story {
+      font-family: var(--display);
+      font-size: 1.2rem;
+      font-weight: 500;
+      color: var(--ink-soft);
+      line-height: 1.9;
+      border-left: 3px solid var(--accent);
+      padding-left: 2rem;
+      margin: 2rem 0;
+    }
+
+    /* ─── CALLOUT / QUOTE ─── */
+    .cs-callout {
+      background: var(--accent-glow);
+      border: 1px solid rgba(15,118,110,0.22);
+      border-radius: 12px;
+      padding: 2rem 2.5rem;
+      margin: 2.5rem 0;
+    }
+
+    .cs-callout__text {
+      font-family: var(--display);
+      font-size: 1.3rem;
+      font-style: italic;
+      font-weight: 500;
+      color: var(--ink);
+      line-height: 1.6;
+    }
+
+    .cs-callout__attr {
+      font-size: 0.85rem;
+      color: var(--ink-muted);
+      margin-top: 0.75rem;
+      font-family: var(--sans);
+      font-style: normal;
+    }
+
+    /* ─── COMPARISON TABLE ─── */
+    .cs-compare {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1.5rem;
+      margin: 2rem 0;
+    }
+
+    .cs-compare__card {
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 1.75rem;
+      background: var(--surface-raised);
+    }
+
+    .cs-compare__card--bad { border-color: rgba(185,28,28,0.18); }
+    .cs-compare__card--good { border-color: rgba(15,118,110,0.28); }
+
+    .cs-compare__head {
+      font-family: var(--mono);
+      font-size: 0.7rem;
+      text-transform: uppercase;
+      letter-spacing: 0.12em;
+      margin-bottom: 1rem;
+      font-weight: 600;
+    }
+
+    .cs-compare__head--bad { color: var(--red); }
+    .cs-compare__head--good { color: var(--accent); }
+
+    .cs-compare__list { list-style: none; }
+
+    .cs-compare__list li {
+      font-size: 0.95rem;
+      color: var(--ink-soft);
+      padding: 0.4rem 0;
+      padding-left: 1.4rem;
+      position: relative;
+      line-height: 1.5;
+    }
+
+    .cs-compare__list--bad li::before { content: '✗'; position: absolute; left: 0; color: var(--red); }
+    .cs-compare__list--good li::before { content: '✓'; position: absolute; left: 0; color: var(--accent); }
+
+    /* ─── TIMELINE ─── */
+    .cs-timeline { position: relative; margin: 2.5rem 0; }
+
+    .cs-timeline::before {
+      content: '';
+      position: absolute;
+      left: 20px;
+      top: 0;
+      bottom: 0;
+      width: 2px;
+      background: var(--border);
+    }
+
+    .cs-timeline__item { position: relative; padding-left: 3.5rem; margin-bottom: 2.5rem; }
+
+    .cs-timeline__dot {
+      position: absolute;
+      left: 12px;
+      top: 4px;
+      width: 18px;
+      height: 18px;
+      border-radius: 50%;
+      background: var(--accent);
+      border: 3px solid var(--surface);
+      box-shadow: 0 0 0 2px var(--accent);
+    }
+
+    .cs-timeline__month {
+      font-family: var(--mono);
+      font-size: 0.72rem;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      color: var(--accent);
+      font-weight: 600;
+      margin-bottom: 0.35rem;
+    }
+
+    .cs-timeline__title {
+      font-family: var(--display);
+      font-size: 1.08rem;
+      font-weight: 600;
+      color: var(--ink);
+      margin-bottom: 0.5rem;
+    }
+
+    .cs-timeline__body { font-size: 0.95rem; color: var(--ink-soft); line-height: 1.7; }
+
+    /* ─── TECH GRID ─── */
+    .cs-tech-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+      gap: 1rem;
+      margin: 2rem 0;
+    }
+
+    .cs-tech-card {
+      background: var(--surface-raised);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 1.5rem;
+      transition: border-color 0.2s, transform 0.2s;
+    }
+
+    .cs-tech-card:hover { border-color: var(--accent); transform: translateY(-2px); }
+
+    .cs-tech-card__icon { font-size: 1.5rem; margin-bottom: 0.75rem; }
+    .cs-tech-card__title { font-weight: 600; font-size: 0.95rem; color: var(--ink); margin-bottom: 0.4rem; }
+    .cs-tech-card__body { font-size: 0.875rem; color: var(--ink-muted); line-height: 1.6; }
+
+    /* ─── TAGS ─── */
+    .cs-tags { display: flex; flex-wrap: wrap; gap: 0.5rem; margin: 1.5rem 0; }
+
+    .cs-tag {
+      font-family: var(--mono);
+      font-size: 0.75rem;
+      padding: 0.3rem 0.75rem;
+      border-radius: 999px;
+      background: var(--surface-card);
+      border: 1px solid var(--border);
+      color: var(--ink-soft);
+    }
+
+    /* ─── FEATURE ROWS ─── */
+    .cs-features {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+      gap: 1rem;
+      margin: 2rem 0;
+    }
+
+    .cs-feature {
+      background: var(--surface-raised);
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      padding: 1.25rem 1.5rem;
+      transition: border-color 0.2s;
+    }
+
+    .cs-feature:hover { border-color: var(--accent); }
+    .cs-feature__title { font-weight: 600; font-size: 0.9rem; color: var(--ink); margin-bottom: 0.35rem; }
+    .cs-feature__body { font-size: 0.85rem; color: var(--ink-muted); line-height: 1.6; }
+
+    /* ─── NUMBER HIGHLIGHT ─── */
+    .cs-stat-row {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1.5rem;
+      margin: 2rem 0;
+    }
+
+    .cs-stat-box {
+      text-align: center;
+      padding: 2rem 1rem;
+      background: var(--surface-raised);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+    }
+
+    .cs-stat-box__num {
+      font-family: var(--display);
+      font-size: 2.4rem;
+      font-weight: 600;
+      color: var(--accent);
+      line-height: 1;
+      display: block;
+      margin-bottom: 0.5rem;
+    }
+
+    .cs-stat-box__label { font-size: 0.85rem; color: var(--ink-muted); }
+
+    /* ─── DIVIDER ─── */
+    .cs-divider { border: none; border-top: 1px solid var(--border); margin: 4rem 0; }
+
+    /* ─── CTA ─── */
+    .cs-cta {
+      background: linear-gradient(150deg, #0b3d2e 0%, #071f18 100%);
+      border-radius: 20px;
+      padding: 4rem;
+      text-align: center;
+      margin-top: 6rem;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .cs-cta::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background-image:
+        linear-gradient(rgba(20,184,146,0.08) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(20,184,146,0.08) 1px, transparent 1px);
+      background-size: 40px 40px;
+    }
+
+    .cs-cta__inner { position: relative; z-index: 1; }
+
+    .cs-cta__title {
+      font-family: var(--display);
+      font-size: 2.1rem;
+      font-weight: 600;
+      color: #f3faf6;
+      margin-bottom: 1rem;
+    }
+
+    .cs-cta__sub {
+      font-size: 1.1rem;
+      color: #9fc2b3;
+      margin-bottom: 2.5rem;
+      max-width: 520px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    .cs-cta__btns { display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap; }
+
+    .cs-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      padding: 0.9rem 2rem;
+      border-radius: 999px;
+      font-weight: 600;
+      font-size: 0.95rem;
+      text-decoration: none;
+      transition: all 0.2s;
+      cursor: pointer;
+    }
+
+    .cs-btn--primary { background: #14b892; color: #06231a; }
+    .cs-btn--primary:hover { background: #22d3ac; transform: translateY(-2px); }
+
+    .cs-btn--outline {
+      background: transparent;
+      color: #f3faf6;
+      border: 1px solid rgba(255,255,255,0.2);
+    }
+
+    .cs-btn--outline:hover { background: rgba(255,255,255,0.08); transform: translateY(-2px); }
+
+    /* ─── WARNING BANNER ─── */
+    .cs-banner {
+      background: rgba(180,83,9,0.08);
+      border: 1px solid rgba(180,83,9,0.22);
+      border-radius: 10px;
+      padding: 1.25rem 1.5rem;
+      margin: 2rem 0;
+      display: flex;
+      gap: 1rem;
+      align-items: flex-start;
+    }
+
+    .cs-banner__icon { color: var(--gold); font-size: 1.1rem; margin-top: 2px; flex-shrink: 0; }
+    .cs-banner__text { font-size: 0.95rem; color: var(--ink-soft); line-height: 1.7; }
+
+    /* ─── ARCHITECTURE ─── */
+    .cs-arch {
+      background: #0b2e22;
+      border: 1px solid #123d2d;
+      border-radius: 12px;
+      padding: 2rem;
+      margin: 2rem 0;
+      overflow-x: auto;
+    }
+
+    .cs-arch pre {
+      font-family: var(--mono);
+      font-size: 0.78rem;
+      color: #b7d3c6;
+      line-height: 1.9;
+    }
+
+    /* ─── PROBLEM/SOLUTION PAIRS ─── */
+    .cs-ps { margin: 2.5rem 0; }
+
+    .cs-ps__item {
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      overflow: hidden;
+      margin-bottom: 1.25rem;
+    }
+
+    .cs-ps__problem {
+      background: rgba(185,28,28,0.035);
+      border-bottom: 1px solid var(--border);
+      padding: 1.25rem 1.5rem;
+    }
+
+    .cs-ps__solution { background: rgba(15,118,110,0.045); padding: 1.25rem 1.5rem; }
+
+    .cs-ps__head {
+      font-family: var(--mono);
+      font-size: 0.65rem;
+      text-transform: uppercase;
+      letter-spacing: 0.12em;
+      font-weight: 600;
+      margin-bottom: 0.4rem;
+    }
+
+    .cs-ps__head--p { color: var(--red); }
+    .cs-ps__head--s { color: var(--accent); }
+    .cs-ps__body { font-size: 0.95rem; color: var(--ink-soft); line-height: 1.7; }
+
+    /* ─── ROLE MATRIX ─── */
+    .cs-matrix {
+      overflow-x: auto;
+      margin: 2rem 0;
+      border: 1px solid var(--border);
+      border-radius: 12px;
+    }
+
+    .cs-matrix table { width: 100%; border-collapse: collapse; font-size: 0.85rem; }
+
+    .cs-matrix th, .cs-matrix td {
+      padding: 0.75rem 1rem;
+      text-align: left;
+      border-bottom: 1px solid var(--border);
+    }
+
+    .cs-matrix th {
+      font-family: var(--mono);
+      font-size: 0.68rem;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      color: var(--ink-muted);
+      background: var(--surface-raised);
+    }
+
+    .cs-matrix td:first-child, .cs-matrix th:first-child { color: var(--ink); font-weight: 500; }
+    .cs-matrix tr:last-child td { border-bottom: none; }
+    .cs-matrix .yes { color: var(--accent); font-weight: 700; }
+    .cs-matrix .no { color: var(--border-strong); }
+
+    /* ─── SCREENSHOT GALLERY ─── */
+    .cs-shot-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+      gap: 1.75rem;
+      margin: 2rem 0;
+    }
+
+    .cs-shot {
+      border: 1px solid var(--border);
+      border-radius: 14px;
+      overflow: hidden;
+      background: var(--surface-raised);
+      box-shadow: 0 1px 3px rgba(11,46,34,0.06);
+    }
+
+    .cs-shot__chrome {
+      display: flex;
+      align-items: center;
+      gap: 0.4rem;
+      padding: 0.6rem 0.9rem;
+      background: #eef4f0;
+      border-bottom: 1px solid var(--border);
+    }
+
+    .cs-shot__dot { width: 8px; height: 8px; border-radius: 50%; background: var(--border-strong); }
+    .cs-shot__bar {
+      flex: 1;
+      margin-left: 0.5rem;
+      height: 18px;
+      border-radius: 5px;
+      background: #ffffff;
+      border: 1px solid var(--border);
+    }
+
+    .cs-shot__frame {
+      aspect-ratio: 16/10;
+      background: linear-gradient(135deg, var(--surface-card), #e2efe8);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--ink-muted);
+      font-family: var(--mono);
+      font-size: 0.75rem;
+      text-align: center;
+      padding: 1.5rem;
+      position: relative;
+    }
+
+    .cs-shot__frame img { width: 100%; height: 100%; object-fit: cover; object-position: top; }
+
+    .cs-shot__caption { padding: 1rem 1.25rem; }
+    .cs-shot__role {
+      font-family: var(--mono);
+      font-size: 0.65rem;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      color: var(--accent);
+      margin-bottom: 0.3rem;
+    }
+    .cs-shot__title { font-weight: 600; font-size: 0.92rem; color: var(--ink); margin-bottom: 0.3rem; }
+    .cs-shot__desc { font-size: 0.82rem; color: var(--ink-muted); line-height: 1.55; }
+
+    /* ─── RESPONSIVE ─── */
+    @media (max-width: 768px) {
+      .cs-hero__metrics { grid-template-columns: 1fr 1fr; }
+      .cs-compare { grid-template-columns: 1fr; }
+      .cs-stat-row { grid-template-columns: 1fr; }
+      .cs-cta { padding: 3rem 1.5rem; }
+      .cs-cta__title { font-size: 1.6rem; }
+      .cs-story { padding-left: 1.25rem; }
+    }
+
+    @media (max-width: 480px) {
+      .cs-hero__metrics { grid-template-columns: 1fr; }
+      .cs-hero { padding: 5rem 4% 4rem; }
+    }
+  </style>
+</head>
+
+<body>
+  <!-- Floating Icons Background -->
+  <div class="floating-icons" id="floating-icons" aria-hidden="true"></div>
+
+  <!-- Navigation Bar -->
+  <nav class="navbar" role="navigation" aria-label="Main navigation">
+    <a href="index.html" aria-label="Home page">
+      <img class="logo" src="https://i.ibb.co/rfstVnt3/jawad-sectionlogo.png"
+        alt="Jawad Ahmad - Full Stack Developer Logo" width="120" height="40" loading="eager" />
+    </a>
+
+    <ul class="nav-menu" id="menu">
+      <li><a href="index.html">Home</a></li>
+      <li><a href="index.html#About">About</a></li>
+      <li><a href="index.html#Services">Services</a></li>
+      <li><a href="index.html#Projects">Case Studies</a></li>
+      <li><a href="blogs.html">Blogs</a></li>
+      <li><a href="philosophy.html">Philosophy</a></li>
+      <li><a href="index.html#Testimonials">Results</a></li>
+      <li><a href="index.html#Skills">Expertise</a></li>
+      <li><a href="index.html#Contact">Consultation</a></li>
+    </ul>
+
+    <div class="nav-actions">
+      <button id="theme-toggle-btn" class="theme-toggle" aria-label="Toggle dark/light mode">
+        <i id="theme-icon" class="fas fa-moon" aria-hidden="true"></i>
+      </button>
+
+      <div class="nav-btn">
+        <button class="cv-button" aria-label="Download CV">
+          <a href="Jawad Ahmad CV.pdf" download="Jawad Ahmad CV.pdf">
+            <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none"
+              stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4" />
+              <polyline points="7 10 12 15 17 10" />
+              <line x1="12" y1="15" x2="12" y2="3" />
+            </svg>
+          </a>
+        </button>
+      </div>
+
+      <div class="mobile-menu-btn">
+        <button id="menu-button" class="menu-toggle" aria-label="Toggle mobile menu" aria-expanded="false">
+          <span class="menu-toggle__hamburger" aria-hidden="true"></span>
+        </button>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Mobile Navigation Menu -->
+  <div class="mobile-menu-overlay" id="mobile-overlay"></div>
+  <div class="mobile-nav-menu-container" id="mobile-menu-container">
+    <div class="mobile-nav-menu" id="mobile-menu" role="navigation" aria-label="Mobile menu">
+      <div class="mobile-nav-header">
+        <button class="mobile-nav-close" id="mobile-close" aria-label="Close menu">
+          <i class="fas fa-times" aria-hidden="true"></i>
+        </button>
+      </div>
+      <div class="mobile-nav-content">
+        <a href="index.html" class="mobile-nav-item"><i class="fas fa-home" aria-hidden="true"></i><span>Home</span></a>
+        <a href="index.html#About" class="mobile-nav-item"><i class="fas fa-user" aria-hidden="true"></i><span>About</span></a>
+        <a href="index.html#Services" class="mobile-nav-item"><i class="fas fa-briefcase" aria-hidden="true"></i><span>Services</span></a>
+        <a href="index.html#Projects" class="mobile-nav-item"><i class="fas fa-project-diagram" aria-hidden="true"></i><span>Case Studies</span></a>
+        <a href="blogs.html" class="mobile-nav-item"><i class="fas fa-blog" aria-hidden="true"></i><span>Blogs</span></a>
+        <a href="philosophy.html" class="mobile-nav-item"><i class="fas fa-lightbulb" aria-hidden="true"></i><span>Philosophy</span></a>
+        <a href="index.html#Testimonials" class="mobile-nav-item"><i class="fas fa-comments" aria-hidden="true"></i><span>Results</span></a>
+        <a href="index.html#Skills" class="mobile-nav-item"><i class="fas fa-star" aria-hidden="true"></i><span>Expertise</span></a>
+        <a href="index.html#Contact" class="mobile-nav-item"><i class="fas fa-envelope" aria-hidden="true"></i><span>Consultation</span></a>
+
+        <div class="mobile-nav-download">
+          <a href="Jawad Ahmad CV.pdf" download="Jawad Ahmad CV.pdf" class="mobile-download-btn">
+            <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none"
+              stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4" />
+              <polyline points="7 10 12 15 17 10" />
+              <line x1="12" y1="15" x2="12" y2="3" />
+            </svg>
+            Download CV
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- HERO -->
+  <section class="cs-hero">
+    <div class="cs-hero__grid"></div>
+    <div class="cs-hero__inner">
+      <div class="cs-hero__eyebrow">Final Year Project · Legal-Tech · Multi-Tenant SaaS</div>
+      <h1 class="cs-hero__title">
+        Bridging the Gap Between<br>
+        Citizens and <span>Justice.</span>
+      </h1>
+      <p class="cs-hero__sub">
+        QanoonBridge is a multi-tenant legal-aid platform that matches Pakistani citizens with verified lawyers by area — built from a blank repo to a fully role-based, geofenced dashboard system as my final year graduation project.
+      </p>
+      <div class="cs-hero__metrics">
+        <div class="metric">
+          <span class="metric__num metric__num--accent">4</span>
+          <span class="metric__label">Role-Based Dashboards</span>
+        </div>
+        <div class="metric">
+          <span class="metric__num metric__num--gold">3</span>
+          <span class="metric__label">Tier Geographic Matching</span>
+        </div>
+        <div class="metric">
+          <span class="metric__num">100%</span>
+          <span class="metric__label">Tenant-Isolated Data</span>
+        </div>
+        <div class="metric">
+          <span class="metric__num">1</span>
+          <span class="metric__label">Developer, End-to-End</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- BODY -->
+  <main class="cs-body">
+
+    <!-- ORIGIN -->
+    <section class="cs-section">
+      <div class="cs-section__label">Chapter 01 — Origin</div>
+      <h2 class="cs-section__title">A justice problem, not just a software problem.</h2>
+
+      <p class="cs-story">
+        Access to legal help in Pakistan is unevenly distributed. Citizens in smaller cities and districts often don't know a single lawyer who handles their kind of case, and legal aid organizations have no structured way to route the right case to the right professional — nearby, verified, and available.
+      </p>
+
+      <p class="cs-text">
+        I wanted my final year project to be more than a CRUD app with a login page. I wanted to build something with real architectural weight: a system that could actually be handed to a law firm or an NGO and operate as a product, not a demo. That decision shaped everything that followed — multi-tenancy instead of a single hardcoded organization, granular role-based access instead of an "admin flag," and a real geographic matching engine instead of a static lawyer directory.
+      </p>
+
+      <div class="cs-callout">
+        <div class="cs-callout__text">"The goal wasn't to simulate a legal platform. It was to design the actual data model, access rules, and matching logic a real legal-aid organization in Pakistan would need on day one."</div>
+        <div class="cs-callout__attr">— Framing decision made before writing a single line of code</div>
+      </div>
+
+      <p class="cs-text">
+        That meant starting with architecture decisions most student projects skip entirely: how does one platform serve many independent organizations without leaking data between them? How do four very different user types — citizens, lawyers, admins, and a super admin — share one codebase without stepping on each other's permissions? And how does "nearby" get defined precisely enough to be useful in a country where "nearby" can mean a different city, district, or province depending on where you stand?
+      </p>
+    </section>
+
+    <hr class="cs-divider">
+
+    <!-- PROBLEM SPACE -->
+    <section class="cs-section">
+      <div class="cs-section__label">Chapter 02 — The Problem</div>
+      <h2 class="cs-section__title">Legal aid matching is a routing problem in disguise.</h2>
+
+      <p class="cs-text">
+        On the surface it looks simple: a citizen has a legal issue, a lawyer can help, connect them. In practice, every one of those steps has failure modes that a real platform has to design around.
+      </p>
+
+      <div class="cs-compare">
+        <div class="cs-compare__card cs-compare__card--bad">
+          <div class="cs-compare__head cs-compare__head--bad">Status Quo</div>
+          <ul class="cs-compare__list cs-compare__list--bad">
+            <li>Citizens search social media or ask around for "a lawyer"</li>
+            <li>No way to verify a lawyer's credentials before contact</li>
+            <li>No structured intake — details get lost between phone calls</li>
+            <li>Cases assigned by whoever happens to be free, not by area or specialty</li>
+            <li>NGOs handling similar cases across districts never see the pattern</li>
+            <li>No audit trail of who touched a case or when</li>
+            <li>Every organization builds its own spreadsheet from scratch</li>
+          </ul>
+        </div>
+        <div class="cs-compare__card cs-compare__card--good">
+          <div class="cs-compare__head cs-compare__head--good">QanoonBridge</div>
+          <ul class="cs-compare__list cs-compare__list--good">
+            <li>Structured case submission with category, priority, and location</li>
+            <li>Lawyers verified by admins before appearing to citizens</li>
+            <li>Geofenced matching: same city first, then district, then province</li>
+            <li>Admin-driven assignment with proximity + specialization ranking</li>
+            <li>Case aggregation groups similar cases across a region for batch handling</li>
+            <li>Full audit log on every sensitive action, per tenant</li>
+            <li>One platform, isolated per organization, ready to onboard instantly</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <hr class="cs-divider">
+
+    <!-- BUILD TIMELINE -->
+    <section class="cs-section">
+      <div class="cs-section__label">Chapter 03 — The Build</div>
+      <h2 class="cs-section__title">From schema design to a working four-role platform.</h2>
+
+      <p class="cs-text">
+        I treated this like a production system from the first migration, not a prototype I'd clean up later. That meant designing the database and permission model before touching a single dashboard screen.
+      </p>
+
+      <div class="cs-timeline">
+
+        <div class="cs-timeline__item">
+          <div class="cs-timeline__dot"></div>
+          <div class="cs-timeline__month">Phase 1 — Foundation</div>
+          <div class="cs-timeline__title">Multi-Tenant Schema & Environment Setup</div>
+          <div class="cs-timeline__body">
+            Scaffolded the React (Vite) frontend and Node.js/Express backend as separate workspaces. Designed the PostgreSQL schema around a shared-database, tenant-column isolation strategy — every table carries a <code>tenant_id</code>, scoped automatically through middleware rather than trusted to individual queries. Seeded default roles, permissions, a demo tenant, and Pakistan's geographic zones (province → division → district → city).
+          </div>
+        </div>
+
+        <div class="cs-timeline__item">
+          <div class="cs-timeline__dot"></div>
+          <div class="cs-timeline__month">Phase 2 — Auth & RBAC</div>
+          <div class="cs-timeline__title">Permission System That Lives in the Database</div>
+          <div class="cs-timeline__body">
+            Built JWT-based auth with access and refresh tokens, a tenant-resolver middleware that injects tenant context on every request, and an RBAC guard that checks permissions dynamically through a <code>roles → role_permissions → permissions</code> mapping table — so granting a new capability to a role never requires a code deploy. Wired up protected routes on the frontend with role-aware redirects.
+          </div>
+        </div>
+
+        <div class="cs-timeline__item">
+          <div class="cs-timeline__dot"></div>
+          <div class="cs-timeline__month">Phase 3 — Citizen Module</div>
+          <div class="cs-timeline__title">Case Submission & Location Capture</div>
+          <div class="cs-timeline__body">
+            Built the citizen dashboard: a multi-step case submission form capturing category, description, priority, and location (city, district, province, optional coordinates). Added case tracking with a visual status timeline, document upload for evidence, and a nearby-lawyers view so citizens can see who's likely to pick up their case before an admin even assigns it.
+          </div>
+        </div>
+
+        <div class="cs-timeline__item">
+          <div class="cs-timeline__dot"></div>
+          <div class="cs-timeline__month">Phase 4 — Lawyer Module</div>
+          <div class="cs-timeline__title">Verification, Service Areas & Case Pickup</div>
+          <div class="cs-timeline__body">
+            Lawyers register with bar license, specialization, and experience, then sit in a "pending verification" state until an admin approves them. Built service-area registration — primary city/district/province plus optional additional cities and a max travel radius — and an available-cases view filtered by the lawyer's own coverage zone, ranked by proximity and specialization match.
+          </div>
+        </div>
+
+        <div class="cs-timeline__item">
+          <div class="cs-timeline__dot"></div>
+          <div class="cs-timeline__month">Phase 5 — Admin Module</div>
+          <div class="cs-timeline__title">Verification Queues, Aggregation & Coverage Maps</div>
+          <div class="cs-timeline__body">
+            Built the tenant-admin dashboard: lawyer verification queue, full case oversight table with bulk actions, case aggregation (grouping similar cases by region under a lead lawyer), a lawyer-distribution coverage view to spot gaps in geographic coverage, and a searchable audit-log viewer for every sensitive action taken in the tenant.
+          </div>
+        </div>
+
+        <div class="cs-timeline__item">
+          <div class="cs-timeline__dot"></div>
+          <div class="cs-timeline__month">Phase 6 — Super Admin Module</div>
+          <div class="cs-timeline__title">Platform-Wide Tenant Management</div>
+          <div class="cs-timeline__body">
+            The layer above every tenant: create and suspend organizations, manage plans, oversee users across tenants, and view platform-wide geographic analytics — which regions have citizen demand but no verified lawyer coverage yet.
+          </div>
+        </div>
+
+        <div class="cs-timeline__item">
+          <div class="cs-timeline__dot"></div>
+          <div class="cs-timeline__month">Phase 7 — Polish & Hardening</div>
+          <div class="cs-timeline__title">Security Pass & Case Lifecycle Testing</div>
+          <div class="cs-timeline__body">
+            Ran the platform through its own security checklist: bcrypt password hashing, httpOnly refresh tokens, rate-limited auth endpoints, Helmet security headers, and — most importantly — a dedicated pass verifying tenant isolation on every single query path, not just the obvious ones.
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <hr class="cs-divider">
+
+    <!-- DASHBOARD SCREENSHOTS -->
+    <section class="cs-section">
+      <div class="cs-section__label">Chapter 04 — The Dashboards</div>
+      <h2 class="cs-section__title">One platform, four very different experiences.</h2>
+
+      <p class="cs-text">
+        Every role sees a dashboard shaped around what they're actually trying to do — a citizen tracking a single case, a lawyer scanning nearby opportunities, an admin running a whole tenant, or a super admin watching the entire platform. <em>Screenshots below are placeholders — drop in your real dashboard captures here for each role.</em>
+      </p>
+
+      <div class="cs-shot-grid">
+        <div class="cs-shot">
+          <div class="cs-shot__chrome">
+            <span class="cs-shot__dot"></span><span class="cs-shot__dot"></span><span class="cs-shot__dot"></span>
+            <div class="cs-shot__bar"></div>
+          </div>
+          <div class="cs-shot__frame">
+            <img src="img/signin_qanoonbridge.png" alt="QanoonBridge sign-in screen — tenant-aware login portal" loading="lazy" />
+          </div>
+          <div class="cs-shot__caption">
+            <div class="cs-shot__role">Authentication</div>
+            <div class="cs-shot__title">Secure Legal Portal Sign-In</div>
+            <div class="cs-shot__desc">Tenant-aware login portal — the entry point for all four roles: citizen, lawyer, admin, and super admin.</div>
+          </div>
+        </div>
+
+        <div class="cs-shot">
+          <div class="cs-shot__chrome">
+            <span class="cs-shot__dot"></span><span class="cs-shot__dot"></span><span class="cs-shot__dot"></span>
+            <div class="cs-shot__bar"></div>
+          </div>
+          <div class="cs-shot__frame">
+            <img src="img/citizen.png" alt="QanoonBridge citizen dashboard — case tracker and nearby lawyers" loading="lazy" />
+          </div>
+          <div class="cs-shot__caption">
+            <div class="cs-shot__role">Citizen</div>
+            <div class="cs-shot__title">My Cases & Nearby Lawyers</div>
+            <div class="cs-shot__desc">Case status timeline, document uploads, and a ranked list of verified lawyers near the citizen's registered location.</div>
+          </div>
+        </div>
+
+        <div class="cs-shot">
+          <div class="cs-shot__chrome">
+            <span class="cs-shot__dot"></span><span class="cs-shot__dot"></span><span class="cs-shot__dot"></span>
+            <div class="cs-shot__bar"></div>
+          </div>
+          <div class="cs-shot__frame">
+            <img src="img/Available Cases & Service Areas.png" alt="QanoonBridge lawyer dashboard — available cases filtered by service area" loading="lazy" />
+          </div>
+          <div class="cs-shot__caption">
+            <div class="cs-shot__role">Lawyer</div>
+            <div class="cs-shot__title">Available Cases & Service Areas</div>
+            <div class="cs-shot__desc">Filterable case feed scoped to the lawyer's registered cities, with distance indicators and specialization match.</div>
+          </div>
+        </div>
+
+        <div class="cs-shot">
+          <div class="cs-shot__chrome">
+            <span class="cs-shot__dot"></span><span class="cs-shot__dot"></span><span class="cs-shot__dot"></span>
+            <div class="cs-shot__bar"></div>
+          </div>
+          <div class="cs-shot__frame">
+            <img src="img/Tenant Analytics & Lawyer Verification.png" alt="QanoonBridge admin dashboard — lawyer verification queue and tenant analytics" loading="lazy" />
+          </div>
+          <div class="cs-shot__caption">
+            <div class="cs-shot__role">Admin</div>
+            <div class="cs-shot__title">Tenant Analytics & Lawyer Verification</div>
+            <div class="cs-shot__desc">Pending verification queue, case oversight table, and a geographic coverage view for the whole organization.</div>
+          </div>
+        </div>
+
+        <div class="cs-shot">
+          <div class="cs-shot__chrome">
+            <span class="cs-shot__dot"></span><span class="cs-shot__dot"></span><span class="cs-shot__dot"></span>
+            <div class="cs-shot__bar"></div>
+          </div>
+          <div class="cs-shot__frame">
+            <img src="img/Case Aggregation by Category & Region.png" alt="QanoonBridge admin case aggregation view — grouped by category and region" loading="lazy" />
+          </div>
+          <div class="cs-shot__caption">
+            <div class="cs-shot__role">Admin</div>
+            <div class="cs-shot__title">Case Aggregation by Category & Region</div>
+            <div class="cs-shot__desc">Similar cases across a district grouped under a lead lawyer for coordinated, batch handling.</div>
+          </div>
+        </div>
+
+        <div class="cs-shot">
+          <div class="cs-shot__chrome">
+            <span class="cs-shot__dot"></span><span class="cs-shot__dot"></span><span class="cs-shot__dot"></span>
+            <div class="cs-shot__bar"></div>
+          </div>
+          <div class="cs-shot__frame">
+            <img src="img/Tenant Management & Platform Analytics.png" alt="QanoonBridge super admin dashboard — platform-wide tenant management and analytics" loading="lazy" />
+          </div>
+          <div class="cs-shot__caption">
+            <div class="cs-shot__role">Super Admin</div>
+            <div class="cs-shot__title">Tenant Management & Platform Analytics</div>
+            <div class="cs-shot__desc">Create, suspend, and monitor every organization on the platform, plus cross-tenant geographic demand analytics.</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <hr class="cs-divider">
+
+    <!-- ROLE MATRIX -->
+    <section class="cs-section">
+      <div class="cs-section__label">Chapter 05 — Access Control</div>
+      <h2 class="cs-section__title">Permissions designed at the data layer, not the UI layer.</h2>
+
+      <p class="cs-text">
+        The temptation in a student project is to hide an admin button behind an <code>if (user.isAdmin)</code> check and call it RBAC. QanoonBridge stores permissions as data — a <code>role_permissions</code> mapping table joined against granular <code>resource.action</code> permissions — so the same middleware enforces access identically whether the request comes from the web app, a future mobile client, or a direct API call.
+      </p>
+
+      <div class="cs-matrix">
+        <table>
+          <thead>
+            <tr><th>Permission</th><th>Citizen</th><th>Lawyer</th><th>Admin</th><th>Super Admin</th></tr>
+          </thead>
+          <tbody>
+            <tr><td>Submit a case</td><td class="yes">✓</td><td class="no">—</td><td class="no">—</td><td class="no">—</td></tr>
+            <tr><td>Browse available cases</td><td class="no">—</td><td class="yes">✓</td><td class="yes">✓</td><td class="yes">✓</td></tr>
+            <tr><td>Verify lawyers</td><td class="no">—</td><td class="no">—</td><td class="yes">✓</td><td class="yes">✓</td></tr>
+            <tr><td>Aggregate cases by region</td><td class="no">—</td><td class="no">—</td><td class="yes">✓</td><td class="yes">✓</td></tr>
+            <tr><td>Manage tenants</td><td class="no">—</td><td class="no">—</td><td class="no">—</td><td class="yes">✓</td></tr>
+            <tr><td>View platform-wide analytics</td><td class="no">—</td><td class="no">—</td><td class="no">—</td><td class="yes">✓</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <p class="cs-text">
+        Every table in the schema — cases, documents, comments, aggregations, audit logs — also carries its own <code>tenant_id</code>, so isolation isn't a single filter you can forget to add; it's structurally present at every join.
+      </p>
+    </section>
+
+    <hr class="cs-divider">
+
+    <!-- GEOFENCING DEEP DIVE -->
+    <section class="cs-section">
+      <div class="cs-section__label">Chapter 06 — Architecture Deep Dive</div>
+      <h2 class="cs-section__title">The matching engine: how "nearby" actually gets decided.</h2>
+
+      <p class="cs-text">
+        The most interesting engineering problem in this project wasn't CRUD — it was ranking. When a citizen submits a case, the system has to decide, in order, which lawyers are worth suggesting first, using imperfect and sometimes incomplete location data.
+      </p>
+
+      <div class="cs-arch">
+        <pre>
+Citizen submits case (city, district, province, category)
+        │
+        ├── Step 1: Query lawyer_profiles
+        │     WHERE service_city = case.city
+        │       AND specialization ~ case.category
+        │       AND verification_status = 'verified'
+        │     ORDER BY rating DESC, experience_years DESC
+        │
+        ├── Step 2: Insufficient results? → expand to service_district
+        ├── Step 3: Still insufficient? → expand to service_province
+        │
+        ├── Step 4: If lat/long available on both sides
+        │     → Haversine distance calculation within lawyer.max_radius_km
+        │
+        └── Merge + rank → distance tier → specialization match
+              → rating → availability → suggested to Admin
+        </pre>
+      </div>
+
+      <p class="cs-text">
+        The tricky part wasn't the Haversine formula — it was designing for the common case where coordinates <em>aren't</em> available. Most citizens filing a case from a small town supply a city name, not GPS coordinates. So the ranking had to degrade gracefully through a zone hierarchy — city → district → division → province — rather than assuming precise coordinates would always exist. I modeled that as a separate <code>geographic_zones</code> reference table seeded with Pakistan's actual province/division/district/city structure, so text-based location matching stays reliable even without coordinates.
+      </p>
+
+      <div class="cs-banner">
+        <span class="cs-banner__icon"><i class="fas fa-lightbulb"></i></span>
+        <div class="cs-banner__text">
+          <strong>Lesson:</strong> Geofencing in a real-world dataset isn't a distance formula — it's a fallback chain. The formula only fires once every cheaper, more common signal has been exhausted.
+        </div>
+      </div>
+    </section>
+
+    <hr class="cs-divider">
+
+    <!-- CASE LIFECYCLE -->
+    <section class="cs-section">
+      <div class="cs-section__label">Chapter 07 — Workflow Design</div>
+      <h2 class="cs-section__title">A case is never just "open" or "closed."</h2>
+
+      <p class="cs-text">
+        Early versions of the schema had a three-state case status: submitted, in progress, resolved. It fell apart the moment I mapped it against how legal aid organizations actually work — cases get rejected as duplicates, get grouped with similar cases before a lawyer ever sees them individually, and sometimes get filed as part of a batch rather than resolved one by one.
+      </p>
+
+      <div class="cs-features">
+        <div class="cs-feature">
+          <div class="cs-feature__title">Submitted → Under Review</div>
+          <div class="cs-feature__body">Every case lands in a review queue before it's visible to any lawyer — filtering spam and duplicates at the source.</div>
+        </div>
+        <div class="cs-feature">
+          <div class="cs-feature__title">Validated → Assigned</div>
+          <div class="cs-feature__body">Admins assign a lawyer using the geofenced suggestion list, not a random queue pick.</div>
+        </div>
+        <div class="cs-feature">
+          <div class="cs-feature__title">In Progress → Aggregated or Resolved</div>
+          <div class="cs-feature__body">A case can branch: grouped into a regional aggregation for batch filing, or resolved individually by the assigned lawyer.</div>
+        </div>
+        <div class="cs-feature">
+          <div class="cs-feature__title">Filed / Closed</div>
+          <div class="cs-feature__body">Aggregated cases get filed together in court; individually resolved cases get a final admin closure review.</div>
+        </div>
+      </div>
+
+      <p class="cs-text">
+        Modeling this as a proper state machine — with explicit transition rules for who can move a case from one status to the next — meant the frontend never has to guess what actions are valid. The backend simply refuses any transition that isn't in the allowed table.
+      </p>
+    </section>
+
+    <hr class="cs-divider">
+
+    <!-- TECH STACK -->
+    <section class="cs-section">
+      <div class="cs-section__label">Chapter 08 — Technology</div>
+      <h2 class="cs-section__title">The stack behind the platform.</h2>
+
+      <div class="cs-tech-grid">
+        <div class="cs-tech-card">
+          <div class="cs-tech-card__icon">⚛️</div>
+          <div class="cs-tech-card__title">React (Vite)</div>
+          <div class="cs-tech-card__body">Role-based route structure with protected routes, context-driven auth and tenant state, and a clean citizen/lawyer/admin/super-admin split.</div>
+        </div>
+        <div class="cs-tech-card">
+          <div class="cs-tech-card__icon">🟢</div>
+          <div class="cs-tech-card__title">Node.js + Express</div>
+          <div class="cs-tech-card__body">A layered middleware pipeline: auth → tenant resolver → RBAC guard → route handler, with every request scoped before it touches the database.</div>
+        </div>
+        <div class="cs-tech-card">
+          <div class="cs-tech-card__icon">🐘</div>
+          <div class="cs-tech-card__title">PostgreSQL + PostGIS-ready schema</div>
+          <div class="cs-tech-card__body">Tenant-column isolation, granular permission tables, and a geographic zones reference table built for Pakistan's actual administrative structure.</div>
+        </div>
+        <div class="cs-tech-card">
+          <div class="cs-tech-card__icon">🔐</div>
+          <div class="cs-tech-card__title">JWT + bcrypt</div>
+          <div class="cs-tech-card__body">Short-lived access tokens, httpOnly refresh tokens with rotation, and bcrypt-hashed passwords at 12 salt rounds.</div>
+        </div>
+        <div class="cs-tech-card">
+          <div class="cs-tech-card__icon">🗺️</div>
+          <div class="cs-tech-card__title">Custom Geofencing Engine</div>
+          <div class="cs-tech-card__body">City → district → province fallback ranking, with optional Haversine radius calculation when coordinates are present.</div>
+        </div>
+        <div class="cs-tech-card">
+          <div class="cs-tech-card__icon">📊</div>
+          <div class="cs-tech-card__title">Recharts + Audit Logging</div>
+          <div class="cs-tech-card__body">Tenant and platform-level analytics dashboards backed by a structured, queryable audit log on every sensitive action.</div>
+        </div>
+      </div>
+
+      <div class="cs-tags">
+        <span class="cs-tag">Knex.js</span>
+        <span class="cs-tag">Zod / Joi Validation</span>
+        <span class="cs-tag">Helmet.js</span>
+        <span class="cs-tag">express-rate-limit</span>
+        <span class="cs-tag">React Router v6</span>
+        <span class="cs-tag">React Hook Form</span>
+        <span class="cs-tag">Multer File Uploads</span>
+        <span class="cs-tag">Role-Permission Mapping</span>
+        <span class="cs-tag">Haversine Distance</span>
+        <span class="cs-tag">JWT Refresh Rotation</span>
+      </div>
+    </section>
+
+    <hr class="cs-divider">
+
+    <!-- HARD PROBLEMS -->
+    <section class="cs-section">
+      <div class="cs-section__label">Chapter 09 — Hard Problems</div>
+      <h2 class="cs-section__title">Where the design actually got tested.</h2>
+
+      <div class="cs-ps">
+
+        <div class="cs-ps__item">
+          <div class="cs-ps__problem">
+            <div class="cs-ps__head cs-ps__head--p">Problem</div>
+            <div class="cs-ps__body"><strong>Tenant leakage risk in joined queries.</strong> Early versions scoped <code>tenant_id</code> correctly on the primary table of a query but missed it on joined tables — a case-comments query, for instance, filtered cases by tenant but not the comments themselves, which is exactly the kind of gap that looks fine until a second tenant is added.</div>
+          </div>
+          <div class="cs-ps__solution">
+            <div class="cs-ps__head cs-ps__head--s">Solution</div>
+            <div class="cs-ps__body">Added <code>tenant_id</code> directly to every dependent table (documents, comments, service areas) rather than relying on a join back to <code>cases</code>, and wrote a dedicated test suite that creates two tenants and asserts zero cross-visibility on every endpoint.</div>
+          </div>
+        </div>
+
+        <div class="cs-ps__item">
+          <div class="cs-ps__problem">
+            <div class="cs-ps__head cs-ps__head--p">Problem</div>
+            <div class="cs-ps__body"><strong>Geographic fallback returning empty results.</strong> A citizen in a small town with no verified lawyers registered there got an empty suggestion list, even though qualified lawyers existed one district over.</div>
+          </div>
+          <div class="cs-ps__solution">
+            <div class="cs-ps__head cs-ps__head--s">Solution</div>
+            <div class="cs-ps__body">Implemented the step-down matching chain (city → district → province) as a hard requirement rather than an edge-case afterthought, with a minimum-results threshold that automatically triggers the next tier instead of surfacing an empty state.</div>
+          </div>
+        </div>
+
+        <div class="cs-ps__item">
+          <div class="cs-ps__problem">
+            <div class="cs-ps__head cs-ps__head--p">Problem</div>
+            <div class="cs-ps__body"><strong>Permission checks scattered across route handlers.</strong> Early on, individual routes each re-implemented their own "is this user allowed" logic, which meant a new permission had to be wired into multiple places by hand — and was easy to get inconsistent.</div>
+          </div>
+          <div class="cs-ps__solution">
+            <div class="cs-ps__head cs-ps__head--s">Solution</div>
+            <div class="cs-ps__body">Centralized everything into a single <code>rbacGuard(permission)</code> middleware that reads from the database-backed <code>role_permissions</code> table, so adding a new permission is a seed-data change, never a code change.</div>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <hr class="cs-divider">
+
+    <!-- SCOPE OWNED -->
+    <section class="cs-section">
+      <div class="cs-section__label">Chapter 10 — Scope</div>
+      <h2 class="cs-section__title">Full ownership, start to finish.</h2>
+
+      <div class="cs-features">
+        <div class="cs-feature">
+          <div class="cs-feature__title">🏗️ System Design</div>
+          <div class="cs-feature__body">Multi-tenant data model, RBAC schema, geofencing strategy, and case lifecycle state machine — designed before any UI work began.</div>
+        </div>
+        <div class="cs-feature">
+          <div class="cs-feature__title">🖥️ Frontend</div>
+          <div class="cs-feature__body">Four distinct role-based dashboards in React, with protected routing, shared component library, and responsive layouts.</div>
+        </div>
+        <div class="cs-feature">
+          <div class="cs-feature__title">🛠️ Backend</div>
+          <div class="cs-feature__body">Express API with layered middleware, JWT auth, tenant resolution, and a permission system stored entirely as data.</div>
+        </div>
+        <div class="cs-feature">
+          <div class="cs-feature__title">🗄️ Database</div>
+          <div class="cs-feature__body">Full PostgreSQL schema across 12+ tables including tenants, roles, permissions, cases, lawyer profiles, service areas, and audit logs.</div>
+        </div>
+        <div class="cs-feature">
+          <div class="cs-feature__title">📍 Geofencing Engine</div>
+          <div class="cs-feature__body">City/district/province fallback ranking with optional Haversine radius calculation for precise-coordinate matches.</div>
+        </div>
+        <div class="cs-feature">
+          <div class="cs-feature__title">🔒 Security</div>
+          <div class="cs-feature__body">Tenant isolation testing, rate-limited auth, hashed passwords, httpOnly refresh tokens, and a full audit trail.</div>
+        </div>
+      </div>
+    </section>
+
+    <hr class="cs-divider">
+
+    <!-- LESSONS -->
+    <section class="cs-section">
+      <div class="cs-section__label">Chapter 11 — Lessons</div>
+      <h2 class="cs-section__title">What building this taught me about real systems.</h2>
+
+      <h3 class="cs-section__title--sm">1. Isolation is a property of every query, not a feature.</h3>
+      <p class="cs-text">Multi-tenancy isn't a checkbox you add once — it's a discipline you apply to every single table and every single join, forever. The moment you treat it as "done," it's the moment a leak slips through.</p>
+
+      <h3 class="cs-section__title--sm">2. Permissions belong in data, not in code.</h3>
+      <p class="cs-text">Hard-coded role checks feel faster to write on day one and become a liability by week three. Storing permissions as rows means the system can grow new roles and capabilities without a redeploy.</p>
+
+      <h3 class="cs-section__title--sm">3. "Nearby" needs a fallback chain, not a formula.</h3>
+      <p class="cs-text">Precise geolocation is the exception, not the rule, in real-world data. Designing the degraded path — city, then district, then province — mattered more than the distance math itself.</p>
+
+      <h3 class="cs-section__title--sm">4. A workflow is a state machine, whether you draw it that way or not.</h3>
+      <p class="cs-text">Cases don't move linearly from open to closed. Modeling the actual branches — rejected, aggregated, filed — up front saved me from a rewrite later.</p>
+    </section>
+
+    <hr class="cs-divider">
+
+    <!-- BUSINESS / IMPACT -->
+    <section class="cs-section">
+      <div class="cs-section__label">Chapter 12 — Why It Matters</div>
+      <h2 class="cs-section__title">Beyond the grade — a platform an NGO could actually use.</h2>
+
+      <div class="cs-features">
+        <div class="cs-feature">
+          <div class="cs-feature__title">Faster Access to Legal Help</div>
+          <div class="cs-feature__body">Citizens see verified, relevant lawyers within their own area instead of searching blindly.</div>
+        </div>
+        <div class="cs-feature">
+          <div class="cs-feature__title">Structured Intake</div>
+          <div class="cs-feature__body">Every case arrives with category, priority, and location — no details lost between a phone call and a spreadsheet.</div>
+        </div>
+        <div class="cs-feature">
+          <div class="cs-feature__title">Scalable to Many Organizations</div>
+          <div class="cs-feature__body">The multi-tenant design means a new law firm or legal-aid NGO can be onboarded without touching the codebase.</div>
+        </div>
+        <div class="cs-feature">
+          <div class="cs-feature__title">Coverage Visibility</div>
+          <div class="cs-feature__body">Admins and the platform owner can see exactly where verified legal help is thin — a first step toward closing real access gaps.</div>
+        </div>
+      </div>
+    </section>
+
+    <hr class="cs-divider">
+
+    <!-- CLOSING -->
+    <section class="cs-section">
+      <div class="cs-section__label">Chapter 13 — Reflection</div>
+      <h2 class="cs-section__title">A graduation project built like a product.</h2>
+
+      <p class="cs-story">
+        QanoonBridge started as a final year requirement and became the project that taught me how to think in systems — tenants, roles, permissions, and geography as first-class design decisions rather than afterthoughts bolted onto a CRUD app.
+      </p>
+
+      <p class="cs-text">
+        I designed the schema before the UI, the permission model before the dashboards, and the matching engine's fallback chain before its formula. That ordering — architecture first, screens second — is the single biggest difference between a project that demos well and one that could actually be handed to an organization and run.
+      </p>
+
+      <div class="cs-stat-row">
+        <div class="cs-stat-box">
+          <span class="cs-stat-box__num">4</span>
+          <span class="cs-stat-box__label">Role-Based Dashboards</span>
+        </div>
+        <div class="cs-stat-box">
+          <span class="cs-stat-box__num">12+</span>
+          <span class="cs-stat-box__label">Core Database Tables</span>
+        </div>
+        <div class="cs-stat-box">
+          <span class="cs-stat-box__num">End-to-End</span>
+          <span class="cs-stat-box__label">Design, Build & Ownership</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- CTA -->
+    <div class="cs-cta">
+      <div class="cs-cta__inner">
+        <h2 class="cs-cta__title">Need a system designed with this level of rigor?</h2>
+        <p class="cs-cta__sub">I work best with founders and organizations who value real architecture over quick fixes. Let's talk.</p>
+        <div class="cs-cta__btns">
+          <a href="https://qanoon-bridge.vercel.app/" class="cs-btn cs-btn--primary" target="_blank" rel="noopener noreferrer">
+            <i class="fas fa-external-link-alt"></i> View Live Platform
+          </a>
+          <a href="https://wa.me/923011414134?text=Hi%20Jawad,%20I%20saw%20your%20QanoonBridge%20case%20study%20and%20want%20to%20discuss%20a%20project."
+            class="cs-btn cs-btn--outline" target="_blank">
+            <i class="fab fa-whatsapp"></i> Let's Talk
+          </a>
+          <a href="mailto:jawadahmad9938@gmail.com" class="cs-btn cs-btn--outline">
+            <i class="fas fa-envelope"></i> Send Email
+          </a>
+          <a href="index.html#Projects" class="cs-btn cs-btn--outline">
+            <i class="fas fa-arrow-left"></i> All Case Studies
+          </a>
+        </div>
+      </div>
+    </div>
+
+  </main>
+
+  <!-- FOOTER -->
+  <footer class="footer-section">
+    <div class="footer-container">
+      <!-- Newsletter Section -->
+      <div class="newsletter-section">
+        <div class="newsletter-content">
+          <h3>Get Business Growth Insights</h3>
+          <p>
+            Join my exclusive newsletter for strategic tips on digital transformation, customer acquisition, and revenue
+            growth for your business.
+          </p>
+
+          <form class="newsletter-form" action="https://formspree.io/f/xeolvgya" method="POST">
+            <div class="input-group">
+              <input type="email" name="newsletter_email" placeholder="Enter your business email" required
+                class="newsletter-input" />
+              <button type="submit" class="newsletter-btn">
+                <span>Subscribe for Insights</span>
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+                  <polyline points="23 6 13.5 15.5 8.5 10.5 1 17"></polyline>
+                  <polyline points="17 6 23 6 23 12"></polyline>
+                </svg>
+              </button>
+            </div>
+            <p class="newsletter-note">
+              No spam. Unsubscribe anytime. Exclusive business growth strategies.
+            </p>
+          </form>
+        </div>
+
+        <div class="newsletter-benefits">
+          <div class="benefit-item">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+              <polyline points="23 6 13.5 15.5 8.5 10.5 1 17"></polyline>
+              <polyline points="17 6 23 6 23 12"></polyline>
+            </svg>
+            <span>Revenue Growth Strategies</span>
+          </div>
+          <div class="benefit-item">
+            <i class="fas fa-mobile-alt" aria-hidden="true"></i>
+            <span>Customer Engagement Tips</span>
+          </div>
+          <div class="benefit-item">
+            <i class="fas fa-search" aria-hidden="true"></i>
+            <span>Market Visibility Strategies</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Main Footer Content -->
+      <div class="footer-main">
+        <!-- Brand Column -->
+        <div class="footer-column brand-column">
+          <div class="footer-logo">
+            <img src="https://i.ibb.co/rfstVnt3/jawad-sectionlogo.png"
+              alt="Jawad Ahmad - Business Web Solutions Expert Logo" class="logo-img" loading="lazy" />
+            <span class="logo-text">Jawad Ahmad</span>
+          </div>
+          <p class="brand-tagline">
+            Creating digital solutions that drive measurable business growth across Pakistan and international markets.
+          </p>
+
+          <div class="contact-info">
+            <div class="contact-item">
+              <i class="fas fa-envelope" aria-hidden="true"></i>
+              <a href="mailto:jawadahmad9938@gmail.com">jawadahmad9938@gmail.com</a>
+            </div>
+            <div class="contact-item">
+              <i class="fas fa-phone" aria-hidden="true"></i>
+              <a href="tel:+923011414134">+92 301 1414134</a>
+            </div>
+            <div class="contact-item">
+              <i class="fas fa-map-marker-alt" aria-hidden="true"></i>
+              <span>Multan, Pakistan</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Navigation Sitemap -->
+        <div class="footer-column">
+          <h4>Explore Site</h4>
+          <ul class="footer-links">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="index.html#About">About</a></li>
+            <li><a href="index.html#Services">Services</a></li>
+            <li><a href="index.html#Projects">Case Studies</a></li>
+            <li><a href="index.html#Testimonials">Results</a></li>
+            <li><a href="index.html#Skills">Expertise</a></li>
+            <li><a href="index.html#Contact">Consultation</a></li>
+          </ul>
+        </div>
+
+        <!-- Blogs & Philosophy -->
+        <div class="footer-column">
+          <h4>Knowledge Center</h4>
+          <ul class="footer-links">
+            <li><a href="blogs.html">Business Blogs</a></li>
+            <li><a href="philosophy.html">Philosophy Insights</a></li>
+            <li><a href="blogs.html#marketing">Marketing Psychology</a></li>
+            <li><a href="blogs.html#strategy">Business Strategy</a></li>
+            <li><a href="blogs.html#growth">Digital Growth Tips</a></li>
+          </ul>
+        </div>
+
+        <!-- Business CTA -->
+        <div class="footer-column">
+          <h4>Work With Me</h4>
+          <ul class="footer-links">
+            <li><a href="index.html#Contact">Book a Consultation</a></li>
+            <li><a href="Jawad Ahmad CV.pdf" download>Download Business Profile</a></li>
+            <li><a href="index.html#Projects">View Client Results</a></li>
+            <li><a href="index.html#Services">See Business Packages</a></li>
+            <li><a href="index.html#Contact">Get a Custom Quote</a></li>
+          </ul>
+
+          <div class="client-cta">
+            <p>Ready to grow your business?</p>
+            <a href="index.html#Contact" class="cta-button">
+              <i class="fas fa-rocket" aria-hidden="true"></i>
+              Start Business Project
+            </a>
+          </div>
+        </div>
+      </div>
+
+      <!-- Social & Legal Section -->
+      <div class="footer-bottom">
+        <div class="social-section">
+          <h3 class="social-title">Connect with Jawad Ahmad</h3>
+
+          <div class="social-links">
+            <a href="https://facebook.com/jawad.ahmed.961811" class="social-link" target="_blank">
+              <div class="social-icon facebook">
+                <i class="fab fa-facebook-f"></i>
+                <div class="verified-badge"><i class="fas fa-check-circle"></i></div>
+              </div>
+              <span>Facebook</span>
+            </a>
+
+            <a href="https://x.com/yourprofile" class="social-link" target="_blank">
+              <div class="social-icon twitter">
+                <i class="fab fa-x-twitter"></i>
+                <div class="verified-badge"><i class="fas fa-check-circle"></i></div>
+              </div>
+              <span>Twitter</span>
+            </a>
+
+            <a href="https://linkedin.com/in/jawad-ahmad-9938938484djf" class="social-link" target="_blank">
+              <div class="social-icon linkedin">
+                <i class="fab fa-linkedin-in"></i>
+                <div class="verified-badge"><i class="fas fa-check-circle"></i></div>
+              </div>
+              <span>LinkedIn</span>
+            </a>
+
+            <a href="https://github.com/Jawadahmad9938" class="social-link" target="_blank">
+              <div class="social-icon github">
+                <i class="fab fa-github"></i>
+                <div class="verified-badge"><i class="fas fa-check-circle"></i></div>
+              </div>
+              <span>GitHub</span>
+            </a>
+
+            <a href="https://wa.me/923011414134" class="social-link" target="_blank">
+              <div class="social-icon whatsapp">
+                <i class="fab fa-whatsapp"></i>
+                <div class="verified-badge"><i class="fas fa-check-circle"></i></div>
+              </div>
+              <span>WhatsApp</span>
+            </a>
+          </div>
+        </div>
+
+        <div class="legal">
+          <div class="legal-links">
+            <a href="/privacy.html">Privacy Policy</a> |
+            <a href="/terms.html">Terms</a> |
+            <a href="/disclaimer.html">Disclaimer</a> |
+            <a href="/sitemap.html">Sitemap</a>
+          </div>
+          <p class="copyright">
+            © 2025 Jawad Ahmad Business Solutions • Empowering Businesses through Strategic Digital Transformation.
+          </p>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <script src="script.js" defer></script>
+
+</body>
+</html>
