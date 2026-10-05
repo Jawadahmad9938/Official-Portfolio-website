@@ -7,22 +7,24 @@
   <meta name="theme-color" content="#60a5fa">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <meta name="format-detection" content="telephone=no" />
-  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-4788405112911161"
-    crossorigin="anonymous"></script>
+
+  <!-- Google Analytics 4 - Replace G-XXXXXXXXXX with your actual Measurement ID -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-XXXXXXXXXX"></script>
 
   <!-- Preconnect for critical CDNs -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link rel="preconnect" href="https://cdnjs.cloudflare.com">
-  <link rel="dns-prefetch" href="https://i.postimg.cc">
-  <link rel="dns-prefetch" href="https://pagead2.googlesyndication.com">
 
-  <!-- Preload Critical LCP Image -->
-  <link rel="preload" as="image" href="https://i.postimg.cc/50qzPtDT/jawad-hero-img.webp" fetchpriority="high" />
+  <!-- Google Fonts - with font-display swap for performance -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="preload" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&family=Poppins:wght@600;700&display=swap" as="style">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&family=Poppins:wght@600;700&display=swap" media="print" onload="this.media='all'">
 
   <!-- User Requested Favicon -->
-  <link rel="icon" href="https://i.postimg.cc/50qzPtDT/jawad-hero-img.webp" type="image/webp" />
-  <link rel="apple-touch-icon" href="https://i.postimg.cc/50qzPtDT/jawad-hero-img.webp" />
+  <link rel="icon" href="favicon.ico" type="image/x-icon" />
+  <link rel="apple-touch-icon" href="favicon.ico" />
 
   <!-- Critical CSS Inlined -->
   <style>
@@ -126,11 +128,6 @@
       }
     }
   </style>
-
-  <!-- Google Fonts - Deferred for Performance -->
-  <link rel="preload"
-    href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&family=Poppins:wght@600;700&display=swap"
-    as="style" />
 
   <!-- CSS Inlined for Zero-Network-Dependency Rendering -->
   <style>
@@ -4347,7 +4344,11 @@
   <!-- Async loading for icons -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" media="print"
     onload="this.media='all'" />
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/devicon.min.css" media="print"
+  <!-- Load devicon for tech stack icons, deferred to end of body -->
+  <style>
+    /* Inline minimal tech stack icons to avoid 777KB devicon font */
+    .tech-icon { width: 2.5rem; height: 2.5rem; display: inline-block; margin: 0 0.5rem; }
+  </style>
     onload="this.media='all'" />
 
 
@@ -4404,7 +4405,7 @@
         "@type": "Person",
         "@id": "https://jawadahmad.me/#person",
         "name": "Jawad Ahmad",
-        "jobTitle": "Product Engineer",
+        "jobTitle": "CRM & Commission Software Developer for Field Sales Teams",
         "description": "Product engineer specializing in production SaaS platforms, multi-tenant systems, mobile apps, and finance operations automation. Built a private sales platform for field sales reps and a connected commission and payroll automation system.",
         "url": "https://jawadahmad.me/",
         "email": "jawadahmad9938@gmail.com",
@@ -4417,21 +4418,20 @@
           "addressCountry": "PK"
         },
         "sameAs": [
+          "https://x.com/Jawad_9938",
           "https://www.linkedin.com/in/jawad-ahmad-9938938484djf",
-          "https://www.facebook.com/jawad.ahmed.961811",
           "https://github.com/Jawadahmad9938"
         ],
         "knowsAbout": ["React", "Next.js", "TypeScript", "React Native", "Expo", "iOS Development", "Supabase", "PostgreSQL", "Multi-tenant SaaS", "Enterprise Software", "Production Systems"],
-        "image": "https://i.postimg.cc/50qzPtDT/jawad-hero-img.webp"
+        "image": "https://jawadahmad.me/favicon.ico"
       },
       {
-        "@type": "LocalBusiness",
+        "@type": "ProfessionalService",
         "@id": "https://jawadahmad.me/#business",
-        "name": "Jawad Ahmad - Product Engineering",
-        "description": "Product engineering services specializing in production SaaS platforms, multi-tenant systems, iOS mobile apps, and enterprise software for USA, UK, UAE, and Pakistan clients.",
+        "name": "Jawad Ahmad - CRM & Commission Software Development",
+        "description": "Professional software development services specializing in custom CRM systems, commission tracking platforms, and multi-tenant SaaS applications for field sales teams.",
         "address": {
           "@type": "PostalAddress",
-          "streetAddress": "Multan",
           "addressLocality": "Multan",
           "addressRegion": "Punjab",
           "addressCountry": "PK"
@@ -4439,12 +4439,13 @@
         "telephone": "+923011414134",
         "email": "jawadahmad9938@gmail.com",
         "url": "https://jawadahmad.me/",
-        "areaServed": ["PK", "US", "AE", "GB", "CA"],
-        "knowsAbout": ["SaaS Development", "Business Automation", "Custom CRM", "Next.js", "Supabase", "React Native", "Expo", "iOS Apps", "TypeScript", "Node.js", "Java", "SQL", "PostgreSQL", "Revenue Growth"],
-        "image": "https://i.postimg.cc/50qzPtDT/jawad-hero-img.webp",
+        "areaServed": ["US", "CA", "GB", "AE"],
+        "serviceType": ["Custom CRM Development", "Commission Tracking Software", "SaaS Development", "Mobile App Development", "Business Process Automation"],
+        "knowsAbout": ["SaaS Development", "Business Automation", "Custom CRM", "Next.js", "Supabase", "React Native", "Expo", "iOS Apps", "TypeScript", "Node.js", "Java", "SQL", "PostgreSQL"],
+        "image": "https://jawadahmad.me/favicon.ico",
         "sameAs": [
+          "https://x.com/Jawad_9938",
           "https://www.linkedin.com/in/jawad-ahmad-9938938484djf",
-          "https://www.facebook.com/jawad.ahmed.961811",
           "https://github.com/Jawadahmad9938"
         ]
       },
@@ -4452,48 +4453,11 @@
         "@type": "WebSite",
         "@id": "https://jawadahmad.me/#website",
         "url": "https://jawadahmad.me/",
-        "name": "Jawad Ahmad - Product Engineer",
-        "description": "Product engineer shipping production SaaS platforms and mobile apps for high-ticket clients",
+        "name": "Jawad Ahmad - CRM & Commission Software Developer",
+        "description": "Custom CRM and commission tracking software development for field sales teams",
         "publisher": {
           "@id": "https://jawadahmad.me/#person"
-        },
-        "potentialAction": {
-          "@type": "SearchAction",
-          "target": {
-            "@type": "EntryPoint",
-            "urlTemplate": "https://jawadahmad.me/?s={search_term_string}"
-          },
-          "query-input": "required name=search_term_string"
         }
-      },
-      {
-        "@type": "BreadcrumbList",
-        "itemListElement": [
-          {
-            "@type": "ListItem",
-            "position": 1,
-            "name": "Home",
-            "item": "https://jawadahmad.me/"
-          },
-          {
-            "@type": "ListItem",
-            "position": 2,
-            "name": "About",
-            "item": "https://jawadahmad.me/#About"
-          },
-          {
-            "@type": "ListItem",
-            "position": 3,
-            "name": "Services",
-            "item": "https://jawadahmad.me/#Services"
-          },
-          {
-            "@type": "ListItem",
-            "position": 4,
-            "name": "Case Studies",
-            "item": "https://jawadahmad.me/#Projects"
-          }
-        ]
       }
     ]
   }
@@ -4592,11 +4556,11 @@
 
     <div class="hero-content">
       <div class="left-content">
-        <h1 class="name animate__animated animate__fadeInUp">Jawad Ahmad</h1>
-        <h2 class="title animate__animated animate__fadeInUp" style="color: #ffffff;">
+        <p class="name">Jawad Ahmad</p>
+        <h1 class="title" style="color: #ffffff; font-size: 1.5rem; font-weight: 700; margin-bottom: 1rem;">
           CRM &amp; Commission Software Developer for Field Sales Teams
-        </h2>
-        <p class="subheading animate__animated animate__fadeInUp">
+        </h1>
+        <p class="subheading">
           Engineering Growth by Replacing Manual Chaos with Scalable Systems.
         </p>
         <p class="description animate__animated animate__fadeInUp">
@@ -4640,7 +4604,7 @@
         </ul>
 
         <div class="button-group animate__animated animate__fadeInUp">
-          <a href="https://wa.me/923011414134?text=Hi%20Jawad,%20I'm%20looking%20to%20replace%20my%20manual%20work%20with%20a%20scalable%20system.%20Let's%20discuss%20my%20project."
+          <a href="https://wa.me/923011414134?text=Hi%20Jawad%2C%20I%20saw%20your%20portfolio%20and%20want%20to%20discuss%20a%20project."
             target="_blank" rel="noopener noreferrer" class="contact-btn"
             aria-label="Discuss business automation project with Jawad Ahmad">
             <svg class="btn-icon" width="20" height="20" viewBox="0 0 24 24" fill="none"
@@ -4651,7 +4615,7 @@
             </svg>
             Scale Your Business
           </a>
-          <a href="casestudy.html" class="projects-btn" aria-label="View detailed case studies">
+          <a href="salesplateformcasestudy.html" class="projects-btn" aria-label="View detailed case studies">
             <svg class="btn-icon" width="20" height="20" viewBox="0 0 24 24" fill="none"
               xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
               <path
@@ -4668,6 +4632,7 @@
       </div>
       <div class="right-image">
         <img src="https://i.postimg.cc/50qzPtDT/jawad-hero-img.webp" alt="Jawad Ahmad - Product Engineer" width="320"
+          height="320" fetchpriority="high" decoding="async"
           height="320" loading="eager" decoding="async" fetchpriority="high"
           style="width: 100%; max-width: 400px; height: auto;" />
       </div>
@@ -4725,17 +4690,17 @@
       <div class="social-buttons" style="margin-top: 2rem;">
         <a href="https://www.facebook.com/jawad.ahmed.961811" target="_blank" rel="noopener noreferrer"
           aria-label="Visit Jawad Ahmad's Facebook profile">
-          <img src="img/facebook-logo-1-2.png" alt="Facebook Logo" width="40" height="40" loading="lazy"
+          <img src="img/facebook-icon.svg" alt="Facebook Logo" width="40" height="40" loading="lazy"
             decoding="async" />
         </a>
-        <a href="https://x.com/yourprofile" target="_blank" rel="noopener noreferrer"
+        <a href="https://x.com/Jawad_9938" target="_blank" rel="noopener noreferrer"
           aria-label="Visit Jawad Ahmad's X (Twitter) profile">
-          <img src="img/free-twitter-logo-icon-2429-thumb.png" alt="X (Twitter) Logo" width="40" height="40"
+          <img src="img/x-icon.svg" alt="X (Twitter) Logo" width="40" height="40"
             loading="lazy" decoding="async" />
         </a>
         <a href="https://www.linkedin.com/in/jawad-ahmad-9938938484djf" target="_blank" rel="noopener noreferrer"
           aria-label="Visit Jawad Ahmad's LinkedIn profile">
-          <img src="img/linkedin-icon-logo-png-transparent.png" alt="LinkedIn Logo" width="40" height="40"
+          <img src="img/linkedin-icon.svg" alt="LinkedIn Logo" width="40" height="40"
             loading="lazy" decoding="async" />
         </a>
       </div>
@@ -5111,6 +5076,7 @@
 
         <img src="https://i.postimg.cc/XvjLsP7Z/Chat-GPT-Image-Feb-1-2026-05-49-36-PM.png" class="project-image"
           width="600" height="400" loading="lazy" decoding="async"
+          width="600" height="400" loading="lazy" decoding="async"
           alt="Private sales platform for field sales reps and commission management" />
 
         <h3 class="project-name">Part 1: Sales Platform for Field Reps</h3>
@@ -5167,6 +5133,7 @@
         </div>
 
         <img src="https://i.postimg.cc/SKw6q5VY/Gemini-Generated-Image-ot7yubot7yubot7y.png" class="project-image"
+          width="600" height="400" loading="lazy" decoding="async"
           width="600" height="400" loading="lazy" decoding="async"
           alt="Commission and Payroll Automation Platform dashboard" />
 
@@ -5229,6 +5196,7 @@
 
         <img src="https://i.postimg.cc/J0KQ7xXV/Screenshot-2025-11-29-140039.png" class="project-image" width="600"
           height="400" loading="lazy" decoding="async"
+          height="400" loading="lazy" decoding="async"
           alt="CloudMaster Pro - Enterprise Cloud Infrastructure Management Platform" />
 
         <h3 class="project-name">CloudMaster Pro - Production SaaS Platform</h3>
@@ -5272,6 +5240,7 @@
         </div>
 
         <img src="https://i.postimg.cc/Hs9X7KSf/9e43775a-d846-4a1f-b2ff-3532907af671.png" class="project-image"
+          width="600" height="400" loading="lazy" decoding="async"
           width="600" height="400" loading="lazy" decoding="async"
           alt="PFCloud - Enterprise Hosting Management Platform" />
 
@@ -5369,6 +5338,7 @@
       </div>
       <div class="project-card">
         <img src="https://i.postimg.cc/W1d4ryRY/lms-pic.png" class="project-image" width="600" height="400"
+          loading="lazy" decoding="async"
           loading="lazy" decoding="async" alt="LMS EduTool Platform" />
 
         <h3 class="project-name">LMS EduTool – Revenue-Generating Learning Platform</h3>
@@ -5402,6 +5372,7 @@
       <!-- Project 2 - GoatNova -->
       <div class="project-card">
         <img src="https://i.postimg.cc/yxcs8MwJ/goatnova.jpg" class="project-image" width="600" height="400"
+          loading="lazy" decoding="async"
           loading="lazy" decoding="async" alt="GoatNova Digital Agency" />
 
         <h3 class="project-name">GoatNova – Digital Agency Revenue Platform</h3>
@@ -5424,8 +5395,7 @@
           <i class="devicon-html5-plain colored"></i>
         </div>
 
-        <a href="https://goatnova.online/" target="_blank" rel="noopener noreferrer" class="project-link">See Live
-          Solution</a>
+        <p class="project-note" style="margin-top: 1rem; color: #999; font-style: italic;">Live site no longer available</p>
         <a href="https://github.com/Jawadahmad9938/goatnova-project" target="_blank" rel="noopener noreferrer"
           class="project-link">Business
           Case</a>
@@ -5436,6 +5406,7 @@
       <!-- Project 3 - Shopstockk -->
       <div class="project-card">
         <img src="https://i.postimg.cc/RVbjf9np/shopstock.webp" class="project-image" width="600" height="400"
+          loading="lazy" decoding="async"
           loading="lazy" decoding="async" alt="Shopstockk E-commerce" />
 
         <h3 class="project-name">Shopstockk – Complete E-commerce Solution</h3>
@@ -5471,6 +5442,7 @@
       <!-- Project 4 - 800batterie -->
       <div class="project-card">
         <img src="https://i.ibb.co/67bYdr1T/800batteries.jpg" class="project-image" width="600" height="400"
+          loading="lazy" decoding="async"
           loading="lazy" decoding="async" alt="800batterie Business Website" />
 
         <h3 class="project-name">800batterie – Professional Business Presence</h3>
@@ -5493,8 +5465,7 @@
           <i class="devicon-php-plain colored"></i>
         </div>
 
-        <a href="https://800batterie.com" target="_blank" rel="noopener noreferrer" class="project-link">See Live
-          Solution</a>
+        <p class="project-note" style="margin-top: 1rem; color: #999; font-style: italic;">Live site no longer available</p>
         <a href="https://github.com/Jawadahmad9938/automobile-site-for-client" target="_blank" rel="noopener noreferrer"
           class="project-link">Business Case</a>
       </div>
@@ -5575,7 +5546,7 @@
 
   <section class="skills-section" id="Skills">
     <p class="skills-subtitle">Business Expertise & Qualifications</p>
-    <h1 class="skills-title">My Business Capabilities</h1>
+    <h2 class="skills-title">My Business Capabilities</h2>
     <p class="skills-description">
       A comprehensive overview of my business-focused expertise and
       qualifications for delivering successful digital solutions.
@@ -6017,7 +5988,7 @@
     </a>
     <a href="https://wa.me/923011414134" target="_blank" rel="noopener noreferrer" class="quick-contact-icon"
       style="padding: 12px; min-width: 48px; min-height: 48px;" aria-label="Message Jawad Ahmad on WhatsApp">
-      <img src="img/whatsapp.png" alt="Message Jawad Ahmad" width="28" height="28" loading="lazy" />
+      <img src="img/whatsapp-icon.svg" alt="Message Jawad Ahmad" width="28" height="28" loading="lazy" />
     </a>
   </div>
 
@@ -6059,7 +6030,7 @@
               <i class="fas fa-clock" aria-hidden="true"></i>
               <div>
                 <h4>Business Hours</h4>
-                <p>Monday - Friday: 9AM - 6PM</p>
+                <p>Monday - Friday: 9AM - 6PM PKT (11PM - 8AM ET / 8PM - 5AM PT)</p>
               </div>
             </div>
           </div>
@@ -6225,7 +6196,7 @@
         <ul class="footer-links">
           <li><a href="index.html#Contact">Book a Strategy Call</a></li>
           <li><a href="Jawad Ahmad CV.pdf" download>Download Business Profile</a></li>
-          <li><a href="index.html#Testimonials">View Actual Results</a></li>
+          <li><a href="salesplateformcasestudy.html">View Case Studies</a></li>
           <li><a href="index.html#Services">Enterprise Packages</a></li>
           <li><a href="index.html#Contact">Request Custom Quote</a></li>
         </ul>
@@ -6293,7 +6264,6 @@
       <div class="legal">
         <div class="legal-links">
           <a href="privacy.html">Privacy Policy</a> |
-          <a href="terms.html">Terms</a> |
           <a href="disclaimer.html">Disclaimer</a> |
           <a href="sitemap.html">Sitemap</a>
         </div>
@@ -6305,9 +6275,8 @@
     </div>
   </div>
 </footer>
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" media="print"
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" media="print"
   onload="this.media='all'" />
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/devicon.min.css" media="print"
   onload="this.media='all'" />
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" media="print"
   onload="this.media='all'" />
@@ -6377,6 +6346,13 @@
     document.body.appendChild(script);
   })();
 </script>
+
+<!-- Analytics Script -->
+<script src="analytics.js"></script>
+
+<!-- Load devicon CSS at end for performance (777KB font, not critical for LCP) -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/devicon.min.css" media="print" onload="this.media='all'" />
+
 </body>
 
 </html>
