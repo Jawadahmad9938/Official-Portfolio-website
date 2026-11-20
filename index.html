@@ -4408,13 +4408,6 @@
         "url": "https://jawadahmad.me/",
         "email": "jawadahmad9938@gmail.com",
         "telephone": "+923011414134",
-        "address": {
-          "@type": "PostalAddress",
-          "streetAddress": "Multan",
-          "addressLocality": "Multan",
-          "addressRegion": "Punjab", 
-          "addressCountry": "PK"
-        },
         "sameAs": [
           "https://x.com/Jawad_9938",
           "https://www.linkedin.com/in/jawad-ahmad-9938938484djf",
@@ -4428,12 +4421,6 @@
         "@id": "https://jawadahmad.me/#business",
         "name": "Jawad Ahmad - CRM & Commission Software Development",
         "description": "Professional software development services specializing in custom CRM systems, commission tracking platforms, and multi-tenant SaaS applications for field sales teams.",
-        "address": {
-          "@type": "PostalAddress",
-          "addressLocality": "Multan",
-          "addressRegion": "Punjab",
-          "addressCountry": "PK"
-        },
         "telephone": "+923011414134",
         "email": "jawadahmad9938@gmail.com",
         "url": "https://jawadahmad.me/",
@@ -4948,7 +4935,7 @@
             Let's discuss your specific business challenges and I'll design
             the perfect digital solution to drive your growth
           </p>
-          <a href="#contact" class="btn btn-primary">
+          <a href="#Contact" class="btn btn-primary">
             <i class="fas fa-comments" aria-hidden="true"></i>
             Get Complimentary Consultation
           </a>
@@ -4993,7 +4980,7 @@
           Solo technical lead for 6 months. Built the entire stack: multi-tenant PostgreSQL architecture, 4 role-based dashboards (Admin, Accounting, Manager, Rep), AI-powered OCR for receipt scanning, a multi-vendor CSV import pipeline, a full payroll engine with holdbacks and pay multipliers, and published a companion iOS app on the Apple App Store.<br />
 
           <span class="detail-heading impact">Business Impact:</span>
-          800+ daily users in production. 99+ GitHub PRs shipped. App Store approved iOS app. Excel fully replaced. Commission calculations automated. Reps report sales offline from the field.
+          800+ daily users in production. 200+ PRs merged on the web platform and 60+ on the iOS app. App Store approved iOS app. Excel fully replaced. Commission calculations automated. Reps report sales offline from the field.
         </p>
 
         <div class="tech-stack">
@@ -5189,13 +5176,13 @@
 
         <img src="img/Tenant Analytics & Lawyer Verification.png" class="project-image"
           width="600" height="400" loading="lazy" decoding="async"
-          alt="QanoonBridge Multi-Tenant Legal-Tech Platform connecting Pakistani citizens with verified lawyers" />
+          alt="QanoonBridge Multi-Tenant Legal-Tech Platform connecting citizens with verified lawyers" />
 
         <h3 class="project-name">QanoonBridge Multi-Tenant Legal-Tech Platform</h3>
 
         <p class="project-details">
           <span class="detail-heading problem">Business Problem:</span>
-          Pakistani citizens in smaller cities lack structured access to verified legal help. Legal aid NGOs have no scalable system to route cases to the right lawyer nearby, verified, and available or to aggregate regional patterns for batch court filings.<br />
+          Citizens in smaller cities lack structured access to verified legal help. Legal aid NGOs have no scalable system to route cases to the right lawyer nearby, verified, and available or to aggregate regional patterns for batch court filings.<br />
 
           <span class="detail-heading solution">My Ownership:</span>
           Designed and built end-to-end as a final year graduation project: multi-tenant PostgreSQL schema, 4 role-based dashboards (Citizen, Lawyer, Admin, Super Admin), a custom geofenced lawyer-matching engine (city → district → province fallback), database-backed RBAC middleware, structured case lifecycle state machine, and tenant isolation tested across every query path.<br />
@@ -5241,67 +5228,119 @@
         <a href="qanoonbridgecasestudy.html" class="project-link view-case-btn">View Full Case Study</a>
       </div>
 
-      <!-- Project 2 - GoatNova -->
-      <div class="project-card">
-        <img src="https://i.postimg.cc/yxcs8MwJ/goatnova.jpg" class="project-image" width="600" height="400"
-          loading="lazy" decoding="async"
-          loading="lazy" decoding="async" alt="GoatNova Digital Agency" />
+      <!-- Featured Project - Safe AI Integration -->
+      <div class="project-card featured-card"
+        style="border: 2px solid #38bdf8; background: linear-gradient(135deg, rgba(56, 189, 248, 0.06), rgba(37, 99, 235, 0.05)); position: relative;">
 
-        <h3 class="project-name">GoatNova – Digital Agency Revenue Platform</h3>
+        <div class="featured-badge" style="background: linear-gradient(135deg, #0ea5e9, #2563eb);">
+          NEW CASE STUDY
+        </div>
+
+        <img src="img/ai-guest-diagram-og.png" class="project-image" width="600" height="400" loading="lazy"
+          decoding="async" alt="Diagram of a safe AI integration layer for a custom field sales CRM API" />
+
+        <h3 class="project-name">Safe AI Integration for a Custom Field Sales CRM</h3>
 
         <p class="project-details">
-          <span class="detail-heading problem">Business Challenge:</span>
-          UK agency needed premium online presence to attract clients.<br />
+          <span class="detail-heading problem">Business Problem:</span>
+          A US field-sales startup with 800+ reps wanted outside software and AI agents to read and write live CRM
+          data, without ever breaking commissions or payroll.<br />
 
-          <span class="detail-heading solution">Business Solution:</span>
-          Built conversion-focused, modern, high-speed agency website.<br />
+          <span class="detail-heading solution">My Ownership:</span>
+          I designed and built a guarded API on the Next.js and Supabase platform, behind the same pay locks the app
+          already enforces. The client tested it live through Claude, and the rules held.<br />
 
           <span class="detail-heading impact">Business Impact:</span>
-          Increased qualified inquiries by 20% in the first month.
+          200/min reads and writes per agent setup &bull; Paid records stay locked &bull; Training and support load
+          dropped significantly.
         </p>
 
         <div class="tech-stack">
           <i class="devicon-nextjs-plain colored"></i>
-          <i class="devicon-tailwindcss-plain colored"></i>
-          <i class="devicon-javascript-plain colored"></i>
-          <i class="devicon-html5-plain colored"></i>
+          <i class="devicon-supabase-plain colored"></i>
+          <i class="devicon-postgresql-plain colored"></i>
         </div>
 
-        <p class="project-note" style="margin-top: 1rem; color: #999; font-style: italic;">Live site no longer available</p>
-        <a href="https://github.com/Jawadahmad9938/goatnova-project" target="_blank" rel="noopener noreferrer"
-          class="project-link">Business
-          Case</a>
+        <a href="ai-api-integration-casestudy.html" class="project-link view-case-btn">View Full Case Study</a>
       </div>
 
-      <!-- Project 4 - 800batterie -->
-      <div class="project-card">
-        <img src="https://i.ibb.co/67bYdr1T/800batteries.jpg" class="project-image" width="600" height="400"
-          loading="lazy" decoding="async"
-          loading="lazy" decoding="async" alt="800batterie Business Website" />
+      <!-- Featured Project - iOS Offline Sync (iPhone app) -->
+      <div class="project-card featured-card"
+        style="border: 2px solid #a78bfa; background: linear-gradient(135deg, rgba(167, 139, 250, 0.07), rgba(37, 99, 235, 0.05)); position: relative;">
 
-        <h3 class="project-name">800batterie – Professional Business Presence</h3>
+        <div class="featured-badge" style="background: linear-gradient(135deg, #8b5cf6, #6366f1);">
+          IPHONE APP
+        </div>
+
+        <div class="project-image" role="img" aria-label="iPhone field app for sales reps with offline sync"
+          style="display:flex;align-items:center;justify-content:center;gap:1.25rem;aspect-ratio:3/2;background:radial-gradient(circle at 30% 20%, rgba(167,139,250,0.35), transparent 55%), linear-gradient(135deg,#1e1b4b,#0f172a);color:#e0e7ff;">
+          <i class="fas fa-mobile-screen-button" aria-hidden="true" style="font-size:4.5rem;"></i>
+          <span style="display:flex;flex-direction:column;gap:0.35rem;font-weight:700;font-size:1.05rem;line-height:1.3;text-align:left;">
+            <span><i class="fas fa-wifi" aria-hidden="true" style="color:#a78bfa;"></i> Works offline</span>
+            <span><i class="fas fa-rotate" aria-hidden="true" style="color:#a78bfa;"></i> Syncs when back online</span>
+            <span><i class="fab fa-apple" aria-hidden="true" style="color:#a78bfa;"></i> On the App Store</span>
+          </span>
+        </div>
+
+        <h3 class="project-name">iOS Field App with Offline Sync</h3>
 
         <p class="project-details">
-          <span class="detail-heading problem">Business Challenge:</span>
-          Needed online corporate credibility.<br />
+          <span class="detail-heading problem">Business Problem:</span>
+          800+ field reps needed to log sales from the field, often with weak or no signal, without losing data.<br />
 
-          <span class="detail-heading solution">Business Solution:</span>
-          Built high-trust, professional company website.<br />
+          <span class="detail-heading solution">My Ownership:</span>
+          I built and shipped the iPhone app next to the custom CRM, solo and end to end. The phone saves a sale
+          first, and the server checks it when signal is back, so a rep never loses a sale and the office never pays
+          one twice.<br />
 
           <span class="detail-heading impact">Business Impact:</span>
-          Boosted corporate profile & high-value inquiries.
+          App Store approved iOS app &bull; Reps report sales offline from the field &bull; 60+ PRs merged on the iOS app.
         </p>
 
         <div class="tech-stack">
-          <i class="devicon-html5-plain colored"></i>
-          <i class="devicon-css3-plain colored"></i>
-          <i class="devicon-javascript-plain colored"></i>
-          <i class="devicon-php-plain colored"></i>
+          <i class="devicon-react-original colored"></i>
+          <i class="devicon-apple-original colored"></i>
+          <i class="devicon-supabase-plain colored"></i>
+          <i class="devicon-postgresql-plain colored"></i>
         </div>
 
-        <p class="project-note" style="margin-top: 1rem; color: #999; font-style: italic;">Live site no longer available</p>
-        <a href="https://github.com/Jawadahmad9938/automobile-site-for-client" target="_blank" rel="noopener noreferrer"
-          class="project-link">Business           Case</a>
+        <a href="ios-offline-sync-casestudy.html" class="project-link view-case-btn">View Full Case Study</a>
+      </div>
+
+      <!-- Proof highlight: shipped work for a US field-sales startup -->
+      <div class="project-card featured-card proof-highlight"
+        style="border: 2px solid #10b981; background: linear-gradient(135deg, rgba(16, 185, 129, 0.08), rgba(37, 99, 235, 0.05)); position: relative; display:flex; flex-direction:column;">
+
+        <div class="featured-badge" style="background: linear-gradient(135deg, #10b981, #059669);">
+          PROOF OF WORK
+        </div>
+
+        <h3 class="project-name" style="margin-top:2.25rem;">Shipped in Production for a US Field-Sales Startup</h3>
+
+        <p class="project-details" style="margin-bottom:1rem;flex:0 0 auto;">
+          Custom field sales CRM, commission and payroll platform and iOS app, used by 800+ reps.
+        </p>
+
+        <div style="display:grid;grid-template-columns:1fr 1fr;gap:1rem;margin:0.5rem 1.25rem 1.25rem;">
+          <div style="background:rgba(16,185,129,0.1);border:1px solid rgba(16,185,129,0.35);border-radius:14px;padding:1.25rem;text-align:center;">
+            <div style="font-size:2.4rem;font-weight:800;line-height:1;color:#10b981;">200+</div>
+            <div style="margin-top:0.5rem;font-weight:600;font-size:0.95rem;">PRs merged on the web platform</div>
+          </div>
+          <div style="background:rgba(99,102,241,0.1);border:1px solid rgba(99,102,241,0.35);border-radius:14px;padding:1.25rem;text-align:center;">
+            <div style="font-size:2.4rem;font-weight:800;line-height:1;color:#818cf8;">60+</div>
+            <div style="margin-top:0.5rem;font-weight:600;font-size:0.95rem;">PRs merged on the iOS app</div>
+          </div>
+          <div style="grid-column:1 / -1;background:rgba(56,189,248,0.08);border:1px solid rgba(56,189,248,0.3);border-radius:14px;padding:1rem;text-align:center;">
+            <span style="font-size:1.6rem;font-weight:800;color:#38bdf8;">800+</span>
+            <span style="font-weight:600;margin-left:0.4rem;">reps use it in the field</span>
+          </div>
+        </div>
+
+        <div style="display:flex;gap:0.75rem;flex-wrap:wrap;align-items:center;margin-top:auto;">
+          <a href="salesplateformcasestudy.html" class="project-link view-case-btn">Read the Case Study</a>
+          <a href="https://github.com/Jawadahmad9938" target="_blank" rel="noopener noreferrer" class="project-link"
+            aria-label="Jawad Ahmad on GitHub"><i class="fab fa-github" aria-hidden="true"></i> My GitHub</a>
+        </div>
       </div>
 
     </div>
@@ -5335,7 +5374,7 @@
           <div class="resume-details">
             <h3 class="resume-degree">BS Computer Science</h3>
             <p class="resume-institution">
-              MNS University of Agriculture, Multan
+              MNS University of Agriculture
             </p>
             <p class="resume-duration">2022 – 2026</p>
             <p class="resume-cgpa">Business Excellence: 3.57/4.0</p>
@@ -5672,7 +5711,7 @@
               <i class="fas fa-clock" aria-hidden="true"></i>
               <div>
                 <h4>Business Hours</h4>
-                <p>Available for US clients: 9AM–1PM ET / 6AM–10AM PT (6PM–10PM PKT)<br>WhatsApp replies within a few hours</p>
+                <p>Available for US clients: 9AM–1PM ET / 6AM–10AM PT<br>WhatsApp replies within a few hours</p>
               </div>
             </div>
           </div>
@@ -5798,8 +5837,8 @@
             <a href="tel:+923011414134">+92 301 1414134</a>
           </div>
           <div class="contact-item">
-            <i class="fas fa-map-marker-alt" aria-hidden="true"></i>
-            <span>Multan, Pakistan</span>
+            <i class="fas fa-globe" aria-hidden="true"></i>
+            <span>Remote</span>
           </div>
         </div>
       </div>
@@ -5811,6 +5850,8 @@
           <li><a href="salesplateformcasestudy.html">Part 1: Sales Rep Platform</a></li>
           <li><a href="sales-finance-casestudy.html">Part 2: Commission & Payroll</a></li>
           <li><a href="qanoonbridgecasestudy.html">QanoonBridge Legal-Tech Platform</a></li>
+          <li><a href="ai-api-integration-casestudy.html">Safe AI Integration</a></li>
+          <li><a href="ios-offline-sync-casestudy.html">iOS Field App</a></li>
           <li><a href="index.html#Projects">Multi-tenant Dashboards</a></li>
           <li><a href="index.html#Projects">Automated Booking Systems</a></li>
           <li><a href="index.html#Projects">E-commerce Revenue Engines</a></li>
@@ -5825,10 +5866,10 @@
         <ul class="footer-links">
           <li><a href="blogs.html">Digital Growth Strategy</a></li>
           <li><a href="philosophy.html">Product-First Philosophy</a></li>
-          <li><a href="blogs.html#automation">Automation ROI Analysis</a></li>
-          <li><a href="blogs.html#marketing">Marketing Psychology</a></li>
-          <li><a href="blogs.html#scaling">Scaling Architecture</a></li>
-          <li><a href="blogs.html#systems">Business Systemization</a></li>
+          <li><a href="blogs.html">Automation ROI Analysis</a></li>
+          <li><a href="blogs.html">Marketing Psychology</a></li>
+          <li><a href="blogs.html">Scaling Architecture</a></li>
+          <li><a href="blogs.html">Business Systemization</a></li>
         </ul>
       </div>
 

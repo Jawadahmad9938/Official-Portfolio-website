@@ -69,7 +69,7 @@ cd Official-Portfolio-website
 
 📧 Email: jawadahmad9938@gmail.com
 
-📍 Location: Multan, Punjab, Pakistan
+📍 Location: Remote
 
 📱 WhatsApp: +92 301 1414134
 

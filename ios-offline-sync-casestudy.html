@@ -1,0 +1,1059 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover, shrink-to-fit=no" />
+  <meta name="theme-color" content="#10b981">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" crossorigin>
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="preconnect" href="https://cdnjs.cloudflare.com" crossorigin>
+  <link rel="preconnect" href="https://i.ibb.co" crossorigin>
+
+  <link rel="icon" href="https://i.ibb.co/rfstVnt3/jawad-sectionlogo.png" type="image/png" />
+
+  <link rel="preload" href="style.css" as="style" />
+  <link rel="preload" href="script.js" as="script" />
+
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Poppins:wght@400;600;700&display=swap" rel="stylesheet" />
+
+  <link rel="stylesheet" href="style.css" />
+
+  <link rel="preload" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" as="style" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" media="print" onload="this.media='all'" />
+
+  <title>Offline iOS App for 800+ Field Sales Reps | Jawad Ahmad</title>
+  <meta name="description" content="How I built an offline-ready iOS app for 800+ field sales reps. Sales saved with no signal, synced on reconnect, deduped, and kept in parity with the web.">
+  <meta name="keywords" content="offline iOS app field sales, offline first React Native app, Expo offline sync, field sales rep app, door to door sales app developer, React Native Supabase developer, iOS app for sales teams">
+  <meta name="author" content="Jawad Ahmad">
+  <meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large">
+
+  <link rel="canonical" href="https://jawadahmad.me/ios-offline-sync-casestudy.html">
+
+  <meta property="og:title" content="An Offline iOS App Built for Reps With No Signal">
+  <meta property="og:description" content="Built for the street, not the office wifi. How I built the iOS app 800+ field sales reps use daily, with offline sync, dedupe and 60+ merged PRs.">
+  <meta property="og:image" content="https://i.postimg.cc/50qzPtDT/jawad-hero-img.webp">
+  <meta property="og:url" content="https://jawadahmad.me/ios-offline-sync-casestudy.html">
+  <meta property="og:type" content="article">
+
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="An Offline iOS App Built for Reps With No Signal">
+  <meta name="twitter:description" content="Built for the street, not the office wifi. How I built the iOS app 800+ field sales reps use daily, with offline sync, dedupe and 60+ merged PRs.">
+  <meta name="twitter:image" content="https://i.postimg.cc/50qzPtDT/jawad-hero-img.webp">
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "Article",
+        "@id": "https://jawadahmad.me/ios-offline-sync-casestudy.html#article",
+        "headline": "An Offline iOS App for Field Sales Reps With No Signal",
+        "description": "How I built an offline-ready iOS app for 800+ field sales reps. Sales saved with no signal, synced on reconnect, deduped, and kept in parity with the web.",
+        "image": "https://i.postimg.cc/50qzPtDT/jawad-hero-img.webp",
+        "datePublished": "2026-11-20",
+        "dateModified": "2026-11-20",
+        "inLanguage": "en",
+        "articleSection": "Case Study",
+        "keywords": ["offline iOS app", "offline sync", "React Native", "Expo", "field sales app", "dedupe", "Supabase"],
+        "about": ["Mobile app development", "Offline sync", "Field sales software"],
+        "author": { "@type": "Person", "name": "Jawad Ahmad", "url": "https://jawadahmad.me/", "sameAs": ["https://github.com/Jawadahmad9938"] },
+        "publisher": { "@type": "Person", "name": "Jawad Ahmad", "url": "https://jawadahmad.me/" },
+        "mainEntityOfPage": { "@type": "WebPage", "@id": "https://jawadahmad.me/ios-offline-sync-casestudy.html" }
+      },
+      {
+        "@type": "BreadcrumbList",
+        "itemListElement": [
+          { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://jawadahmad.me/" },
+          { "@type": "ListItem", "position": 2, "name": "Case Studies", "item": "https://jawadahmad.me/index.html#Projects" },
+          { "@type": "ListItem", "position": 3, "name": "Offline iOS Field App", "item": "https://jawadahmad.me/ios-offline-sync-casestudy.html" }
+        ]
+      }
+    ]
+  }
+  </script>
+
+  <style>
+    .case-hero {
+      background: linear-gradient(135deg, #0f172a 0%, #1e293b 60%, #0f172a 100%);
+      padding: 8rem 5% 5rem;
+      text-align: center;
+      color: white;
+      position: relative;
+      overflow: hidden;
+      min-height: 60vh;
+    }
+
+    .case-hero::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background: radial-gradient(ellipse at 50% 0%, rgba(37, 99, 235, 0.18) 0%, transparent 70%);
+      pointer-events: none;
+    }
+
+    .case-hero-content {
+      position: relative;
+      z-index: 1;
+      max-width: 1000px;
+      margin: 0 auto;
+    }
+
+    .case-badge {
+      display: inline-block;
+      padding: 0.6rem 1.5rem;
+      background: rgba(255, 255, 255, 0.25);
+      border-radius: 30px;
+      font-size: 0.9rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      margin-bottom: 1.5rem;
+      letter-spacing: 1.5px;
+      backdrop-filter: blur(10px);
+      border: 1px solid rgba(255, 255, 255, 0.3);
+      color: #ffffff;
+      text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+    }
+
+    .case-title {
+      font-size: 3.5rem;
+      font-weight: 800;
+      margin-bottom: 1.5rem;
+      line-height: 1.2;
+      color: #ffffff;
+      text-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+    }
+
+    .case-subtitle {
+      font-size: 1.4rem;
+      opacity: 0.95;
+      margin-bottom: 2rem;
+      color: #ffffff;
+      text-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+    }
+
+    .case-stats {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1.25rem;
+      margin-top: 3rem;
+    }
+
+    .case-hero .stat-box {
+      background: rgba(255, 255, 255, 0.12);
+      padding: 1.5rem 1rem;
+      border-radius: 12px;
+      border: 1px solid rgba(255, 255, 255, 0.3);
+      transition: transform 0.3s ease;
+      text-align: center;
+    }
+
+    .case-hero .stat-box:hover {
+      transform: translateY(-4px);
+      background: rgba(255, 255, 255, 0.18);
+    }
+
+    .case-hero .stat-number {
+      font-size: 1.9rem;
+      font-weight: 800;
+      display: block;
+      margin-bottom: 0.4rem;
+      color: #ffffff !important;
+      background: none !important;
+      -webkit-text-fill-color: #ffffff !important;
+      -webkit-background-clip: unset !important;
+      background-clip: unset !important;
+      text-shadow: none;
+    }
+
+    .case-hero .stat-label {
+      font-size: 0.85rem;
+      color: rgba(255, 255, 255, 0.85) !important;
+      font-weight: 500;
+      line-height: 1.3;
+    }
+
+    .case-hero-proof {
+      margin: 2rem auto 0;
+      max-width: 760px;
+      font-size: 1.05rem;
+      line-height: 1.6;
+      color: #ffffff;
+      opacity: 0.95;
+    }
+
+    .case-content {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 5rem 5%;
+    }
+
+    .case-visual {
+      max-width: 1100px;
+      margin: -2.5rem auto 4rem;
+      padding: 0 5%;
+      position: relative;
+      z-index: 2;
+    }
+
+    .case-visual img {
+      width: 100%;
+      border-radius: 16px;
+      border: 1px solid rgba(16, 185, 129, 0.28);
+      box-shadow: 0 24px 70px rgba(15, 23, 42, 0.24);
+      display: block;
+      background: #0f172a;
+    }
+
+    .case-visual-caption {
+      margin-top: 0.9rem;
+      color: #64748b;
+      font-size: 0.95rem;
+      text-align: center;
+    }
+
+    .section {
+      margin-bottom: 5rem;
+    }
+
+    .section-title {
+      font-size: 2.2rem;
+      font-weight: 700;
+      margin-bottom: 1.5rem;
+      color: #60a5fa;
+    }
+
+    .section-subtitle {
+      font-size: 1.8rem;
+      font-weight: 600;
+      margin: 2.5rem 0 1rem;
+      color: inherit;
+    }
+
+    .content-text {
+      font-size: 1.1rem;
+      line-height: 1.8;
+      color: inherit;
+      margin-bottom: 1.5rem;
+    }
+
+    .tech-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 2rem;
+      margin: 2rem 0;
+    }
+
+    .tech-card {
+      background: var(--card-bg);
+      padding: 1.5rem;
+      border-radius: 12px;
+      border: 1px solid rgba(37, 99, 235, 0.2);
+      transition: all 0.3s ease;
+    }
+
+    .tech-card:hover {
+      transform: translateY(-4px);
+      border-color: #2563eb;
+      box-shadow: 0 8px 24px rgba(37, 99, 235, 0.15);
+    }
+
+    .tech-card h4 {
+      color: #60a5fa;
+      font-size: 1.1rem;
+      margin-bottom: 1rem;
+    }
+
+    .tech-list {
+      list-style: none;
+      padding: 0;
+    }
+
+    .tech-list li {
+      padding: 0.5rem 0;
+      padding-left: 1.5rem;
+      position: relative;
+      color: inherit;
+    }
+
+    .tech-list li::before {
+      content: '✓';
+      position: absolute;
+      left: 0;
+      color: #60a5fa;
+      font-weight: bold;
+      font-size: 1rem;
+    }
+
+    .feature-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 1.25rem;
+      margin: 1.5rem 0;
+    }
+
+    .feature-box {
+      background: rgba(37, 99, 235, 0.06);
+      padding: 1.25rem;
+      border-radius: 10px;
+      border-left: 3px solid #2563eb;
+      transition: all 0.25s ease;
+    }
+
+    .feature-box:hover {
+      transform: translateX(4px);
+      box-shadow: 0 4px 16px rgba(37, 99, 235, 0.12);
+    }
+
+    .feature-box h5 {
+      color: #60a5fa;
+      font-size: 1rem;
+      margin-bottom: 0.4rem;
+    }
+
+    .feature-box p {
+      color: var(--text-color);
+      margin: 0;
+      font-size: 0.92rem;
+    }
+
+    .architecture-diagram {
+      background: var(--card-bg);
+      padding: 2rem;
+      border-radius: 12px;
+      margin: 1.5rem 0;
+      border: 1px solid rgba(37, 99, 235, 0.2);
+    }
+
+    .architecture-diagram pre {
+      background: #000;
+      color: #0f0;
+      padding: 2rem;
+      border-radius: 8px;
+      overflow-x: auto;
+      white-space: pre-wrap;
+      overflow-wrap: anywhere;
+      font-family: 'Courier New', monospace;
+      font-size: 0.9rem;
+      line-height: 1.6;
+    }
+
+    .case-cta-section {
+      background: linear-gradient(135deg, #1e40af 0%, #1e293b 100%);
+      padding: 4rem;
+      border-radius: 20px;
+      text-align: center;
+      color: white;
+      margin-top: 5rem;
+      border: 1px solid rgba(96, 165, 250, 0.2);
+    }
+
+    .case-cta-section h3 {
+      font-size: 2.2rem;
+      margin-bottom: 1rem;
+    }
+
+    .case-cta-section p {
+      font-size: 1.1rem;
+      margin-bottom: 2rem;
+      opacity: 0.9;
+    }
+
+    .case-cta-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      padding: 1rem 2.5rem;
+      background: #2563eb;
+      color: white;
+      border-radius: 50px;
+      font-weight: 700;
+      font-size: 1rem;
+      text-decoration: none;
+      transition: all 0.3s ease;
+      box-shadow: 0 4px 20px rgba(37, 99, 235, 0.4);
+    }
+
+    .case-cta-btn:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 8px 30px rgba(37, 99, 235, 0.5);
+      background: #1d4ed8;
+    }
+
+    @media (max-width: 768px) {
+      .case-hero {
+        padding: 6rem 4% 3.5rem;
+      }
+
+      .case-title {
+        font-size: 2rem;
+      }
+
+      .case-subtitle {
+        font-size: 1rem;
+      }
+
+      .case-stats {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 1rem;
+        margin-top: 2rem;
+      }
+
+      .section-title {
+        font-size: 1.8rem;
+      }
+
+      .section-subtitle {
+        font-size: 1.3rem;
+      }
+
+      .tech-grid,
+      .feature-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .case-cta-section {
+        padding: 2.5rem 1.5rem;
+      }
+
+      .case-cta-section h3 {
+        font-size: 1.8rem;
+      }
+    }
+
+    @media (max-width: 480px) {
+      .case-stats {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 0.75rem;
+      }
+
+      .stat-number {
+        font-size: 1.25rem;
+      }
+
+      .case-title {
+        font-size: 1.75rem;
+      }
+    }
+  </style>
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-XXXXXXXXXX"></script>
+  <link rel="stylesheet" href="footer.css" />
+</head>
+
+<body>
+  <div class="floating-icons" id="floating-icons" aria-hidden="true"></div>
+
+  <nav class="navbar" role="navigation" aria-label="Main navigation">
+    <a href="index.html" aria-label="Home page">
+      <img class="logo" src="https://i.ibb.co/rfstVnt3/jawad-sectionlogo.png"
+        alt="Jawad Ahmad - Full Stack Developer Logo" width="120" height="40" loading="eager" />
+    </a>
+
+    <ul class="nav-menu" id="menu">
+      <li><a href="index.html">Home</a></li>
+      <li><a href="index.html#About">About</a></li>
+      <li><a href="index.html#Services">Services</a></li>
+      <li><a href="index.html#Projects">Case Studies</a></li>
+      <li><a href="blogs.html">Blogs</a></li>
+      <li><a href="philosophy.html">Philosophy</a></li>
+      <li><a href="index.html#Skills">Expertise</a></li>
+      <li><a href="index.html#Contact" class="nav-cta-link">Let's Talk</a></li>
+    </ul>
+
+    <div class="nav-actions">
+      <button id="theme-toggle-btn" class="theme-toggle" aria-label="Toggle dark/light mode">
+        <i id="theme-icon" class="fas fa-moon" aria-hidden="true"></i>
+      </button>
+
+      <div class="nav-btn">
+        <button class="cv-button" aria-label="Download CV">
+          <a href="Jawad Ahmad CV.pdf" download="Jawad Ahmad CV.pdf">
+            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none"
+              stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4" />
+              <polyline points="7 10 12 15 17 10" />
+              <line x1="12" y1="15" x2="12" y2="3" />
+            </svg>
+          </a>
+        </button>
+      </div>
+
+      <div class="mobile-menu-btn">
+        <button id="menu-button" class="menu-toggle" aria-label="Toggle mobile menu" aria-expanded="false">
+          <span class="menu-toggle__hamburger" aria-hidden="true"></span>
+        </button>
+      </div>
+    </div>
+  </nav>
+
+  <div class="mobile-menu-overlay" id="mobile-overlay"></div>
+  <div class="mobile-nav-menu-container" id="mobile-menu-container">
+    <div class="mobile-nav-menu" id="mobile-menu" role="navigation" aria-label="Mobile menu">
+      <div class="mobile-nav-header">
+        <span class="mobile-nav-header-logo">Menu</span>
+        <button class="mobile-nav-close" id="mobile-close" aria-label="Close menu">
+          <i class="fas fa-times" aria-hidden="true"></i>
+        </button>
+      </div>
+
+      <div class="mobile-nav-content">
+        <a href="index.html" class="mobile-nav-item">Home</a>
+        <a href="index.html#About" class="mobile-nav-item">About</a>
+        <a href="index.html#Services" class="mobile-nav-item">Services</a>
+        <a href="index.html#Projects" class="mobile-nav-item">Case Studies</a>
+        <a href="blogs.html" class="mobile-nav-item">Blogs</a>
+        <a href="philosophy.html" class="mobile-nav-item">Philosophy</a>
+        <a href="index.html#Skills" class="mobile-nav-item">Expertise</a>
+      </div>
+
+      <div class="mobile-nav-actions-row">
+        <a href="index.html#Contact" class="mobile-cta-btn">Let's Talk</a>
+        <a href="Jawad Ahmad CV.pdf" download="Jawad Ahmad CV.pdf" class="mobile-download-btn">CV</a>
+      </div>
+    </div>
+  </div>
+
+
+  <section class="case-hero">
+    <div class="case-hero-content">
+      <span class="case-badge">iOS App Case Study</span>
+      <h1 class="case-title">An Offline iOS App for Field Sales Reps With No Signal</h1>
+      <p class="case-subtitle">Built for the street, not the office wifi. How I built the iPhone app a US field-sales startup's reps use every day to report sales from driveways and doorsteps, even when the phone has no bars.</p>
+
+      <div class="case-stats">
+        <div class="stat-box">
+          <span class="stat-number">800+</span>
+          <span class="stat-label">Reps Using It Daily</span>
+        </div>
+        <div class="stat-box">
+          <span class="stat-number">60+</span>
+          <span class="stat-label">PRs Merged on the iOS App</span>
+        </div>
+        <div class="stat-box">
+          <span class="stat-number">200+</span>
+          <span class="stat-label">PRs on the Web Platform</span>
+        </div>
+        <div class="stat-box">
+          <span class="stat-number">Offline</span>
+          <span class="stat-label">Report Sales With No Signal</span>
+        </div>
+        <div class="stat-box">
+          <span class="stat-number">Live</span>
+          <span class="stat-label">On the Apple App Store</span>
+        </div>
+        <div class="stat-box">
+          <span class="stat-number">1</span>
+          <span class="stat-label">Rule Set for App and Web</span>
+        </div>
+      </div>
+      <p class="case-hero-proof">On busy days the app takes <strong>100+ sales</strong>, with peaks of 150 to 180, across all reps. <strong>1,500+ sales</strong> were reported through the app from Nov 1 to Nov 20, 2026.</p>
+    </div>
+  </section>
+
+
+  <div class="case-content">
+
+    <section class="section">
+      <h2 class="section-title">The Problem</h2>
+      <p class="content-text">
+        Field reps lose signal all day. They sell door to door, in driveways, in basements and on the edge of town. If the CRM needs wifi to log a sale, the sale gets written on paper, typed in later, or forgotten.
+      </p>
+      <p class="content-text">
+        A US field-sales startup asked me to build the iPhone app next to <a href="salesplateformcasestudy.html">the custom CRM I built for them</a>. Their reps are not techy, and they hate typing on a doorstep. On busy days the app takes 100+ sales, with peaks of 150 to 180. Those are totals across all reps, not one person's day. From Nov 1 to Nov 20, 2026, 1,500+ sales were reported through the app. Every sale they report feeds commissions and payroll, so a lost sale or a sale counted twice is a pay problem, not just a data problem.
+      </p>
+      <p class="content-text">
+        So the brief was simple to say and hard to build. A rep should be able to report a sale, attach proof and check their pay from anywhere, with or without signal, and the numbers on the phone must always match the numbers on the website.
+      </p>
+      <div class="feature-grid">
+        <div class="feature-box">
+          <h5>Client</h5>
+          <p>A US field-sales startup. Name kept confidential.</p>
+        </div>
+        <div class="feature-box">
+          <h5>Users</h5>
+          <p>800+ reps and their managers, every day, on iPhone.</p>
+        </div>
+        <div class="feature-box">
+          <h5>My Role</h5>
+          <p>Solo developer, end to end. Specs, app, backend rules, App Store releases and support.</p>
+        </div>
+        <div class="feature-box">
+          <h5>Stack</h5>
+          <p>React Native and Expo on iOS, Supabase and Postgres behind it, Next.js on the web.</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="section">
+      <h2 class="section-title">How I Built Offline Sync</h2>
+      <p class="content-text">
+        The goal was not a clever sync engine. The goal was that a rep never loses a sale and the office never pays one twice. I built it around three ideas. The phone saves first. The server decides. Pay only moves after a sale is verified.
+      </p>
+
+      <h3 class="section-subtitle">The Phone Saves First</h3>
+      <p class="content-text">
+        When a rep reports a sale with no signal, the app saves it in the phone's local storage, with its proof attached, instead of failing the form. The rep sees a message along the lines of "Sale recorded. You're offline; your sale will auto-sync." They can move on to the next door. As soon as the internet comes back, those sales sync to the server on their own.
+      </p>
+
+      <h3 class="section-subtitle">The Data Flow</h3>
+      <div class="architecture-diagram">
+        <pre>
+Rep reports a sale on the doorstep  (typed, or filled from a photo)
+  -> same clean up as the web  (names, phones, addresses)
+  -> saved in the phone's local storage with proof attached
+  -> no signal? a message confirms the sale is recorded and will auto-sync
+  -> internet back: the sale auto-syncs to the server
+  -> server checks company, role and product assignment
+  -> duplicate customer check
+  -> sale lands as "pending", source marked as mobile, and only then shows in the rep's records
+  -> the rep can edit the sale only after it has synced
+  -> admin reviews it and links it to the vendor order
+  -> only a verified sale moves pay
+  -> payroll runs, then the record locks
+        </pre>
+      </div>
+
+      <h3 class="section-subtitle">The Server Decides, Not the Phone</h3>
+      <p class="content-text">
+        A phone that was offline for hours can come back with an old view of the world. So I never let the phone be the judge. Tenant rules and row level security live in the database. The server re-checks the company, the role and the product assignment when the sale arrives, not only when the form was opened. A sale from the phone always lands as <strong>pending</strong>, and an admin reviews it before it can count for pay.
+      </p>
+      <p class="content-text">
+        There is no offline edit, by design. The rep enters the sale, taps submit, and that is it. The sale shows in their records only after it syncs, and they can edit it only then. Because nothing is edited on the phone while it is offline, there is no merge conflict to resolve when the signal comes back.
+      </p>
+      <p class="content-text">
+        A late sync can add a new pending report, but it cannot rewrite history. Pay only happens after the sale is matched to a vendor order, and payroll locks records once it runs, so a report arriving late never edits a check that was already paid.
+      </p>
+
+      <h3 class="section-subtitle">IDs, Retries and Dedupe</h3>
+      <p class="content-text">
+        Weak signal means retries, and retries mean duplicates if you are careless. I handled it in layers.
+      </p>
+      <ul class="tech-list">
+        <li><strong>Same clean up on both clients.</strong> The app and the website normalise names, phones and addresses the same way, so a customer typed on a phone and the same customer typed on a laptop do not split into two records.</li>
+        <li><strong>Duplicate customer check.</strong> When a sale comes in, the system looks for an existing customer and offers a merge instead of silently creating a second one.</li>
+        <li><strong>Source tracked on every sale.</strong> Each sale records whether it came from the app or the web, and whether it was typed or filled by AI from a photo, so any odd record can be traced in two minutes.</li>
+        <li><strong>Hard IDs before soft matches.</strong> When vendor files are matched to rep reports, hard IDs like order, customer and sales IDs are tried first, then product, address, phone and sale date as a fallback. Two real orders for the same customer stay separate.</li>
+        <li><strong>Duplicates are harmless for pay.</strong> A double or fake report never pays, because pay only happens after vendor approval and a match. The leaderboard counts reported sales minus rejected ones, so it stays live, while verified pay stays separate.</li>
+      </ul>
+    </section>
+
+    <section class="section">
+      <h2 class="section-title">Other Things I Built Into the App</h2>
+      <div class="feature-grid">
+        <div class="feature-box">
+          <h5>Report a Sale in Seconds</h5>
+          <p>Vendor and product pickers that preselect what the rep sold last, else the only option, else the first. Reps sell the same vendor and product most of the time.</p>
+        </div>
+        <div class="feature-box">
+          <h5>Photo to Form</h5>
+          <p>Reps snap the paperwork and AI fills the sale form. The vendor and product are still chosen by hand, so the AI never guesses the part that drives pay.</p>
+        </div>
+        <div class="feature-box">
+          <h5>Proof Attachments</h5>
+          <p>Up to 3 documents per sale in the app, so admins can verify a sale without chasing the rep.</p>
+        </div>
+        <div class="feature-box">
+          <h5>Status and Check Stubs</h5>
+          <p>Reps track where each sale stands and see their check stubs on the phone, so fewer "where is my money" messages reach the office.</p>
+        </div>
+        <div class="feature-box">
+          <h5>Live Leaderboard</h5>
+          <p>A company wide leaderboard by rep or by region, with periods from today to last month, a "You're #N" badge, top 3 styling and a 60 second refresh while the screen is open.</p>
+        </div>
+        <div class="feature-box">
+          <h5>Push Notifications</h5>
+          <p>Payroll events reach reps on their phone, so they know when pay moves.</p>
+        </div>
+        <div class="feature-box">
+          <h5>Manager Tools on Mobile</h5>
+          <p>A step by step manager rollout. Team overview, team stats, team check stubs, team payscales, then pending pay with partial approvals.</p>
+        </div>
+        <div class="feature-box">
+          <h5>Solo Rep Self Serve</h5>
+          <p>A solo rep can create their own company, add vendors and products, and send an upgrade request. A free tier that turns daily use into premium leads.</p>
+        </div>
+        <div class="feature-box">
+          <h5>Forced Updates and Role Based Screens</h5>
+          <p>A version check forces old builds to update after an important fix, and each role only sees the screens it needs. The app is for reps and managers. Admin and accounting work on the web.</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="section">
+      <h2 class="section-title">Edge Cases I Handled</h2>
+      <p class="content-text">
+        Most of the work in a field app is not the happy path. These are real cases from production, each one as the problem and what I did.
+      </p>
+      <ul class="tech-list">
+        <li><strong>No signal on the doorstep.</strong> Problem: a form that needs wifi loses the sale. Fix: the sale and its proof are saved in the phone's local storage. The rep sees a message that the sale is recorded and will auto-sync, and as soon as the internet comes back, it syncs to the server and lands as pending for review.</li>
+        <li><strong>An empty dropdown on day one.</strong> Problem: a new solo rep with zero vendors and products could not report anything. Fix: creating a company now seeds a default "Other" vendor and product and assigns it, so the first sale works in the first minute.</li>
+        <li><strong>It let me pick it, then said no.</strong> Problem: the product list showed every company product, but submit still required a per rep assignment, so reps picked a product and got blocked. Fix: what a user can see and what they can do now come from the same rule.</li>
+        <li><strong>Stale lists after creating something.</strong> Problem: the web refreshed the page after a new vendor or product, the app did not. Fix: the app re-fetches its lists after every create, because mobile parity is not copying screens.</li>
+        <li><strong>The same customer split in two.</strong> Problem: slightly different typing on web and mobile creates two customers and can double count a sale. Fix: one normalisation for both clients, a duplicate customer check with a merge offer, and the sale source recorded.</li>
+        <li><strong>Typing on a doorstep.</strong> Problem: reps hate long forms in the field. Fix: photo to form, with vendor and product still picked by hand.</li>
+        <li><strong>AI limits that would block heavy sellers.</strong> Problem: a per rep daily AI cap would frustrate the heaviest sellers. Fix: no daily cap, a 3 document limit per sale in the app, and AI use tracked per user and time.</li>
+        <li><strong>Approving one customer did nothing.</strong> Problem: in pending pay, select all worked, but approving one customer or product showed nothing, and approving a second one overwrote the first. Fix: I fixed the mobile app first to track approved rows, submit only the selected amounts and add to the existing amount, then ported the same helpers to the web.</li>
+        <li><strong>A leaderboard that quietly lies.</strong> Problem: the database client returns 1000 rows by default, so counts were silently cut at scale. Fix: counts paginate or aggregate on the server, and ID lookups run in batches of 80 to stay under URL limits.</li>
+        <li><strong>Whose "today" is it.</strong> Problem: a sale at 11:58 PM can land on the wrong day. Fix: one company timezone for today and this week, a daylight saving safe noon reference, and the timezone labelled on screen.</li>
+        <li><strong>"northwest" and "Northwest".</strong> Problem: free text regions create duplicates. Fix: regions are a lookup table, matched without case, and deleting a region just clears it for reps.</li>
+        <li><strong>A product from another company.</strong> Problem: a logged in user is not the same as an allowed user. Fix: product creation checks that the vendor belongs to the caller's company on the server.</li>
+        <li><strong>Old builds after an important fix.</strong> Problem: some reps never update. Fix: a version check that forces the update, so the phone and the website never show different pay.</li>
+        <li><strong>Reps who have never used an app.</strong> Problem: new reps tapped Sign In without an account, or signed up with a different email than the admin typed. Fix: a visual 4 step guide and account linking by Sales ID and code, not by email.</li>
+        <li><strong>App Store review.</strong> Problem: Apple rejected the app three times. First, the submitted screenshots were from Chrome, not iOS. Second, there was no in-app account deletion option, which I added. Third, Apple had one or two further suggestions, which I fixed. Fix: after those changes the app went live, and every update now goes live on the App Store within 24 hours.</li>
+      </ul>
+    </section>
+
+    <section class="section">
+      <h2 class="section-title">Working Directly With the Founder</h2>
+      <p class="content-text">
+        There was no project manager between us. The founder sent requests and bugs straight to my inbox, and users did too. Every morning I sorted them into critical, time taking, or just UI polish, and worked from there. Some days that was two or three hours. Some nights it was a 1 AM incident.
+      </p>
+      <h3 class="section-subtitle">How Requests Came In</h3>
+      <p class="content-text">
+        Founder messages are short and decisive. One line, sometimes two. On one release the message went from "submit to TestFlight, test once, tell me", to "just submit", to only "tell me when approved". I learned to match that. Short answers, outcomes first, "it is live" instead of a list of what I touched.
+      </p>
+      <h3 class="section-subtitle">Shaping Ideas and Clarifying Edge Cases</h3>
+      <p class="content-text">
+        Before I build a feature, I write the spec. Purpose, roles, flows, errors, empty and loading states, business rules, and the known gaps, including the bugs I already know about. Then I ask the questions that change the design. When I asked why any rep could create their own company, the answer was that it is deliberate, a free self serve tier that turns into premium clients. That one answer changed how I built the solo rep flow, the upgrade button and the defaults.
+      </p>
+      <h3 class="section-subtitle">Writing Replies and Explanations</h3>
+      <p class="content-text">
+        When I had to say no, I said why and when. The founder once asked if I had done the API updates yet. My reply was that I had prioritised the site and the app and cross checked a pending pay security fix so the app and the site never disagree, and the API would be done on Monday. The answer was "okay". A clear reason and a date gets accepted in one line. Excuses do not.
+      </p>
+      <p class="content-text">
+        That trust compounds. After a few reliable releases the founder handed me the decisions, from submitting builds to forcing updates, and after a 1 AM import incident that I reproduced, fixed and merged the same night, the founder let me handle production incidents without waiting for approval.
+      </p>
+    </section>
+
+    <section class="section">
+      <h2 class="section-title">What I Learned Building It</h2>
+      <ul class="tech-list">
+        <li><strong>Money consistency is sacred.</strong> The number a rep sees on the phone must be the number payroll pays. Pay bugs go before features.</li>
+        <li><strong>Mobile can lead.</strong> Fixing the pending pay bug on mobile first, then porting the exact helpers to the web, kept both in sync.</li>
+        <li><strong>Empty states kill adoption.</strong> A field rep who cannot act in the first minute does not come back.</li>
+        <li><strong>One source of truth for permissions.</strong> If the screen and the server disagree, the user loses trust.</li>
+        <li><strong>Safe changes over big refactors.</strong> 60+ merged PRs on the iOS app and 200+ on the web platform. Before each one I ask what else depends on this, and whether it touches historical data.</li>
+        <li><strong>The rep is the distribution channel.</strong> Make the solo experience useful on day one and let the upgrade come from real use.</li>
+        <li><strong>App Store review is part of the work.</strong> Screenshots have to be from iOS, the app has to let a user delete their account, and each review note has to be fixed. After that, every update now goes live within 24 hours.</li>
+      </ul>
+    </section>
+
+    <section class="section">
+      <h2 class="section-title">Results and Proof</h2>
+      <div class="feature-grid">
+        <div class="feature-box">
+          <h5>800+ Reps Every Day</h5>
+          <p>The app is used daily by 800+ reps and their managers in the field.</p>
+        </div>
+        <div class="feature-box">
+          <h5>100+ Sales on Busy Days</h5>
+          <p>On busy days the app takes 100+ sales, with peaks of 150 to 180. Those are totals across all reps, not one person's day.</p>
+        </div>
+        <div class="feature-box">
+          <h5>1,500+ Sales, Nov 1–20, 2026</h5>
+          <p>From Nov 1 to Nov 20, 2026, 1,500+ sales were reported through the app, across all reps.</p>
+        </div>
+        <div class="feature-box">
+          <h5>60+ PRs on the iOS App</h5>
+          <p>60+ merged pull requests on the app, next to 200+ on the web platform, all built by me. See my work on <a href="https://github.com/Jawadahmad9938" target="_blank" rel="noopener">GitHub</a>.</p>
+        </div>
+        <div class="feature-box">
+          <h5>Live on the App Store</h5>
+          <p>Apple rejected the app three times, for Chrome screenshots, a missing account deletion option, and a couple of further suggestions. After those fixes it went live, and every update now goes live within 24 hours.</p>
+        </div>
+        <div class="feature-box">
+          <h5>Sales Logged With No Signal</h5>
+          <p>Reps report sales and attach proof from anywhere. Sales are saved in the phone's local storage and auto-sync when the internet comes back.</p>
+        </div>
+        <div class="feature-box">
+          <h5>App and Web Always Agree</h5>
+          <p>Same normalisation, same rules and the same pay helpers, so the phone never shows a different number from the website.</p>
+        </div>
+        <div class="feature-box">
+          <h5>Built Solo, End to End</h5>
+          <p>One developer from spec to App Store, working directly with the founder.</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="section">
+      <h2 class="section-title">Tech Stack</h2>
+      <div class="tech-grid">
+        <div class="tech-card">
+          <h4>React Native and Expo</h4>
+          <p>The iOS app, built with Expo and shipped through EAS Build, TestFlight and App Store Connect.</p>
+        </div>
+        <div class="tech-card">
+          <h4>Supabase and Postgres</h4>
+          <p>Auth, data and row level security, so tenant and role rules live in the database, not the phone.</p>
+        </div>
+        <div class="tech-card">
+          <h4>Next.js</h4>
+          <p>The web platform the app stays in parity with, for admins, accounting, managers and reps.</p>
+        </div>
+        <div class="tech-card">
+          <h4>AI Photo to Form</h4>
+          <p>Vision based OCR that fills the sale form from a photo of the paperwork.</p>
+        </div>
+        <div class="tech-card">
+          <h4>Push Notifications</h4>
+          <p>Apple push notifications for payroll events.</p>
+        </div>
+        <div class="tech-card">
+          <h4>TypeScript</h4>
+          <p>Shared types and the same clean up rules across app and web.</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="section">
+      <h2 class="section-title">Other Systems I Have Built</h2>
+      <div class="feature-grid">
+        <div class="feature-box">
+          <h5><a href="salesplateformcasestudy.html">Field Sales CRM</a></h5>
+          <p>The web platform behind this app, with vendor CSV imports and payroll, from zero to production.</p>
+        </div>
+        <div class="feature-box">
+          <h5><a href="sales-finance-casestudy.html">Commission Finance Engine</a></h5>
+          <p>Commission rules, payroll review, ledgers and audit trails on top of field sales data.</p>
+        </div>
+        <div class="feature-box">
+          <h5><a href="ai-api-integration-casestudy.html">Safe AI Integration</a></h5>
+          <p>A guarded API so AI agents can read and write the CRM behind payroll locks.</p>
+        </div>
+        <div class="feature-box">
+          <h5><a href="pfcloud-casestudy.html">PFCloud Platform</a></h5>
+          <p>A multi-tenant CRM for a hosting business with billing, provisioning and support.</p>
+        </div>
+        <div class="feature-box">
+          <h5><a href="qanoonbridgecasestudy.html">QanoonBridge</a></h5>
+          <p>A multi-tenant legal tech platform built end to end.</p>
+        </div>
+        <div class="feature-box">
+          <h5><a href="casestudy.html">CloudMaster Pro</a></h5>
+          <p>A production multi-tenant SaaS platform with end to end ownership.</p>
+        </div>
+      </div>
+      <p class="content-text">
+        More notes on building production systems are on the <a href="blogs.html">blog</a> and in my <a href="philosophy.html">philosophy</a> pages.
+      </p>
+    </section>
+
+    <div class="case-cta-section">
+      <h3>Need a Field App That Works Without Signal?</h3>
+      <p>If your reps still write sales on paper, or your app loses them when the signal drops, tell me how your team sells and what your office checks before it pays. I will tell you honestly what I would build first.</p>
+      <div style="display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap; margin-bottom: 2rem;">
+        <a href="index.html#Contact" class="case-cta-btn">
+          <i class="fas fa-comments" aria-hidden="true"></i>
+          Let's Talk About Your App
+        </a>
+        <a href="https://github.com/Jawadahmad9938" target="_blank" rel="noopener"
+          class="case-cta-btn" style="background: #333; color: white;">
+          <i class="fab fa-github" aria-hidden="true"></i>
+          See My GitHub
+        </a>
+        <a href="index.html#Projects"
+          class="case-cta-btn" style="background: #333; color: white;">
+          <i class="fas fa-briefcase" aria-hidden="true"></i>
+          View More Case Studies
+        </a>
+      </div>
+    </div>
+  </div>
+
+  <footer class="footer-section">
+  <div class="footer-container">
+    <div class="newsletter-section">
+      <div class="newsletter-content">
+        <h3>Founder & Growth Insights</h3>
+        <p>
+          Join a community of founders getting strategic insights on product development, automation, and scaling
+          digital systems.
+        </p>
+
+        <form class="newsletter-form" action="https://formspree.io/f/xeolvgya" method="POST">
+          <div class="input-group">
+            <input type="email" name="newsletter_email" placeholder="Enter your business email" required
+              class="newsletter-input" />
+            <button type="submit" class="newsletter-btn">
+              <span>Get the Insights</span>
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+                <polyline points="23 6 13.5 15.5 8.5 10.5 1 17"></polyline>
+                <polyline points="17 6 23 6 23 12"></polyline>
+              </svg>
+            </button>
+          </div>
+          <p class="newsletter-note">
+            High-value content only. Zero spam. Unsubscribe anytime.
+          </p>
+        </form>
+      </div>
+
+      <div class="newsletter-benefits">
+        <div class="benefit-item">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+            <polyline points="23 6 13.5 15.5 8.5 10.5 1 17"></polyline>
+            <polyline points="17 6 23 6 23 12"></polyline>
+          </svg>
+          <span>Scaleable SaaS Systems</span>
+        </div>
+        <div class="benefit-item">
+          <i class="fas fa-magic" aria-hidden="true"></i>
+          <span>Automation Strategies</span>
+        </div>
+        <div class="benefit-item">
+          <i class="fas fa-chart-line" aria-hidden="true"></i>
+          <span>Revenue Growth Tips</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="footer-main">
+      <div class="footer-column brand-column">
+        <div class="footer-logo">
+          <img src="https://i.postimg.cc/50qzPtDT/jawad-hero-img.webp" alt="Logo" class="logo-img" width="50"
+            height="50" loading="lazy" />
+          <span class="logo-text">Jawad Ahmad</span>
+        </div>
+        <p class="brand-tagline">
+          Partnership and high-performance engineering for founders who need systems that actually scale and drive
+          revenue.
+        </p>
+
+        <div class="contact-info">
+          <div class="contact-item">
+            <i class="fas fa-envelope" aria-hidden="true"></i>
+            <a href="mailto:jawadahmad9938@gmail.com">jawadahmad9938@gmail.com</a>
+          </div>
+          <div class="contact-item">
+            <i class="fas fa-phone" aria-hidden="true"></i>
+            <a href="tel:+923011414134">+92 301 1414134</a>
+          </div>
+          <div class="contact-item">
+            <i class="fas fa-globe" aria-hidden="true"></i>
+            <span>Remote</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="footer-column">
+        <h4>Proven Solutions</h4>
+        <ul class="footer-links">
+          <li><a href="salesplateformcasestudy.html">Part 1: Sales Rep Platform</a></li>
+          <li><a href="sales-finance-casestudy.html">Part 2: Commission & Payroll</a></li>
+          <li><a href="qanoonbridgecasestudy.html">QanoonBridge Legal-Tech Platform</a></li>
+          <li><a href="ai-api-integration-casestudy.html">Safe AI Integration</a></li>
+          <li><a href="ios-offline-sync-casestudy.html">iOS Field App</a></li>
+          <li><a href="index.html#Projects">Multi-tenant Dashboards</a></li>
+          <li><a href="index.html#Projects">Automated Booking Systems</a></li>
+          <li><a href="index.html#Projects">E-commerce Revenue Engines</a></li>
+          <li><a href="index.html#Projects">Custom CRM Engineering</a></li>
+          <li><a href="index.html#Projects">Enterprise Mobile Apps</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-column">
+        <h4>Knowledge Center</h4>
+        <ul class="footer-links">
+          <li><a href="blogs.html">Digital Growth Strategy</a></li>
+          <li><a href="philosophy.html">Product-First Philosophy</a></li>
+          <li><a href="blogs.html">Automation ROI Analysis</a></li>
+          <li><a href="blogs.html">Marketing Psychology</a></li>
+          <li><a href="blogs.html">Scaling Architecture</a></li>
+          <li><a href="blogs.html">Business Systemization</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-column">
+        <h4>Work With Me</h4>
+        <ul class="footer-links">
+          <li><a href="index.html#Contact">Book a Strategy Call</a></li>
+          <li><a href="Jawad Ahmad CV.pdf" download>Download Business Profile</a></li>
+          <li><a href="salesplateformcasestudy.html">View Case Studies</a></li>
+          <li><a href="index.html#Services">Enterprise Packages</a></li>
+          <li><a href="index.html#Contact">Request Custom Quote</a></li>
+        </ul>
+
+        <div class="client-cta">
+          <p>Ready to automate and grow?</p>
+          <a href="index.html#Contact" class="cta-button">
+            <i class="fas fa-rocket" aria-hidden="true"></i>
+            Start Business Project
+          </a>
+        </div>
+      </div>
+    </div>
+
+    <div class="footer-bottom">
+      <div class="social-section">
+        <h3 class="social-title">Connect with Jawad Ahmad</h3>
+
+        <div class="social-links">
+          <a href="https://facebook.com/jawad.ahmed.961811" class="social-link" target="_blank"
+            rel="noopener noreferrer">
+            <div class="social-icon facebook">
+              <i class="fab fa-facebook-f"></i>
+              <div class="verified-badge"><i class="fas fa-check-circle"></i></div>
+            </div>
+            <span>Facebook</span>
+          </a>
+
+          <a href="https://x.com/Jawad_9938" class="social-link" target="_blank" rel="noopener noreferrer">
+            <div class="social-icon twitter">
+              <i class="fab fa-x-twitter"></i>
+              <div class="verified-badge"><i class="fas fa-check-circle"></i></div>
+            </div>
+            <span>Twitter</span>
+          </a>
+
+          <a href="https://linkedin.com/in/jawad-ahmad-9938938484djf" class="social-link" target="_blank"
+            rel="noopener noreferrer">
+            <div class="social-icon linkedin">
+              <i class="fab fa-linkedin-in"></i>
+              <div class="verified-badge"><i class="fas fa-check-circle"></i></div>
+            </div>
+            <span>LinkedIn</span>
+          </a>
+
+          <a href="https://github.com/Jawadahmad9938" class="social-link" target="_blank" rel="noopener noreferrer">
+            <div class="social-icon github">
+              <i class="fab fa-github"></i>
+              <div class="verified-badge"><i class="fas fa-check-circle"></i></div>
+            </div>
+            <span>GitHub</span>
+          </a>
+
+          <a href="https://wa.me/923011414134" class="social-link" target="_blank" rel="noopener noreferrer">
+            <div class="social-icon whatsapp">
+              <i class="fab fa-whatsapp"></i>
+              <div class="verified-badge"><i class="fas fa-check-circle"></i></div>
+            </div>
+            <span>WhatsApp</span>
+          </a>
+        </div>
+      </div>
+
+      <div class="legal">
+        <div class="legal-links">
+          <a href="privacy.html">Privacy Policy</a> |
+          <a href="disclaimer.html">Disclaimer</a> |
+          <a href="sitemap.html">Sitemap</a>
+        </div>
+        <p class="copyright">
+          © 2026 Jawad Ahmad Business Solutions. Empowering Founders through Strategic Digital Transformation and
+          Automation.
+        </p>
+      </div>
+    </div>
+  </div>
+</footer>
+
+  <script src="script.js" defer></script>
+<script src="analytics.js"></script>
+</body>
+</html>

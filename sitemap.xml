@@ -6,7 +6,7 @@
   <!-- Homepage -->
   <url>
     <loc>https://jawadahmad.me/</loc>
-    <lastmod>2026-10-05</lastmod>
+    <lastmod>2026-11-20</lastmod>
     <changefreq>weekly</changefreq>
     <priority>1.00</priority>
   </url>
@@ -14,35 +14,49 @@
   <!-- Case Studies -->
   <url>
     <loc>https://jawadahmad.me/salesplateformcasestudy.html</loc>
-    <lastmod>2026-10-05</lastmod>
+    <lastmod>2026-11-20</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.95</priority>
   </url>
 
   <url>
     <loc>https://jawadahmad.me/sales-finance-casestudy.html</loc>
-    <lastmod>2026-10-05</lastmod>
+    <lastmod>2026-11-20</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.95</priority>
+  </url>
+
+  <url>
+    <loc>https://jawadahmad.me/ai-api-integration-casestudy.html</loc>
+    <lastmod>2026-11-20</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.95</priority>
+  </url>
+
+  <url>
+    <loc>https://jawadahmad.me/ios-offline-sync-casestudy.html</loc>
+    <lastmod>2026-11-20</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.95</priority>
   </url>
 
   <url>
     <loc>https://jawadahmad.me/casestudy.html</loc>
-    <lastmod>2026-10-05</lastmod>
+    <lastmod>2026-11-20</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.90</priority>
   </url>
 
   <url>
     <loc>https://jawadahmad.me/pfcloud-casestudy.html</loc>
-    <lastmod>2026-10-05</lastmod>
+    <lastmod>2026-11-20</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.90</priority>
   </url>
 
   <url>
     <loc>https://jawadahmad.me/qanoonbridgecasestudy.html</loc>
-    <lastmod>2026-10-05</lastmod>
+    <lastmod>2026-11-20</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.90</priority>
   </url>
@@ -50,29 +64,58 @@
   <!-- Blog Index -->
   <url>
     <loc>https://jawadahmad.me/blogs.html</loc>
-    <lastmod>2026-10-05</lastmod>
+    <lastmod>2026-11-20</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.80</priority>
+  </url>
+
+  <!-- Philosophy -->
+  <url>
+    <loc>https://jawadahmad.me/philosophy.html</loc>
+    <lastmod>2026-11-20</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.70</priority>
+  </url>
+
+  <url>
+    <loc>https://jawadahmad.me/philosophy/nietzsche-prophet-of-power-or-enemy-of-humanity.html</loc>
+    <lastmod>2026-11-20</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.60</priority>
+  </url>
+
+  <url>
+    <loc>https://jawadahmad.me/philosophy/nietzsche-and-the-paradox-of-power.html</loc>
+    <lastmod>2026-11-20</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.60</priority>
+  </url>
+
+  <url>
+    <loc>https://jawadahmad.me/philosophy/beyond-the-riddle-when-truth-drinks-its-own-poison.html</loc>
+    <lastmod>2026-11-20</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.60</priority>
   </url>
 
   <!-- Other Pages -->
   <url>
     <loc>https://jawadahmad.me/sitemap.html</loc>
-    <lastmod>2026-10-05</lastmod>
+    <lastmod>2026-11-20</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.50</priority>
   </url>
 
   <url>
     <loc>https://jawadahmad.me/privacy.html</loc>
-    <lastmod>2026-10-05</lastmod>
+    <lastmod>2026-11-20</lastmod>
     <changefreq>yearly</changefreq>
     <priority>0.30</priority>
   </url>
 
   <url>
     <loc>https://jawadahmad.me/disclaimer.html</loc>
-    <lastmod>2026-10-05</lastmod>
+    <lastmod>2026-11-20</lastmod>
     <changefreq>yearly</changefreq>
     <priority>0.30</priority>
   </url>

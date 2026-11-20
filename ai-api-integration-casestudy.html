@@ -1,0 +1,1135 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover, shrink-to-fit=no" />
+  <meta name="theme-color" content="#10b981">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" crossorigin>
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="preconnect" href="https://cdnjs.cloudflare.com" crossorigin>
+  <link rel="preconnect" href="https://i.ibb.co" crossorigin>
+
+  <link rel="icon" href="https://i.ibb.co/rfstVnt3/jawad-sectionlogo.png" type="image/png" />
+
+  <link rel="preload" href="style.css" as="style" />
+  <link rel="preload" href="script.js" as="script" />
+
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Poppins:wght@400;600;700&display=swap" rel="stylesheet" />
+
+  <link rel="stylesheet" href="style.css" />
+
+  <link rel="preload" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" as="style" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" media="print" onload="this.media='all'" />
+
+  <title>Safe AI Integration for a Field Sales CRM | Jawad Ahmad</title>
+  <meta name="description" content="How I built a guarded API so AI agents can read and write a field sales CRM at 200 actions a minute, behind payroll locks, scoped keys and an audit trail.">
+  <meta name="keywords" content="safe AI integration CRM, AI agent API guardrails, guarded API, commission payroll CRM, AI agnostic integration, payroll lock audit trail, custom CRM developer">
+  <meta name="author" content="Jawad Ahmad">
+  <meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large">
+
+  <link rel="canonical" href="https://jawadahmad.me/ai-api-integration-casestudy.html">
+
+  <meta property="og:title" content="Safe AI Integration for a Commission and Payroll CRM">
+  <meta property="og:description" content="AI is a guest. The rules stay yours. A guarded API case study from a custom CRM used by 800+ reps.">
+  <meta property="og:image" content="https://jawadahmad.me/img/ai-guest-diagram-og.png">
+  <meta property="og:url" content="https://jawadahmad.me/ai-api-integration-casestudy.html">
+  <meta property="og:type" content="article">
+
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Safe AI Integration for a Commission and Payroll CRM">
+  <meta name="twitter:description" content="AI is a guest. The rules stay yours. A guarded API case study from a custom CRM used by 800+ reps.">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="og:image:alt" content="Diagram: an AI assistant goes through a guarded API, the same rules engine and an audit trail before reaching the founder's CRM data. A direct database write is blocked.">
+  <meta name="twitter:image" content="https://jawadahmad.me/img/ai-guest-diagram-og.png">
+  <meta name="twitter:image:alt" content="AI is a guest diagram: AI assistant, guarded API, same rules engine, audit trail, CRM data. Blind direct DB write blocked.">
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "Article",
+        "@id": "https://jawadahmad.me/ai-api-integration-casestudy.html#article",
+        "headline": "Safe AI Integration for a Commission and Payroll CRM",
+        "description": "How I built a guarded API so AI agents can read and write a field sales CRM at 200 actions a minute, behind payroll locks, scoped keys and an audit trail.",
+        "image": "https://jawadahmad.me/img/ai-guest-diagram-og.png",
+        "datePublished": "2026-11-20",
+        "dateModified": "2026-11-20",
+        "inLanguage": "en",
+        "articleSection": "Case Study",
+        "keywords": ["safe AI integration", "guarded API", "AI agent guardrails", "commission payroll CRM", "custom CRM", "audit trail"],
+        "about": ["API integration", "AI agents", "Payroll and commission software"],
+        "author": { "@type": "Person", "name": "Jawad Ahmad", "url": "https://jawadahmad.me/" },
+        "publisher": { "@type": "Person", "name": "Jawad Ahmad", "url": "https://jawadahmad.me/" },
+        "mainEntityOfPage": { "@type": "WebPage", "@id": "https://jawadahmad.me/ai-api-integration-casestudy.html" }
+      },
+      {
+        "@type": "BreadcrumbList",
+        "itemListElement": [
+          { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://jawadahmad.me/" },
+          { "@type": "ListItem", "position": 2, "name": "Case Studies", "item": "https://jawadahmad.me/index.html#Projects" },
+          { "@type": "ListItem", "position": 3, "name": "Safe AI Integration", "item": "https://jawadahmad.me/ai-api-integration-casestudy.html" }
+        ]
+      }
+    ]
+  }
+  </script>
+
+  <style>
+    .case-hero {
+      background: linear-gradient(135deg, #0f172a 0%, #1e293b 60%, #0f172a 100%);
+      padding: 8rem 5% 5rem;
+      text-align: center;
+      color: white;
+      position: relative;
+      overflow: hidden;
+      min-height: 60vh;
+    }
+
+    .case-hero::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background: radial-gradient(ellipse at 50% 0%, rgba(37, 99, 235, 0.18) 0%, transparent 70%);
+      pointer-events: none;
+    }
+
+    .case-hero-content {
+      position: relative;
+      z-index: 1;
+      max-width: 1000px;
+      margin: 0 auto;
+    }
+
+    .case-badge {
+      display: inline-block;
+      padding: 0.6rem 1.5rem;
+      background: rgba(255, 255, 255, 0.25);
+      border-radius: 30px;
+      font-size: 0.9rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      margin-bottom: 1.5rem;
+      letter-spacing: 1.5px;
+      backdrop-filter: blur(10px);
+      border: 1px solid rgba(255, 255, 255, 0.3);
+      color: #ffffff;
+      text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+    }
+
+    .case-title {
+      font-size: 3.5rem;
+      font-weight: 800;
+      margin-bottom: 1.5rem;
+      line-height: 1.2;
+      color: #ffffff;
+      text-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+    }
+
+    .case-subtitle {
+      font-size: 1.4rem;
+      opacity: 0.95;
+      margin-bottom: 2rem;
+      color: #ffffff;
+      text-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+    }
+
+    .case-stats {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1.25rem;
+      margin-top: 3rem;
+    }
+
+    .case-hero .stat-box {
+      background: rgba(255, 255, 255, 0.12);
+      padding: 1.5rem 1rem;
+      border-radius: 12px;
+      border: 1px solid rgba(255, 255, 255, 0.3);
+      transition: transform 0.3s ease;
+      text-align: center;
+    }
+
+    .case-hero .stat-box:hover {
+      transform: translateY(-4px);
+      background: rgba(255, 255, 255, 0.18);
+    }
+
+    .case-hero .stat-number {
+      font-size: 1.9rem;
+      font-weight: 800;
+      display: block;
+      margin-bottom: 0.4rem;
+      color: #ffffff !important;
+      background: none !important;
+      -webkit-text-fill-color: #ffffff !important;
+      -webkit-background-clip: unset !important;
+      background-clip: unset !important;
+      text-shadow: none;
+    }
+
+    .case-hero .stat-label {
+      font-size: 0.85rem;
+      color: rgba(255, 255, 255, 0.85) !important;
+      font-weight: 500;
+      line-height: 1.3;
+    }
+
+    .case-content {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 5rem 5%;
+    }
+
+    .case-visual {
+      max-width: 1100px;
+      margin: -2.5rem auto 4rem;
+      padding: 0 5%;
+      position: relative;
+      z-index: 2;
+    }
+
+    .case-visual img {
+      width: 100%;
+      border-radius: 16px;
+      border: 1px solid rgba(16, 185, 129, 0.28);
+      box-shadow: 0 24px 70px rgba(15, 23, 42, 0.24);
+      display: block;
+      background: #0f172a;
+    }
+
+    .case-visual-caption {
+      margin-top: 0.9rem;
+      color: #64748b;
+      font-size: 0.95rem;
+      text-align: center;
+    }
+
+    .section {
+      margin-bottom: 5rem;
+    }
+
+    .section-title {
+      font-size: 2.2rem;
+      font-weight: 700;
+      margin-bottom: 1.5rem;
+      color: #60a5fa;
+    }
+
+    .section-subtitle {
+      font-size: 1.8rem;
+      font-weight: 600;
+      margin: 2.5rem 0 1rem;
+      color: inherit;
+    }
+
+    .content-text {
+      font-size: 1.1rem;
+      line-height: 1.8;
+      color: inherit;
+      margin-bottom: 1.5rem;
+    }
+
+    .tech-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 2rem;
+      margin: 2rem 0;
+    }
+
+    .tech-card {
+      background: var(--card-bg);
+      padding: 1.5rem;
+      border-radius: 12px;
+      border: 1px solid rgba(37, 99, 235, 0.2);
+      transition: all 0.3s ease;
+    }
+
+    .tech-card:hover {
+      transform: translateY(-4px);
+      border-color: #2563eb;
+      box-shadow: 0 8px 24px rgba(37, 99, 235, 0.15);
+    }
+
+    .tech-card h4 {
+      color: #60a5fa;
+      font-size: 1.1rem;
+      margin-bottom: 1rem;
+    }
+
+    .tech-list {
+      list-style: none;
+      padding: 0;
+    }
+
+    .tech-list li {
+      padding: 0.5rem 0;
+      padding-left: 1.5rem;
+      position: relative;
+      color: inherit;
+    }
+
+    .tech-list li::before {
+      content: '✓';
+      position: absolute;
+      left: 0;
+      color: #60a5fa;
+      font-weight: bold;
+      font-size: 1rem;
+    }
+
+    .feature-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 1.25rem;
+      margin: 1.5rem 0;
+    }
+
+    .feature-box {
+      background: rgba(37, 99, 235, 0.06);
+      padding: 1.25rem;
+      border-radius: 10px;
+      border-left: 3px solid #2563eb;
+      transition: all 0.25s ease;
+    }
+
+    .feature-box:hover {
+      transform: translateX(4px);
+      box-shadow: 0 4px 16px rgba(37, 99, 235, 0.12);
+    }
+
+    .feature-box h5 {
+      color: #60a5fa;
+      font-size: 1rem;
+      margin-bottom: 0.4rem;
+    }
+
+    .feature-box p {
+      color: var(--text-color);
+      margin: 0;
+      font-size: 0.92rem;
+    }
+
+    .architecture-diagram {
+      background: var(--card-bg);
+      padding: 2rem;
+      border-radius: 12px;
+      margin: 1.5rem 0;
+      border: 1px solid rgba(37, 99, 235, 0.2);
+    }
+
+    .architecture-diagram pre {
+      background: #000;
+      color: #0f0;
+      padding: 2rem;
+      border-radius: 8px;
+      overflow-x: auto;
+      font-family: 'Courier New', monospace;
+      font-size: 0.9rem;
+      line-height: 1.6;
+    }
+
+    .case-cta-section {
+      background: linear-gradient(135deg, #1e40af 0%, #1e293b 100%);
+      padding: 4rem;
+      border-radius: 20px;
+      text-align: center;
+      color: white;
+      margin-top: 5rem;
+      border: 1px solid rgba(96, 165, 250, 0.2);
+    }
+
+    .case-cta-section h3 {
+      font-size: 2.2rem;
+      margin-bottom: 1rem;
+    }
+
+    .case-cta-section p {
+      font-size: 1.1rem;
+      margin-bottom: 2rem;
+      opacity: 0.9;
+    }
+
+    .case-cta-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      padding: 1rem 2.5rem;
+      background: #2563eb;
+      color: white;
+      border-radius: 50px;
+      font-weight: 700;
+      font-size: 1rem;
+      text-decoration: none;
+      transition: all 0.3s ease;
+      box-shadow: 0 4px 20px rgba(37, 99, 235, 0.4);
+    }
+
+    .case-cta-btn:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 8px 30px rgba(37, 99, 235, 0.5);
+      background: #1d4ed8;
+    }
+
+    @media (max-width: 768px) {
+      .case-hero {
+        padding: 6rem 4% 3.5rem;
+      }
+
+      .case-title {
+        font-size: 2rem;
+      }
+
+      .case-subtitle {
+        font-size: 1rem;
+      }
+
+      .case-stats {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 1rem;
+        margin-top: 2rem;
+      }
+
+      .section-title {
+        font-size: 1.8rem;
+      }
+
+      .section-subtitle {
+        font-size: 1.3rem;
+      }
+
+      .tech-grid,
+      .feature-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .case-cta-section {
+        padding: 2.5rem 1.5rem;
+      }
+
+      .case-cta-section h3 {
+        font-size: 1.8rem;
+      }
+    }
+
+    @media (max-width: 480px) {
+      .case-stats {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 0.75rem;
+      }
+
+      .stat-number {
+        font-size: 1.25rem;
+      }
+
+      .case-title {
+        font-size: 1.75rem;
+      }
+    }
+    /* AI is a guest diagram + lightbox */
+    .cs-diagram { margin: 2rem 0 2.5rem; }
+    .cs-diagram__zoom { position: relative; display: block; border-radius: 16px; outline: none; cursor: zoom-in; }
+    .cs-diagram__zoom img { width: 100%; height: auto; display: block; border-radius: 16px; border: 1px solid rgba(16, 185, 129, 0.28); box-shadow: 0 24px 70px rgba(15, 23, 42, 0.24); background: #0f172a; }
+    .cs-diagram__zoom:focus-visible img { box-shadow: 0 0 0 3px #38bdf8, 0 24px 70px rgba(15, 23, 42, 0.24); }
+    .cs-diagram__hint { position: absolute; right: 12px; bottom: 12px; padding: 0.35rem 0.8rem; border-radius: 30px; font-size: 0.8rem; font-weight: 600; color: #fff; background: rgba(15, 23, 42, 0.78); border: 1px solid rgba(255, 255, 255, 0.25); }
+    .cs-diagram figcaption { margin-top: 0.9rem; color: #64748b; font-size: 0.95rem; text-align: center; line-height: 1.6; }
+    .cs-diagram figcaption a { color: #60a5fa; font-weight: 600; white-space: nowrap; margin-left: 0.25rem; }
+    .cs-diagram__text { margin-top: 1rem; }
+    .cs-diagram__text summary { cursor: pointer; color: #60a5fa; font-weight: 600; text-align: center; }
+    .cs-lightbox { padding: 0; border: none; background: transparent; max-width: 100vw; max-height: 100vh; width: 100vw; height: 100vh; margin: 0; }
+    .cs-lightbox::backdrop { background: rgba(2, 6, 23, 0.88); }
+    .cs-lightbox__inner { width: 100%; height: 100%; display: flex; align-items: center; justify-content: center; padding: 3.5rem 2vw 2rem; box-sizing: border-box; }
+    .cs-lightbox img { max-width: 96vw; max-height: 85vh; width: auto; height: auto; border-radius: 12px; background: #0f172a; box-shadow: 0 24px 70px rgba(0, 0, 0, 0.5); touch-action: pinch-zoom; }
+    .cs-lightbox__close { position: fixed; top: 14px; right: 14px; width: 44px; height: 44px; border-radius: 50%; border: 1px solid rgba(255, 255, 255, 0.35); background: rgba(15, 23, 42, 0.85); color: #fff; font-size: 1.2rem; cursor: pointer; }
+    .cs-lightbox__close:focus-visible { outline: 3px solid #38bdf8; outline-offset: 2px; }
+    .cs-lightbox__open { position: fixed; top: 22px; left: 16px; color: #93c5fd; font-weight: 600; font-size: 0.9rem; }
+    .cs-lightbox__pan { display: none; position: fixed; bottom: 18px; left: 0; right: 0; text-align: center; color: #cbd5e1; font-size: 0.85rem; pointer-events: none; }
+    @media (max-width: 768px) {
+      .cs-diagram__hint { top: 8px; bottom: auto; right: 8px; padding: 0.3rem 0.55rem; font-size: 0.72rem; }
+      .cs-diagram__hint .cs-diagram__hint-text { display: none; }
+      .cs-lightbox__inner { overflow: auto; justify-content: flex-start; -webkit-overflow-scrolling: touch; padding: 4.5rem 0 3rem; }
+      .cs-lightbox img { max-width: none; max-height: none; width: 1000px; border-radius: 0; flex: 0 0 auto; }
+      .cs-lightbox__pan { display: block; }
+    }
+  </style>
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-XXXXXXXXXX"></script>
+  <link rel="stylesheet" href="footer.css" />
+</head>
+
+<body>
+  <div class="floating-icons" id="floating-icons" aria-hidden="true"></div>
+
+  <nav class="navbar" role="navigation" aria-label="Main navigation">
+    <a href="index.html" aria-label="Home page">
+      <img class="logo" src="https://i.ibb.co/rfstVnt3/jawad-sectionlogo.png"
+        alt="Jawad Ahmad - Full Stack Developer Logo" width="120" height="40" loading="eager" />
+    </a>
+
+    <ul class="nav-menu" id="menu">
+      <li><a href="index.html">Home</a></li>
+      <li><a href="index.html#About">About</a></li>
+      <li><a href="index.html#Services">Services</a></li>
+      <li><a href="index.html#Projects">Case Studies</a></li>
+      <li><a href="blogs.html">Blogs</a></li>
+      <li><a href="philosophy.html">Philosophy</a></li>
+      <li><a href="index.html#Skills">Expertise</a></li>
+      <li><a href="index.html#Contact" class="nav-cta-link">Let's Talk</a></li>
+    </ul>
+
+    <div class="nav-actions">
+      <button id="theme-toggle-btn" class="theme-toggle" aria-label="Toggle dark/light mode">
+        <i id="theme-icon" class="fas fa-moon" aria-hidden="true"></i>
+      </button>
+
+      <div class="nav-btn">
+        <button class="cv-button" aria-label="Download CV">
+          <a href="Jawad Ahmad CV.pdf" download="Jawad Ahmad CV.pdf">
+            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none"
+              stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4" />
+              <polyline points="7 10 12 15 17 10" />
+              <line x1="12" y1="15" x2="12" y2="3" />
+            </svg>
+          </a>
+        </button>
+      </div>
+
+      <div class="mobile-menu-btn">
+        <button id="menu-button" class="menu-toggle" aria-label="Toggle mobile menu" aria-expanded="false">
+          <span class="menu-toggle__hamburger" aria-hidden="true"></span>
+        </button>
+      </div>
+    </div>
+  </nav>
+
+  <div class="mobile-menu-overlay" id="mobile-overlay"></div>
+  <div class="mobile-nav-menu-container" id="mobile-menu-container">
+    <div class="mobile-nav-menu" id="mobile-menu" role="navigation" aria-label="Mobile menu">
+      <div class="mobile-nav-header">
+        <span class="mobile-nav-header-logo">Menu</span>
+        <button class="mobile-nav-close" id="mobile-close" aria-label="Close menu">
+          <i class="fas fa-times" aria-hidden="true"></i>
+        </button>
+      </div>
+
+      <div class="mobile-nav-content">
+        <a href="index.html" class="mobile-nav-item">Home</a>
+        <a href="index.html#About" class="mobile-nav-item">About</a>
+        <a href="index.html#Services" class="mobile-nav-item">Services</a>
+        <a href="index.html#Projects" class="mobile-nav-item">Case Studies</a>
+        <a href="blogs.html" class="mobile-nav-item">Blogs</a>
+        <a href="philosophy.html" class="mobile-nav-item">Philosophy</a>
+        <a href="index.html#Skills" class="mobile-nav-item">Expertise</a>
+      </div>
+
+      <div class="mobile-nav-actions-row">
+        <a href="index.html#Contact" class="mobile-cta-btn">Let's Talk</a>
+        <a href="Jawad Ahmad CV.pdf" download="Jawad Ahmad CV.pdf" class="mobile-download-btn">CV</a>
+      </div>
+    </div>
+  </div>
+
+
+  <section class="case-hero">
+    <div class="case-hero-content">
+      <span class="case-badge">AI and API Integration Case Study</span>
+      <h1 class="case-title">Safe AI Integration for a Commission and Payroll CRM</h1>
+      <p class="case-subtitle">AI is a guest. The rules stay yours. How I let outside software and AI agents read and write a live pay system without ever breaking payroll.</p>
+
+      <div class="case-stats">
+        <div class="stat-box">
+          <span class="stat-number">800+</span>
+          <span class="stat-label">Reps on the Custom CRM</span>
+        </div>
+        <div class="stat-box">
+          <span class="stat-number">200/min</span>
+          <span class="stat-label">Reads and Writes per Agent Setup</span>
+        </div>
+        <div class="stat-box">
+          <span class="stat-number">1</span>
+          <span class="stat-label">Rule Set for App and API</span>
+        </div>
+        <div class="stat-box">
+          <span class="stat-number">Locked</span>
+          <span class="stat-label">Paid Records Stay Frozen</span>
+        </div>
+        <div class="stat-box">
+          <span class="stat-number">Swappable</span>
+          <span class="stat-label">AI Model, Same Rules</span>
+        </div>
+        <div class="stat-box">
+          <span class="stat-number">Live</span>
+          <span class="stat-label">AI Test Passed</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <div class="case-content">
+
+    <section class="section">
+      <h2 class="section-title">The Question That Started It</h2>
+      <p class="content-text">
+        A US field-sales startup asked me a simple question. "Can our other software talk to our data?"
+      </p>
+      <p class="content-text">
+        The data was not simple. It lives in <a href="salesplateformcasestudy.html">the custom CRM I built</a> for them, used daily by 800+ reps, and it holds commissions, payscales, approvals and payroll. One wrong write in a system like that is not a bug. It is a wrong paycheck.
+      </p>
+      <p class="content-text">
+        So I built the API the careful way. Read first, writes later, and every write behind the same locks the office already trusts. Then the client tested it live through Claude, and the rules held.
+      </p>
+      <div class="feature-grid">
+        <div class="feature-box">
+          <h5>Client</h5>
+          <p>A US field-sales startup. Name kept confidential.</p>
+        </div>
+        <div class="feature-box">
+          <h5>Scale</h5>
+          <p>A custom CRM used by 800+ reps across web and iOS.</p>
+        </div>
+        <div class="feature-box">
+          <h5>My Role</h5>
+          <p>Solo developer, end to end. Design, build, security and docs.</p>
+        </div>
+        <div class="feature-box">
+          <h5>Stack</h5>
+          <p>Next.js and Supabase, with Postgres row level security.</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="section">
+      <h2 class="section-title">The Problem Before the API</h2>
+      <p class="content-text">
+        The CRM already ran the business. Reps reported sales, vendor files were imported and matched, managers set payscales, and payroll ran from the system.
+      </p>
+      <p class="content-text">
+        Before the CRM, commissions and approvals ran across spreadsheets and messages, and managers had no single view of what their reps were still owed. The CRM fixed that inside the app. But the data was still locked inside the app.
+      </p>
+      <p class="content-text">
+        The client wanted their other tools to pull data out, and then push data in. Products, orders, invoices and pay plans. And they wanted AI in the loop.
+      </p>
+      <p class="content-text">
+        That is where the real risk sat. Write access to a pay system is dangerous. One bad sync or one retry on a weak network could create a duplicate order, edit something already paid, or move a money row nobody approved. If an AI agent is the one calling the API, it can make those mistakes faster than any person.
+      </p>
+      <p class="content-text">
+        The question was never "can I build an API". It was "can I let outside software, and AI, touch this data without ever breaking payroll".
+      </p>
+    </section>
+
+    <section class="section">
+      <h2 class="section-title">The Bottleneck in Pay and Commission</h2>
+
+      <h3 class="section-subtitle">Pay Rules That Spreadsheets Cannot Hold</h3>
+      <p class="content-text">
+        Commission in field sales is not one rate on one line. Managers set rates per vendor, product and amount. One sale can have a trigger rep, who made it, and a receiver rep, who gets paid. Same person is a normal commission. Different person is a split, an override or a bonus. Rates have start and end dates, so a rate change never rewrites last month.
+      </p>
+      <p class="content-text">
+        On top of that sit approvals. Managers approve per customer or product before admin runs payroll. I found and fixed a partial approval bug that "select all" testing had hidden, and a silent 1,000 row truncation that would have made totals wrong at scale. Both taught me the same thing. Pay logic only holds when it lives in one place and is tested at the grain people actually approve at.
+      </p>
+
+      <h3 class="section-subtitle">Locks After Payroll</h3>
+      <p class="content-text">Once payroll runs, the past has to be read only.</p>
+      <ul class="tech-list">
+        <li>A processed order cannot be edited or deleted. The money already went out.</li>
+        <li>An approved order can change its name, references, status and rep, but not its product or sale date, because those drive the pay amount and the pay period.</li>
+        <li>Ledger rows are never rewritten. A correction is a new row, so the trail always adds up.</li>
+        <li>Commission, override, holdback and payment batches stay in the app with a person.</li>
+      </ul>
+      <p class="content-text">
+        These rules already lived in the <a href="sales-finance-casestudy.html">commission finance engine</a>. Any API had to obey exactly the same rules, or it would become a back door around payroll.
+      </p>
+
+      <h3 class="section-subtitle">Imports That Decide Who Gets Paid</h3>
+      <p class="content-text">
+        Vendor files decide commissions, and vendors do not report the same way. I rewrote the import pipeline 3 times because of that. Matching uses hard IDs first and a soft fallback second, so commissions do not double. After a snapshot redesign, imports that took 10 to 12 minutes now process 6,000+ records in under a minute.
+      </p>
+      <p class="content-text">
+        An API that writes orders sits right next to this pipeline. A careless integration could undo all of that work in one sync.
+      </p>
+    </section>
+
+    <section class="section">
+      <h2 class="section-title">Training Issues That Turned Into Pain Points</h2>
+      <p class="content-text">
+        Field reps are selling experts, not technology experts. That is a principle I build around, and it showed up everywhere.
+      </p>
+      <div class="feature-grid">
+        <div class="feature-box">
+          <h5>Reps Needed Help Getting In</h5>
+          <p>New reps tried to sign in before they had an account. Some signed up with a different email than the admin typed. I replaced docs with a visual 4 step guide and linked accounts by code instead of email.</p>
+        </div>
+        <div class="feature-box">
+          <h5>Managers Had Rules to Remember</h5>
+          <p>Who can see a rep's sales, who can touch their pay, which rates are locked by admin. I moved those rules into the system. Managers can never edit their own payscale, and seeing sales is a separate permission from touching pay.</p>
+        </div>
+        <div class="feature-box">
+          <h5>Rules Lived in People's Heads</h5>
+          <p>Payroll review used to depend on fragile formulas, private files and scattered manual notes. When a rule lives in someone's memory, every new hire, manager and tool has to be trained on it, and every mistake becomes a pay dispute.</p>
+        </div>
+        <div class="feature-box">
+          <h5>Onboarding Carried a Real Cost</h5>
+          <p>Getting a field org onto new software was a support burden in itself. About four people struggled to train reps and managers, and every rule that stayed outside the system meant more explaining, more questions and more room for error.</p>
+        </div>
+      </div>
+      <p class="content-text">
+        Today that load has dropped significantly. AI now handles that training better than the old manual effort did, and it does it through the guarded API, so it works inside the same rules the system already enforces.
+      </p>
+      <p class="content-text">
+        This is exactly why AI made the client nervous and excited at the same time. An AI agent is the newest hire of all. If the rules lived in people's heads, the AI would need to be trained on them too, and it would get them wrong. The rules had to live in the server, where no person and no model could skip them.
+      </p>
+    </section>
+
+    <section class="section">
+      <h2 class="section-title">The Solution, a Safe AI Integration</h2>
+
+      <h3 class="section-subtitle">A Guarded API First</h3>
+      <p class="content-text">
+        I shipped it in the boring, safe order. <strong>Read only first.</strong> An admin opens an API tab, sees the company ID, and creates or rotates one key. The key is shown once and stored only as a hash. The key and company ID must match in one lookup, and a wrong pair always gets the same "Invalid credentials". Every query is forced to that company's data, and rate limits are stored in the database, not in memory, because memory limits do not survive on serverless.
+      </p>
+      <p class="content-text"><strong>Then writes, behind guardrails.</strong></p>
+      <ul class="tech-list">
+        <li><strong>One key, scope chosen on purpose.</strong> Read, or Read plus Write. Read only is the default.</li>
+        <li><strong>A company level write switch.</strong> Write stays off until it is turned on for that company, and the server checks it on every write call. Turning it off stops existing write keys immediately.</li>
+        <li><strong>Idempotency key on every create.</strong> A retry returns the saved response and changes nothing, so a weak network never means a duplicate order.</li>
+        <li><strong>Strict body allowlist.</strong> Unknown fields are rejected, not ignored. Payroll flags, paid dates, auth fields and customer personal data are blocked. The company is never taken from the request body.</li>
+        <li><strong>Ownership check on every ID.</strong> A vendor, product, order or rep from another company returns "not found", so nothing leaks.</li>
+        <li><strong>Some actions are human only.</strong> The API can never mark anything paid. There is no invoice delete, only void. Pay plans can be viewed and edited, but never created over the API, because a new pay plan is a business decision.</li>
+        <li><strong>Response guard.</strong> Every response is scanned for forbidden fields before it leaves the server.</li>
+        <li><strong>Old integrations keep working.</strong> The read only version is frozen, and old keys simply get "forbidden" on writes.</li>
+      </ul>
+      <p class="content-text">
+        The most important decision was simple. <strong>The API and the app share one rule set.</strong> The same guard decides "is this locked?" for a manager in the dashboard and for a call through the API. An integration can never do something a manager in the app could not do.
+      </p>
+
+
+      <h3 class="section-subtitle">AI Agnostic, No Lock In</h3>
+      <p class="content-text">
+        Once the guarded API exists, the AI on top of it becomes replaceable. Connect ChatGPT today. If it has issues, switch it off and plug in Claude, Grok or Gemini. The system stays exactly the same, and exactly as safe, because the safety was never inside the AI. It is inside the API.
+      </p>
+      <p class="content-text">
+        This is not theory. The client ran their live test through Claude. The same guarded API is built to work the same way with ChatGPT, Grok or Gemini, because any model that can call an API goes through the same rules. The founder picks the tool. The rules do not change.
+      </p>
+
+      <h3 class="section-subtitle">AI Acts as a Guest</h3>
+      <figure class="cs-diagram" id="ai-guest-diagram">
+        <a href="img/ai-guest-diagram.svg" class="cs-diagram__zoom" data-lightbox="img/ai-guest-diagram.svg"
+          aria-label="Enlarge the AI is a guest diagram" aria-haspopup="dialog">
+          <img src="img/ai-guest-diagram.svg" width="1200" height="630" loading="lazy" decoding="async"
+            alt="Diagram titled AI is a guest. The rules stay yours. Step 1, an AI assistant: Claude, live tested, or ChatGPT, Grok or Gemini, swappable. Step 2, a guarded API with a scoped key, read or read and write scopes, a company write switch and a limit of 200 per minute per agent setup. Step 3, the same rules engine as the app: pay rules, locks after payroll, approvals, corrections as new rows. Step 4, an audit trail of who, what and when, with API writes kept apart from human writes. Step 5, the founder's own CRM data. A dashed path for a blind direct database write from the AI is blocked with a red cross." />
+          <span class="cs-diagram__hint" aria-hidden="true"><i class="fas fa-expand"></i><span class="cs-diagram__hint-text"> Tap to enlarge</span></span>
+        </a>
+        <figcaption>
+          AI is a guest. Every request from Claude, ChatGPT, Grok or Gemini goes through the guarded API, the same rules as the app and the audit trail before it reaches the founder's data. A blind direct database write is blocked.
+          <a href="img/ai-guest-diagram.svg" target="_blank" rel="noopener">Open full size image</a>
+        </figcaption>
+        <details class="cs-diagram__text">
+          <summary>Text version of the diagram</summary>
+          <div class="architecture-diagram">
+            <pre>
+AI agent or outside tool  (any model that can call an API)
+  -> scoped key + company ID
+  -> company write switch
+  -> idempotency check
+  -> body allowlist + ownership check
+  -> payroll lock guards  (same helpers as the app)
+  -> rate limits  (up to 200 reads and writes a minute per agent setup)
+  -> your CRM data
+  -> response guard
+  -> audit trail  (API writes kept apart from human writes)
+
+Human only, never through the API:
+  - marking anything paid
+  - creating a new pay plan
+  - deleting an invoice
+        </pre>
+          </div>
+        </details>
+      </figure>
+      <p class="content-text">
+        I treat an AI agent like any untrusted integrator. It gets a scoped key, idempotency, the allowlist, the payroll locks and the audit trail. Nothing more. The AI can try anything. The server rules decide what actually happens.
+      </p>
+      <p class="content-text">
+        Every API write is recorded separately from human writes, so it is always clear what came from a person and what came from an integration. Business events, like a key being created or an order being updated, are kept as permanent history. Noisy traffic events, like failed auth or rate limits, are cleared after 90 days.
+      </p>
+
+      <h3 class="section-subtitle">200 Reads and Writes a Minute</h3>
+      <p class="content-text">
+        Safe does not have to mean slow. At first, agents could do about 37 to 40 reads and writes a minute. I raised that to up to 200 reads and writes a minute per agent setup, and every agent on the company's setup can use it, all inside the same locks and audit trail. That is about 5x more throughput.
+      </p>
+      <p class="content-text">
+        The other limits still apply. There are separate buckets per key, per company and per IP, and write buckets are smaller than read buckets. A runaway sync gets stopped with a "too many requests" response before it can flood payroll data.
+      </p>
+
+      <h3 class="section-subtitle">The Founder Owns the System</h3>
+      <p class="content-text">
+        The founder does not depend on any AI. The CRM is theirs, built around their own pay rules, payscales, imports and approvals, and it works fully without AI.
+      </p>
+      <p class="content-text">
+        AI is an add on that makes the system more efficient. It can help with the work, but it cannot run the business, and it cannot quietly harm the records. If the founder wants to change a rule, they change it in their system, and every person and every AI follows it from then on.
+      </p>
+
+      <h3 class="section-subtitle">Why Blind AI Writes Are Dangerous</h3>
+      <p class="content-text">
+        A lot of companies plug an agent straight into their CRM or database. It works in the demo. Then it gets one change wrong.
+      </p>
+      <div class="feature-grid">
+        <div class="feature-box">
+          <h5>Wrong Pay</h5>
+          <p>An agent edits a product or sale date on an approved order, and the pay amount or pay period shifts.</p>
+        </div>
+        <div class="feature-box">
+          <h5>Overwritten Records</h5>
+          <p>A "fix" rewrites a ledger row instead of adding a correction, and the history no longer adds up.</p>
+        </div>
+        <div class="feature-box">
+          <h5>Duplicate Changes</h5>
+          <p>A retry after a timeout creates the same order or invoice twice.</p>
+        </div>
+        <div class="feature-box">
+          <h5>Edits to Money Already Paid</h5>
+          <p>A processed order or a paid invoice gets changed after the fact.</p>
+        </div>
+        <div class="feature-box">
+          <h5>No Trail</h5>
+          <p>Nobody can tell who changed what, a person or a bot, or when.</p>
+        </div>
+        <div class="feature-box">
+          <h5>Blocked by Design</h5>
+          <p>Every one of these is blocked in the guarded API. Not by asking the AI to be careful, but by making the wrong action impossible.</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="section">
+      <h2 class="section-title">Results and Proof</h2>
+          <div class="feature-grid">
+        <div class="feature-box">
+          <h5>Live AI Test Passed</h5>
+          <p>The client drove the read and write API through Claude in a live session. Data moved between their tools, and the guardrails decided what was allowed. Creating and editing orders worked. Marking anything paid, or editing locked or already paid records, was blocked. Payment allocation stayed with a person.</p>
+        </div>
+        <div class="feature-box">
+          <h5>About 5x More Agent Throughput</h5>
+          <p>From roughly 37 to 40 reads and writes a minute to up to 200 a minute per agent setup, with no change to the locks or the audit trail.</p>
+        </div>
+        <div class="feature-box">
+          <h5>One Rule Set, No Back Door</h5>
+          <p>The app and the API call the same guard helpers, so a lesson learned once protects every path in.</p>
+        </div>
+        <div class="feature-box">
+          <h5>No Breaking Changes</h5>
+          <p>The read only version and old keys kept working while writes were added.</p>
+        </div>
+        <div class="feature-box">
+          <h5>Shipped in Small Safe Steps</h5>
+          <p>Schema, scope settings, core library with unit tests, products, orders, invoices, and docs last. Each step deployable on its own.</p>
+        </div>
+        <div class="feature-box">
+          <h5>Support Load Dropped Significantly</h5>
+          <p>About four people used to struggle to train reps and managers. Now AI handles that training better, through the guarded API and inside the same rules.</p>
+        </div>
+        <div class="feature-box">
+          <h5>Built Solo, Used Daily</h5>
+          <p>One developer, end to end, on a CRM used daily by 800+ reps.</p>
+        </div>
+      </div>
+
+      <h3 class="section-subtitle">Client Feedback</h3>
+      <p class="content-text">
+        <em>"Appreciate you, keep doing good work."</em> - Client feedback
+      </p>
+    </section>
+
+    <section class="section">
+      <h2 class="section-title">What This Means for Your Business</h2>
+      <p class="content-text">
+        You probably already have a CRM. The pain is that you still need people just to keep it running.
+      </p>
+      <p class="content-text">
+        AI can take a lot of that work. But only if your rules live in your system, not in someone's head and not inside one AI vendor. That is what I build. A custom CRM around your own pay rules, then the safest AI integration you control, so the system gets more efficient and you can switch AI tools without changing the system. See my <a href="index.html#Services">custom CRM and AI integration services</a>.
+      </p>
+      <ul class="tech-list">
+        <li><strong>Your rules stay in your system.</strong> Pay, approvals and locks are defined once and enforced everywhere.</li>
+        <li><strong>AI is a guest, not the owner.</strong> It works behind the same locks and audit trail as your office.</li>
+        <li><strong>No lock in.</strong> Switch the AI. Keep the rules.</li>
+      </ul>
+    </section>
+
+    <section class="section">
+      <h2 class="section-title">Other Systems I Have Built</h2>
+      <div class="feature-grid">
+        <div class="feature-box">
+          <h5><a href="salesplateformcasestudy.html">Field Sales CRM</a></h5>
+          <p>A custom sales platform with an iOS app, vendor CSV imports and payroll, from zero to production.</p>
+        </div>
+        <div class="feature-box">
+          <h5><a href="sales-finance-casestudy.html">Commission Finance Engine</a></h5>
+          <p>Commission rules, payroll review, ledgers and audit trails on top of field sales data.</p>
+        </div>
+        <div class="feature-box">
+          <h5><a href="pfcloud-casestudy.html">PFCloud Platform</a></h5>
+          <p>A multi-tenant CRM for a hosting business with billing, provisioning and support.</p>
+        </div>
+        <div class="feature-box">
+          <h5><a href="casestudy.html">CloudMaster Pro</a></h5>
+          <p>A production multi-tenant SaaS platform with end to end ownership.</p>
+        </div>
+      </div>
+      <p class="content-text">
+        More notes on building production systems are on the <a href="blogs.html">blog</a>.
+      </p>
+    </section>
+
+    <div class="case-cta-section">
+      <h3>Want AI in Your CRM Without Risking Payroll?</h3>
+      <p>If you are thinking about plugging an AI agent into your CRM, or you already have, I would love to look at how it writes to your data. Tell me what your system is and what you want the AI to do. I will tell you honestly where the risk is and what I would lock down first.</p>
+      <div style="display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap; margin-bottom: 2rem;">
+        <a href="index.html#Contact" class="case-cta-btn">
+          <i class="fas fa-comments" aria-hidden="true"></i>
+          Let's Talk About Your System
+        </a>
+        <a href="index.html#Projects"
+          class="case-cta-btn" style="background: #333; color: white;">
+          <i class="fas fa-briefcase" aria-hidden="true"></i>
+          View More Case Studies
+        </a>
+      </div>
+    </div>
+  </div>
+
+  <footer class="footer-section">
+  <div class="footer-container">
+    <div class="newsletter-section">
+      <div class="newsletter-content">
+        <h3>Founder & Growth Insights</h3>
+        <p>
+          Join a community of founders getting strategic insights on product development, automation, and scaling
+          digital systems.
+        </p>
+
+        <form class="newsletter-form" action="https://formspree.io/f/xeolvgya" method="POST">
+          <div class="input-group">
+            <input type="email" name="newsletter_email" placeholder="Enter your business email" required
+              class="newsletter-input" />
+            <button type="submit" class="newsletter-btn">
+              <span>Get the Insights</span>
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+                <polyline points="23 6 13.5 15.5 8.5 10.5 1 17"></polyline>
+                <polyline points="17 6 23 6 23 12"></polyline>
+              </svg>
+            </button>
+          </div>
+          <p class="newsletter-note">
+            High-value content only. Zero spam. Unsubscribe anytime.
+          </p>
+        </form>
+      </div>
+
+      <div class="newsletter-benefits">
+        <div class="benefit-item">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+            <polyline points="23 6 13.5 15.5 8.5 10.5 1 17"></polyline>
+            <polyline points="17 6 23 6 23 12"></polyline>
+          </svg>
+          <span>Scaleable SaaS Systems</span>
+        </div>
+        <div class="benefit-item">
+          <i class="fas fa-magic" aria-hidden="true"></i>
+          <span>Automation Strategies</span>
+        </div>
+        <div class="benefit-item">
+          <i class="fas fa-chart-line" aria-hidden="true"></i>
+          <span>Revenue Growth Tips</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="footer-main">
+      <div class="footer-column brand-column">
+        <div class="footer-logo">
+          <img src="https://i.postimg.cc/50qzPtDT/jawad-hero-img.webp" alt="Logo" class="logo-img" width="50"
+            height="50" loading="lazy" />
+          <span class="logo-text">Jawad Ahmad</span>
+        </div>
+        <p class="brand-tagline">
+          Partnership and high-performance engineering for founders who need systems that actually scale and drive
+          revenue.
+        </p>
+
+        <div class="contact-info">
+          <div class="contact-item">
+            <i class="fas fa-envelope" aria-hidden="true"></i>
+            <a href="mailto:jawadahmad9938@gmail.com">jawadahmad9938@gmail.com</a>
+          </div>
+          <div class="contact-item">
+            <i class="fas fa-phone" aria-hidden="true"></i>
+            <a href="tel:+923011414134">+92 301 1414134</a>
+          </div>
+          <div class="contact-item">
+            <i class="fas fa-globe" aria-hidden="true"></i>
+            <span>Remote</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="footer-column">
+        <h4>Proven Solutions</h4>
+        <ul class="footer-links">
+          <li><a href="salesplateformcasestudy.html">Part 1: Sales Rep Platform</a></li>
+          <li><a href="sales-finance-casestudy.html">Part 2: Commission & Payroll</a></li>
+          <li><a href="qanoonbridgecasestudy.html">QanoonBridge Legal-Tech Platform</a></li>
+          <li><a href="ai-api-integration-casestudy.html">Safe AI Integration</a></li>
+          <li><a href="ios-offline-sync-casestudy.html">iOS Field App</a></li>
+          <li><a href="index.html#Projects">Multi-tenant Dashboards</a></li>
+          <li><a href="index.html#Projects">Automated Booking Systems</a></li>
+          <li><a href="index.html#Projects">E-commerce Revenue Engines</a></li>
+          <li><a href="index.html#Projects">Custom CRM Engineering</a></li>
+          <li><a href="index.html#Projects">Enterprise Mobile Apps</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-column">
+        <h4>Knowledge Center</h4>
+        <ul class="footer-links">
+          <li><a href="blogs.html">Digital Growth Strategy</a></li>
+          <li><a href="philosophy.html">Product-First Philosophy</a></li>
+          <li><a href="blogs.html">Automation ROI Analysis</a></li>
+          <li><a href="blogs.html">Marketing Psychology</a></li>
+          <li><a href="blogs.html">Scaling Architecture</a></li>
+          <li><a href="blogs.html">Business Systemization</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-column">
+        <h4>Work With Me</h4>
+        <ul class="footer-links">
+          <li><a href="index.html#Contact">Book a Strategy Call</a></li>
+          <li><a href="Jawad Ahmad CV.pdf" download>Download Business Profile</a></li>
+          <li><a href="salesplateformcasestudy.html">View Case Studies</a></li>
+          <li><a href="index.html#Services">Enterprise Packages</a></li>
+          <li><a href="index.html#Contact">Request Custom Quote</a></li>
+        </ul>
+
+        <div class="client-cta">
+          <p>Ready to automate and grow?</p>
+          <a href="index.html#Contact" class="cta-button">
+            <i class="fas fa-rocket" aria-hidden="true"></i>
+            Start Business Project
+          </a>
+        </div>
+      </div>
+    </div>
+
+    <div class="footer-bottom">
+      <div class="social-section">
+        <h3 class="social-title">Connect with Jawad Ahmad</h3>
+
+        <div class="social-links">
+          <a href="https://facebook.com/jawad.ahmed.961811" class="social-link" target="_blank"
+            rel="noopener noreferrer">
+            <div class="social-icon facebook">
+              <i class="fab fa-facebook-f"></i>
+              <div class="verified-badge"><i class="fas fa-check-circle"></i></div>
+            </div>
+            <span>Facebook</span>
+          </a>
+
+          <a href="https://x.com/Jawad_9938" class="social-link" target="_blank" rel="noopener noreferrer">
+            <div class="social-icon twitter">
+              <i class="fab fa-x-twitter"></i>
+              <div class="verified-badge"><i class="fas fa-check-circle"></i></div>
+            </div>
+            <span>Twitter</span>
+          </a>
+
+          <a href="https://linkedin.com/in/jawad-ahmad-9938938484djf" class="social-link" target="_blank"
+            rel="noopener noreferrer">
+            <div class="social-icon linkedin">
+              <i class="fab fa-linkedin-in"></i>
+              <div class="verified-badge"><i class="fas fa-check-circle"></i></div>
+            </div>
+            <span>LinkedIn</span>
+          </a>
+
+          <a href="https://github.com/Jawadahmad9938" class="social-link" target="_blank" rel="noopener noreferrer">
+            <div class="social-icon github">
+              <i class="fab fa-github"></i>
+              <div class="verified-badge"><i class="fas fa-check-circle"></i></div>
+            </div>
+            <span>GitHub</span>
+          </a>
+
+          <a href="https://wa.me/923011414134" class="social-link" target="_blank" rel="noopener noreferrer">
+            <div class="social-icon whatsapp">
+              <i class="fab fa-whatsapp"></i>
+              <div class="verified-badge"><i class="fas fa-check-circle"></i></div>
+            </div>
+            <span>WhatsApp</span>
+          </a>
+        </div>
+      </div>
+
+      <div class="legal">
+        <div class="legal-links">
+          <a href="privacy.html">Privacy Policy</a> |
+          <a href="disclaimer.html">Disclaimer</a> |
+          <a href="sitemap.html">Sitemap</a>
+        </div>
+        <p class="copyright">
+          © 2026 Jawad Ahmad Business Solutions. Empowering Founders through Strategic Digital Transformation and
+          Automation.
+        </p>
+      </div>
+    </div>
+  </div>
+</footer>
+
+  <dialog class="cs-lightbox" id="cs-lightbox" aria-label="Enlarged diagram">
+    <div class="cs-lightbox__inner">
+      <img src="" alt="" id="cs-lightbox-img" />
+    </div>
+    <a class="cs-lightbox__open" id="cs-lightbox-open" href="img/ai-guest-diagram.svg" target="_blank" rel="noopener">Open image in new tab</a>
+    <p class="cs-lightbox__pan" aria-hidden="true">Swipe sideways to see the full diagram</p>
+    <button type="button" class="cs-lightbox__close" id="cs-lightbox-close" aria-label="Close enlarged diagram">&times;</button>
+  </dialog>
+  <script>
+    (function () {
+      var dlg = document.getElementById('cs-lightbox');
+      if (!dlg || typeof dlg.showModal !== 'function') return; /* fallback: links open the image directly */
+      var img = document.getElementById('cs-lightbox-img');
+      var openLink = document.getElementById('cs-lightbox-open');
+      var closeBtn = document.getElementById('cs-lightbox-close');
+      var lastTrigger = null;
+      document.querySelectorAll('[data-lightbox]').forEach(function (a) {
+        a.addEventListener('click', function (e) {
+          e.preventDefault();
+          lastTrigger = a;
+          var src = a.getAttribute('data-lightbox');
+          var thumb = a.querySelector('img');
+          img.src = src;
+          img.alt = thumb ? thumb.alt : '';
+          openLink.href = src;
+          dlg.showModal();
+          closeBtn.focus();
+        });
+      });
+      function close() { if (dlg.open) dlg.close(); }
+      closeBtn.addEventListener('click', close);
+      dlg.addEventListener('click', function (e) {
+        if (e.target === dlg || e.target.classList.contains('cs-lightbox__inner')) close();
+      });
+      dlg.addEventListener('close', function () { if (lastTrigger) lastTrigger.focus(); });
+    })();
+  </script>
+
+  <script src="script.js" defer></script>
+<script src="analytics.js"></script>
+</body>
+</html>
