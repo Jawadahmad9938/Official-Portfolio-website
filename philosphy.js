@@ -79,7 +79,7 @@ function generatePhilosophyStructuredData(essay) {
     dateModified: essay.date,
     mainEntityOfPage: {
       "@type": "WebPage",
-      "@id": `https://jawadahmad.me/philosophy-post.html?slug=${essay.slug}`,
+      "@id": `https://jawadahmad.me/philosophy/${essay.slug}.html`,
     },
   };
 }
@@ -178,9 +178,9 @@ function displayPhilosophyEssays(essays, category = "all", search = "") {
                     essay.readTime
                   }</span>
               </div>
-              <a href="philosophy-post.html?slug=${
+              <a href="/philosophy/${
                 essay.slug
-              }" class="read-more-btn">
+              }.html" class="read-more-btn">
                   Read Essay <i class="fas fa-arrow-right"></i>
               </a>
           </div>
