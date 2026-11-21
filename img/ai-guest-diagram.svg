@@ -1,6 +1,6 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 630" width="1200" height="630" role="img" aria-labelledby="t d">
 <title id="t">AI is a guest. The rules stay yours.</title>
-<desc id="d">An AI assistant (Claude, ChatGPT, Grok or Gemini, swappable) sends every request through a guarded API with a scoped key, scopes and a limit of 200 per minute per agent setup. Requests then pass the same rules engine as the app (pay rules, locks after payroll, approvals), are written to an audit trail, and only then reach the founder's own CRM data. A blind direct database write from the AI is blocked.</desc>
+<desc id="d">An AI assistant (tested with Claude, built for any AI: ChatGPT, Grok or Gemini) sends every request through a guarded API with a scoped key, scopes and a limit of 200 per minute per agent setup. Requests then pass the same rules engine as the app (pay rules, locks after payroll, approvals), are written to an audit trail, and only then reach the founder's own CRM data. A blind direct database write from the AI is blocked.</desc>
 <defs>
  <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#0f172a"/><stop offset=".6" stop-color="#1e293b"/><stop offset="1" stop-color="#0f172a"/></linearGradient>
  <radialGradient id="glow" cx=".5" cy="0" r=".7"><stop offset="0" stop-color="#2563eb" stop-opacity=".22"/><stop offset="1" stop-color="#2563eb" stop-opacity="0"/></radialGradient>
@@ -19,7 +19,7 @@
   <rect x="40" y="178" width="196" height="5" rx="2.5" fill="#38bdf8"/>
   <circle cx="70" cy="212" r="14" fill="#38bdf8" fill-opacity=".18" stroke="#38bdf8"/><text x="70" y="217" text-anchor="middle" fill="#38bdf8" font-size="13" font-weight="700">1</text>
   <text x="58" y="254" fill="#ffffff" font-family="Poppins, Inter, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="18" font-weight="600">AI assistant</text>
-  <text x="58" y="275" fill="#38bdf8" font-size="12.5" font-weight="600">Swappable guest</text>
+  <text x="58" y="275" fill="#38bdf8" font-size="12.5" font-weight="600">Built for any AI</text>
   <rect x="58" y="292" width="160" height="24" rx="12" fill="#38bdf8" fill-opacity=".22" stroke="#38bdf8"/><text x="72" y="308.5" fill="#e0f2fe" font-size="13" font-weight="600">Claude</text><text x="206" y="308.5" text-anchor="end" fill="#7dd3fc" font-size="10.5" font-weight="600">LIVE TESTED</text>
   <rect x="58" y="322" width="160" height="24" rx="12" fill="none" stroke="#475569" stroke-dasharray="4 3"/><text x="72" y="338.5" fill="#cbd5e1" font-size="13">ChatGPT</text>
   <rect x="58" y="352" width="160" height="24" rx="12" fill="none" stroke="#475569" stroke-dasharray="4 3"/><text x="72" y="368.5" fill="#cbd5e1" font-size="13">Grok</text>
