@@ -33,14 +33,16 @@
   <link rel="canonical" href="https://jawadahmad.me/ai-api-integration-casestudy.html">
 
   <meta property="og:title" content="Safe AI Integration for a Commission and Payroll CRM">
-  <meta property="og:description" content="AI is a guest. The rules stay yours. A guarded API case study from a custom CRM used by 800+ reps.">
+  <meta property="og:description" content="AI is a guest. The rules stay yours. A guarded API case study from a custom CRM with 800+ active users.">
   <meta property="og:image" content="https://jawadahmad.me/img/og/og-ai-api.jpg">
   <meta property="og:url" content="https://jawadahmad.me/ai-api-integration-casestudy.html">
   <meta property="og:type" content="article">
 
   <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:site" content="@Jawad_9938">
+  <meta name="twitter:creator" content="@Jawad_9938">
   <meta name="twitter:title" content="Safe AI Integration for a Commission and Payroll CRM">
-  <meta name="twitter:description" content="AI is a guest. The rules stay yours. A guarded API case study from a custom CRM used by 800+ reps.">
+  <meta name="twitter:description" content="AI is a guest. The rules stay yours. A guarded API case study from a custom CRM with 800+ active users.">
   <meta property="og:image:width" content="1200">
   <meta property="og:image:height" content="630">
   <meta property="og:image:alt" content="Diagram: an AI assistant goes through a guarded API, the same rules engine and an audit trail before reaching the founder's CRM data. A direct database write is blocked.">
@@ -567,7 +569,7 @@
       <div class="case-stats">
         <div class="stat-box">
           <span class="stat-number">800+</span>
-          <span class="stat-label">Reps on the Custom CRM</span>
+          <span class="stat-label">active users</span>
         </div>
         <div class="stat-box">
           <span class="stat-number">200/min</span>
@@ -582,7 +584,7 @@
           <span class="stat-label">Paid Records Stay Frozen</span>
         </div>
         <div class="stat-box">
-          <span class="stat-number">Swappable</span>
+          <span class="stat-number">Tested with Claude, built for any AI</span>
           <span class="stat-label">AI Model, Same Rules</span>
         </div>
         <div class="stat-box">
@@ -601,7 +603,7 @@
         A US field-sales startup asked me a simple question. "Can our other software talk to our data?"
       </p>
       <p class="content-text">
-        The data was not simple. It lives in <a href="salesplateformcasestudy.html">the custom CRM I built</a> for them, used daily by 800+ reps, and it holds commissions, payscales, approvals and payroll. One wrong write in a system like that is not a bug. It is a wrong paycheck.
+        The data was not simple. It lives in <a href="salesplateformcasestudy.html">the custom CRM I built</a> for them, with 800+ active users, and it holds commissions, payscales, approvals and payroll. One wrong write in a system like that is not a bug. It is a wrong paycheck.
       </p>
       <p class="content-text">
         So I built the API the careful way. Read first, writes later, and every write behind the same locks the office already trusts. Then the client tested it live through Claude, and the rules held.
@@ -613,7 +615,7 @@
         </div>
         <div class="feature-box">
           <h5>Scale</h5>
-          <p>A custom CRM used by 800+ reps across web and iOS.</p>
+          <p>A custom CRM with 800+ active users across web and iOS.</p>
         </div>
         <div class="feature-box">
           <h5>My Role</h5>
@@ -744,7 +746,7 @@
         <a href="img/ai-guest-diagram.svg" class="cs-diagram__zoom" data-lightbox="img/ai-guest-diagram.svg"
           aria-label="Enlarge the AI is a guest diagram" aria-haspopup="dialog">
           <img src="img/ai-guest-diagram.svg" width="1200" height="630" loading="lazy" decoding="async"
-            alt="Diagram titled AI is a guest. The rules stay yours. Step 1, an AI assistant: Claude, live tested, or ChatGPT, Grok or Gemini, swappable. Step 2, a guarded API with a scoped key, read or read and write scopes, a company write switch and a limit of 200 per minute per agent setup. Step 3, the same rules engine as the app: pay rules, locks after payroll, approvals, corrections as new rows. Step 4, an audit trail of who, what and when, with API writes kept apart from human writes. Step 5, the founder's own CRM data. A dashed path for a blind direct database write from the AI is blocked with a red cross." />
+            alt="Diagram titled AI is a guest. The rules stay yours. Step 1, an AI assistant: Claude, live tested, or ChatGPT, Grok or Gemini. Tested with Claude, built for any AI. Step 2, a guarded API with a scoped key, read or read and write scopes, a company write switch and a limit of 200 per minute per agent setup. Step 3, the same rules engine as the app: pay rules, locks after payroll, approvals, corrections as new rows. Step 4, an audit trail of who, what and when, with API writes kept apart from human writes. Step 5, the founder's own CRM data. A dashed path for a blind direct database write from the AI is blocked with a red cross." />
           <span class="cs-diagram__hint" aria-hidden="true"><i class="fas fa-expand"></i><span class="cs-diagram__hint-text"> Tap to enlarge</span></span>
         </a>
         <figcaption>
@@ -783,7 +785,7 @@ Human only, never through the API:
 
       <h3 class="section-subtitle">200 Reads and Writes a Minute</h3>
       <p class="content-text">
-        Safe does not have to mean slow. At first, agents could do about 37 to 40 reads and writes a minute. I raised that to up to 200 reads and writes a minute per agent setup, and every agent on the company's setup can use it, all inside the same locks and audit trail. That is about 5x more throughput.
+        Safe does not have to mean slow. At first, agents could do about 37 to 40 reads and writes a minute. I raised that to up to 200 reads and writes a minute per agent setup, and every agent on the company's setup can use it, all inside the same locks and audit trail. Rate limit raised from about 40 to 200 a minute (5x higher).
       </p>
       <p class="content-text">
         The other limits still apply. There are separate buckets per key, per company and per IP, and write buckets are smaller than read buckets. A runaway sync gets stopped with a "too many requests" response before it can flood payroll data.
@@ -837,7 +839,7 @@ Human only, never through the API:
           <p>The client drove the read and write API through Claude in a live session. Data moved between their tools, and the guardrails decided what was allowed. Creating and editing orders worked. Marking anything paid, or editing locked or already paid records, was blocked. Payment allocation stayed with a person.</p>
         </div>
         <div class="feature-box">
-          <h5>About 5x More Agent Throughput</h5>
+          <h5>Rate limit raised from about 40 to 200 a minute (5x higher)</h5>
           <p>From roughly 37 to 40 reads and writes a minute to up to 200 a minute per agent setup, with no change to the locks or the audit trail.</p>
         </div>
         <div class="feature-box">
@@ -857,8 +859,8 @@ Human only, never through the API:
           <p>About four people used to struggle to train reps and managers. Now AI handles that training better, through the guarded API and inside the same rules.</p>
         </div>
         <div class="feature-box">
-          <h5>Built Solo, Used Daily</h5>
-          <p>One developer, end to end, on a CRM used daily by 800+ reps.</p>
+          <h5>Built Solo</h5>
+          <p>One developer, end to end, on a CRM with 800+ active users.</p>
         </div>
       </div>
 
@@ -1009,8 +1011,6 @@ Human only, never through the API:
           <li><a href="ai-api-integration-casestudy.html">Safe AI Integration</a></li>
           <li><a href="ios-offline-sync-casestudy.html">iOS Field App</a></li>
           <li><a href="index.html#Projects">Multi-tenant Dashboards</a></li>
-          <li><a href="index.html#Projects">Automated Booking Systems</a></li>
-          <li><a href="index.html#Projects">E-commerce Revenue Engines</a></li>
           <li><a href="index.html#Projects">Custom CRM Engineering</a></li>
           <li><a href="index.html#Projects">Enterprise Mobile Apps</a></li>
         </ul>
@@ -1021,8 +1021,6 @@ Human only, never through the API:
         <ul class="footer-links">
           <li><a href="blogs.html">Digital Growth Strategy</a></li>
           <li><a href="philosophy.html">Product-First Philosophy</a></li>
-          <li><a href="blogs.html">Automation ROI Analysis</a></li>
-          <li><a href="blogs.html">Marketing Psychology</a></li>
           <li><a href="blogs.html">Scaling Architecture</a></li>
           <li><a href="blogs.html">Business Systemization</a></li>
         </ul>
@@ -1034,7 +1032,6 @@ Human only, never through the API:
           <li><a href="index.html#Contact">Book a Strategy Call</a></li>
           <li><a href="Jawad Ahmad CV.pdf" download>Download Business Profile</a></li>
           <li><a href="salesplateformcasestudy.html">View Case Studies</a></li>
-          <li><a href="index.html#Services">Enterprise Packages</a></li>
           <li><a href="index.html#Contact">Request Custom Quote</a></li>
         </ul>
 
